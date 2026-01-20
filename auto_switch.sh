@@ -4,7 +4,7 @@ _SROOT="$( cd "$(dirname "$(realpath "$0")")" ; pwd -P )"
 
 $_SROOT/current/llama-server \
   --models-max 1 \
-  --models-preset presets/mypresets.ini \
+  --models-preset $_SROOT/presets/mypresets.ini \
 	--host 0.0.0.0 --port 8000  \
 	--no-warmup \
 	-fa on --jinja --reasoning-format auto
