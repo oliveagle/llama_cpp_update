@@ -8,6 +8,7 @@ CONFIG_FILE="$PRESETS_DIR/mypresets.ini"
 # 过滤掉的模型关键词（文生图、视频等 llama.cpp serve 无用的模型）
 FILTER_KEYWORDS=(
     "z_image"
+    "qwen-image"
     "Wan2.2"
 )
 
