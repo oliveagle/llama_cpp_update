@@ -5,7 +5,25 @@ _SROOT="$( cd "$(dirname "$(realpath "$0")")" ; pwd -P )"
 PRESETS_DIR="$_SROOT/presets"
 CONFIG_FILE="$PRESETS_DIR/mypresets.ini"
 
+# 过滤掉的模型关键词（文生图、视频等 llama.cpp serve 无用的模型）
+FILTER_KEYWORDS=(
+    "ZIMage"
+    "qwen-image"
+    "wan2.2"
+)
+
 mkdir -p "$PRESETS_DIR"
+
+# 检查模型是否应该被过滤
+should_filter() {
+    local filename="$1"
+    for keyword in "${FILTER_KEYWORDS[@]}"; do
+        if [[ "$filename" == *"$keyword"* ]]; then
+            return 0  # 应该过滤
+        fi
+    done
+    return 1  # 不过滤
+}
 MODEL_DIRS=(
     "/mnt/volume3/hf_models"
     "/mnt/volume3/modelscope_models"
@@ -52,10 +70,15 @@ echo ""
 
 # 查找所有 .gguf 文件
 gguf_files=()
+filtered_count=0
 for dir in "${MODEL_DIRS[@]}"; do
     if [[ -d "$dir" ]]; then
         while IFS= read -r -d '' file; do
-            # 过滤掉包含 .__ 的临时文件夹路径
+            filename=$(basename "$file")
+            if should_filter "$filename"; then
+                ((filtered_count++))
+                continue
+            fi
             if [[ "$file" != *"/.__"* ]]; then
                 gguf_files+=("$file")
             fi
@@ -65,7 +88,10 @@ done
 
 total_found=${#gguf_files[@]}
 
-echo -e "${GREEN}找到 $total_found 个 GGUF 模型文件${NC}"
+if [[ $filtered_count -gt 0 ]]; then
+    echo -e "${YELLOW}已过滤 $filtered_count 个模型（文生图/视频模型）${NC}"
+fi
+echo -e "${GREEN}找到 $total_found 个有效 GGUF 模型文件${NC}"
 echo "========================================="
 echo ""
 
