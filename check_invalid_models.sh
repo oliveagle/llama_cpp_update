@@ -7,9 +7,8 @@ CONFIG_FILE="$PRESETS_DIR/mypresets.ini"
 
 # 过滤掉的模型关键词（文生图、视频等 llama.cpp serve 无用的模型）
 FILTER_KEYWORDS=(
-    "ZIMage"
-    "qwen-image"
-    "wan2.2"
+    "z_image"
+    "Wan2.2"
 )
 
 mkdir -p "$PRESETS_DIR"
