@@ -70,13 +70,13 @@ echo ""
 
 # 查找所有 .gguf 文件
 gguf_files=()
-filtered_count=0
+filtered_models=()
 for dir in "${MODEL_DIRS[@]}"; do
     if [[ -d "$dir" ]]; then
         while IFS= read -r -d '' file; do
             filename=$(basename "$file")
             if should_filter "$filename"; then
-                ((filtered_count++))
+                filtered_models+=("$file")
                 continue
             fi
             if [[ "$file" != *"/.__"* ]]; then
@@ -87,9 +87,14 @@ for dir in "${MODEL_DIRS[@]}"; do
 done
 
 total_found=${#gguf_files[@]}
+filtered_count=${#filtered_models[@]}
 
 if [[ $filtered_count -gt 0 ]]; then
-    echo -e "${YELLOW}已过滤 $filtered_count 个模型（文生图/视频模型）${NC}"
+    echo -e "${YELLOW}已过滤 $filtered_count 个模型（文生图/视频模型）：${NC}"
+    for model in "${filtered_models[@]}"; do
+        echo -e "${RED}✗${NC} $(basename "$model")"
+    done
+    echo ""
 fi
 echo -e "${GREEN}找到 $total_found 个有效 GGUF 模型文件${NC}"
 echo "========================================="
