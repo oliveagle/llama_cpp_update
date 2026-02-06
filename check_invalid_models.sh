@@ -24,6 +24,25 @@ should_filter() {
     done
     return 1  # 不过滤
 }
+
+# 检查是否是分片模型的第一个分片（或非分片模型）
+# 分片模型格式：model-name-00001-of-00004.gguf
+# 只保留 00001，过滤掉 00002, 00003, etc.
+is_first_shard() {
+    local filename="$1"
+    # 检查是否匹配分片模式 (XXXXX-of-YYYYY)
+    if [[ "$filename" =~ -[0-9]+-of-[0-9]+\.gguf$ ]]; then
+        # 提取分片编号
+        local shard_num=$(echo "$filename" | sed -E 's/.*-([0-9]+)-of-[0-9]+\.gguf$/\1/')
+        # 只保留 00001 或 1
+        if [[ "$shard_num" == "00001" ]] || [[ "$shard_num" == "1" ]]; then
+            return 0  # 是第一个分片，保留
+        else
+            return 1  # 不是第一个分片，过滤
+        fi
+    fi
+    return 0  # 不是分片模型，保留
+}
 MODEL_DIRS=(
     "/mnt/volume3/hf_models"
     "/mnt/volume3/modelscope_models"
@@ -71,12 +90,17 @@ echo ""
 # 查找所有 .gguf 文件
 gguf_files=()
 filtered_models=()
+skipped_shards=0
 for dir in "${MODEL_DIRS[@]}"; do
     if [[ -d "$dir" ]]; then
         while IFS= read -r -d '' file; do
             filename=$(basename "$file")
             if should_filter "$filename"; then
                 filtered_models+=("$file")
+                continue
+            fi
+            if ! is_first_shard "$filename"; then
+                ((skipped_shards++))
                 continue
             fi
             if [[ "$file" != *"/.__"* ]]; then
@@ -96,6 +120,12 @@ if [[ $filtered_count -gt 0 ]]; then
     done
     echo ""
 fi
+
+if [[ $skipped_shards -gt 0 ]]; then
+    echo -e "${YELLOW}已跳过 $skipped_shards 个非首分片（仅保留 00001-of-XXXX）${NC}"
+    echo ""
+fi
+
 echo -e "${GREEN}找到 $total_found 个有效 GGUF 模型文件${NC}"
 echo "========================================="
 echo ""
@@ -203,6 +233,8 @@ if [[ $total_found -gt 0 ]]; then
                 filename=$(basename "$model")
                 # 移除 .gguf 扩展名
                 name="${filename%.gguf}"
+                # 移除分片后缀 (例如: -00001-of-00004)
+                name=$(echo "$name" | sed -E 's/-[0-9]+-of-[0-9]+$//')
                 # 替换特殊字符为连字符
                 name=$(echo "$name" | sed 's/[^a-zA-Z0-9._-]/_/g')
 
