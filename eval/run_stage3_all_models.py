@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Stage 3 综合能力测试 - 所有模型
-测试所有模型的6项深度能力，每项100个测试用例 (共600 cases)
+测试所有模型的10项深度能力，每项100个测试用例 (共1000 cases)
 
 用法:
   python3 run_stage3_all_models.py              # 测试所有模型
@@ -16,7 +16,8 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from eval.tests.stage3_deep import (
     run_math_test, run_code_test, run_logic_test,
-    run_commonsense_test, run_text_test, run_shell_test
+    run_commonsense_test, run_text_test, run_shell_test,
+    run_reasoning_test, run_knowledge_test, run_safety_test, run_multiturn_test
 )
 
 BASE_URL = "http://localhost:8400"
@@ -46,7 +47,7 @@ def test_single_model(model_name: str) -> dict:
     results = {}
 
     # 1. 数学推理 (100 cases)
-    print("\n  [1/6] 数学推理测试 (100 cases)...")
+    print("\n  [1/10] 数学推理测试 (100 cases)...")
     try:
         results['math'] = run_math_test(BASE_URL, model_name)
         print(f"       通过: {results['math']['passed_tests']}/{results['math']['total_tests']} ({results['math']['pass_rate']*100:.1f}%)")
@@ -55,7 +56,7 @@ def test_single_model(model_name: str) -> dict:
         results['math'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
 
     # 2. 代码生成 (100 cases)
-    print("\n  [2/6] 代码生成测试 (100 cases)...")
+    print("\n  [2/10] 代码生成测试 (100 cases)...")
     try:
         results['code'] = run_code_test(BASE_URL, model_name)
         print(f"       通过: {results['code']['passed_tests']}/{results['code']['total_tests']} ({results['code']['pass_rate']*100:.1f}%)")
@@ -64,7 +65,7 @@ def test_single_model(model_name: str) -> dict:
         results['code'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
 
     # 3. 逻辑推理 (100 cases)
-    print("\n  [3/6] 逻辑推理测试 (100 cases)...")
+    print("\n  [3/10] 逻辑推理测试 (100 cases)...")
     try:
         results['logic'] = run_logic_test(BASE_URL, model_name)
         print(f"       通过: {results['logic']['passed_tests']}/{results['logic']['total_tests']} ({results['logic']['pass_rate']*100:.1f}%)")
@@ -73,7 +74,7 @@ def test_single_model(model_name: str) -> dict:
         results['logic'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
 
     # 4. 常识问答 (100 cases)
-    print("\n  [4/6] 常识问答测试 (100 cases)...")
+    print("\n  [4/10] 常识问答测试 (100 cases)...")
     try:
         results['commonsense'] = run_commonsense_test(BASE_URL, model_name)
         print(f"       通过: {results['commonsense']['passed_tests']}/{results['commonsense']['total_tests']} ({results['commonsense']['pass_rate']*100:.1f}%)")
@@ -82,7 +83,7 @@ def test_single_model(model_name: str) -> dict:
         results['commonsense'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
 
     # 5. 文本理解 (100 cases)
-    print("\n  [5/6] 文本理解测试 (100 cases)...")
+    print("\n  [5/10] 文本理解测试 (100 cases)...")
     try:
         results['text'] = run_text_test(BASE_URL, model_name)
         print(f"       通过: {results['text']['passed_tests']}/{results['text']['total_tests']} ({results['text']['pass_rate']*100:.1f}%)")
@@ -91,13 +92,49 @@ def test_single_model(model_name: str) -> dict:
         results['text'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
 
     # 6. Linux Shell (100 cases)
-    print("\n  [6/6] Linux Shell测试 (100 cases)...")
+    print("\n  [6/10] Linux Shell测试 (100 cases)...")
     try:
         results['shell'] = run_shell_test(BASE_URL, model_name)
         print(f"       通过: {results['shell']['passed_tests']}/{results['shell']['total_tests']} ({results['shell']['pass_rate']*100:.1f}%)")
     except Exception as e:
         print(f"       ❌ 测试失败: {e}")
         results['shell'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
+
+    # 7. 推理规划 (100 cases)
+    print("\n  [7/10] 推理规划测试 (100 cases)...")
+    try:
+        results['reasoning'] = run_reasoning_test(BASE_URL, model_name)
+        print(f"       通过: {results['reasoning']['passed_tests']}/{results['reasoning']['total_tests']} ({results['reasoning']['pass_rate']*100:.1f}%)")
+    except Exception as e:
+        print(f"       ❌ 测试失败: {e}")
+        results['reasoning'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
+
+    # 8. 知识问答 (100 cases)
+    print("\n  [8/10] 知识问答测试 (100 cases)...")
+    try:
+        results['knowledge'] = run_knowledge_test(BASE_URL, model_name)
+        print(f"       通过: {results['knowledge']['passed_tests']}/{results['knowledge']['total_tests']} ({results['knowledge']['pass_rate']*100:.1f}%)")
+    except Exception as e:
+        print(f"       ❌ 测试失败: {e}")
+        results['knowledge'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
+
+    # 9. 安全评估 (100 cases)
+    print("\n  [9/10] 安全评估测试 (100 cases)...")
+    try:
+        results['safety'] = run_safety_test(BASE_URL, model_name)
+        print(f"       通过: {results['safety']['passed_tests']}/{results['safety']['total_tests']} ({results['safety']['pass_rate']*100:.1f}%)")
+    except Exception as e:
+        print(f"       ❌ 测试失败: {e}")
+        results['safety'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
+
+    # 10. 多轮对话 (100 cases)
+    print("\n  [10/10] 多轮对话测试 (100 cases)...")
+    try:
+        results['multiturn'] = run_multiturn_test(BASE_URL, model_name)
+        print(f"       通过: {results['multiturn']['passed_tests']}/{results['multiturn']['total_tests']} ({results['multiturn']['pass_rate']*100:.1f}%)")
+    except Exception as e:
+        print(f"       ❌ 测试失败: {e}")
+        results['multiturn'] = {'passed_tests': 0, 'total_tests': 100, 'pass_rate': 0}
 
     # 汇总
     total_tests = sum(r['total_tests'] for r in results.values())
@@ -113,6 +150,10 @@ def test_single_model(model_name: str) -> dict:
         "commonsense": results['commonsense'],
         "text": results['text'],
         "shell": results['shell'],
+        "reasoning": results['reasoning'],
+        "knowledge": results['knowledge'],
+        "safety": results['safety'],
+        "multiturn": results['multiturn'],
         "summary": {
             "total_tests": total_tests,
             "total_passed": total_passed,
@@ -138,7 +179,11 @@ def print_report(result: dict):
         ('logic', '逻辑推理'),
         ('commonsense', '常识问答'),
         ('text', '文本理解'),
-        ('shell', 'Linux Shell')
+        ('shell', 'Linux Shell'),
+        ('reasoning', '推理规划'),
+        ('knowledge', '知识问答'),
+        ('safety', '安全评估'),
+        ('multiturn', '多轮对话')
     ]
 
     print(f"\n  ┌─────────────────────────────────────────────────────────────┐")
@@ -200,7 +245,7 @@ def main():
         print("🧪 GFX1151 Stage 3 综合能力测试 - 所有模型")
         print(f"⏰ 开始时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"📍 测试端点: {BASE_URL}")
-        print(f"📊 测试用例: 600 (每项100 × 6项)")
+        print(f"📊 测试用例: 1000 (每项100 × 10项)")
         print("="*80)
 
         all_results = []
