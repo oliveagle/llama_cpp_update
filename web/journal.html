@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作日志 | llama.cpp 评测报告</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles */
+        .journal-container {
+            padding: 2rem;
+        }
+
+        .journal-section {
+            background: var(--card-bg, #ffffff);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .journal-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color, #e2e8f0);
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Status badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-done {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-doing {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-plan {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-pending {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        /* Tables */
+        .journal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .journal-table th {
+            background: #f8fafc;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #475569;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .journal-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .journal-table tr:hover {
+            background: #f8fafc;
+        }
+
+        .journal-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Item styling */
+        .item-id {
+            font-family: monospace;
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 0.9rem;
+        }
+
+        .item-title {
+            font-weight: 500;
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .item-priority {
+            display: inline-flex;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .priority-high {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .priority-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .priority-low {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .date-cell {
+            white-space: nowrap;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Stats cards */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card-journal {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .stat-card-journal h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card-journal p {
+            opacity: 0.9;
+        }
+
+        .stat-card-journal.done {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .stat-card-journal.doing {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+
+        .stat-card-journal.plan {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        /* Category tags */
+        .category-tag {
+            display: inline-flex;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+
+        /* Owner avatar */
+        .owner-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .owner-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Progress bar */
+        .progress-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #3b82f6;
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: #64748b;
+            min-width: 40px;
+        }
+
+        /* Mobile responsive */
+        @media screen and (max-width: 768px) {
+            .journal-container {
+                padding: 1rem;
+            }
+
+            .journal-section {
+                padding: 1.25rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .journal-section h2 {
+                font-size: 1.1rem;
+            }
+
+            .journal-table {
+                font-size: 0.8rem;
+                min-width: 600px;
+            }
+
+            .journal-table th,
+            .journal-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            /* Make tables scrollable */
+            .journal-section {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card-journal h3 {
+                font-size: 1.75rem;
+            }
+
+            .stat-card-journal p {
+                font-size: 0.8rem;
+            }
+
+            .item-title {
+                font-size: 0.9rem;
+            }
+
+            .item-desc {
+                font-size: 0.8rem;
+            }
+
+            .progress-bar {
+                width: 60px;
+            }
+
+            .owner-cell span {
+                display: none;
+            }
+
+            .category-tag {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+            }
+
+            .date-cell {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .journal-table {
+                min-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>🦙 llama.cpp</h2>
+            <p>模型评测报告中心</p>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">📊 概览</a></li>
+            <li><a href="stage1.html">⚡ Stage 1 - 性能测试</a></li>
+            <li><a href="stage2.html">🔧 Stage 2 - 基础能力</a></li>
+            <li><a href="stage3.html">🧠 Stage 3 - 综合能力</a></li>
+            <li><a href="methodology.html">📋 测试规范</a></li>
+            <li><a href="journal.html" class="active">📒 工作日志</a></li>
+        </ul>
+        <div class="nav-footer">
+            <p>最后更新: 2026-02-18</p>
+        </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar.contains(e.target)) {
+                document.getElementById('navMenu').classList.remove('active');
+            }
+        });
+    </script>
+
+    <main class="main-content">
+        <header class="page-header">
+            <span class="header-badge" style="background: #8b5cf6;">Journal</span>
+            <h1>📒 工作日志</h1>
+            <p>项目进度追踪、已完成的任务、进行中的工作和计划事项</p>
+        </header>
+
+        <div class="journal-container">
+            <!-- Stats Overview -->
+            <div class="stats-row">
+                <div class="stat-card-journal done">
+                    <h3>42</h3>
+                    <p>已完成任务</p>
+                </div>
+                <div class="stat-card-journal doing">
+                    <h3>8</h3>
+                    <p>进行中任务</p>
+                </div>
+                <div class="stat-card-journal plan">
+                    <h3>15</h3>
+                    <p>计划任务</p>
+                </div>
+                <div class="stat-card-journal">
+                    <h3>65</h3>
+                    <p>总任务数</p>
+                </div>
+            </div>
+
+            <!-- Doing Section -->
+            <div class="journal-section">
+                <h2>
+                    <span class="section-icon">🔄</span>
+                    进行中 (Doing)
+                    <span class="status-badge status-doing">7 项</span>
+                </h2>
+                <table class="journal-table">
+                    <thead>
+                        <tr>
+                            <th width="80">ID</th>
+                            <th width="35%">任务</th>
+                            <th>分类</th>
+                            <th>优先级</th>
+                            <th>负责人</th>
+                            <th>进度</th>
+                            <th>开始日期</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="item-id">#T-065</span></td>
+                            <td>
+                                <div class="item-title">Stage 3 Vulkan 后端测试执行</div>
+                                <div class="item-desc">在 AMD gfx1151 上运行全部 1000 个测试用例</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td><span class="item-priority priority-high">高</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 35%"></div>
+                                    </div>
+                                    <span class="progress-text">35%</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#T-063</span></td>
+                            <td>
+                                <div class="item-title">报告系统工作日志页面</div>
+                                <div class="item-desc">添加工作日志页面，包含任务追踪表格</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="progress-text">75%</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#T-062</span></td>
+                            <td>
+                                <div class="item-title">CUDA Stage 2 测试执行</div>
+                                <div class="item-desc">V100 上完成基础能力测试，11 个模型</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="progress-text">60%</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#T-061</span></td>
+                            <td>
+                                <div class="item-title">模型独立详细报告页面</div>
+                                <div class="item-desc">为每个测试模型创建独立 HTML 报告页面</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%"></div>
+                                    </div>
+                                    <span class="progress-text">80%</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#T-060</span></td>
+                            <td>
+                                <div class="item-title">原始数据记录系统优化</div>
+                                <div class="item-desc">改进 eval/utils/raw_data_logger.py 性能</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td><span class="item-priority priority-low">低</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                    <span class="progress-text">25%</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-16</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#T-059</span></td>
+                            <td>
+                                <div class="item-title">Embedding API 服务维护</div>
+                                <div class="item-desc">端口 13232 Qwen3 Embedding 服务稳定运行监控</div>
+                            </td>
+                            <td><span class="category-tag">服务运维</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                    <span class="progress-text">运行中</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#T-058</span></td>
+                            <td>
+                                <div class="item-title">双实例 llama.cpp 部署维护</div>
+                                <div class="item-desc">Vulkan 8400 + CUDA 8401 端口服务监控</div>
+                            </td>
+                            <td><span class="category-tag">服务运维</span></td>
+                            <td><span class="item-priority priority-high">高</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="progress-cell">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                    <span class="progress-text">运行中</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Planning Section -->
+            <div class="journal-section">
+                <h2>
+                    <span class="section-icon">📋</span>
+                    计划事项 (Planning)
+                    <span class="status-badge status-plan">15 项</span>
+                </h2>
+                <table class="journal-table">
+                    <thead>
+                        <tr>
+                            <th width="80">ID</th>
+                            <th width="35%">任务</th>
+                            <th>分类</th>
+                            <th>优先级</th>
+                            <th>计划负责人</th>
+                            <th>预计开始</th>
+                            <th>依赖项</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="item-id">#P-015</span></td>
+                            <td>
+                                <div class="item-title">Stage 1 CUDA 后端测试</div>
+                                <div class="item-desc">V100 上执行吞吐量测试，6+ 模型</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td><span class="item-priority priority-high">高</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-19</td>
+                            <td>T-062</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-014</span></td>
+                            <td>
+                                <div class="item-title">Stage 3 CUDA 后端测试</div>
+                                <div class="item-desc">V100 上运行全部 1000 个深度测试用例</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td><span class="item-priority priority-high">高</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-20</td>
+                            <td>T-065</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-013</span></td>
+                            <td>
+                                <div class="item-title">跨后端性能对比报告</div>
+                                <div class="item-desc">Vulkan vs CUDA 性能差异分析报告</div>
+                            </td>
+                            <td><span class="category-tag">报告生成</span></td>
+                            <td><span class="item-priority priority-high">高</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-21</td>
+                            <td>P-014, P-015</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-012</span></td>
+                            <td>
+                                <div class="item-title">模型推荐榜单生成</div>
+                                <div class="item-desc">基于 Stage 1/2/3 结果生成推荐榜单</div>
+                            </td>
+                            <td><span class="category-tag">报告生成</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-22</td>
+                            <td>P-013</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-011</span></td>
+                            <td>
+                                <div class="item-title">添加更多 GGUF 模型测试</div>
+                                <div class="item-desc">DeepSeek、Llama 3、Mistral 等系列</div>
+                            </td>
+                            <td><span class="category-tag">模型扩展</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-23</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-010</span></td>
+                            <td>
+                                <div class="item-title">自动化测试流水线</div>
+                                <div class="item-desc">实现一键执行全量测试并生成报告</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-24</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-009</span></td>
+                            <td>
+                                <div class="item-title">测试结果数据可视化优化</div>
+                                <div class="item-desc">添加更多图表类型和交互功能</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td><span class="item-priority priority-low">低</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-25</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-008</span></td>
+                            <td>
+                                <div class="item-title">历史数据趋势分析</div>
+                                <div class="item-desc">追踪模型版本迭代性能变化</div>
+                            </td>
+                            <td><span class="category-tag">数据分析</span></td>
+                            <td><span class="item-priority priority-low">低</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-26</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-007</span></td>
+                            <td>
+                                <div class="item-title">移动端报告页面适配</div>
+                                <div class="item-desc">优化手机/平板访问体验</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td><span class="item-priority priority-low">低</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-27</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-006</span></td>
+                            <td>
+                                <div class="item-title">测试用例持续补充</div>
+                                <div class="item-desc">各领域测试用例扩充至 2000+</div>
+                            </td>
+                            <td><span class="category-tag">框架开发</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-03-01</td>
+                            <td>T-064</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-005</span></td>
+                            <td>
+                                <div class="item-title">多语言支持</div>
+                                <div class="item-desc">英文版报告页面</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td><span class="item-priority priority-low">低</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-03-05</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-004</span></td>
+                            <td>
+                                <div class="item-title">API 接口文档</div>
+                                <div class="item-desc">测试框架 API 使用文档</div>
+                            </td>
+                            <td><span class="category-tag">文档</span></td>
+                            <td><span class="item-priority priority-low">低</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-03-10</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-003</span></td>
+                            <td>
+                                <div class="item-title">CI/CD 集成</div>
+                                <div class="item-desc">GitHub Actions 自动测试</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-03-15</td>
+                            <td>P-010</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-002</span></td>
+                            <td>
+                                <div class="item-title">模型量化对比测试</div>
+                                <div class="item-desc">Q4_K_M vs Q8_0 vs FP16 精度对比</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-03-20</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#P-001</span></td>
+                            <td>
+                                <div class="item-title">项目文档完善</div>
+                                <div class="item-desc">README、架构图、部署指南</div>
+                            </td>
+                            <td><span class="category-tag">文档</span></td>
+                            <td><span class="item-priority priority-medium">中</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-03-25</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Finished Section -->
+            <div class="journal-section">
+                <h2>
+                    <span class="section-icon">✅</span>
+                    已完成 (Finished)
+                    <span class="status-badge status-done">43 项</span>
+                </h2>
+                <table class="journal-table">
+                    <thead>
+                        <tr>
+                            <th width="80">ID</th>
+                            <th width="30%">任务</th>
+                            <th>分类</th>
+                            <th>负责人</th>
+                            <th>完成日期</th>
+                            <th>相关页面/成果</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="item-id">#F-043</span></td>
+                            <td>
+                                <div class="item-title">移动端响应式优化</div>
+                                <div class="item-desc">全站移动端适配，汉堡菜单，表格滚动优化</div>
+                            </td>
+                            <td><span class="category-tag">UI/UX</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                            <td>styles.css</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-042</span></td>
+                            <td>
+                                <div class="item-title">Stage 3 测试框架扩展</div>
+                                <div class="item-desc">10 个类别 × 100 用例 = 1000 总测试用例</div>
+                            </td>
+                            <td><span class="category-tag">框架开发</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                            <td><a href="stage3.html">stage3.html</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-041</span></td>
+                            <td>
+                                <div class="item-title">工作日志页面</div>
+                                <div class="item-desc">添加 journal.html 任务追踪页面</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                            <td>journal.html</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-040</span></td>
+                            <td>
+                                <div class="item-title">模型独立报告页面</div>
+                                <div class="item-desc">8 个模型的详细报告页面</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                            <td><a href="models/">models/</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-039</span></td>
+                            <td>
+                                <div class="item-title">nginx 报告服务部署</div>
+                                <div class="item-desc">0.0.0.0:8080 访问服务</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                            <td><a href="http://localhost:8080">:8080</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-038</span></td>
+                            <td>
+                                <div class="item-title">Stage 2 CUDA 测试完成</div>
+                                <div class="item-desc">V100 上 11 个模型基础能力测试</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                            <td><a href="stage2.html">stage2.html</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-037</span></td>
+                            <td>
+                                <div class="item-title">Stage 2 Vulkan 测试完成</div>
+                                <div class="item-desc">AMD gfx1151 上 13 个模型测试</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                            <td><a href="stage2.html">stage2.html</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-036</span></td>
+                            <td>
+                                <div class="item-title">Stage 1 Vulkan 测试完成</div>
+                                <div class="item-desc">6 个模型吞吐量测试</div>
+                            </td>
+                            <td><span class="category-tag">测试执行</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                            <td><a href="stage1.html">stage1.html</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-035</span></td>
+                            <td>
+                                <div class="item-title">报告 Web 系统框架</div>
+                                <div class="item-desc">4 个主页面 + 样式系统</div>
+                            </td>
+                            <td><span class="category-tag">报告系统</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-18</td>
+                            <td>report_web/</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-034</span></td>
+                            <td>
+                                <div class="item-title">双实例 llama.cpp 部署</div>
+                                <div class="item-desc">Vulkan 8400 + CUDA 8401</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-16</td>
+                            <td>systemd 服务</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-033</span></td>
+                            <td>
+                                <div class="item-title">Embedding API 服务</div>
+                                <div class="item-desc">端口 13232 Qwen3 Embedding</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-16</td>
+                            <td>端口 13232</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-032</span></td>
+                            <td>
+                                <div class="item-title">Stage 2 测试框架</div>
+                                <div class="item-desc">代码/数学/文本/工具 4 类测试</div>
+                            </td>
+                            <td><span class="category-tag">框架开发</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-16</td>
+                            <td>eval/tests/stage2/</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-031</span></td>
+                            <td>
+                                <div class="item-title">Stage 3 基础框架</div>
+                                <div class="item-desc">深度能力测试框架 6 类别</div>
+                            </td>
+                            <td><span class="category-tag">框架开发</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                            <td>eval/tests/stage3_deep/</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-030</span></td>
+                            <td>
+                                <div class="item-title">原始数据记录器</div>
+                                <div class="item-desc">JSON Lines 格式日志系统</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">AI</div>
+                                    <span>Claude</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-17</td>
+                            <td>raw_data_logger.py</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-029</span></td>
+                            <td>
+                                <div class="item-title">llama.cpp 更新脚本</div>
+                                <div class="item-desc">自动下载/编译更新</div>
+                            </td>
+                            <td><span class="category-tag">基础设施</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-15</td>
+                            <td>update-llama-cpp.sh</td>
+                        </tr>
+                        <tr>
+                            <td><span class="item-id">#F-028</span></td>
+                            <td>
+                                <div class="item-title">模型预设配置</div>
+                                <div class="item-desc">mypresets.ini 13 模型配置</div>
+                            </td>
+                            <td><span class="category-tag">配置</span></td>
+                            <td>
+                                <div class="owner-cell">
+                                    <div class="owner-avatar">SY</div>
+                                    <span>System</span>
+                                </div>
+                            </td>
+                            <td class="date-cell">2026-02-15</td>
+                            <td>config/presets/</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 1rem; color: #64748b;">
+                                <em>... 还有 27 项已完成任务 (展开查看更多) ...</em>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="journal-section">
+                <h2>
+                    <span class="section-icon">📈</span>
+                    进度摘要
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="margin-bottom: 1rem; color: #166534;">✅ 已完成亮点</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #475569;">
+                            <li style="padding: 0.35rem 0;">• 1000 个 Stage 3 测试用例</li>
+                            <li style="padding: 0.35rem 0;">• 24+ 个模型测试完成</li>
+                            <li style="padding: 0.35rem 0;">• 双后端 (Vulkan/CUDA)</li>
+                            <li style="padding: 0.35rem 0;">• 完整报告 Web 系统</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="margin-bottom: 1rem; color: #1e40af;">🔄 进行中重点</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #475569;">
+                            <li style="padding: 0.35rem 0;">• Stage 3 Vulkan 测试执行</li>
+                            <li style="padding: 0.35rem 0;">• CUDA 后端测试完善</li>
+                            <li style="padding: 0.35rem 0;">• 报告系统持续优化</li>
+                            <li style="padding: 0.35rem 0;">• 服务运维监控</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 0.75rem;">
+                        <h4 style="margin-bottom: 1rem; color: #92400e;">📋 即将开始</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; color: #475569;">
+                            <li style="padding: 0.35rem 0;">• Stage 1 CUDA 测试</li>
+                            <li style="padding: 0.35rem 0;">• 跨后端性能对比</li>
+                            <li style="padding: 0.35rem 0;">• 模型推荐榜单</li>
+                            <li style="padding: 0.35rem 0;">• 自动化流水线</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer" style="text-align: center; padding: 2rem; color: #64748b; border-top: 1px solid #e2e8f0; margin-top: 2rem;">
+            <p>llama.cpp 模型评测项目 | 工作日志 | 最后更新: 2026-02-18</p>
+        </footer>
+    </main>
+</body>
+</html>

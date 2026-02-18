@@ -303,16 +303,106 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
+            }
+
+            .header p {
+                font-size: 0.9rem;
             }
 
             .nav-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
+                margin: 1rem 0;
+            }
+
+            .nav-card {
+                padding: 1.25rem;
+            }
+
+            .nav-card h2 {
+                font-size: 1.1rem;
+            }
+
+            .nav-card p {
+                font-size: 0.85rem;
+            }
+
+            .nav-icon {
+                font-size: 2rem;
             }
 
             .container {
                 padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .backend-status {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-access {
+                padding: 1.25rem;
+            }
+
+            .quick-links {
+                gap: 0.75rem;
+            }
+
+            .quick-link {
+                padding: 0.625rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .stats-section {
+                padding: 1.25rem;
+            }
+
+            .changelog-section {
+                padding: 1.25rem;
+            }
+
+            .changelog-item {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .changelog-content {
+                width: 100%;
+                margin-top: 0.25rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.25rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tag {
+                padding: 0.2rem 0.5rem;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -350,9 +440,10 @@
             <a href="stage3.html" class="nav-card stage-3">
                 <div class="nav-icon">🧠</div>
                 <h2>Stage 3 - 综合能力测试</h2>
-                <p>数学、代码、逻辑、常识、文本、Shell - 每项100个测试用例 (600-case)</p>
+                <p>10类别深度测试：数学、代码、逻辑、常识、文本、Shell、推理、知识、安全、多轮 (1000-case)</p>
                 <div class="nav-meta">
-                    <span class="tag cuda">CUDA 测试中</span>
+                    <span class="tag vulkan">Vulkan 测试中</span>
+                    <span class="tag cuda">CUDA 待执行</span>
                 </div>
             </a>
 
@@ -362,6 +453,17 @@
                 <p>测试框架说明、评估标准、测试流程、结果解读方法</p>
                 <div class="nav-meta">
                     <span class="tag both">通用文档</span>
+                </div>
+            </a>
+
+            <a href="journal.html" class="nav-card" style="border-top: 4px solid #8b5cf6;">
+                <div class="nav-icon">📒</div>
+                <h2>工作日志</h2>
+                <p>项目进度追踪、已完成任务、进行中的工作和计划事项</p>
+                <div class="nav-meta">
+                    <span class="tag" style="background: #ede9fe; color: #5b21b6;">42 已完成</span>
+                    <span class="tag" style="background: #dbeafe; color: #1e40af;">8 进行中</span>
+                    <span class="tag" style="background: #fef3c7; color: #92400e;">15 计划中</span>
                 </div>
             </a>
         </div>
@@ -449,6 +551,10 @@
                     <span>📋</span>
                     <span>测试规范</span>
                 </a>
+                <a href="journal.html" class="quick-link">
+                    <span>📒</span>
+                    <span>工作日志</span>
+                </a>
             </div>
         </div>
 
@@ -469,7 +575,7 @@
                     <div class="stat-label">已测模型</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">630+</div>
+                    <div class="stat-value">1000+</div>
                     <div class="stat-label">测试用例</div>
                 </div>
             </div>

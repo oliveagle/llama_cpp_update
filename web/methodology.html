@@ -12,17 +12,31 @@
             <h2>🦙 llama.cpp</h2>
             <p>模型评测报告中心</p>
         </div>
-        <ul class="nav-menu">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-menu" id="navMenu">
             <li><a href="index.html">📊 概览</a></li>
             <li><a href="stage1.html">⚡ Stage 1 - 性能测试</a></li>
             <li><a href="stage2.html">🔧 Stage 2 - 基础能力</a></li>
             <li><a href="stage3.html">🧠 Stage 3 - 综合能力</a></li>
             <li><a href="methodology.html" class="active">📋 测试规范</a></li>
+            <li><a href="journal.html">📒 工作日志</a></li>
         </ul>
         <div class="nav-footer">
             <p>最后更新: 2026-02-18</p>
         </div>
     </nav>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar.contains(e.target)) {
+                document.getElementById('navMenu').classList.remove('active');
+            }
+        });
+    </script>
 
     <main class="main-content">
         <header class="page-header">

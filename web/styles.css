@@ -1451,3 +1451,442 @@ body {
     margin: 0 auto;
     padding: 2rem;
 }
+
+/* ==========================================
+   MOBILE RESPONSIVE STYLES
+   ========================================== */
+
+/* Mobile breakpoint: 768px and below */
+@media screen and (max-width: 768px) {
+    /* Sidebar: collapse to top nav */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        max-height: 60px;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: visible;
+        z-index: 1000;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .logo h2 {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .logo p {
+        display: none;
+    }
+
+    /* Mobile menu toggle */
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-menu li {
+        margin-bottom: 0.25rem;
+    }
+
+    .nav-menu a {
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+    }
+
+    .nav-footer {
+        display: none;
+    }
+
+    /* Mobile menu button */
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255,255,255,0.1);
+        border: none;
+        border-radius: 0.5rem;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Main content: full width with top padding for nav */
+    .main-content {
+        margin-left: 0;
+        padding: 5rem 1rem 1.5rem;
+        min-height: 100vh;
+    }
+
+    .main-content-full {
+        padding: 5rem 1rem 1.5rem;
+    }
+
+    /* Page header mobile */
+    .page-header {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .page-header p {
+        font-size: 0.875rem;
+    }
+
+    /* Header badge mobile */
+    .header-badge {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    /* Stats grid: 2 columns on mobile */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+    }
+
+    .stat-card h3 {
+        font-size: 1.75rem;
+    }
+
+    .stat-info p {
+        font-size: 0.8rem;
+    }
+
+    /* Section cards */
+    .section-card {
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .section-card h2 {
+        font-size: 1.1rem;
+    }
+
+    /* Tables: horizontal scroll */
+    .ranking-table-container,
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table {
+        font-size: 0.8rem;
+        min-width: 600px;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    /* Model name in tables */
+    .model-name {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* Backend cards: stack vertically */
+    .backend-status {
+        grid-template-columns: 1fr;
+    }
+
+    .backend-card {
+        padding: 1.25rem;
+    }
+
+    /* Navigation grid on index: single column */
+    .nav-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .nav-card {
+        padding: 1.25rem;
+    }
+
+    .nav-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .nav-card p {
+        font-size: 0.875rem;
+    }
+
+    /* Quick links: wrap */
+    .quick-links {
+        flex-wrap: wrap;
+    }
+
+    .quick-link {
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    /* Overview grid */
+    .overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .overview-value {
+        font-size: 1rem;
+    }
+
+    .overview-label {
+        font-size: 0.75rem;
+    }
+
+    /* Category grid */
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .category-card {
+        padding: 1rem;
+    }
+
+    .category-name {
+        font-size: 0.8rem;
+    }
+
+    /* Charts: responsive height */
+    .chart-container {
+        height: 250px;
+        padding: 0.75rem;
+    }
+
+    /* Filter tabs */
+    .filter-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .filter-tab {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        margin: 1rem auto;
+        max-height: 90vh;
+    }
+
+    .modal-header,
+    .modal-body {
+        padding: 1.25rem;
+    }
+
+    /* Changelog */
+    .changelog-item {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .changelog-date {
+        min-width: auto;
+        font-size: 0.8rem;
+    }
+
+    .changelog-content {
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    /* Process flow: vertical */
+    .process-flow {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .process-step {
+        padding: 1rem;
+    }
+
+    /* Spec grid */
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 1rem;
+    }
+
+    /* Header */
+    .header {
+        padding: 2rem 1rem;
+    }
+
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    /* Tags */
+    .tag {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    /* Button group */
+    .button-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Detail panel */
+    .detail-panel {
+        padding: 1rem;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .detail-label {
+        font-size: 0.8rem;
+    }
+
+    .detail-value {
+        font-size: 0.9rem;
+    }
+
+    /* Comparison table */
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    /* Metric cards */
+    .metric-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .metric-value {
+        font-size: 1.5rem;
+    }
+
+    /* Progress bars */
+    .progress-bar {
+        height: 6px;
+    }
+
+    /* List items */
+    .list-item {
+        padding: 0.875rem;
+    }
+
+    /* Form elements */
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 0.75rem;
+    }
+}
+
+/* Small mobile: 480px and below */
+@media screen and (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .nav-card h2 {
+        font-size: 1rem;
+    }
+
+    .section-card h2 {
+        font-size: 1rem;
+    }
+
+    .data-table {
+        font-size: 0.75rem;
+        min-width: 500px;
+    }
+
+    .chart-container {
+        height: 200px;
+    }
+}
+
+/* Hide mobile menu button on desktop */
+.mobile-menu-btn {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+}

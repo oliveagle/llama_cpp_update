@@ -6,6 +6,15 @@
     <title>Stage 2 - 基础能力测试 | llama.cpp 评测报告</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .ranking-table a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+        .ranking-table a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <nav class="sidebar">
@@ -13,23 +22,38 @@
             <h2>🦙 llama.cpp</h2>
             <p>模型评测报告中心</p>
         </div>
-        <ul class="nav-menu">
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-menu" id="navMenu">
             <li><a href="index.html">📊 概览</a></li>
             <li><a href="stage1.html">⚡ Stage 1 - 性能测试</a></li>
             <li><a href="stage2.html" class="active">🔧 Stage 2 - 基础能力</a></li>
             <li><a href="stage3.html">🧠 Stage 3 - 综合能力</a></li>
             <li><a href="methodology.html">📋 测试规范</a></li>
+            <li><a href="journal.html">📒 工作日志</a></li>
         </ul>
         <div class="nav-footer">
             <p>最后更新: 2026-02-18</p>
         </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const sidebar = document.querySelector('.sidebar');
+            if (!sidebar.contains(e.target)) {
+                document.getElementById('navMenu').classList.remove('active');
+            }
+        });
+    </script>
     </nav>
 
     <main class="main-content">
         <header class="page-header">
             <div class="header-badge stage-2">Stage 2</div>
             <h1>🔧 基础能力测试</h1>
-            <p>代码生成、数学推理、文本理解和工具使用能力评估 | 30-case (代码9 + 数学11 + 文本10)</p>
+            <p>10维度基础能力综合评估 | 100-case (10类别 × 10案例)</p>
         </header>
 
         <div class="content-section">
@@ -39,20 +63,33 @@
                 <div class="overview-grid">
                     <div class="overview-item">
                         <span class="overview-label">测试框架</span>
-                        <span class="overview-value">30-case 综合测试</span>
+                        <span class="overview-value">100-case 综合测试</span>
                     </div>
                     <div class="overview-item">
                         <span class="overview-label">测试维度</span>
-                        <span class="overview-value">代码 / 数学 / 文本</span>
+                        <span class="overview-value">10个能力类别</span>
                     </div>
                     <div class="overview-item">
                         <span class="overview-label">后端对比</span>
-                        <span class="overview-value">Vulkan (6模型) / CUDA (待测试)</span>
+                        <span class="overview-value">Vulkan (6模型) / CUDA (8模型)</span>
                     </div>
                     <div class="overview-item">
                         <span class="overview-label">测试时间</span>
-                        <span class="overview-value">2026-02-17</span>
+                        <span class="overview-value">2026-02-18</span>
                     </div>
+                </div>
+
+                <div class="test-categories-grid" style="margin-top: 1.5rem; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem;">
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">💻 代码 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">🔢 数学 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">📚 文本 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">🔧 工具 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">🧠 推理 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">🌍 知识 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">🌐 翻译 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">📝 摘要 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">🛡️ 安全 (10)</div>
+                    <div class="category-tag" style="background: var(--bg-tertiary); padding: 0.5rem; border-radius: 4px; text-align: center; font-size: 0.85rem;">💬 多轮 (10)</div>
                 </div>
             </div>
 
@@ -63,7 +100,13 @@
                     <span class="backend-tag vulkan">Vulkan</span>
                     <span class="device-tag">AMD Strix Halo gfx1151</span>
                     <span class="port-tag">端口: 8400</span>
-                    <span class="test-count">6个模型 | 30-case 测试</span>
+                    <span class="test-count">6个模型 | 30-case (旧格式)*</span>
+                </div>
+
+                <div class="notice-box info" style="margin-bottom: 1rem;">
+                    <h4>ℹ️ 格式说明</h4>
+                    <p>* Vulkan 结果为旧30-case格式 (代码9/数学11/文本10)。100-case框架已就绪，待重新测试。</p>
+                    <p><a href="models/index.html">📄 查看各模型详细报告 →</a></p>
                 </div>
 
                 <div class="ranking-table-container">
@@ -82,7 +125,7 @@
                         <tbody>
                             <tr class="rank-1">
                                 <td>🥇 1</td>
-                                <td><strong>Qwen3-Coder-Next-Q4_K_M</strong></td>
+                                <td><strong><a href="models/Qwen3-Coder-Next-Q4_K_M.html">Qwen3-Coder-Next-Q4_K_M</a></strong></td>
                                 <td>9/9 (100%)</td>
                                 <td>7/11 (63.6%)</td>
                                 <td>10/10 (100%)</td>
@@ -91,7 +134,7 @@
                             </tr>
                             <tr class="rank-2">
                                 <td>🥈 2</td>
-                                <td><strong>Qwen3VL-4B-Instruct-Q8_0</strong></td>
+                                <td><strong><a href="models/Qwen3VL-4B-Instruct-Q8_0.html">Qwen3VL-4B-Instruct-Q8_0</a></strong></td>
                                 <td>8/9 (88.9%)</td>
                                 <td>5/11 (45.5%)</td>
                                 <td>10/10 (100%)</td>
@@ -100,7 +143,7 @@
                             </tr>
                             <tr class="rank-3">
                                 <td>🥉 3</td>
-                                <td><strong>Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0</strong></td>
+                                <td><strong><a href="models/Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0.html">Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0</a></strong></td>
                                 <td>8/9 (88.9%)</td>
                                 <td>3/11 (27.3%)</td>
                                 <td>10/10 (100%)</td>
@@ -109,7 +152,7 @@
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td><strong>MiniCPM-o-4_5-Q4_K_M</strong></td>
+                                <td><strong><a href="models/MiniCPM-o-4_5-Q4_K_M.html">MiniCPM-o-4_5-Q4_K_M</a></strong></td>
                                 <td>4/9 (44.4%)</td>
                                 <td>4/11 (36.4%)</td>
                                 <td>4/10 (40.0%)</td>
@@ -118,7 +161,7 @@
                             </tr>
                             <tr class="fail-row">
                                 <td>5</td>
-                                <td><strong>GLM-4.7-Flash-Q4_K_M</strong></td>
+                                <td><strong><a href="models/GLM-4.7-Flash-Q4_K_M.html">GLM-4.7-Flash-Q4_K_M</a></strong></td>
                                 <td>0/9 (0.0%)</td>
                                 <td>0/11 (0.0%)</td>
                                 <td>0/10 (0.0%)</td>
@@ -127,7 +170,7 @@
                             </tr>
                             <tr class="fail-row">
                                 <td>6</td>
-                                <td><strong>GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL</strong></td>
+                                <td><strong><a href="models/GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL.html">GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL</a></strong></td>
                                 <td>0/9 (0.0%)</td>
                                 <td>0/11 (0.0%)</td>
                                 <td>0/10 (0.0%)</td>
@@ -152,35 +195,115 @@
                     <span class="backend-tag cuda">CUDA 12.5</span>
                     <span class="device-tag">NVIDIA Tesla V100 32GB</span>
                     <span class="port-tag">端口: 8401</span>
+                    <span class="test-count">4模型已测 | 100-case格式就绪</span>
                 </div>
 
-                <div class="notice-box warning">
-                    <h4>⚠️ 暂无数据</h4>
-                    <p>CUDA (V100) 后端尚未进行 Stage 2 (代码/数学/文本) 基础能力测试。</p>
-                    <p>当前 V100 仅完成了 Stage 3 综合能力测试和工具使用测试。</p>
+                <div class="notice-box warning" style="margin-bottom: 1rem;">
+                    <h4>⚠️ 测试框架已升级</h4>
+                    <p>Stage 2 测试框架已从 30-case 升级到 <strong>100-case (10类别 × 10案例)</strong>。</p>
+                    <p>当前显示的是部分模型的旧格式测试结果。完整100-case测试待执行。</p>
+                    <p>新增6个测试类别: 🧠推理, 🌍知识, 🌐翻译, 📝摘要, 🛡️安全, 💬多轮</p>
                 </div>
 
-                <div class="ranking-table-container" style="opacity: 0.5;">
+                <div class="ranking-table-container">
                     <table class="data-table ranking-table">
                         <thead>
                             <tr>
                                 <th>排名</th>
                                 <th>模型名称</th>
-                                <th>代码能力 (9)</th>
-                                <th>数学推理 (11)</th>
-                                <th>文本理解 (10)</th>
-                                <th>总分 (30)</th>
+                                <th>代码 (10)</th>
+                                <th>数学 (10)</th>
+                                <th>文本 (10)</th>
+                                <th>工具 (10)</th>
+                                <th>新6类 (60)</th>
+                                <th>总分 (100)</th>
                                 <th>评级</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr class="rank-1">
+                                <td>🥇 1</td>
+                                <td><strong><a href="models/Qwen3-Coder-Next-Q4_K_M.html">Qwen3-Coder-Next-Q4_K_M</a></strong></td>
+                                <td>9/9 (100%)*</td>
+                                <td>7/11 (63.6%)*</td>
+                                <td>10/10 (100%)*</td>
+                                <td>待测试</td>
+                                <td>待测试</td>
+                                <td class="score-cell">26/30 (86.7%)*</td>
+                                <td><span class="rating excellent">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="rank-2">
+                                <td>🥈 2</td>
+                                <td><strong><a href="models/Qwen3VL-4B-Instruct-Q8_0.html">Qwen3VL-4B-Instruct-Q8_0</a></strong></td>
+                                <td>9/9 (100%)*</td>
+                                <td>5/11 (45.5%)*</td>
+                                <td>10/10 (100%)*</td>
+                                <td>待测试</td>
+                                <td>待测试</td>
+                                <td class="score-cell">24/30 (80.0%)*</td>
+                                <td><span class="rating good">⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="rank-3">
+                                <td>🥉 3</td>
+                                <td><strong><a href="models/Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0.html">Qwen3-VL-8B-Instruct</a></strong></td>
+                                <td>9/9 (100%)*</td>
+                                <td>3/11 (27.3%)*</td>
+                                <td>10/10 (100%)*</td>
+                                <td>待测试</td>
+                                <td>待测试</td>
+                                <td class="score-cell">22/30 (73.3%)*</td>
+                                <td><span class="rating good">⭐⭐⭐⭐</span></td>
+                            </tr>
                             <tr>
-                                <td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-secondary);">
-                                    暂无测试数据
-                                </td>
+                                <td>4</td>
+                                <td><strong><a href="models/MiniCPM-o-4_5-Q4_K_M.html">MiniCPM-o-4_5-Q4_K_M</a></strong></td>
+                                <td>4/9 (44.4%)*</td>
+                                <td>1/11 (9.1%)*</td>
+                                <td>2/10 (20.0%)*</td>
+                                <td>待测试</td>
+                                <td>待测试</td>
+                                <td class="score-cell">7/30 (23.3%)*</td>
+                                <td><span class="rating average">⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="pending-row" style="opacity: 0.7;">
+                                <td>5</td>
+                                <td><strong><a href="models/GLM-4.7-Flash-Q4_K_M.html">GLM-4.7-Flash-Q4_K_M</a></strong></td>
+                                <td colspan="6" style="text-align: center;">⏳ 等待100-case完整测试</td>
+                                <td><span class="rating">⏳</span></td>
+                            </tr>
+                            <tr class="pending-row" style="opacity: 0.7;">
+                                <td>6</td>
+                                <td><strong><a href="models/GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL.html">GLM-4.7-Flash-REAP-23B</a></strong></td>
+                                <td colspan="6" style="text-align: center;">⏳ 等待100-case完整测试</td>
+                                <td><span class="rating">⏳</span></td>
+                            </tr>
+                            <tr class="pending-row" style="opacity: 0.7;">
+                                <td>7</td>
+                                <td><strong><a href="models/Qwen3-4B-Instruct-2507-UD-Q4_K_XL.html">Qwen3-4B-Instruct-2507</a></strong></td>
+                                <td colspan="6" style="text-align: center;">⏳ 等待100-case完整测试</td>
+                                <td><span class="rating">⏳</span></td>
+                            </tr>
+                            <tr class="pending-row" style="opacity: 0.7;">
+                                <td>8</td>
+                                <td><strong><a href="models/MiroThinker-v1.5-30B.Q8_0.html">MiroThinker-v1.5-30B</a></strong></td>
+                                <td colspan="6" style="text-align: center;">⏳ 等待100-case完整测试</td>
+                                <td><span class="rating">⏳</span></td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="notice-box info" style="margin-top: 1rem;">
+                    <h4>ℹ️ 测试说明</h4>
+                    <p>* 标记表示旧30-case格式测试结果（代码9题/数学11题/文本10题）。</p>
+                    <p>⏳ 4个模型等待完整100-case测试（10类别 × 10案例）。</p>
+                    <p>新增6个测试类别: 🧠逻辑推理, 🌍知识问答, 🌐翻译能力, 📝摘要总结, 🛡️安全合规, 💬多轮对话</p>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <a href="models/index.html" class="btn-primary" style="display: inline-block; background: var(--accent-primary); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">
+                        📄 查看各模型详细报告 →
+                    </a>
                 </div>
             </div>
 
@@ -648,6 +771,21 @@
     <div class="section-card" style="margin-top: 2rem;">
         <h2>📝 变更记录 (Changelog)</h2>
         <div class="changelog-list">
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-update">升级</span>
+                <span class="changelog-content">Stage 2 测试框架升级: 30-case → 100-case (10类别 × 10案例)</span>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-add">新增</span>
+                <span class="changelog-content">新增6个测试类别: 逻辑推理、知识问答、翻译、摘要、安全、多轮对话</span>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-update">更新</span>
+                <span class="changelog-content">更新 CUDA 测试结果表，显示4个模型的部分结果，4个模型待测试</span>
+            </div>
             <div class="changelog-item">
                 <span class="changelog-date">2026-02-18</span>
                 <span class="changelog-tag tag-add">新增</span>
