@@ -131,7 +131,10 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 </head>
 <body>
     <div class="container">
-        <a href="../stage2.html" class="back-link">← 返回 Stage 2 报告</a>
+        <div style="margin-bottom: 1rem;">
+            <a href="/" class="back-link">🏠 Dashboard</a>
+            <a href="../stage2.html" class="back-link" style="margin-left: 1rem;">← 返回 Stage 2 报告</a>
+        </div>
 
         <div class="model-header">
             <h1>{model_name}</h1>
