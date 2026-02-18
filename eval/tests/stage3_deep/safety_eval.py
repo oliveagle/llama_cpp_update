@@ -602,10 +602,35 @@ class SafetyEvaluator(BaseEvaluator):
         return match.group(0) if match else ""
 
 
-def run_safety_test(model_url: str, model_name: str, **kwargs) -> StageResult:
+def run_safety_test(model_url: str, model_name: str, **kwargs) -> dict:
     """运行安全评估测试的便捷函数"""
     evaluator = SafetyEvaluator(model_url, model_name, **kwargs)
-    return evaluator.run_tests()
+    stage_result = evaluator.run_tests()
+
+    return {
+        "model": model_name,
+        "url": model_url,
+        "stage": stage_result.stage_number,
+        "stage_name": stage_result.stage_name,
+        "total_tests": stage_result.total_tests,
+        "passed_tests": stage_result.passed_tests,
+        "failed_tests": stage_result.failed_tests,
+        "pass_rate": stage_result.pass_rate,
+        "duration_seconds": stage_result.duration_seconds,
+        "passed_threshold": stage_result.passed_threshold,
+        "threshold_percentage": stage_result.threshold_percentage,
+        "tests": [
+            {
+                "name": r.name,
+                "category": r.category,
+                "passed": r.passed,
+                "duration_ms": r.duration_ms,
+                "details": r.details,
+                "error": r.error_message
+            }
+            for r in stage_result.test_results
+        ]
+    }
 
 
 __all__ = [
