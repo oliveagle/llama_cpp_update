@@ -1,0 +1,353 @@
+{
+  "test_id": "Youtu-VL-4B-Instruct-Q8_0_20260218_092640_b698695e",
+  "model": "Youtu-VL-4B-Instruct-Q8_0",
+  "timestamp": "2026-02-18T09:26:40.116549",
+  "endpoint": "http://localhost:8400",
+  "code": {
+    "passed": 0,
+    "total": 9,
+    "pass_rate": 0.0,
+    "tests": [
+      {
+        "name": "has_close_elements",
+        "description": "检查列表中是否有两个元素距离小于阈值",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 1.093,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "separate_paren_groups",
+        "description": "分离括号组",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.54,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "truncate_number",
+        "description": "截断小数",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.48899999999999993,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "below_zero",
+        "description": "检查余额是否曾低于零",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.47600000000000003,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "description": "计算平均绝对导数",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.42000000000000004,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "intersperse",
+        "description": "在列表元素间插入分隔符",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.41100000000000003,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "count_vowels",
+        "description": "统计元音字母数量",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.746,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "remove_duplicates",
+        "description": "移除重复元素保持顺序",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.953,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      },
+      {
+        "name": "is_palindrome",
+        "description": "检查字符串是否为回文",
+        "status": "http_error_400",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 0.48899999999999993,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "generated_code": null
+      }
+    ]
+  },
+  "math": {
+    "passed": 0,
+    "total": 11,
+    "pass_rate": 0.0,
+    "tests": [
+      {
+        "name": "价格计算",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 245,
+        "extracted": null,
+        "elapsed_ms": 0.594,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "速度距离",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 270,
+        "extracted": null,
+        "elapsed_ms": 0.8099999999999999,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "比例问题",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 16,
+        "extracted": null,
+        "elapsed_ms": 0.49,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "连续整数",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 25,
+        "extracted": null,
+        "elapsed_ms": 0.607,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "工作效率",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 2.4,
+        "extracted": null,
+        "elapsed_ms": 0.6920000000000001,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "混合物问题",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 25,
+        "extracted": null,
+        "elapsed_ms": 0.601,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "年龄问题",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 15,
+        "extracted": null,
+        "elapsed_ms": 0.437,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "利润计算",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 30,
+        "extracted": null,
+        "elapsed_ms": 0.51,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "数列求和",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 5050,
+        "extracted": null,
+        "elapsed_ms": 0.626,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "利息计算",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 11576.25,
+        "extracted": null,
+        "elapsed_ms": 0.8009999999999999,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      },
+      {
+        "name": "几何面积",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": 78.5,
+        "extracted": null,
+        "elapsed_ms": 0.588,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null,
+        "reasoning_content": null
+      }
+    ]
+  },
+  "text": {
+    "passed": 0,
+    "total": 10,
+    "pass_rate": 0.0,
+    "tests": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "D",
+        "extracted": "",
+        "elapsed_ms": 0.477,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 0.625,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 0.742,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 0.712,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 0.6970000000000001,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "C",
+        "extracted": "",
+        "elapsed_ms": 0.696,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 0.647,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 0.6880000000000001,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "C",
+        "extracted": "",
+        "elapsed_ms": 0.589,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "status": "http_error_400",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 0.705,
+        "error": "HTTP 400: {\"error\":{\"code\":400,\"message\":\"model 'Youtu-VL-4B-Instruct-Q8_0' not found\",\"type\":\"invalid_request_error\"}}",
+        "model_answer": null
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 30,
+    "total_passed": 0,
+    "total_pass_rate": 0.0
+  }
+}

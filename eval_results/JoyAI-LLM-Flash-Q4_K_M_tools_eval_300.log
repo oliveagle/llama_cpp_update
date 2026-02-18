@@ -1,0 +1,617 @@
+[INFO] 使用完整测试集: 300 个案例
+============================================================
+工具使用能力评估: JoyAI-LLM-Flash-Q4_K_M
+============================================================
+模型地址: http://localhost:8401
+
+开始工具使用能力评估 (300 个测试用例, 方法: 原生API)
+============================================================
+
+[1/300] 基础乘法: ✅ 通过
+
+[2/300] 基础除法: ❌ 失败 - No tool call detected
+
+[3/300] 加法运算: ❌ 失败 - No tool call detected
+
+[4/300] 减法运算: ✅ 通过
+
+[5/300] 混合运算: ✅ 通过
+
+[6/300] 平方计算: ❌ 失败 - No tool call detected
+
+[7/300] 开方计算: ✅ 通过
+
+[8/300] 百分比计算: ❌ 失败 - No tool call detected
+
+[9/300] 阶乘计算: ❌ 失败 - No tool call detected
+
+[10/300] 幂运算: ✅ 通过
+
+[11/300] 北京天气: ❌ 失败 - No tool call detected
+
+[12/300] 上海天气: ✅ 通过
+
+[13/300] 广州温度: ❌ 失败 - No tool call detected
+
+[14/300] 深圳天气: ✅ 通过
+
+[15/300] 杭州天气: ✅ 通过
+
+[16/300] 成都天气: ❌ 失败 - Tool call incorrect
+
+[17/300] 武汉天气: ✅ 通过
+
+[18/300] 西安天气: ✅ 通过
+
+[19/300] 南京天气: ❌ 失败 - No tool call detected
+
+[20/300] 重庆天气: ✅ 通过
+
+[21/300] 当前日期: ❌ 失败 - No tool call detected
+
+[22/300] 当前时间: ✅ 通过
+
+[23/300] 创建会议: ❌ 失败 - No tool call detected
+
+[24/300] 设置闹钟: ❌ 失败 - No tool call detected
+
+[25/300] 倒计时: ✅ 通过
+
+[26/300] 日程提醒: ✅ 通过
+
+[27/300] 查看日历: ❌ 失败 - No tool call detected
+
+[28/300] 添加事件: ❌ 失败 - No tool call detected
+
+[29/300] 定时提醒: ✅ 通过
+
+[30/300] 查询星期: ❌ 失败 - No tool call detected
+
+[31/300] 搜索AI: ✅ 通过
+
+[32/300] 搜索新闻: ✅ 通过
+
+[33/300] 股票查询: ❌ 失败 - No tool call detected
+
+[34/300] 汇率查询: ✅ 通过
+
+[35/300] 百科查询: ❌ 失败 - No tool call detected
+
+[36/300] 视频搜索: ❌ 失败 - No tool call detected
+
+[37/300] 图片搜索: ✅ 通过
+
+[38/300] 地图搜索: ❌ 失败 - No tool call detected
+
+[39/300] 商品搜索: ✅ 通过
+
+[40/300] 学术搜索: ❌ 失败 - Tool call incorrect
+
+[41/300] 英译中1: ❌ 失败 - No tool call detected
+
+[42/300] 中译英1: ✅ 通过
+
+[43/300] 日译中: ❌ 失败 - No tool call detected
+
+[44/300] 法译中: ❌ 失败 - No tool call detected
+
+[45/300] 德译中: ❌ 失败 - No tool call detected
+
+[46/300] 西译中: ❌ 失败 - No tool call detected
+
+[47/300] 韩译中: ❌ 失败 - No tool call detected
+
+[48/300] 俄译中: ❌ 失败 - No tool call detected
+
+[49/300] 中译日: ❌ 失败 - Tool call incorrect
+
+[50/300] 中译法: ❌ 失败 - No tool call detected
+
+[51/300] 读取文件1: ✅ 通过
+
+[52/300] 读取文件2: ❌ 失败 - No tool call detected
+
+[53/300] 保存文件: ❌ 失败 - No tool call detected
+
+[54/300] 删除文件: ❌ 失败 - No tool call detected
+
+[55/300] 复制文件: ❌ 失败 - No tool call detected
+
+[56/300] 移动文件: ❌ 失败 - No tool call detected
+
+[57/300] 重命名文件: ❌ 失败 - No tool call detected
+
+[58/300] 创建文件夹: ❌ 失败 - No tool call detected
+
+[59/300] 列出文件: ❌ 失败 - No tool call detected
+
+[60/300] 文件信息: ❌ 失败 - No tool call detected
+
+[61/300] 发送邮件1: ✅ 通过
+
+[62/300] 发送邮件2: ❌ 失败 - No tool call detected
+
+[63/300] 发送短信: ❌ 失败 - No tool call detected
+
+[64/300] 拨打电话: ❌ 失败 - No tool call detected
+
+[65/300] 视频会议: ❌ 失败 - No tool call detected
+
+[66/300] 发送消息: ❌ 失败 - No tool call detected
+
+[67/300] 群发邮件: ❌ 失败 - No tool call detected
+
+[68/300] 发送传真: ❌ 失败 - No tool call detected
+
+[69/300] 语音留言: ❌ 失败 - No tool call detected
+
+[70/300] 视频通话: ❌ 失败 - No tool call detected
+
+[71/300] 天气_天津: ✅ 通过
+
+[72/300] 天气_苏州: ✅ 通过
+
+[73/300] 天气_青岛: ✅ 通过
+
+[74/300] 天气_厦门: ✅ 通过
+
+[75/300] 天气_大连: ✅ 通过
+
+[76/300] 天气_宁波: ✅ 通过
+
+[77/300] 天气_无锡: ✅ 通过
+
+[78/300] 天气_佛山: ❌ 失败 - No tool call detected
+
+[79/300] 天气_东莞: ✅ 通过
+
+[80/300] 天气_郑州: ✅ 通过
+
+[81/300] 天气_长沙: ✅ 通过
+
+[82/300] 天气_沈阳: ❌ 失败 - Tool call incorrect
+
+[83/300] 天气_济南: ✅ 通过
+
+[84/300] 天气_哈尔滨: ✅ 通过
+
+[85/300] 天气_石家庄: ✅ 通过
+
+[86/300] 天气_合肥: ❌ 失败 - Tool call incorrect
+
+[87/300] 天气_昆明: ✅ 通过
+
+[88/300] 天气_南昌: ✅ 通过
+
+[89/300] 天气_贵阳: ❌ 失败 - No tool call detected
+
+[90/300] 天气_长春: ❌ 失败 - Tool call incorrect
+
+[91/300] 数学_基础_1: ❌ 失败 - No tool call detected
+
+[92/300] 数学_基础_2: ✅ 通过
+
+[93/300] 数学_基础_3: ❌ 失败 - No tool call detected
+
+[94/300] 数学_基础_4: ❌ 失败 - No tool call detected
+
+[95/300] 数学_基础_5: ✅ 通过
+
+[96/300] 数学_基础_6: ❌ 失败 - No tool call detected
+
+[97/300] 数学_基础_7: ✅ 通过
+
+[98/300] 数学_基础_8: ✅ 通过
+
+[99/300] 数学_基础_9: ❌ 失败 - No tool call detected
+
+[100/300] 数学_基础_10: ❌ 失败 - No tool call detected
+
+[101/300] 数学_开方_1: ❌ 失败 - No tool call detected
+
+[102/300] 数学_开方_2: ❌ 失败 - No tool call detected
+
+[103/300] 数学_开方_3: ❌ 失败 - No tool call detected
+
+[104/300] 数学_开方_4: ❌ 失败 - No tool call detected
+
+[105/300] 数学_开方_5: ❌ 失败 - No tool call detected
+
+[106/300] 数学_开方_6: ❌ 失败 - No tool call detected
+
+[107/300] 数学_开方_7: ❌ 失败 - No tool call detected
+
+[108/300] 数学_开方_8: ❌ 失败 - No tool call detected
+
+[109/300] 数学_开方_9: ❌ 失败 - No tool call detected
+
+[110/300] 数学_开方_10: ❌ 失败 - No tool call detected
+
+[111/300] 数学_幂_1: ❌ 失败 - No tool call detected
+
+[112/300] 数学_幂_2: ❌ 失败 - No tool call detected
+
+[113/300] 数学_幂_3: ❌ 失败 - No tool call detected
+
+[114/300] 数学_幂_4: ❌ 失败 - No tool call detected
+
+[115/300] 数学_幂_5: ❌ 失败 - No tool call detected
+
+[116/300] 翻译_IT: ❌ 失败 - No tool call detected
+
+[117/300] 翻译_商务: ❌ 失败 - No tool call detected
+
+[118/300] 翻译_日常: ❌ 失败 - No tool call detected
+
+[119/300] 翻译_技术: ❌ 失败 - No tool call detected
+
+[120/300] 翻译_长句: ❌ 失败 - Tool call incorrect
+
+[121/300] 翻译_成语: ❌ 失败 - No tool call detected
+
+[122/300] 翻译_诗歌: ❌ 失败 - No tool call detected
+
+[123/300] 翻译_菜名: ❌ 失败 - No tool call detected
+
+[124/300] 翻译_地名: ❌ 失败 - No tool call detected
+
+[125/300] 翻译_问候: ❌ 失败 - No tool call detected
+
+[126/300] 文件_读取_CSV: ✅ 通过
+
+[127/300] 文件_读取_PNG图片: ✅ 通过
+
+[128/300] 文件_读取_PPT: ✅ 通过
+
+[129/300] 文件_读取_Excel: ✅ 通过
+
+[130/300] 文件_读取_Markdown: ✅ 通过
+
+[131/300] 文件_读取_Python脚本: ✅ 通过
+
+[132/300] 文件_读取_JSON配置: ❌ 失败 - No tool call detected
+
+[133/300] 文件_读取_压缩包: ❌ 失败 - No tool call detected
+
+[134/300] 文件_读取_音频: ❌ 失败 - No tool call detected
+
+[135/300] 文件_读取_视频: ✅ 通过
+
+[136/300] 搜索_电影: ❌ 失败 - Tool call incorrect
+
+[137/300] 搜索_音乐: ❌ 失败 - No tool call detected
+
+[138/300] 搜索_美食: ❌ 失败 - No tool call detected
+
+[139/300] 搜索_旅游: ✅ 通过
+
+[140/300] 搜索_健身: ✅ 通过
+
+[141/300] 搜索_编程: ✅ 通过
+
+[142/300] 搜索_理财: ✅ 通过
+
+[143/300] 搜索_健康: ✅ 通过
+
+[144/300] 搜索_历史: ❌ 失败 - No tool call detected
+
+[145/300] 搜索_科学: ✅ 通过
+
+[146/300] 搜索_文学: ❌ 失败 - No tool call detected
+
+[147/300] 搜索_艺术: ❌ 失败 - No tool call detected
+
+[148/300] 搜索_汽车: ✅ 通过
+
+[149/300] 搜索_房产: ❌ 失败 - No tool call detected
+
+[150/300] 搜索_招聘: ✅ 通过
+
+[151/300] 搜索_购物: ❌ 失败 - No tool call detected
+
+[152/300] 搜索_游戏: ❌ 失败 - No tool call detected
+
+[153/300] 搜索_摄影: ✅ 通过
+
+[154/300] 搜索_穿搭: ✅ 通过
+
+[155/300] 搜索_育儿: ✅ 通过
+
+[156/300] 提醒_休息: ❌ 失败 - No tool call detected
+
+[157/300] 提醒_起床: ❌ 失败 - No tool call detected
+
+[158/300] 提醒_开会: ❌ 失败 - No tool call detected
+
+[159/300] 提醒_睡觉: ❌ 失败 - No tool call detected
+
+[160/300] 提醒_购物: ❌ 失败 - No tool call detected
+
+[161/300] 提醒_交报告: ✅ 通过
+
+[162/300] 提醒_关煤气: ✅ 通过
+
+[163/300] 提醒_取快递: ❌ 失败 - No tool call detected
+
+[164/300] 提醒_吃饭: ✅ 通过
+
+[165/300] 提醒_约会: ❌ 失败 - No tool call detected
+
+[166/300] 换算_1: ❌ 失败 - No tool call detected
+
+[167/300] 换算_2: ❌ 失败 - No tool call detected
+
+[168/300] 换算_3: ❌ 失败 - No tool call detected
+
+[169/300] 换算_4: ❌ 失败 - No tool call detected
+
+[170/300] 换算_5: ❌ 失败 - No tool call detected
+
+[171/300] 换算_6: ❌ 失败 - No tool call detected
+
+[172/300] 换算_7: ❌ 失败 - No tool call detected
+
+[173/300] 换算_8: ❌ 失败 - No tool call detected
+
+[174/300] 换算_9: ❌ 失败 - No tool call detected
+
+[175/300] 换算_10: ❌ 失败 - No tool call detected
+
+[176/300] 换算_11: ❌ 失败 - No tool call detected
+
+[177/300] 换算_12: ❌ 失败 - No tool call detected
+
+[178/300] 换算_13: ❌ 失败 - No tool call detected
+
+[179/300] 换算_14: ❌ 失败 - No tool call detected
+
+[180/300] 换算_15: ❌ 失败 - No tool call detected
+
+[181/300] 换算_16: ❌ 失败 - No tool call detected
+
+[182/300] 换算_17: ❌ 失败 - No tool call detected
+
+[183/300] 换算_18: ❌ 失败 - No tool call detected
+
+[184/300] 换算_19: ❌ 失败 - Tool call incorrect
+
+[185/300] 换算_20: ❌ 失败 - Tool call incorrect
+
+[186/300] 模糊_数学1: ❌ 失败 - No tool call detected
+
+[187/300] 模糊_数学2: ❌ 失败 - No tool call detected
+
+[188/300] 模糊_天气1: ❌ 失败 - No tool call detected
+
+[189/300] 模糊_时间1: ❌ 失败 - No tool call detected
+
+[190/300] 模糊_日期1: ❌ 失败 - No tool call detected
+
+[191/300] 多意图_1: ❌ 失败 - No tool call detected
+
+[192/300] 多意图_2: ❌ 失败 - No tool call detected
+
+[193/300] 长查询_1: ✅ 通过
+
+[194/300] 长查询_2: ✅ 通过
+
+[195/300] 口语_1: ✅ 通过
+
+[196/300] 口语_2: ✅ 通过
+
+[197/300] 口语_3: ❌ 失败 - Tool call incorrect
+
+[198/300] 混合_1: ❌ 失败 - No tool call detected
+
+[199/300] 混合_2: ✅ 通过
+
+[200/300] 反问_1: ❌ 失败 - No tool call detected
+
+[201/300] 反问_2: ❌ 失败 - No tool call detected
+
+[202/300] 否定_1: ❌ 失败 - No tool call detected
+
+[203/300] 否定_2: ❌ 失败 - No tool call detected
+
+[204/300] 条件_1: ❌ 失败 - Tool call incorrect
+
+[205/300] 条件_2: ❌ 失败 - No tool call detected
+
+[206/300] 省略_1: ❌ 失败 - No tool call detected
+
+[207/300] 省略_2: ❌ 失败 - No tool call detected
+
+[208/300] 复杂_1: ❌ 失败 - No tool call detected
+
+[209/300] 复杂_2: ❌ 失败 - No tool call detected
+
+[210/300] 嵌套_1: ❌ 失败 - Tool call incorrect
+
+[211/300] 嵌套_2: ✅ 通过
+
+[212/300] 干扰_1: ❌ 失败 - No tool call detected
+
+[213/300] 干扰_2: ✅ 通过
+
+[214/300] 专业_1: ❌ 失败 - No tool call detected
+
+[215/300] 专业_2: ❌ 失败 - No tool call detected
+
+[216/300] 网络_1: ❌ 失败 - No tool call detected
+
+[217/300] 网络_2: ✅ 通过
+
+[218/300] 天气_拉萨: ✅ 通过
+
+[219/300] 天气_乌鲁木齐: ✅ 通过
+
+[220/300] 天气_银川: ✅ 通过
+
+[221/300] 天气_西宁: ✅ 通过
+
+[222/300] 天气_兰州: ✅ 通过
+
+[223/300] 天气_太原: ✅ 通过
+
+[224/300] 天气_呼和浩特: ✅ 通过
+
+[225/300] 天气_海口: ✅ 通过
+
+[226/300] 天气_南宁: ✅ 通过
+
+[227/300] 天气_福州: ✅ 通过
+
+[228/300] 天气_台北: ✅ 通过
+
+[229/300] 天气_香港: ✅ 通过
+
+[230/300] 天气_澳门: ✅ 通过
+
+[231/300] 天气_昆明: ✅ 通过
+
+[232/300] 天气_贵阳: ✅ 通过
+
+[233/300] 天气_哈尔滨: ✅ 通过
+
+[234/300] 天气_长春: ✅ 通过
+
+[235/300] 天气_沈阳: ❌ 失败 - No tool call detected
+
+[236/300] 天气_石家庄: ✅ 通过
+
+[237/300] 天气_济南: ✅ 通过
+
+[238/300] 数学随机_1: ✅ 通过
+
+[239/300] 数学随机_2: ✅ 通过
+
+[240/300] 数学随机_3: ✅ 通过
+
+[241/300] 数学随机_4: ✅ 通过
+
+[242/300] 数学随机_5: ✅ 通过
+
+[243/300] 数学随机_6: ✅ 通过
+
+[244/300] 数学随机_7: ✅ 通过
+
+[245/300] 数学随机_8: ✅ 通过
+
+[246/300] 数学随机_9: ✅ 通过
+
+[247/300] 数学随机_10: ✅ 通过
+
+[248/300] 数学随机_11: ✅ 通过
+
+[249/300] 数学随机_12: ✅ 通过
+
+[250/300] 数学随机_13: ✅ 通过
+
+[251/300] 数学随机_14: ✅ 通过
+
+[252/300] 数学随机_15: ✅ 通过
+
+[253/300] 数学随机_16: ✅ 通过
+
+[254/300] 数学随机_17: ✅ 通过
+
+[255/300] 数学随机_18: ✅ 通过
+
+[256/300] 数学随机_19: ✅ 通过
+
+[257/300] 数学随机_20: ✅ 通过
+
+[258/300] 搜索技术_1: ✅ 通过
+
+[259/300] 搜索技术_2: ❌ 失败 - No tool call detected
+
+[260/300] 搜索技术_3: ✅ 通过
+
+[261/300] 搜索技术_4: ✅ 通过
+
+[262/300] 搜索技术_5: ❌ 失败 - No tool call detected
+
+[263/300] 搜索技术_6: ✅ 通过
+
+[264/300] 搜索技术_7: ✅ 通过
+
+[265/300] 搜索技术_8: ❌ 失败 - No tool call detected
+
+[266/300] 搜索技术_9: ✅ 通过
+
+[267/300] 搜索技术_10: ❌ 失败 - No tool call detected
+
+[268/300] 搜索技术_11: ❌ 失败 - No tool call detected
+
+[269/300] 搜索技术_12: ✅ 通过
+
+[270/300] 搜索技术_13: ❌ 失败 - No tool call detected
+
+[271/300] 搜索技术_14: ✅ 通过
+
+[272/300] 搜索技术_15: ✅ 通过
+
+[273/300] 搜索技术_16: ✅ 通过
+
+[274/300] 搜索技术_17: ✅ 通过
+
+[275/300] 搜索技术_18: ❌ 失败 - No tool call detected
+
+[276/300] 搜索技术_19: ❌ 失败 - No tool call detected
+
+[277/300] 搜索技术_20: ✅ 通过
+
+[278/300] 搜索技术_21: ✅ 通过
+
+[279/300] 搜索技术_22: ✅ 通过
+
+[280/300] 搜索技术_23: ✅ 通过
+
+[281/300] 搜索技术_24: ✅ 通过
+
+[282/300] 搜索技术_25: ✅ 通过
+
+[283/300] 搜索技术_26: ❌ 失败 - Tool call incorrect
+
+[284/300] 搜索技术_27: ❌ 失败 - Tool call incorrect
+
+[285/300] 搜索技术_28: ❌ 失败 - Tool call incorrect
+
+[286/300] 搜索技术_29: ❌ 失败 - No tool call detected
+
+[287/300] 搜索技术_30: ❌ 失败 - No tool call detected
+
+[288/300] 搜索技术_31: ❌ 失败 - Tool call incorrect
+
+[289/300] 搜索技术_32: ✅ 通过
+
+[290/300] 搜索技术_33: ❌ 失败 - No tool call detected
+
+[291/300] 搜索技术_34: ❌ 失败 - No tool call detected
+
+[292/300] 搜索技术_35: ✅ 通过
+
+[293/300] 搜索技术_36: ✅ 通过
+
+[294/300] 搜索技术_37: ❌ 失败 - Tool call incorrect
+
+[295/300] 搜索技术_38: ❌ 失败 - No tool call detected
+
+[296/300] 搜索技术_39: ✅ 通过
+
+[297/300] 搜索技术_40: ❌ 失败 - No tool call detected
+
+[298/300] 额外_代码生成: ❌ 失败 - No tool call detected
+
+[299/300] 额外_健康咨询: ❌ 失败 - No tool call detected
+
+[300/300] 额外_菜谱搜索: ✅ 通过
+
+============================================================
+评估完成!
+  总计: 300
+  通过: 132
+  失败: 168
+  准确率: 44.0%
+
+报告已保存: ./eval_results/JoyAI-LLM-Flash-Q4_K_M_tools_eval.md

@@ -1,0 +1,376 @@
+{
+  "model": "Youtu-VL-4B-Instruct-Q8_0",
+  "timestamp": "2026-02-18T10:43:43.759224",
+  "test_type": "tool",
+  "endpoint": "http://localhost:8400",
+  "tool": {
+    "passed": 14,
+    "total": 20,
+    "pass_rate": 0.7,
+    "duration": 30.409825801849365,
+    "details": [
+      {
+        "name": "天气查询工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 8753.633260726929,
+        "details": {
+          "description": "理解天气查询工具参数",
+          "expected_keywords": [
+            "get_weather",
+            "北京",
+            "city"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"get_weather\",\n  \"parameters\": {\n    \"city\": \"北京\",\n    \"date\": \"2023-10-05\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "计算器工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1150.2201557159424,
+        "details": {
+          "description": "生成计算器工具调用",
+          "expected_keywords": [
+            "calculator",
+            "expression",
+            "158",
+            "67",
+            "234"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"calculator\",\n  \"parameters\": {\n    \"expression\": \"158 * 67 + 234\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "搜索引擎工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1086.9438648223877,
+        "details": {
+          "description": "理解搜索工具参数",
+          "expected_keywords": [
+            "web_search",
+            "query",
+            "iPhone"
+          ],
+          "model_response": "{\n  \"name\": \"web_search\",\n  \"parameters\": {\n    \"query\": \"最新的iPhone发布日期\",\n    \"num_results\": 1\n  }\n}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "数据库查询工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1017.9545879364014,
+        "details": {
+          "description": "生成SQL查询工具调用",
+          "expected_keywords": [
+            "execute_sql",
+            "sql",
+            "SELECT",
+            "age",
+            ">",
+            "25"
+          ],
+          "model_response": "{\n  \"name\": \"execute_sql\",\n  \"parameters\": {\n    \"sql\": \"SELECT * FROM users WHERE age > 25\"\n  }\n}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "发送邮件工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1326.6632556915283,
+        "details": {
+          "description": "理解邮件工具参数",
+          "expected_keywords": [
+            "send_email",
+            "zhangsan@example.com",
+            "会议通知"
+          ],
+          "model_response": "调用 send_email 工具，参数如下：\n{\n  \"to\": \"zhangsan@example.com\",\n  \"subject\": \"会议通知\",\n  \"body\": \"明天下午2点开会\"\n}",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "文件读取工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 587.8341197967529,
+        "details": {
+          "description": "生成文件读取调用",
+          "expected_keywords": [
+            "read_file",
+            "path",
+            "/home/user/data.txt"
+          ],
+          "model_response": "调用 read_file 工具，参数为文件路径 \"/home/user/data.txt\"。",
+          "score": 0.39999999999999997
+        },
+        "error": null
+      },
+      {
+        "name": "日期时间工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 2140.7463550567627,
+        "details": {
+          "description": "理解时间工具参数",
+          "expected_keywords": [
+            "get_datetime",
+            "timezone",
+            "Beijing",
+            "Asia/Shanghai"
+          ],
+          "model_response": "调用工具 `get_datetime` 获取当前北京时间，参数设置为时区为 `\"Asia/Shanghai\"`（北京所在时区），格式为默认的日期时间字符串。\n\n```json\n{\n  \"name\": \"get_datetime\",\n  \"parameters\": {\n    \"timezone\": \"Asia/Shanghai\",\n    \"format\": \"default\"\n  }\n}\n```",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "翻译工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 997.0147609710693,
+        "details": {
+          "description": "生成翻译工具调用",
+          "expected_keywords": [
+            "translate",
+            "text",
+            "Hello World",
+            "zh",
+            "中文"
+          ],
+          "model_response": "{\n  \"name\": \"translate\",\n  \"parameters\": {\n    \"text\": \"Hello World\",\n    \"target_lang\": \"中文\"\n  }\n}",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "地图定位工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 753.3800601959229,
+        "details": {
+          "description": "理解地图工具参数",
+          "expected_keywords": [
+            "geocode",
+            "address",
+            "天安门"
+          ],
+          "model_response": "调用工具：geocode  \n参数：{\"address\": \"天安门广场\", \"city\": \"北京\"}",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "单位换算工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 1176.347255706787,
+        "details": {
+          "description": "生成单位换算调用",
+          "expected_keywords": [
+            "unit_convert",
+            "value",
+            "100",
+            "mile",
+            "km"
+          ],
+          "model_response": "调用工具：\n{\"name\": \"unit_convert\", \"parameters\": {\"value\": \"100\", \"from_unit\": \"miles\", \"to_unit\": \"kilometers\"}}\n",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "随机数生成工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1233.7524890899658,
+        "details": {
+          "description": "理解随机数工具参数",
+          "expected_keywords": [
+            "random_number",
+            "min",
+            "max",
+            "1",
+            "100"
+          ],
+          "model_response": "{\n  \"name\": \"random_number\",\n  \"parameters\": {\n    \"min\": 1,\n    \"max\": 100,\n    \"type\": \"integer\"\n  }\n}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "URL解析工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1163.177251815796,
+        "details": {
+          "description": "生成URL解析调用",
+          "expected_keywords": [
+            "parse_url",
+            "url",
+            "https://www.example.com"
+          ],
+          "model_response": "调用 parse_url 工具，传入 URL 参数：\n{\"name\": \"parse_url\", \"parameters\": {\"url\": \"https://www.example.com/path?key=value#anchor\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "Base64编码工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 618.2940006256104,
+        "details": {
+          "description": "理解编码工具参数",
+          "expected_keywords": [
+            "base64_encode",
+            "data",
+            "admin",
+            "password"
+          ],
+          "model_response": "调用工具：base64_encode\n参数：{\"data\": \"admin:password\"}",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "哈希计算工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1001.9168853759766,
+        "details": {
+          "description": "生成哈希工具调用",
+          "expected_keywords": [
+            "compute_hash",
+            "text",
+            "hello",
+            "md5",
+            "MD5"
+          ],
+          "model_response": "{\n  \"name\": \"compute_hash\",\n  \"parameters\": {\n    \"text\": \"hello\",\n    \"algorithm\": \"MD5\"\n  }\n}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "JSON解析工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1604.4347286224365,
+        "details": {
+          "description": "理解JSON解析参数",
+          "expected_keywords": [
+            "json_extract",
+            "json_str",
+            "name",
+            "path"
+          ],
+          "model_response": "调用工具：\n```json\n{\n  \"name\": \"json_extract\",\n  \"parameters\": {\n    \"json_str\": '{\"name\": \"张三\", \"age\": 25}',\n    \"path\": \"name\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "正则表达式工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 1995.4547882080078,
+        "details": {
+          "description": "生成正则匹配调用",
+          "expected_keywords": [
+            "regex_extract",
+            "pattern",
+            "@",
+            "email"
+          ],
+          "model_response": "{\n  \"name\": \"regex_extract\",\n  \"parameters\": {\n    \"text\": \"请提供需要提取邮箱地址的文本内容\",\n    \"pattern\": \"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\"\n  }\n}",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "汇率转换工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 924.4492053985596,
+        "details": {
+          "description": "理解汇率工具参数",
+          "expected_keywords": [
+            "currency_convert",
+            "amount",
+            "100",
+            "USD",
+            "CNY"
+          ],
+          "model_response": "调用工具：currency_convert\n参数：{\"amount\": \"100\", \"from\": \"USD\", \"to\": \"CNY\"}",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "定时提醒工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1199.3680000305176,
+        "details": {
+          "description": "生成提醒工具调用",
+          "expected_keywords": [
+            "set_reminder",
+            "time",
+            "message",
+            "开会"
+          ],
+          "model_response": "{\n  \"name\": \"set_reminder\",\n  \"parameters\": {\n    \"time\": \"明天上午9点\",\n    \"message\": \"明天上午9点开会\"\n  }\n}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "图像识别工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 894.0997123718262,
+        "details": {
+          "description": "理解图像识别参数",
+          "expected_keywords": [
+            "ocr_image",
+            "image_path",
+            "/image/photo.jpg"
+          ],
+          "model_response": "我无法识别图片中的文字内容，因为您没有提供图片。请上传图片，我将使用 OCR 工具为您提取其中的文字。",
+          "score": 0.0
+        },
+        "error": null
+      },
+      {
+        "name": "多工具选择",
+        "category": "工具选择",
+        "passed": true,
+        "duration_ms": 773.2889652252197,
+        "details": {
+          "description": "在多个工具中选择正确的",
+          "expected_keywords": [
+            "calculate_distance",
+            "上海",
+            "北京",
+            "from",
+            "to"
+          ],
+          "model_response": "应该选择工具：calculate_distance  \n参数：{\"from\": \"上海\", \"to\": \"北京\"}",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      }
+    ]
+  }
+}

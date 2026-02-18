@@ -1,0 +1,31 @@
+{
+  "model": "MiroThinker-v1.5-30B.Q8_0",
+  "stage": 1,
+  "timestamp": "2026-02-17T17:12:25.059723",
+  "categories": {
+    "functionality": {
+      "passed": 1,
+      "total": 1,
+      "pass_rate": 1.0,
+      "note": "Model loaded successfully"
+    },
+    "context": {
+      "passed": 3,
+      "total": 4,
+      "pass_rate": 0.75,
+      "max_successful_tokens": 12288,
+      "max_correct_tokens": 0
+    },
+    "performance": {
+      "throughput_tps": 0,
+      "prompt_latency_ms": 0,
+      "note": "Throughput test completed"
+    }
+  },
+  "summary": {
+    "total_passed": 4,
+    "total_tests": 5,
+    "total_pass_rate": 0.8,
+    "context_max": 12288
+  }
+}

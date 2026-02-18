@@ -1,0 +1,713 @@
+{
+  "test_id": "Qwen3VL-4B-Instruct-Q8_0_20260217_235625_0c517b54",
+  "model": "Qwen3VL-4B-Instruct-Q8_0",
+  "timestamp": "2026-02-17T23:56:53.573942",
+  "endpoint": "http://localhost:8400",
+  "code": {
+    "passed": 9,
+    "total": 9,
+    "pass_rate": 1.0,
+    "tests": [
+      {
+        "name": "has_close_elements",
+        "description": "检查列表中是否有两个元素距离小于阈值",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 6463.918,
+        "error": null,
+        "generated_code": "def has_close_elements(numbers: list[float], threshold: float) -> bool:\n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False"
+      },
+      {
+        "name": "separate_paren_groups",
+        "description": "分离括号组",
+        "status": "success",
+        "passed": true,
+        "score": 0.65,
+        "elapsed_ms": 3382.708,
+        "error": null,
+        "generated_code": "def separate_paren_groups(paren_string: str) -> list[str]:\n    result = []\n    start = 0\n    n = len(paren_string)\n    \n    for i in range(n):\n        if paren_string[i] == '(':\n            # 找到匹配的右括号\n            count = 1\n            j = i + 1\n            while j < n and count > 0:\n                if paren_string[j] == '(':\n                    count += 1\n                elif paren_string[j] == ')':\n                    count -= 1\n                j += 1\n            # 提取括号组\n            group = par"
+      },
+      {
+        "name": "truncate_number",
+        "description": "截断小数",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 399.57,
+        "error": null,
+        "generated_code": "def truncate_number(number: float) -> float:\n    return int(number)"
+      },
+      {
+        "name": "below_zero",
+        "description": "检查余额是否曾低于零",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1589.523,
+        "error": null,
+        "generated_code": "def below_zero(operations: List[Tuple[str, int]]) -> bool:\n    balance = 0\n    for op, amount in operations:\n        if op == '存款':\n            balance += amount\n        else:  # '取款'\n            balance -= amount\n        if balance < 0:\n            return True\n    return False"
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "description": "计算平均绝对导数",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1449.462,
+        "error": null,
+        "generated_code": "def mean_absolute_derivative(xs: list[int]) -> float:\n    if len(xs) <= 1:\n        return 0.0\n    diffs = [abs(xs[i] - xs[i-1]) for i in range(1, len(xs))]\n    return sum(diffs) / len(diffs)"
+      },
+      {
+        "name": "intersperse",
+        "description": "在列表元素间插入分隔符",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1352.94,
+        "error": null,
+        "generated_code": "def intersperse(numbers: List[int], delimiter: int) -> List[int]:\n    if not numbers:\n        return []\n    result = [numbers[0]]\n    for i in range(1, len(numbers)):\n        result.append(delimiter)\n        result.append(numbers[i])\n    return result"
+      },
+      {
+        "name": "count_vowels",
+        "description": "统计元音字母数量",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1156.9910000000002,
+        "error": null,
+        "generated_code": "def count_vowels(s: str) -> int:\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    for char in s:\n        if char in vowels:\n            count += 1\n    return count"
+      },
+      {
+        "name": "remove_duplicates",
+        "description": "移除重复元素保持顺序",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1109.0279999999998,
+        "error": null,
+        "generated_code": "def remove_duplicates(numbers: List[int]) -> List[int]:\n    seen = set()\n    result = []\n    for num in numbers:\n        if num not in seen:\n            seen.add(num)\n            result.append(num)\n    return result"
+      },
+      {
+        "name": "is_palindrome",
+        "description": "检查字符串是否为回文",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1447.97,
+        "error": null,
+        "generated_code": "def is_palindrome(s: str) -> bool:\n    # 只保留字母数字字符并转为小写\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    # 检查是否与反转后相同\n    return cleaned == cleaned[::-1]"
+      }
+    ]
+  },
+  "math": {
+    "passed": 5,
+    "total": 11,
+    "pass_rate": 0.45454545454545453,
+    "tests": [
+      {
+        "name": "价格计算",
+        "status": "success",
+        "passed": false,
+        "expected": 245,
+        "extracted": 150.0,
+        "elapsed_ms": 139.437,
+        "error": null,
+        "model_answer": "150"
+      },
+      {
+        "name": "速度距离",
+        "status": "success",
+        "passed": false,
+        "expected": 270,
+        "extracted": 330.0,
+        "elapsed_ms": 126.86800000000001,
+        "error": null,
+        "model_answer": "330"
+      },
+      {
+        "name": "比例问题",
+        "status": "success",
+        "passed": false,
+        "expected": 16,
+        "extracted": 10.0,
+        "elapsed_ms": 106.98,
+        "error": null,
+        "model_answer": "10"
+      },
+      {
+        "name": "连续整数",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": 1.0,
+        "elapsed_ms": 2246.714,
+        "error": null,
+        "model_answer": "设这三个连续整数为 $x-1$、$x$、$x+1$，则它们的和为：\n\n$$\n(x-1) + x + (x+1) = 3x\n$$\n\n根据题意，和为72：\n\n$$\n3x = 72 \\Rightarrow x = 24\n$$\n\n因此，三个整数为：23、24、25，最大的是 **25**。\n\n25"
+      },
+      {
+        "name": "工作效率",
+        "status": "success",
+        "passed": false,
+        "expected": 2.4,
+        "extracted": 3.0,
+        "elapsed_ms": 86.895,
+        "error": null,
+        "model_answer": "3"
+      },
+      {
+        "name": "混合物问题",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": 200.0,
+        "elapsed_ms": 5364.906999999999,
+        "error": null,
+        "model_answer": "设需要加入盐的质量为 $ x $ 克。\n\n原盐水质量为 200 克，浓度为 10%，所以含盐量为：\n\n$$\n200 \\times 10\\% = 20 \\text{ 克}\n$$\n\n加入 $ x $ 克盐后，总质量变为 $ 200 + x $ 克，盐的总质量为 $ 20 + x $ 克，浓度变为 20%，即：\n\n$$\n\\frac{20 + x}{200 + x} = 0.2\n$$\n\n解方程：\n\n$$\n"
+      },
+      {
+        "name": "年龄问题",
+        "status": "success",
+        "passed": true,
+        "expected": 15,
+        "extracted": 15.0,
+        "elapsed_ms": 107.874,
+        "error": null,
+        "model_answer": "15"
+      },
+      {
+        "name": "利润计算",
+        "status": "success",
+        "passed": true,
+        "expected": 30,
+        "extracted": 30.0,
+        "elapsed_ms": 110.586,
+        "error": null,
+        "model_answer": "30%"
+      },
+      {
+        "name": "数列求和",
+        "status": "success",
+        "passed": true,
+        "expected": 5050,
+        "extracted": 5050.0,
+        "elapsed_ms": 133.11100000000002,
+        "error": null,
+        "model_answer": "5050"
+      },
+      {
+        "name": "利息计算",
+        "status": "success",
+        "passed": true,
+        "expected": 11576.25,
+        "extracted": 11576.25,
+        "elapsed_ms": 221.889,
+        "error": null,
+        "model_answer": "11576.25"
+      },
+      {
+        "name": "几何面积",
+        "status": "success",
+        "passed": true,
+        "expected": 78.5,
+        "extracted": 78.5,
+        "elapsed_ms": 147.999,
+        "error": null,
+        "model_answer": "78.5"
+      }
+    ]
+  },
+  "text": {
+    "passed": 10,
+    "total": 10,
+    "pass_rate": 1.0,
+    "tests": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "status": "success",
+        "passed": true,
+        "expected": "D",
+        "extracted": "D",
+        "elapsed_ms": 100.20700000000001,
+        "error": null,
+        "model_answer": "D"
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 108.559,
+        "error": null,
+        "model_answer": "B"
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 111.405,
+        "error": null,
+        "model_answer": "A"
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 83.732,
+        "error": null,
+        "model_answer": "A"
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 81.414,
+        "error": null,
+        "model_answer": "B"
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "status": "success",
+        "passed": true,
+        "expected": "C",
+        "extracted": "C",
+        "elapsed_ms": 82.16199999999999,
+        "error": null,
+        "model_answer": "C"
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 83.36200000000001,
+        "error": null,
+        "model_answer": "A"
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 83.96199999999999,
+        "error": null,
+        "model_answer": "B"
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "status": "success",
+        "passed": true,
+        "expected": "C",
+        "extracted": "C",
+        "elapsed_ms": 81.881,
+        "error": null,
+        "model_answer": "C"
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 84.731,
+        "error": null,
+        "model_answer": "B"
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 50,
+    "total_passed": 39,
+    "total_pass_rate": 0.78,
+    "total_duration": 20.24936580657959
+  },
+  "tool": {
+    "passed": 15,
+    "total": 20,
+    "pass_rate": 0.75,
+    "duration": 20.24936580657959,
+    "details": [
+      {
+        "name": "天气查询工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 7703.8733959198,
+        "details": {
+          "description": "理解天气查询工具参数",
+          "expected_keywords": [
+            "get_weather",
+            "北京",
+            "city"
+          ],
+          "model_response": "{\n  \"city\": \"北京\",\n  \"date\": \"2023-10-06\"\n}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "计算器工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 622.3711967468262,
+        "details": {
+          "description": "生成计算器工具调用",
+          "expected_keywords": [
+            "calculator",
+            "expression",
+            "158",
+            "67",
+            "234"
+          ],
+          "model_response": "{\"name\": \"calculator\", \"parameters\": {\"expression\": \"158 * 67 + 234\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "搜索引擎工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 619.6482181549072,
+        "details": {
+          "description": "理解搜索工具参数",
+          "expected_keywords": [
+            "web_search",
+            "query",
+            "iPhone"
+          ],
+          "model_response": "{\"name\": \"web_search\", \"parameters\": {\"query\": \"最新iPhone发布日期\", \"num_results\": 5}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "数据库查询工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 624.8049736022949,
+        "details": {
+          "description": "生成SQL查询工具调用",
+          "expected_keywords": [
+            "execute_sql",
+            "sql",
+            "SELECT",
+            "age",
+            ">",
+            "25"
+          ],
+          "model_response": "{\"name\": \"execute_sql\", \"parameters\": {\"sql\": \"SELECT * FROM users WHERE age > 25;\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "发送邮件工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 885.7743740081787,
+        "details": {
+          "description": "理解邮件工具参数",
+          "expected_keywords": [
+            "send_email",
+            "zhangsan@example.com",
+            "会议通知"
+          ],
+          "model_response": "{\"name\": \"send_email\", \"parameters\": {\"to\": \"zhangsan@example.com\", \"subject\": \"会议通知\", \"body\": \"明天下午2点开会\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "文件读取工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 477.0958423614502,
+        "details": {
+          "description": "生成文件读取调用",
+          "expected_keywords": [
+            "read_file",
+            "path",
+            "/home/user/data.txt"
+          ],
+          "model_response": "{\"name\": \"read_file\", \"parameters\": {\"path\": \"/home/user/data.txt\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "日期时间工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 648.9052772521973,
+        "details": {
+          "description": "理解时间工具参数",
+          "expected_keywords": [
+            "get_datetime",
+            "timezone",
+            "Beijing",
+            "Asia/Shanghai"
+          ],
+          "model_response": "```tool_code\nget_datetime(timezone=\"北京时间\", format=\"YYYY年MM月DD日 HH时mm分ss秒\")\n```",
+          "score": 0.3
+        },
+        "error": null
+      },
+      {
+        "name": "翻译工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 563.5132789611816,
+        "details": {
+          "description": "生成翻译工具调用",
+          "expected_keywords": [
+            "translate",
+            "text",
+            "Hello World",
+            "zh",
+            "中文"
+          ],
+          "model_response": "{\"name\": \"translate\", \"parameters\": {\"text\": \"Hello World\", \"target_lang\": \"zh\"}}",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "地图定位工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 476.90272331237793,
+        "details": {
+          "description": "理解地图工具参数",
+          "expected_keywords": [
+            "geocode",
+            "address",
+            "天安门"
+          ],
+          "model_response": "{\"name\": \"geocode\", \"parameters\": {\"address\": \"天安门广场\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "单位换算工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 803.2877445220947,
+        "details": {
+          "description": "生成单位换算调用",
+          "expected_keywords": [
+            "unit_convert",
+            "value",
+            "100",
+            "mile",
+            "km"
+          ],
+          "model_response": "{\"name\": \"unit_convert\", \"parameters\": {\"value\": 100, \"from_unit\": \"miles\", \"to_unit\": \"kilometers\"}}",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "随机数生成工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 721.4889526367188,
+        "details": {
+          "description": "理解随机数工具参数",
+          "expected_keywords": [
+            "random_number",
+            "min",
+            "max",
+            "1",
+            "100"
+          ],
+          "model_response": "{\"name\": \"random_number\", \"parameters\": {\"min\": 1, \"max\": 100, \"type\": \"integer\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "URL解析工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 608.8254451751709,
+        "details": {
+          "description": "生成URL解析调用",
+          "expected_keywords": [
+            "parse_url",
+            "url",
+            "https://www.example.com"
+          ],
+          "model_response": "{\"name\": \"parse_url\", \"parameters\": {\"url\": \"https://www.example.com/path?key=value#anchor\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "Base64编码工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 504.5313835144043,
+        "details": {
+          "description": "理解编码工具参数",
+          "expected_keywords": [
+            "base64_encode",
+            "data",
+            "admin",
+            "password"
+          ],
+          "model_response": "{\"name\": \"base64_encode\", \"parameters\": {\"data\": \"admin:password\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "哈希计算工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 565.5355453491211,
+        "details": {
+          "description": "生成哈希工具调用",
+          "expected_keywords": [
+            "compute_hash",
+            "text",
+            "hello",
+            "md5",
+            "MD5"
+          ],
+          "model_response": "{\"name\": \"compute_hash\", \"parameters\": {\"text\": \"hello\", \"algorithm\": \"md5\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "JSON解析工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 843.0807590484619,
+        "details": {
+          "description": "理解JSON解析参数",
+          "expected_keywords": [
+            "json_extract",
+            "json_str",
+            "name",
+            "path"
+          ],
+          "model_response": "{\"name\": \"json_extract\", \"parameters\": {\"json_str\": \"{\\\"name\\\": \\\"张三\\\", \\\"age\\\": 25}\", \"path\": \"$.name\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "正则表达式工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 1149.7962474822998,
+        "details": {
+          "description": "生成正则匹配调用",
+          "expected_keywords": [
+            "regex_extract",
+            "pattern",
+            "@",
+            "email"
+          ],
+          "model_response": "{\"name\": \"regex_extract\", \"parameters\": {\"text\": \"文本\", \"pattern\": \"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$\"}}",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "汇率转换工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 740.7574653625488,
+        "details": {
+          "description": "理解汇率工具参数",
+          "expected_keywords": [
+            "currency_convert",
+            "amount",
+            "100",
+            "USD",
+            "CNY"
+          ],
+          "model_response": "{\"name\": \"currency_convert\", \"parameters\": {\"amount\": 100, \"from\": \"USD\", \"to\": \"CNY\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "定时提醒工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 632.4098110198975,
+        "details": {
+          "description": "生成提醒工具调用",
+          "expected_keywords": [
+            "set_reminder",
+            "time",
+            "message",
+            "开会"
+          ],
+          "model_response": "{\"name\": \"set_reminder\", \"parameters\": {\"time\": \"明天上午9点\", \"message\": \"开会\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "图像识别工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 474.9102592468262,
+        "details": {
+          "description": "理解图像识别参数",
+          "expected_keywords": [
+            "ocr_image",
+            "image_path",
+            "/image/photo.jpg"
+          ],
+          "model_response": "{\"name\": \"ocr_image\", \"parameters\": {\"image_path\": \"image/photo.jpg\"}}",
+          "score": 0.5
+        },
+        "error": null
+      },
+      {
+        "name": "多工具选择",
+        "category": "工具选择",
+        "passed": true,
+        "duration_ms": 571.2203979492188,
+        "details": {
+          "description": "在多个工具中选择正确的",
+          "expected_keywords": [
+            "calculate_distance",
+            "上海",
+            "北京",
+            "from",
+            "to"
+          ],
+          "model_response": "{\"name\": \"calculate_distance\", \"parameters\": {\"from\": \"上海\", \"to\": \"北京\"}}",
+          "score": 0.7
+        },
+        "error": null
+      }
+    ]
+  }
+}

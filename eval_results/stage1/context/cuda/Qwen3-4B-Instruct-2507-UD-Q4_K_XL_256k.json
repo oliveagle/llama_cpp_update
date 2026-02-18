@@ -1,0 +1,15 @@
+{
+  "model": "Qwen3-4B-Instruct-2507-UD-Q4_K_XL",
+  "timestamp": "2026-02-17T22:09:45.783872",
+  "base_url": "http://localhost:8401",
+  "timeout": 600,
+  "tests": [
+    {
+      "target_tokens": 32768,
+      "status": "timeout",
+      "error": "Timeout after 600s"
+    }
+  ],
+  "max_successful": 0,
+  "max_correct": 0
+}

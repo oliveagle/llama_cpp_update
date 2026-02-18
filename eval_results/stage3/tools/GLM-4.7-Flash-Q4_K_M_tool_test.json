@@ -1,0 +1,386 @@
+{
+  "model": "GLM-4.7-Flash-Q4_K_M",
+  "size": "4.7B",
+  "passed": 18,
+  "total": 20,
+  "pass_rate": 0.9,
+  "duration": 66.30148243904114,
+  "categories": {
+    "工具理解": {
+      "total": 10,
+      "passed": 9
+    },
+    "工具调用": {
+      "total": 9,
+      "passed": 8
+    },
+    "工具选择": {
+      "total": 1,
+      "passed": 1
+    }
+  },
+  "tests": [
+    {
+      "name": "天气查询工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 4020.282745361328,
+      "details": {
+        "description": "理解天气查询工具参数",
+        "expected_keywords": [
+          "get_weather",
+          "北京",
+          "city"
+        ],
+        "model_response": "好的，用户问的是“北京明天天气怎么样？”。首先，我需要确定用户需要的是明天的天气，所以日期应该是今天日期的下一天。不过用户没有指定具体日期，所以应该默认是当前日期的明天。\n\n接下来，查看可用的工具，有一个get_weather函数，需要城市名和日期。城市名这里明确是北京，所以city参数填“北京”。日期的话，用户问的是明天，所以需要计算明天的日期。假设今天是2023-10-05，那么明天就是2023-10-06。不过实际调用的时候可能需要动态获取当前日期，但作为工具调用，可能需要用户指定日期或者自动处理。不过根据工具的参数要求，date是YYYY-MM-DD格式，所以可能需要将“明天”转换为具",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "计算器工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 4056.1482906341553,
+      "details": {
+        "description": "生成计算器工具调用",
+        "expected_keywords": [
+          "calculator",
+          "expression",
+          "158",
+          "67",
+          "234"
+        ],
+        "model_response": "我们被问到：“计算：158 × 67 + 234 = ?” 并且提供了一个工具：calculator，参数是一个表达式字符串。我们需要输出工具调用。注意：用户要求计算这个表达式。我们需要使用提供的工具来计算。工具的参数是\"expression\"，值为数学表达式。所以我们应该构造一个表达式字符串，比如\"158 * 67 + 234\"。注意：在计算器中，乘号通常用*表示。所以表达式应该是\"158 * 67 + 234\"。然后工具会返回结果。但问题要求“输出工具调用”，即我们需要按照指定的格式输出工具调用的参数。根据指示：“请输出工具调用：”，可能我们需要输出类似JSON或指定格式。但看问题描述：“",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "搜索引擎工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 4004.3094158172607,
+      "details": {
+        "description": "理解搜索工具参数",
+        "expected_keywords": [
+          "web_search",
+          "query",
+          "iPhone"
+        ],
+        "model_response": "好的，用户想知道最新的iPhone发布日期。首先，我需要确认用户具体指的是哪款iPhone，因为苹果每年都会发布新的iPhone型号。不过通常来说，用户可能指的是最新的那款，也就是最近发布的型号。\n\n接下来，我应该使用提供的工具web_search来搜索相关信息。工具的参数需要query和num_results。query应该是“最新的iPhone发布日期”，num_results可能需要设为5，这样能获取足够的结果来确认准确信息。\n\n不过可能需要更具体的关键词，比如加上“2023”或者“2024”，但用户没有指定年份，所以可能直接搜索“最新的iPhone发布日期”比较合适。另外，可能需要检查",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "数据库查询工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3992.9487705230713,
+      "details": {
+        "description": "生成SQL查询工具调用",
+        "expected_keywords": [
+          "execute_sql",
+          "sql",
+          "SELECT",
+          "age",
+          ">",
+          "25"
+        ],
+        "model_response": "我们被问到：“查询：获取所有年龄大于25岁的用户”。可用工具是execute_sql，参数是sql语句。我们需要输出工具调用。\n\n首先，理解问题：用户想要获取所有年龄大于25岁的用户。这通常是一个SQL查询，假设我们有一个数据库表存储用户信息，其中包含年龄字段。但问题没有指定具体的表结构。作为智能助手，我们需要假设一个合理的表结构，或者提供一个通用的SQL查询。\n\n然而，问题中说的是“可用工具：execute_sql”，参数是sql。我们需要输出工具调用的参数，即SQL语句。\n\n但注意：用户查询是“获取所有年龄大于25岁的用户”，这是一个具体的查询需求。我们需要构造一个SQL语句来查询年龄大于",
+        "score": 0.8999999999999999
+      },
+      "error": null
+    },
+    {
+      "name": "发送邮件工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 4013.3304595947266,
+      "details": {
+        "description": "理解邮件工具参数",
+        "expected_keywords": [
+          "send_email",
+          "zhangsan@example.com",
+          "会议通知"
+        ],
+        "model_response": "好的，我现在需要帮用户处理发送邮件的请求。首先，用户要求发送邮件给zhangsan@example.com，主题是“会议通知”，内容是“明天下午2点开会”。\n\n首先，我要确认用户提供的工具是否可用。根据提供的工具列表，有一个send_email函数，参数包括to、subject和body。这正好符合用户的需求，所以应该使用这个工具。\n\n接下来，我需要检查用户提供的参数是否完整。用户已经明确给出了收件人、主题和内容，所以这三个参数都齐全。to是zhangsan@example.com，subject是会议通知，body是明天下午2点开会。\n\n然后，我需要确保参数名称和结构正确。工具的参数要求是t",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "文件读取工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3491.527318954468,
+      "details": {
+        "description": "生成文件读取调用",
+        "expected_keywords": [
+          "read_file",
+          "path",
+          "/home/user/data.txt"
+        ],
+        "model_response": "```json\n{\n  \"name\": \"read_file\",\n  \"arguments\": {\n    \"path\": \"/home/user/data.txt\"\n  }\n}\n```",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "日期时间工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 3589.733123779297,
+      "details": {
+        "description": "理解时间工具参数",
+        "expected_keywords": [
+          "get_datetime",
+          "timezone",
+          "Beijing",
+          "Asia/Shanghai"
+        ],
+        "model_response": "好的，用户让我获取当前北京时间。首先，我需要确认用户需要的时区。北京时间是东八区，也就是中国标准时间（CST），对应的时区是Asia/Shanghai。\n\n接下来，查看可用的工具，有一个get_datetime函数，参数包括timezone和format。用户没有指定具体的格式，但通常获取当前时间可能需要显示日期、时间，可能还要包括年月日时分秒。不过用户可能只需要时间，或者更详细的信息。\n\n不过用户的问题只是“获取当前北京时间”，没有指定格式，所以可能需要默认格式。但工具的参数里format是必须的吗？看工具的参数定义，timezone和format都是参数，但可能format可以留空或者用默",
+        "score": 0.44999999999999996
+      },
+      "error": null
+    },
+    {
+      "name": "翻译工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3110.9085083007812,
+      "details": {
+        "description": "生成翻译工具调用",
+        "expected_keywords": [
+          "translate",
+          "text",
+          "Hello World",
+          "zh",
+          "中文"
+        ],
+        "model_response": "我们被要求将'Hello World'翻译成中文。可用的工具是translate函数，参数包括text和target_lang。\n 注意：目标语言是中文，通常用\"zh\"表示。但工具的参数描述中写的是\"目标语言\"，我们需要确认工具是否接受中文名称还是代码。根据常见做法，通常使用语言代码。但题目中写的是“目标语言”，在示例中可能期望使用语言名称或代码。然而，在工具定义中，参数是\"target_lang\"，通常在这种上下文中，我们使用ISO 639-1代码。中文的常用代码是\"zh\"。\n 但是，题目中并没有明确说明，但根据常规，我们应该使用\"zh\"。另外，注意用户要求翻译成中文，所以target_la",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "地图定位工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3094.722032546997,
+      "details": {
+        "description": "理解地图工具参数",
+        "expected_keywords": [
+          "geocode",
+          "address",
+          "天安门"
+        ],
+        "model_response": "好的，用户让我查找天安门广场的坐标。首先，我需要确定用户需要的是经纬度坐标。提供的工具是geocode，参数是address和city。不过用户只提到了天安门广场，没有指定城市，但天安门广场在北京，所以可能需要把城市填北京。\n\n不过工具的参数里address和city都是可选的？或者必须填其中一个？根据工具描述，参数是address和city，可能都需要提供。但用户只给了地址，可能需要把address设为“天安门广场”，city设为“北京”。\n\n不过可能geocode工具需要更具体的地址，比如“天安门广场，北京市”。或者可能工具内部会处理，只要address足够明确。比如直接输入“天安门广场”",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "单位换算工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3096.458911895752,
+      "details": {
+        "description": "生成单位换算调用",
+        "expected_keywords": [
+          "unit_convert",
+          "value",
+          "100",
+          "mile",
+          "km"
+        ],
+        "model_response": "我们被问到：“将100英里换算成公里”。我们需要使用提供的工具：unit_convert，参数包括value, from_unit, to_unit。\n 注意：工具的参数描述中，value是“数值”，from_unit是“原单位”，to_unit是“目标单位”。我们需要将100英里（miles）转换为公里（kilometers）。\n 首先，我们需要知道英里和公里的转换关系。通常，1英里等于1.60934公里。但工具内部应该已经处理了单位转换，所以我们只需要指定单位名称。\n 但是，工具的参数中，from_unit和to_unit应该使用标准的单位名称。我们需要确认工具支持哪些单位。题目中给出的工",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "随机数生成工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3106.5032482147217,
+      "details": {
+        "description": "理解随机数工具参数",
+        "expected_keywords": [
+          "random_number",
+          "min",
+          "max",
+          "1",
+          "100"
+        ],
+        "model_response": "我们被要求生成一个1到100之间的随机整数。可用的工具是random_number，其参数包括min、max和type。我们需要指定min为1，max为100，type为integer（因为要求整数）。注意：题目要求的是整数，所以type应该设为integer。\n\n工具调用的格式应该是：调用函数名，并传入参数。根据提供的工具描述，参数是min, max, type。我们需要按照这个结构来。\n\n注意：工具描述中参数是\"min\": \"最小值\", \"max\": \"最大值\", \"type\": \"integer/float\"。这里可能有点歧义，但根据常规理解，我们需要传入具体的值。所以，我们应该传入：\n",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "URL解析工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 1720.8988666534424,
+      "details": {
+        "description": "生成URL解析调用",
+        "expected_keywords": [
+          "parse_url",
+          "url",
+          "https://www.example.com"
+        ],
+        "model_response": "<tool_call>\n{\"name\": \"parse_url\", \"arguments\": {\"url\": \"https://www.example.com/path?key=value#anchor\"}}\n</tool_call>",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "Base64编码工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3091.700315475464,
+      "details": {
+        "description": "理解编码工具参数",
+        "expected_keywords": [
+          "base64_encode",
+          "data",
+          "admin",
+          "password"
+        ],
+        "model_response": "我们被要求将'admin:password'进行Base64编码。注意，这里的字符串是'admin:password'，我们需要对整个字符串进行Base64编码。\n 可用工具是base64_encode，参数是一个字符串\"data\"，即待编码的数据。\n 因此，我们需要调用base64_encode函数，并将data参数设置为\"admin:password\"。\n 注意：字符串中的冒号是普通字符，需要原样保留。\n 步骤：\n 1. 确定待编码数据：字符串\"admin:password\"\n 2. 调用base64_encode工具，参数data=\"admin:password\"\n 3. 输出工具调用。",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "哈希计算工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3109.2123985290527,
+      "details": {
+        "description": "生成哈希工具调用",
+        "expected_keywords": [
+          "compute_hash",
+          "text",
+          "hello",
+          "md5",
+          "MD5"
+        ],
+        "model_response": "我们被要求计算字符串'hello'的MD5哈希值。可用的工具是compute_hash，其参数包括text和algorithm。\n 注意：MD5是一种哈希算法，所以algorithm参数应该设置为\"MD5\"。\n 字符串是'hello'，所以text参数应为\"hello\"。\n 因此，我们需要调用compute_hash函数，参数为：text=\"hello\", algorithm=\"MD5\"。\n 但是，注意：工具描述中参数是\"text\"和\"algorithm\"，我们需要按照这个命名。\n 另外，注意字符串是否需要编码？通常，在哈希计算中，字符串需要以字节形式处理。但工具内部可能处理了编码，或者我们需",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "JSON解析工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3125.2822875976562,
+      "details": {
+        "description": "理解JSON解析参数",
+        "expected_keywords": [
+          "json_extract",
+          "json_str",
+          "name",
+          "path"
+        ],
+        "model_response": "我们被要求从JSON字符串中提取'name'字段的值。给定的JSON字符串是：'{\"name\": \"张三\", \"age\": 25}'。\n 可用工具是json_extract，参数需要json_str和path。\n 我们需要指定路径来提取'name'字段。在JSON中，通常路径可以是键的名称，或者使用点号表示嵌套。这里'name'是顶层字段，所以路径可以是\"name\"。\n 因此，我们需要调用json_extract工具，参数：\n   json_str: '{\"name\": \"张三\", \"age\": 25}'\n   path: \"name\"\n\n 注意：JSON字符串需要原样传递，但注意在参数中可能",
+        "score": 0.9999999999999999
+      },
+      "error": null
+    },
+    {
+      "name": "正则表达式工具",
+      "category": "工具调用",
+      "passed": false,
+      "duration_ms": 3103.301763534546,
+      "details": {
+        "description": "生成正则匹配调用",
+        "expected_keywords": [
+          "regex_extract",
+          "pattern",
+          "@",
+          "email"
+        ],
+        "model_response": "我们被要求从文本中提取所有邮箱地址，使用提供的工具：regex_extract，参数包括text（文本）和pattern（正则表达式）。\n 但是，用户并没有提供具体的文本，所以我们需要假设用户会提供文本，或者我们需要等待用户提供文本。然而，问题描述是“从文本中提取所有邮箱地址”，但用户并没有给出需要处理的文本。\n 重新阅读用户输入：用户输入是“从文本中提取所有邮箱地址”，然后给出了工具。但用户没有提供需要处理的文本。这可能是用户忘记提供文本了。\n 然而，在问题上下文中，可能用户期望我们提供一个通用的解决方案，或者我们需要提示用户提供文本。但根据指令，我们需要输出工具调用参数。\n 但是，工具调用",
+        "score": 0.3
+      },
+      "error": null
+    },
+    {
+      "name": "汇率转换工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3143.2859897613525,
+      "details": {
+        "description": "理解汇率工具参数",
+        "expected_keywords": [
+          "currency_convert",
+          "amount",
+          "100",
+          "USD",
+          "CNY"
+        ],
+        "model_response": "我们被要求将100美元换算成人民币。首先，我们需要确定使用哪个工具。题目中提供了工具：currency_convert，参数包括amount（金额）、from（原货币）、to（目标货币）。\n 注意：题目中给出的参数是字符串类型，但我们需要填写具体的货币代码。通常，美元用\"USD\"，人民币用\"CNY\"。\n 但是，题目中工具的参数描述是\"原货币\"和\"目标货币\"，我们需要用标准的货币代码。另外，注意题目中参数是\"金额\"，我们需要填写100。\n 然而，题目中工具的参数定义是：\n   \"parameters\": {\"amount\": \"金额\", \"from\": \"原货币\", \"to\": \"目标货币\"}\n",
+        "score": 0.8999999999999999
+      },
+      "error": null
+    },
+    {
+      "name": "定时提醒工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3131.683588027954,
+      "details": {
+        "description": "生成提醒工具调用",
+        "expected_keywords": [
+          "set_reminder",
+          "time",
+          "message",
+          "开会"
+        ],
+        "model_response": "我们被要求设置提醒：明天上午9点开会。\n 可用工具：set_reminder，参数：time（时间）和message（提醒内容）\n 注意：时间需要具体，但用户说的是“明天上午9点”，我们需要将其转换为具体的日期和时间。\n 但是，作为AI，我们不知道当前日期，所以我们需要假设一个相对时间。然而，在工具调用中，我们通常需要将时间表达为具体的格式。\n 但是，题目没有指定时间格式，我们可以按照常见的格式，比如“YYYY-MM-DD HH:MM”或“明天上午9点”这样的自然语言。\n 然而，工具的参数描述是“时间”，我们需要看工具是否接受自然语言还是需要具体日期。\n 由于题目没有给出工具的具体实现细节，我",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "图像识别工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3146.9504833221436,
+      "details": {
+        "description": "理解图像识别参数",
+        "expected_keywords": [
+          "ocr_image",
+          "image_path",
+          "/image/photo.jpg"
+        ],
+        "model_response": "我们被问到：“识别图片/image/photo.jpg中的文字内容”，并且提供了一个工具：ocr_image，参数是image_path。\n 注意：用户的问题中提到了“图片/image/photo.jpg”，这看起来像是文件路径。但是，在问题描述中，它写的是“识别图片/image/photo.jpg中的文字内容”，这里的“/”可能表示路径分隔符，也可能是一个分隔符。结合工具的参数要求，image_path应该是图片的路径。\n 然而，在用户输入中，它写的是“图片/image/photo.jpg”，这可能是用户提供的文件路径。我们需要确认：这个路径是完整的吗？在工具调用中，我们需要将image_p",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "多工具选择",
+      "category": "工具选择",
+      "passed": true,
+      "duration_ms": 3144.167184829712,
+      "details": {
+        "description": "在多个工具中选择正确的",
+        "expected_keywords": [
+          "calculate_distance",
+          "上海",
+          "北京",
+          "from",
+          "to"
+        ],
+        "model_response": "我们被问到：“上海到北京的距离是多少？” 用户想知道上海到北京的距离。我们需要从可用的工具中选择合适的工具。\n\n首先，分析可用工具：\n1. get_weather：参数是城市，用于获取天气信息，与距离无关。\n2. calculate_distance：参数是from（起点）和to（终点），专门用于计算距离。这看起来最相关。\n3. web_search：参数是查询，可以用于搜索，但问题直接问距离，而calculate_distance工具更直接。\n\n问题明确是“距离”，所以calculate_distance工具最匹配。参数应该是from: \"上海\", to: \"北京\"。\n\n注意：工具描述中，c",
+        "score": 0.6
+      },
+      "error": null
+    }
+  ]
+}

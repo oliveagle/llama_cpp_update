@@ -1,0 +1,4 @@
+usage: eval_tools_capability.py [-h] --model-url MODEL_URL
+                                [--model-name MODEL_NAME]
+                                [--output-dir OUTPUT_DIR] [--full] [--linux]
+eval_tools_capability.py: error: unrecognized arguments:    

@@ -1,0 +1,724 @@
+{
+  "test_id": "GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL_20260218_014313_fab58109",
+  "model": "GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL",
+  "timestamp": "2026-02-18T01:49:36.473094",
+  "endpoint": "http://localhost:8400",
+  "code": {
+    "passed": 7,
+    "total": 9,
+    "pass_rate": 0.7777777777777778,
+    "tests": [
+      {
+        "name": "has_close_elements",
+        "description": "检查列表中是否有两个元素距离小于阈值",
+        "status": "success",
+        "passed": true,
+        "score": 0.6,
+        "elapsed_ms": 37958.936,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **输入：** 一个函数签名 `def has_close_elements(numbers: list[float], threshold: float) -> bool:` 和一个文档字符串描述其功能（检查列表中任意两个元素的距离是否小于给定阈值）。\n    *   **约束：** 仅输出函数实现代码。不要解释。\n    *   **示例：**\n        *   `has_close_elements([1.0, 2.0, 3.0], 0.5)` -> `False`（最大距离是 2.0，阈值是 0.5）。\n        *   `has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)` -> `True`（2.8 和 3.0 的距离是 0.2）。\n\n2.  **算法设计：**\n    *   我需要遍历列表中的元素对。\n    *   如果列表长度小于 2，返回 `False`（虽然提示暗示列表包含数字，但边缘情况处理是好的做法）。\n    *   使用嵌套循环或 `ite"
+      },
+      {
+        "name": "separate_paren_groups",
+        "description": "分离括号组",
+        "status": "success",
+        "passed": false,
+        "score": 0.3,
+        "elapsed_ms": 11640.167,
+        "error": null,
+        "generated_code": "1.  **分析需求：**\n    *   **输入：** 一个字符串 `paren_string`，包含空格分隔的括号组（例如 `'( ) (( )) (( )( ))'`）。\n    *   **输出：** 包含这些组作为独立字符串的列表（例如 `['()', '(())', '(()())']`）。\n    *   **约束：** 输入字符串包含空格，但输出字符串不应包含空格。输入字符串中的括号组是平衡的。\n    *   **任务：** 实现 `separate_paren_groups` 函数。\n\n2.  **算法设计：**\n    *   *方法 1：正则表达式。*\n        *   正则表达式 `r'\\([^()]*\\)'` �配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配配"
+      },
+      {
+        "name": "truncate_number",
+        "description": "截断小数",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 11570.94,
+        "error": null,
+        "generated_code": "1. **分析请求：**\n    *   **输入：** 一个函数签名 `def truncate_number(number: float) -> float:` 和一个文档字符串描述该函数的行为（截断小数部分，向零取整）。\n    *   **约束：** 只输出函数实现代码，不要解释。\n    *   **示例：**\n        *   `truncate_number(3.5)` -> `3`\n        *   `truncate_number(-2.7)` -> `-2`\n\n2.  **确定逻辑：**\n    *   “截断”或“向零取整”意味着移除小数部分。\n    *   在Python中，这通常通过 `int()` 类型转换来实现，因为 `int()` 将浮点数向零截断（向下取整对于正数，向上取整对于负数）。\n    *   *替代方案：* 使用 `math.trunc()`。这明确执行截断。\n    *   *替代方案：* 使用 `math.floor()` 或 `math.ceil()`，但 `int()` 是最简洁的内置方法。\n\n3.  **起草代码：**"
+      },
+      {
+        "name": "below_zero",
+        "description": "检查余额是否曾低于零",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 12020.195,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **输入：** 一个函数签名 `def below_zero(operations: List[Tuple[str, int]]) -> bool:`。\n    *   **任务：** 实现 `below_zero` 函数。\n    *   **逻辑：** 遍历银行操作列表（存款/取款），计算余额，并返回 `True` 如果余额曾低于零，否则返回 `False`。\n    *   **约束：** 输出仅函数实现代码，不要解释。\n\n2.  **确定算法：**\n    *   初始化 `balance = 0`。\n    *   遍历 `operations` 列表中的每一项。\n    *   检查操作类型：\n        *   如果是 '存款'，增加余额。\n        *   如果是 '取款'，减少余额。\n    *   在每次更新后，检查 `balance < 0`。\n    *   如果为真，立即返回 `True`。\n    *   循环结束后，返回 `False`。\n\n3.  **起草代码：**\n\n    ```python\n  "
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "description": "计算平均绝对导数",
+        "status": "success",
+        "passed": true,
+        "score": 0.6,
+        "elapsed_ms": 9043.973,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **输入：** 一个函数签名 `def mean_absolute_derivative(xs: list[int]) -> float:` 和一个文档字符串描述其功能（计算序列的平均绝对导数，定义为相邻元素差的绝对值的平均）。\n    *   **示例：**\n        *   `[1, 2, 3, 4, 5]` -> `1.0`。计算：`|2-1| + |3-2| + |4-3| + |5-4| = 1+1+1+1 = 4`。平均值 = `4 / 4 = 1.0`。\n        *   `[1, 5, 3, 7]` -> `3.0`。计算：`|5-1| + |3-5| + |7-3| = 4 + 2 + 4 = 10`。平均值 = `10 / 3`。等等，示例输出说是 `3.0`。`10 / 3` 大约是 `3.33`。让我仔细重读提示。\n        *   提示说：`>>> mean_absolute_derivative([1, 5, 3, 7]) 3.0`。\n        *   让我重新计算：`|5-1| = 4`，"
+      },
+      {
+        "name": "intersperse",
+        "description": "在列表元素间插入分隔符",
+        "status": "success",
+        "passed": false,
+        "score": 0.3,
+        "elapsed_ms": 8926.801,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **输入：** 一个函数签名 `intersperse(numbers: List[int], delimiter: int) -> List[int]` 和一个 docstring（描述）。\n    *   **功能：** 在列表 `numbers` 的每对连续元素之间插入 `delimiter`。\n    *   **示例：**\n        *   `intersperse([1, 2, 3], 0)` -> `[1, 0, 2, 0, 3]`\n        *   `intersperse([], 5)` -> `[]`\n    *   **约束：** 只输出函数实现代码，不要解释。\n\n2.  **算法设计：**\n    *   *边缘情况：* �空列表。如果列表为空，返回空列表。\n    *   *逻辑：*\n        *   需要遍历列表，但插入元素。\n        *   方法 1：列表推导式。遍历索引 `i`。如果 `i` 是最后一个索引，添加 `numbers[i]`。否则，添加 `numbers[i]` 和 `d"
+      },
+      {
+        "name": "count_vowels",
+        "description": "统计元音字母数量",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 8953.497000000001,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **输入：** 一个函数签名 `def count_vowels(s: str) -> int:` 和一个文档字符串描述该函数（统计元音字母 'a', 'e', 'i', 'o', 'u' 的数量，不区分大小写）。\n    *   **约束：** 提供完整的函数实现代码。\n    *   **约束：** 不要解释，只输出代码。\n\n2.  **确定逻辑：**\n    *   目标字符串：`s`\n    *   元音字母：`a`, `e`, `i`, `o`, `u`（大小写不敏感）。\n    *   方法：\n        *   将字符串转换为小写（或大写）。\n        *   遍历字符串中的每个字符。\n        *   如果字符在元音集合中，增加计数器。\n        *   返回计数器。\n\n3.  **起草代码：**\n\n    *   *方法 1：循环*\n        ```python\n        def count_vowels(s: str) -> int:\n            count = 0\n     "
+      },
+      {
+        "name": "remove_duplicates",
+        "description": "移除重复元素保持顺序",
+        "status": "success",
+        "passed": true,
+        "score": 0.65,
+        "elapsed_ms": 8928.981,
+        "error": null,
+        "generated_code": "1. **分析请求：**\n    *   **输入：** 一个带有类型提示的函数签名和文档字符串的 Python 函数 `remove_duplicates`。\n    *   **任务：** 完成 `remove_duplicates` 函数的实现。\n    *   **约束：** 移除列表中的重复元素，保持第一次出现的顺序。\n    *   **约束：** 只输出函数实现代码，不要解释。\n\n2.  **确定算法：**\n    *   我需要一个列表，其中元素只出现一次，保留它们的首次出现顺序。\n    *   *方法 1：遍历和检查。* 创建一个空列表 `result`。遍历输入列表 `numbers`。如果 `x` 不在 `result` 中，追加 `x`。这很简单，但 `x in result` 的时间复杂度是 $O(n)$，所以总体复杂度是 $O(n^2)$。\n    *   *方法 2：集合。* 使用一个集合 `seen` 来跟踪已遇到的元素。遍历 `numbers`。如果 `x` 不在 `seen` 中，追加 `x` 并添加到 `seen`。集合查找是 $O(1)$，所以"
+      },
+      {
+        "name": "is_palindrome",
+        "description": "检查字符串是否为回文",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 8947.665,
+        "error": null,
+        "generated_code": "1. **分析请求：**\n    *   **输入：** 一个函数签名 `def is_palindrome(s: str) -> bool:` 和一个文档字符串描述。\n    *   **任务：** 完成 Python 函数实现。\n    *   **约束：** 仅输出函数实现代码，不要解释。\n    *   **逻辑：**\n        *   检查字符串 `s` 是否为回文。\n        *   忽略大小写（正读反读相同）。\n        *   忽略非字母数字字符（仅保留字母数字）。\n        *   示例：`'A man a plan a canal Panama'` -> `True`。\n\n2.  **算法设计：**\n    *   *方法 1：双指针。*\n        *   初始化 `left` = 0，`right` = len(s) - 1。\n        *   循环直到 `left` >= `right`。\n        *   在 `left` 处找到下一个字母数字字符。\n        *   在 `right` 处找到前一个字母数字字符"
+      }
+    ]
+  },
+  "math": {
+    "passed": 7,
+    "total": 11,
+    "pass_rate": 0.6363636363636364,
+    "tests": [
+      {
+        "name": "价格计算",
+        "status": "success",
+        "passed": false,
+        "expected": 245,
+        "extracted": 25.0,
+        "elapsed_ms": 81303.02100000001,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **输入：** 一个数学问题。\n        *   方案 A：买3件衬衫，每件25元。\n        *   方案 B：买5件衬衫，每件20元。\n        *   目标：买12件衬衫。\n        *   目标：找出最少花费。\n    *   **约束：** 直接输出答案数字，不要解释。\n\n2.  **分析数学问题：**\n    * ",
+        "reasoning_content": "1.  **分析用户请求：**\n    *   **输入：** 一个数学问题。\n        *   方案 A：买3件衬衫，每件25元。\n        *   方案 B：买5件衬衫，每件20元。\n        *   目标：买12件衬衫。\n        *   目标：找出最少花费。\n    *   **约束：** 直接输出答案数字，不要解释。\n\n2.  **分析数学问题：**\n    *   **方案 A：** 3件衬衫 = 75元。单价 = 25元/件。\n    *   **方案 B：** 5件衬衫 = 100元。单价 = 20元/件。\n    *   **目标：** 12件衬衫。\n"
+      },
+      {
+        "name": "速度距离",
+        "status": "success",
+        "passed": true,
+        "expected": 270,
+        "extracted": 270.0,
+        "elapsed_ms": 7918.638,
+        "error": null,
+        "model_answer": "270",
+        "reasoning_content": "1.  **分析请求：**\n    *   用户想要解决一个涉及速度、时间和距离的数学问题。\n    *   输入：一辆汽车以每小时60公里的速度行驶了2.5小时，然后以每小时80公里的速度行驶了1.5小时。\n    *   问题：总行驶距离是多少公里？\n    *   限制：直接输出答案数字，不要解释。\n\n2.  **识别公式：**\n    *   距离 = 速度 × 时间\n\n3.  **计算第一部分：**\n    *   速度 1 = 60 公里/小时\n    *   时间 1 = 2.5 小时\n    *   距离 1 = 60 × 2.5\n    *   计算：60 × 2 = 120"
+      },
+      {
+        "name": "比例问题",
+        "status": "success",
+        "passed": true,
+        "expected": 16,
+        "extracted": 16.0,
+        "elapsed_ms": 5804.585,
+        "error": null,
+        "model_answer": "16",
+        "reasoning_content": "1.  **分析请求：**\n    *   用户想要解决一个简单的数学问题。\n    *   问题：一个班级有40名学生。25%喜欢数学，35%喜欢英语，其余喜欢科学。喜欢科学的学生有多少人？\n    *   限制：直接输出答案数字，不要解释。\n\n2.  **计算步骤：**\n    *   学生总数 = 40。\n    *   喜欢数学的学生 = $40 \\times 25\\% = 40 \\times 0.25 = 10$。\n    *   喜欢英语的学生 = $40 \\times 35\\% = 40 \\times 0.35 = 14$。\n    *   喜欢科学的学生 = 总学生 - (喜欢"
+      },
+      {
+        "name": "连续整数",
+        "status": "success",
+        "passed": true,
+        "expected": 25,
+        "extracted": 25.0,
+        "elapsed_ms": 6467.908,
+        "error": null,
+        "model_answer": "25",
+        "reasoning_content": "1.  **分析用户请求：**\n    *   任务：解答一个数学问题。\n    *   限制：直接输出答案数字，不要解释。\n    *   问题：三个连续整数的和是72。这三个整数中最大的是多少？\n\n2.  **解构数学问题：**\n    *   设三个连续整数为 $x$、$x+1$ 和 $x+2$。\n    *   （注：设中间数为 $n$，则 $n-1$、$n$、$n+1$。设最小数为 $n$，则 $n$、$n+1$、$n+2$。设最大数为 $n$，则 $n-2$、$n-1$、$n$。）\n    *   方程：$x + (x+1) + (x+2) = 72$。\n    *   化简：$3"
+      },
+      {
+        "name": "工作效率",
+        "status": "success",
+        "passed": false,
+        "expected": 2.4,
+        "extracted": 6.0,
+        "elapsed_ms": 7799.339,
+        "error": null,
+        "model_answer": "2.4",
+        "reasoning_content": "1.  **分析请求：**\n    *   用户想要解决一个数学问题。\n    *   问题：A单独完成一项工作需要6天，B单独完成需要4天。如果A和B一起工作，需要多少天完成？\n    *   �約束：只输出最终答案数字，不要解释。\n\n2.  **识别核心概念：**\n    *   工作速率（工作量/时间）。\n    *   A的速率 = $1/6$（工作/天）。\n    *   B的速率 = $1/4$（工作/天）。\n    *   组合速率 = A的速率 + B的速率。\n    *   组合时间 = $1 /$（组合速率）。\n\n3.  **执行计算：**\n    *   A的速率 = $"
+      },
+      {
+        "name": "混合物问题",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": 20.0,
+        "elapsed_ms": 80940.075,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **输入：** 一个数学问题：“有10%浓度的盐水200克，要配制成20%浓度的盐水，需要加入多少克盐？”\n    *   **约束：** “直接输出答案数字，不要解释。”\n    *   **输出格式：** 仅数字。\n\n2.  **解构数学问题：**\n    *   初始状态：\n        *   质量 ($m_1$) = 200 克\n    ",
+        "reasoning_content": "1.  **分析用户请求：**\n    *   **输入：** 一个数学问题：“有10%浓度的盐水200克，要配制成20%浓度的盐水，需要加入多少克盐？”\n    *   **约束：** “直接输出答案数字，不要解释。”\n    *   **输出格式：** 仅数字。\n\n2.  **解构数学问题：**\n    *   初始状态：\n        *   质量 ($m_1$) = 200 克\n        *   浓度 ($c_1$) = 10% = 0.10\n    *   目标状态：\n        *   浓度 ($c_2$) = 20% = 0.20\n        *   质量 ($m"
+      },
+      {
+        "name": "年龄问题",
+        "status": "success",
+        "passed": true,
+        "expected": 15,
+        "extracted": 15.0,
+        "elapsed_ms": 5679.484,
+        "error": null,
+        "model_answer": "15",
+        "reasoning_content": "1.  **分析用户请求：**\n    *   问题：父亲现在45岁，儿子15岁。多少年后父亲的年龄是儿子年龄的2倍？\n    *   �約束条件：只输出最终答案数字。不要解释。\n\n2.  **设定变量：**\n    *   设 $x$ 为年数。\n\n3.  **建立方程：**\n    *   父亲的年龄 = $45 + x$\n    *   儿子的年龄 = $15 + x$\n    *   条件：父亲的年龄 = 2 * 儿子的年龄\n    *   方程：$45 + x = 2 * (15 + x)$\n\n4.  **求解方程：**\n    *   $45 + x = 30 + 2x$\n    *"
+      },
+      {
+        "name": "利润计算",
+        "status": "success",
+        "passed": true,
+        "expected": 30,
+        "extracted": 30.0,
+        "elapsed_ms": 4717.896,
+        "error": null,
+        "model_answer": "30",
+        "reasoning_content": "1.  **分析请求：**\n    *   用户想要解决一个数学问题。\n    *   问题：一件商品成本价是80元，售价是104元。利润率是多少？\n    *   限制：只输出最终答案数字，不要解释。\n\n2.  **识别公式：**\n    *   利润率 = (利润 / 成本价) * 100%\n    *   利润 = 售价 - 成本价\n\n3.  **计算利润：**\n    *   利润 = 104 - 80 = 24\n\n4.  **计算利润率：**\n    *   利润率 = (24 / 80) * 100%\n    *   24 / 80 = 0.3\n    *   0.3 * 100%"
+      },
+      {
+        "name": "数列求和",
+        "status": "success",
+        "passed": true,
+        "expected": 5050,
+        "extracted": 5050.0,
+        "elapsed_ms": 5735.733,
+        "error": null,
+        "model_answer": "5050",
+        "reasoning_content": "1. **分析请求：**\n    *   用户想要计算从 1 到 100 的整数之和。\n    *   限制条件：“直接输出答案数字，不要解释”（直接输出答案数字，不要解释）。\n    *   输出格式：“只输出最终答案数字”（只输出最终答案数字）。\n\n2.  **识别数学问题：**\n    *   问题：计算 $\\sum_{i=1}^{100} i$。\n    *   公式：$S_n = \\frac{n(n+1)}{2}$。\n    *   计算：$S_{100} = \\frac{100 \\times 101}{2}$。\n\n3.  **执行计算：**\n    *   $100 \\times "
+      },
+      {
+        "name": "利息计算",
+        "status": "success",
+        "passed": false,
+        "expected": 11576.25,
+        "extracted": 10000.0,
+        "elapsed_ms": 6399.633,
+        "error": null,
+        "model_answer": "11576.25",
+        "reasoning_content": "1.  **分析请求：**\n    *   用户想要一个基于复利计算的数学问题的答案。\n    *   本金 ($P$) = 10000 元。\n    *   年利率 ($r$) = 5% = 0.05。\n    *   时间 ($t$) = 3 年。\n    *   公式：$A = P \\times (1 + r)^t$。\n    *   限制：只输出最终答案数字，不要解释。\n\n2.  **执行计算：**\n    *   $P = 10000$\n    *   $r = 0.05$\n    *   $t = 3$\n    *   $A = 10000 \\times (1 + 0.05)^3$"
+      },
+      {
+        "name": "几何面积",
+        "status": "success",
+        "passed": true,
+        "expected": 78.5,
+        "extracted": 78.5,
+        "elapsed_ms": 7772.13,
+        "error": null,
+        "model_answer": "78.5",
+        "reasoning_content": "1. **分析请求：**\n    *   用户想要一个圆的面积。\n    *   半径 ($r$) = 5 厘米。\n    *   $\\pi$ 取 3.14。\n    *   限制条件：只输出最终答案数字，不要解释。\n\n2.  **识别公式：**\n    *   圆的面积公式：$A = \\pi r^2$。\n\n3.  **代入数值：**\n    *   $A = 3.14 \\times (5)^2$。\n\n4.  **计算：**\n    *   $5^2 = 25$。\n    *   $A = 3.14 \\times 25$。\n    *   计算：$3.14 \\times 25 = 78.5$。"
+      }
+    ]
+  },
+  "text": {
+    "passed": 8,
+    "total": 10,
+    "pass_rate": 0.8,
+    "tests": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "status": "success",
+        "passed": true,
+        "expected": "D",
+        "extracted": "D",
+        "elapsed_ms": 4580.161,
+        "error": null,
+        "model_answer": "1. **分析请求：**\n    *   用户询问关于“中国的四大发明”（中国的四大发明）。\n    *   用户想要找出*不*属于这四大发明的一项。\n    *   提供的选项有：\n        "
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 3785.484,
+        "error": null,
+        "model_answer": "B"
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 4604.124,
+        "error": null,
+        "model_answer": "1. **分析输入：**\n    *   前提 1：所有的猫都是哺乳动物。\n    *   前提 2：汤姆是一只猫。\n    *   问题：因此：？\n    *   选项：\n        *   A"
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 4553.645,
+        "error": null,
+        "model_answer": "1. **分析请求：**\n    *   用户询问《红楼梦》的作者是谁。\n    *   提供的选项：\n        *   A. 曹雪芹\n        *   B. �罗贯中\n        *"
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 4519.481,
+        "error": null,
+        "model_answer": "B"
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "status": "success",
+        "passed": false,
+        "expected": "C",
+        "extracted": "A",
+        "elapsed_ms": 4622.535,
+        "error": null,
+        "model_answer": "1. **分析请求：**\n    *   问题：世界上面积最大的国家是？（世界上面积最大的国家是？）\n    *   选项：\n        *   A. China (中国)\n        *  "
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 4552.384,
+        "error": null,
+        "model_answer": "1. **分析输入：**\n    *   条件：$A > B$ 且 $B > C$。\n    *   问题：基于该条件，$A$ 与 $C$ 之间的关系是什么？\n    *   选项：\n        "
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "A",
+        "elapsed_ms": 4539.975,
+        "error": null,
+        "model_answer": "1. **分析请求：**\n    *   问题：人类有多少对染色体？（人类有多少对染色体？）\n    *   选项：\n        *   A. 22对\n        *   B. 23对\n   "
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "status": "success",
+        "passed": true,
+        "expected": "C",
+        "extracted": "C",
+        "elapsed_ms": 4562.888,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   问题：太阳系中最大的行星是？（太阳系中最大的行星是？）\n    *   提供的选项：\n        *   A. 地球（地球）\n        *   "
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 4352.581,
+        "error": null,
+        "model_answer": "B"
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 50,
+    "total_passed": 36,
+    "total_pass_rate": 0.72,
+    "total_duration": 94.52151083946228
+  },
+  "tool": {
+    "passed": 14,
+    "total": 20,
+    "pass_rate": 0.7,
+    "duration": 94.52151083946228,
+    "details": [
+      {
+        "name": "天气查询工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 17408.52165222168,
+        "details": {
+          "description": "理解天气查询工具参数",
+          "expected_keywords": [
+            "get_weather",
+            "北京",
+            "city"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户问题：\"北京明天天气怎么样？\"（北京明天的天气怎么样？）\n    *   可用工具：`get_weather`，参数：`city`（城市名），`date`（YYYY-MM-DD）。\n    *   目标：输出调用参数的 JSON 格式。\n\n2.  **提取参数：**\n    *   `city`：用户指定了“北京”。-> \"北京\"\n    *   `date`：用户指定了“明天”。\n        *   *约束检查：* 工具定义要求 `date` 为 `YYYY-MM-DD` 格式。\n        *   *问题：* 我是一个 AI 模型。我无",
+          "score": 0.6
+        },
+        "error": null
+      },
+      {
+        "name": "计算器工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 2069.4077014923096,
+        "details": {
+          "description": "生成计算器工具调用",
+          "expected_keywords": [
+            "calculator",
+            "expression",
+            "158",
+            "67",
+            "234"
+          ],
+          "model_response": "{\"name\": \"calculator\", \"parameters\": {\"expression\": \"158 × 67 + 234\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "搜索引擎工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 4250.211000442505,
+        "details": {
+          "description": "理解搜索工具参数",
+          "expected_keywords": [
+            "web_search",
+            "query",
+            "iPhone"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户查询：“最新的iPhone发布日期”（最新的iPhone发布日期）。\n    *   可用工具：`web_search`。\n    *   工具参数：\n        *   `query`：“搜索关键词”（搜索关键词）。\n        *   `num_results`：“结果数量”（结果数量）。\n\n2.  **确定参数：**\n    *   `query`：用户正在询问关于“iPhone”和“发布日期”（发布日期）。因此，查询字符串应该是“最新的iPhone发布日期”或类似的英文短语，因为网络搜索通常对英文查询效果更好。让我们坚持使用用户查询",
+          "score": 0.6
+        },
+        "error": null
+      },
+      {
+        "name": "数据库查询工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 4297.934293746948,
+        "details": {
+          "description": "生成SQL查询工具调用",
+          "expected_keywords": [
+            "execute_sql",
+            "sql",
+            "SELECT",
+            "age",
+            ">",
+            "25"
+          ],
+          "model_response": "1.  **分析请求：**\n    *   **用户查询：** \"获取所有年龄大于25岁的用户\"（获取所有年龄大于25岁的用户）。\n    *   **可用工具：** `execute_sql`，参数为 `{\"sql\": \"SQL语句\"}`。\n    *   **目标：** 构建 SQL 查询语句来满足请求。\n\n2.  **确定数据库模式（假设）：**\n    *   用户表名称：`users`（常见命名约定）。\n    *   年龄列名称：`age`（常见命名约定）。\n    *   条件：`age > 25`。\n\n3.  **起草 SQL：**\n    *   基本结构：`SELECT *",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "发送邮件工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 4347.541570663452,
+        "details": {
+          "description": "理解邮件工具参数",
+          "expected_keywords": [
+            "send_email",
+            "zhangsan@example.com",
+            "会议通知"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户想要发送一封电子邮件。\n    *   收件人：`zhangsan@example.com`\n    *   主题：`'会议通知'`\n    *   内容：`'明天下午2点开会'`\n    *   可用工具：`send_email`，参数为 `to`、`subject` 和 `body`。\n\n2.  **映射参数：**\n    *   `to` 参数需要匹配收件人地址：`zhangsan@example.com`\n    *   `subject` 参数需要匹配主题：`'会议通知'`\n    *   `body` 参数需要匹配内容：`'明天下午2点",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "文件读取工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 4341.615438461304,
+        "details": {
+          "description": "生成文件读取调用",
+          "expected_keywords": [
+            "read_file",
+            "path",
+            "/home/user/data.txt"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户想要读取文件：`/home/user/data.txt`。\n    *   可用工具：`read_file`。\n    *   工具参数：`path`（文件路径）。\n    *   目标：输出正确的工具调用参数。\n\n2.  **提取参数：**\n    *   文件路径：`/home/user/data.txt`。\n\n3.  **构建输出：**\n    *   工具名称：`read_file`\n    *   参数：`{\"path\": \"/home/user/data.txt\"}`\n\n4.  **格式化：**\n    *   提示要求“请输出工具调用",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "日期时间工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 4318.647384643555,
+        "details": {
+          "description": "理解时间工具参数",
+          "expected_keywords": [
+            "get_datetime",
+            "timezone",
+            "Beijing",
+            "Asia/Shanghai"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户想要获取“当前北京时间”。\n    *   可用工具：`get_datetime`。\n    *   工具参数：\n        *   `timezone`：“时区”（必需）。\n        *   `format`：“格式”（可选，但通常需要指定以获得可读输出）。\n\n2.  **确定参数：**\n    *   `timezone`：用户明确要求“北京时间”。北京时间对应 Asia/Shanghai 时区。\n    *   `format`：用户没有指定格式。标准的 ISO 格式或“YYYY-MM-DD HH:mm:ss”是合理的默认值。我将使",
+          "score": 0.44999999999999996
+        },
+        "error": null
+      },
+      {
+        "name": "翻译工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 4349.070072174072,
+        "details": {
+          "description": "生成翻译工具调用",
+          "expected_keywords": [
+            "translate",
+            "text",
+            "Hello World",
+            "zh",
+            "中文"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户输入：\"将'Hello World'翻译成中文\"（将 'Hello World' �翻�成中文）。\n    *   可用工具：`translate`。\n    *   工具参数：\n        *   `text`：\"待翻译文本\"（待翻译文本）-> \"Hello World\"\n        *   `target_lang`：\"目标语言\"（目标语言）-> \"中文\"（Chinese）。\n\n2.  **映射参数：**\n    *   `text` = \"Hello World\"\n    *   `target_lang` = \"中文\"\n\n3.  *",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "地图定位工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 4322.19934463501,
+        "details": {
+          "description": "理解地图工具参数",
+          "expected_keywords": [
+            "geocode",
+            "address",
+            "天安门"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户想要查找“天安门广场的坐标”。\n    *   可用工具是 `geocode`。\n    *   工具参数：`address`（地址）和 `city`（城市）。\n\n2.  **确定参数：**\n    *   `address`：用户指定了“天安门广场”。这看起来像是一个具体的地址或地标名称。\n    *   `city`：用户没有明确指定城市，但“天安门广场”位于北京。不过，`geocode` 工具定义显示参数为 `address` 和 `city`。通常，地理编码工具接受地址字符串。如果我严格遵循参数定义，我需要填入地址。`city` 参数是可选",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "单位换算工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 4365.8447265625,
+        "details": {
+          "description": "生成单位换算调用",
+          "expected_keywords": [
+            "unit_convert",
+            "value",
+            "100",
+            "mile",
+            "km"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"unit_convert\",\n  \"parameters\": {\n    \"value\": \"100\",\n    \"from_unit\": \"英里\",\n    \"to_unit\": \"公里\"",
+          "score": 0.45999999999999996
+        },
+        "error": null
+      },
+      {
+        "name": "随机数生成工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 4359.10964012146,
+        "details": {
+          "description": "理解随机数工具参数",
+          "expected_keywords": [
+            "random_number",
+            "min",
+            "max",
+            "1",
+            "100"
+          ],
+          "model_response": "1.  **分析请求：**\n    *   用户想要生成一个随机整数。\n    *   范围是 1 到 100（包含）。\n    *   类型必须是整数。\n\n2.  **分析可用工具：**\n    *   工具名称：`random_number`\n    *   参数：\n        *   `min`：最小值（字符串）\n        *   `max`：最大值（字符串）\n        *   `type`：类型（字符串，选项：\"integer\" 或 \"float\"）\n\n3.  **映射参数：**\n    *   `min`：用户指定了“1 到 100”。所以，最小值是 1。\n    *",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "URL解析工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 4316.429853439331,
+        "details": {
+          "description": "生成URL解析调用",
+          "expected_keywords": [
+            "parse_url",
+            "url",
+            "https://www.example.com"
+          ],
+          "model_response": "```json\n{\n  \"name",
+          "score": 0.0
+        },
+        "error": null
+      },
+      {
+        "name": "Base64编码工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 3080.873966217041,
+        "details": {
+          "description": "理解编码工具参数",
+          "expected_keywords": [
+            "base64_encode",
+            "data",
+            "admin",
+            "password"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"base64_encode\",\n  \"parameters\": {\n    \"data\": \"admin:password\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "哈希计算工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 3396.601676940918,
+        "details": {
+          "description": "生成哈希工具调用",
+          "expected_keywords": [
+            "compute_hash",
+            "text",
+            "hello",
+            "md5",
+            "MD5"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"compute_hash\",\n  \"parameters\": {\n    \"text\": \"hello\",\n    \"algorithm\": \"MD5\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "JSON解析工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 4369.920253753662,
+        "details": {
+          "description": "理解JSON解析参数",
+          "expected_keywords": [
+            "json_extract",
+            "json_str",
+            "name",
+            "path"
+          ],
+          "model_response": "1.  **分析请求：**\n    *   **输入：** 一个包含嵌套对象的JSON字符串：`'{\"name\": \"张三\", \"age\": 25}'`。\n    *   **目标：** �取字段 `'name'` 的值。\n    *   **可用工具：** `json_extract`。\n    *   **参数：**\n        *   `json_str`：输入字符串。\n        *   `path`：提取路径（例如，`name`）。\n\n2.  **确定参数：**\n    *   `json_str`：用户提供了 `'{\"name\": \"张三\", \"age\": 25}'`。我需",
+          "score": 0.9999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "正则表达式工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 4317.38543510437,
+        "details": {
+          "description": "生成正则匹配调用",
+          "expected_keywords": [
+            "regex_extract",
+            "pattern",
+            "@",
+            "email"
+          ],
+          "model_response": "1.  **分析请求：**\n    *   **目标：** 从文本中提取所有邮箱地址。\n    *   **可用工具：** `regex_extract`。\n    *   **参数：**\n        *   `text`：输入文本（用户尚未提供，所以我需要询问或使用占位符，但提示暗示我应该输出调用参数。等等，用户*没有*提供文本。提示说“从文本中提取……”，但没有给出文本。）\n    *   **约束：** “请输出工具调用（用于提取邮箱）：”\n\n2.  **识别缺失信息：**\n    *   工具 `regex_extract` 需要参数 `text` 和 `pattern`。\n   ",
+          "score": 0.3
+        },
+        "error": null
+      },
+      {
+        "name": "汇率转换工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 4321.259021759033,
+        "details": {
+          "description": "理解汇率工具参数",
+          "expected_keywords": [
+            "currency_convert",
+            "amount",
+            "100",
+            "USD",
+            "CNY"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户想要将100美元换算成人民币。\n    *   提供的可用工具是 `currency_convert`。\n    *   工具参数：\n        *   `amount`: \"金额\"（用户输入：100）\n        *   `from`: \"原货币\"（用户输入：美元，代码：USD）\n        *   `to`: \"目标货币\"（用户输入：人民币，代码：CNY）\n\n2.  **确定参数值：**\n    *   `amount`: \"100\"\n    *   `from`: \"USD\"（美元的标准货币代码）\n    *   `to`: \"C",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "定时提醒工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 4329.875946044922,
+        "details": {
+          "description": "生成提醒工具调用",
+          "expected_keywords": [
+            "set_reminder",
+            "time",
+            "message",
+            "开会"
+          ],
+          "model_response": "1. **分析请求：**\n    *   用户想要设置一个提醒。\n    *   时间：明天上午9点。\n    *   内容：开会。\n    *   可用工具：`set_reminder`。\n    *   工具参数：\n        *   `time`：需要是时间字符串。\n        *   `message`：需要是消息字符串。\n\n2.  **确定参数值：**\n    *   `time`：\"明天上午9点\"（Tomorrow morning 9 o'clock）。\n    *   `message`：\"开会\"（Meeting）。\n\n3.  **构建输出：**\n    *   格式要求",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "图像识别工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 4151.562929153442,
+        "details": {
+          "description": "理解图像识别参数",
+          "expected_keywords": [
+            "ocr_image",
+            "image_path",
+            "/image/photo.jpg"
+          ],
+          "model_response": "```json\n{\"name\": \"ocr_image\", \"parameters\": {\"image_path\": \"image/photo.jpg\"}}\n```",
+          "score": 0.5
+        },
+        "error": null
+      },
+      {
+        "name": "多工具选择",
+        "category": "工具选择",
+        "passed": true,
+        "duration_ms": 3795.964241027832,
+        "details": {
+          "description": "在多个工具中选择正确的",
+          "expected_keywords": [
+            "calculate_distance",
+            "上海",
+            "北京",
+            "from",
+            "to"
+          ],
+          "model_response": "工具名称：calculate_distance\n参数：{\"from\": \"上海\", \"to\": \"北京\"}",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      }
+    ]
+  }
+}

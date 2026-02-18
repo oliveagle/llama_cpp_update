@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}测试规范与流程 - llama.cpp 模型测试报告{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1><i class="bi bi-book-fill text-secondary"></i> 测试规范与流程</h1>
+            <p class="lead text-muted">
+                llama.cpp 模型评估框架完整文档
+            </p>
+        </div>
+    </div>
+
+    <!-- Overview Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-1-circle"></i> Stage 1 - 基础能力</h5>
+                    <p class="card-text">功能测试、上下文能力、性能基准测试</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="bi bi-check"></i> 模型加载验证</li>
+                        <li><i class="bi bi-check"></i> 4K-32K Context测试</li>
+                        <li><i class="bi bi-check"></i> 吞吐量测量</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-2-circle"></i> Stage 2 - 入门能力</h5>
+                    <p class="card-text">代码、数学、文本、工具使用综合测试</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="bi bi-check"></i> 代码生成 (9项)</li>
+                        <li><i class="bi bi-check"></i> 数学推理 (11项)</li>
+                        <li><i class="bi bi-check"></i> 文本理解 (10项)</li>
+                        <li><i class="bi bi-check"></i> 工具使用 (20项)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-3-circle"></i> Stage 3 - 综合能力</h5>
+                    <p class="card-text">深度能力评估，65项全面测试</p>
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="bi bi-check"></i> 数学推理 (10项)</li>
+                        <li><i class="bi bi-check"></i> 代码生成 (10项)</li>
+                        <li><i class="bi bi-check"></i> 逻辑推理 (10项)</li>
+                        <li><i class="bi bi-check"></i> 常识问答 (10项)</li>
+                        <li><i class="bi bi-check"></i> 文本理解 (10项)</li>
+                        <li><i class="bi bi-check"></i> Linux Shell (15项)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Framework Details -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-diagram-3"></i> 评估框架架构</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary"><i class="bi bi-layers"></i> 测试层级</h6>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>层级</th>
+                                        <th>Token数量</th>
+                                        <th>预期结果</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>4K</td><td>4096</td><td><span class="badge bg-success">必须通过</span></td></tr>
+                                    <tr><td>8K</td><td>8192</td><td><span class="badge bg-success">必须通过</span></td></tr>
+                                    <tr><td>16K</td><td>16384</td><td><span class="badge bg-info">推荐通过</span></td></tr>
+                                    <tr><td>32K</td><td>32768</td><td><span class="badge bg-warning text-dark">可选测试</span></td></tr>
+                                    <tr><td>64K</td><td>65536</td><td><span class="badge bg-secondary">可选测试</span></td></tr>
+                                    <tr><td>128K</td><td>131072</td><td><span class="badge bg-secondary">可选测试</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary"><i class="bi bi-speedometer2"></i> 性能指标</h6>
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>指标</th>
+                                        <th>说明</th>
+                                        <th>单位</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>首token延迟</td><td>请求到首个token返回时间</td><td>ms</td></tr>
+                                    <tr><td>生成速率</td><td>tokens per second</td><td>tps</td></tr>
+                                    <tr><td>总响应时间</td><td>完整响应时间</td><td>s</td></tr>
+                                    <tr><td>Prefill速度</td><td>提示词处理速度</td><td>tps</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Test Methods -->
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-search"></i> Context测试方法</h5>
+                </div>
+                <div class="card-body">
+                    <h6>大海捞针 (Needle in a Haystack) 测试</h6>
+                    <ol>
+                        <li>在长上下文的特定位置插入关键信息</li>
+                        <li>要求模型回忆该信息</li>
+                        <li>验证信息保留率</li>
+                    </ol>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i> 测试位置: 开头 / 中间 / 结尾
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-check2-square"></i> 能力评估维度</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td><i class="bi bi-calculator text-primary"></i> 数学推理</td>
+                                <td>GSM8K、基础数学</td>
+                                <td><span class="badge bg-primary">准确率</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-code-slash text-success"></i> 代码能力</td>
+                                <td>HumanEval、MBPP</td>
+                                <td><span class="badge bg-success">pass@1</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-brain text-info"></i> 逻辑推理</td>
+                                <td>逻辑题、推理链</td>
+                                <td><span class="badge bg-info">人工评估</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-question-circle text-warning"></i> 常识问答</td>
+                                <td>常识性问题</td>
+                                <td><span class="badge bg-warning text-dark">准确率</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="bi bi-file-text text-secondary"></i> 文本理解</td>
+                                <td>阅读理解、摘要</td>
+                                <td><span class="badge bg-secondary">ROUGE</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Backend Configuration -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-hdd-rack"></i> 后端配置</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-info"><i class="bi bi-gpu-card"></i> Vulkan 后端 (AMD gfx1151)</h6>
+                            <table class="table table-sm">
+                                <tr><td>端口</td><td><code>8400</code></td></tr>
+                                <tr><td>GPU</td><td>AMD Strix Halo (gfx1151)</td></tr>
+                                <tr><td>显存</td><td>32GB</td></tr>
+                                <tr><td>版本</td><td>llama-b7952 (Vulkan)</td></tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-info"><i class="bi bi-nvidia"></i> CUDA 后端 (NVIDIA V100)</h6>
+                            <table class="table table-sm">
+                                <tr><td>端口</td><td><code>8401</code></td></tr>
+                                <tr><td>GPU</td><td>NVIDIA Tesla V100</td></tr>
+                                <tr><td>显存</td><td>32GB</td></tr>
+                                <tr><td>CUDA</td><td>12.5, sm_70</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Execution Commands -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-terminal"></i> 执行命令参考</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="text-primary">Vulkan 版本 (端口 8400)</h6>
+                    <pre class="bg-dark text-light p-3 rounded"><code># 1. 基础吞吐量 + Context 测试
+python3 eval/eval_throughput.py \
+  --model-url http://localhost:8400 \
+  --model-name MODEL_NAME \
+  --output-dir eval_results/vulkan/throughput
+
+# 2. 综合能力测试
+python3 eval/eval_all_capabilities.py \
+  --model-path /path/to/model.gguf \
+  --model-name MODEL_NAME \
+  --model-url http://localhost:8400 \
+  --output-dir eval_results/vulkan/comprehensive
+
+# 3. Linux Shell 测试
+python3 eval/eval_tools_capability.py \
+  --model-url http://localhost:8400 \
+  --model-name MODEL_NAME \
+  --output-dir eval_results/vulkan/linux_shell \
+  --linux</code></pre>
+
+                    <h6 class="text-primary mt-3">CUDA 版本 (端口 8401)</h6>
+                    <pre class="bg-dark text-light p-3 rounded"><code># 同上，将 8400 替换为 8401
+# 输出目录改为 eval_results/cuda/</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Archiving -->
+    <div class="row mt-4 mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0"><i class="bi bi-archive"></i> 数据存档规范</h5>
+                </div>
+                <div class="card-body">
+                    <p>每个测试必须保存以下文件:</p>
+                    <pre class="bg-light p-3 rounded"><code>eval_results/{backend}/{test_type}/
+├── {model_name}_{test_type}_report.md    # 人类可读报告
+├── {model_name}_{test_type}_raw.json     # 原始数据
+└── {model_name}_{test_type}.log          # 测试日志 (可选)</code></pre>
+
+                    <h6 class="mt-3">目录结构</h6>
+                    <pre class="bg-light p-3 rounded"><code>eval_results/
+├── stage1/                    # Stage 1: 基础能力测试
+├── stage2/                    # Stage 2: 入门能力测试
+├── stage3/                    # Stage 3: 综合能力测试
+├── vulkan/                    # Vulkan 后端测试结果
+│   ├── throughput/           # 吞吐量测试
+│   ├── context/              # Context 测试
+│   ├── comprehensive/        # 综合能力测试
+│   └── linux_shell/          # Linux Shell 测试
+├── cuda/                      # CUDA 后端测试结果
+└── reports/                   # 汇总报告</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Standards -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0"><i class="bi bi-star"></i> 评级标准</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <h3 class="text-warning">⭐⭐⭐⭐⭐</h3>
+                            <h5>优秀</h5>
+                            <p class="text-muted">得分 ≥ 90%</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h3 class="text-secondary">⭐⭐⭐⭐</h3>
+                            <h5>良好</h5>
+                            <p class="text-muted">75% ≤ 得分 < 90%</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h3 class="text-muted">⭐⭐⭐</h3>
+                            <h5>及格</h5>
+                            <p class="text-muted">50% ≤ 得分 < 75%</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h3 class="text-muted">⭐⭐</h3>
+                            <h5>需改进</h5>
+                            <p class="text-muted">得分 < 50%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

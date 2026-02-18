@@ -1,0 +1,466 @@
+[
+  {
+    "model": "Qwen3-0.6B-Q4_0",
+    "display_name": "Qwen3-0.6B (Q4_0)",
+    "timestamp": "2026-02-17T20:25:24.835290",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 551.51,
+        "gen_speed_tps": 10.48,
+        "ttft_ms": 12213.66,
+        "elapsed_sec": 12.21,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 652.52,
+        "gen_speed_tps": 6.2,
+        "ttft_ms": 20635.35,
+        "elapsed_sec": 20.64,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 380.87,
+        "gen_speed_tps": 2.41,
+        "ttft_ms": 53023.85,
+        "elapsed_sec": 53.02,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 3121.16,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8626.28,
+        "elapsed_sec": 8.63,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2129.28,
+        "gen_speed_tps": 0.05,
+        "ttft_ms": 18965.07,
+        "elapsed_sec": 18.97,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "Alibaba-Apsara.DASD-4B-Thinking.Q8_0",
+    "display_name": "Apsara-4B (Q8_0)",
+    "timestamp": "2026-02-17T20:29:28.394655",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 8,
+        "prompt_speed_tps": 19570.84,
+        "gen_speed_tps": 23.24,
+        "ttft_ms": 344.19,
+        "elapsed_sec": 0.34,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 271.88,
+        "gen_speed_tps": 2.58,
+        "ttft_ms": 49525.42,
+        "elapsed_sec": 49.53,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 970.37,
+        "gen_speed_tps": 6.15,
+        "ttft_ms": 20811.67,
+        "elapsed_sec": 20.81,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 3117.65,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8636.0,
+        "elapsed_sec": 8.64,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2110.77,
+        "gen_speed_tps": 0.05,
+        "ttft_ms": 19131.36,
+        "elapsed_sec": 19.13,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "MiniCPM-o-4_5-Q4_K_M",
+    "display_name": "MiniCPM-o-4.5 (Q4_K_M)",
+    "timestamp": "2026-02-17T20:32:41.713086",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 194.52,
+        "gen_speed_tps": 3.7,
+        "ttft_ms": 34629.65,
+        "elapsed_sec": 34.63,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 645.32,
+        "gen_speed_tps": 6.13,
+        "ttft_ms": 20865.72,
+        "elapsed_sec": 20.87,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2359.56,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8558.79,
+        "elapsed_sec": 8.56,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 3105.79,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8668.96,
+        "elapsed_sec": 8.67,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 480.4,
+        "gen_speed_tps": 0.01,
+        "ttft_ms": 84059.9,
+        "elapsed_sec": 84.06,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "Qwen3-4B-Instruct-2507-UD-Q4_K_XL",
+    "display_name": "Qwen3-4B (Q4_K_XL)",
+    "timestamp": "2026-02-17T20:36:24.947897",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 216.25,
+        "gen_speed_tps": 4.11,
+        "ttft_ms": 31149.85,
+        "elapsed_sec": 31.15,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 637.38,
+        "gen_speed_tps": 6.06,
+        "ttft_ms": 21125.5,
+        "elapsed_sec": 21.13,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 603.55,
+        "gen_speed_tps": 3.83,
+        "ttft_ms": 33460.62,
+        "elapsed_sec": 33.46,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2421.14,
+        "gen_speed_tps": 0.09,
+        "ttft_ms": 11120.36,
+        "elapsed_sec": 11.12,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 1899.54,
+        "gen_speed_tps": 0.05,
+        "ttft_ms": 21258.81,
+        "elapsed_sec": 21.26,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "Qwen3VL-4B-Instruct-Q8_0",
+    "display_name": "Qwen3VL-4B (Q8_0)",
+    "timestamp": "2026-02-17T20:40:04.601766",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 1989.04,
+        "gen_speed_tps": 37.8,
+        "ttft_ms": 3386.56,
+        "elapsed_sec": 3.39,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 4008.64,
+        "gen_speed_tps": 38.11,
+        "ttft_ms": 3358.99,
+        "elapsed_sec": 3.36,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2429.32,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8313.02,
+        "elapsed_sec": 8.31,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 3156.92,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8528.57,
+        "elapsed_sec": 8.53,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2319.61,
+        "gen_speed_tps": 0.06,
+        "ttft_ms": 17408.98,
+        "elapsed_sec": 17.41,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0",
+    "display_name": "Qwen3-VL-8B (Q8_0)",
+    "timestamp": "2026-02-17T20:42:13.742835",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 8,
+        "prompt_speed_tps": 27671.81,
+        "gen_speed_tps": 32.86,
+        "ttft_ms": 243.42,
+        "elapsed_sec": 0.24,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 4113.49,
+        "gen_speed_tps": 39.1,
+        "ttft_ms": 3273.38,
+        "elapsed_sec": 3.27,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 1731.86,
+        "gen_speed_tps": 10.98,
+        "ttft_ms": 11660.85,
+        "elapsed_sec": 11.66,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 3154.43,
+        "gen_speed_tps": 0.12,
+        "ttft_ms": 8535.29,
+        "elapsed_sec": 8.54,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2311.16,
+        "gen_speed_tps": 0.06,
+        "ttft_ms": 17472.58,
+        "elapsed_sec": 17.47,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "GLM-4.7-Flash-Q4_K_M",
+    "display_name": "GLM-4.7-Flash (Q4_K_M)",
+    "timestamp": "2026-02-17T20:43:36.374928",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 1974.04,
+        "gen_speed_tps": 37.51,
+        "ttft_ms": 3412.29,
+        "elapsed_sec": 3.41,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 3930.99,
+        "gen_speed_tps": 37.37,
+        "ttft_ms": 3425.35,
+        "elapsed_sec": 3.43,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2142.38,
+        "gen_speed_tps": 0.11,
+        "ttft_ms": 9426.45,
+        "elapsed_sec": 9.43,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2838.14,
+        "gen_speed_tps": 0.11,
+        "ttft_ms": 9486.49,
+        "elapsed_sec": 9.49,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2115.06,
+        "gen_speed_tps": 0.05,
+        "ttft_ms": 19092.65,
+        "elapsed_sec": 19.09,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  },
+  {
+    "model": "JoyAI-LLM-Flash-Q4_K_M",
+    "display_name": "JoyAI-Flash (Q4_K_M)",
+    "timestamp": "2026-02-17T20:45:06.080594",
+    "context_tests": [
+      {
+        "prompt_tokens": 6736,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 1971.15,
+        "gen_speed_tps": 37.46,
+        "ttft_ms": 3417.29,
+        "elapsed_sec": 3.42,
+        "status": "success",
+        "context_size": 4096
+      },
+      {
+        "prompt_tokens": 13465,
+        "completion_tokens": 128,
+        "prompt_speed_tps": 3864.15,
+        "gen_speed_tps": 36.73,
+        "ttft_ms": 3484.6,
+        "elapsed_sec": 3.48,
+        "status": "success",
+        "context_size": 8192
+      },
+      {
+        "prompt_tokens": 20195,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2137.44,
+        "gen_speed_tps": 0.11,
+        "ttft_ms": 9448.23,
+        "elapsed_sec": 9.45,
+        "status": "success",
+        "context_size": 12288
+      },
+      {
+        "prompt_tokens": 26924,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2835.59,
+        "gen_speed_tps": 0.11,
+        "ttft_ms": 9495.03,
+        "elapsed_sec": 9.5,
+        "status": "success",
+        "context_size": 16384
+      },
+      {
+        "prompt_tokens": 40382,
+        "completion_tokens": 1,
+        "prompt_speed_tps": 2135.29,
+        "gen_speed_tps": 0.05,
+        "ttft_ms": 18911.75,
+        "elapsed_sec": 18.91,
+        "status": "success",
+        "context_size": 24576
+      }
+    ],
+    "max_context_supported": 24576
+  }
+]

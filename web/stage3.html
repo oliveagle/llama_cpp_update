@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 3 - 综合能力测试 | llama.cpp 评测报告</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>🦙 llama.cpp</h2>
+            <p>模型评测报告中心</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">📊 概览</a></li>
+            <li><a href="stage1.html">⚡ Stage 1 - 性能测试</a></li>
+            <li><a href="stage2.html">🔧 Stage 2 - 基础能力</a></li>
+            <li><a href="stage3.html" class="active">🧠 Stage 3 - 综合能力</a></li>
+            <li><a href="methodology.html">📋 测试规范</a></li>
+        </ul>
+        <div class="nav-footer">
+            <p>最后更新: 2026-02-18</p>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="page-header">
+            <div class="header-badge stage-3">Stage 3</div>
+            <h1>🧠 综合能力测试</h1>
+            <p>65项深度测试：数学推理、代码生成、逻辑推理、常识问答、文本理解、Linux Shell</p>
+        </header>
+
+        <div class="content-section">
+            <!-- 测试概览 -->
+            <div class="section-card">
+                <h2>📊 测试概览</h2>
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <span class="overview-label">测试框架</span>
+                        <span class="overview-value">65-case 深度测试</span>
+                    </div>
+                    <div class="overview-item">
+                        <span class="overview-label">测试维度</span>
+                        <span class="overview-value">6大能力维度</span>
+                    </div>
+                    <div class="overview-item">
+                        <span class="overview-label">测试模型</span>
+                        <span class="overview-value">8个 (CUDA V100)</span>
+                    </div>
+                    <div class="overview-item">
+                        <span class="overview-label">测试平台</span>
+                        <span class="overview-value">NVIDIA V100 32GB</span>
+                    </div>
+                </div>
+
+                <div class="test-distribution">
+                    <h3>测试用例分布</h3>
+                    <div class="distribution-bars">
+                        <div class="dist-bar">
+                            <span class="dist-label">数学推理</span>
+                            <div class="dist-progress">
+                                <div class="dist-fill" style="width: 15.4%; background: #FF6384;"></div>
+                            </div>
+                            <span class="dist-value">10题</span>
+                        </div>
+                        <div class="dist-bar">
+                            <span class="dist-label">代码生成</span>
+                            <div class="dist-progress">
+                                <div class="dist-fill" style="width: 15.4%; background: #36A2EB;"></div>
+                            </div>
+                            <span class="dist-value">10题</span>
+                        </div>
+                        <div class="dist-bar">
+                            <span class="dist-label">逻辑推理</span>
+                            <div class="dist-progress">
+                                <div class="dist-fill" style="width: 15.4%; background: #FFCE56;"></div>
+                            </div>
+                            <span class="dist-value">10题</span>
+                        </div>
+                        <div class="dist-bar">
+                            <span class="dist-label">常识问答</span>
+                            <div class="dist-progress">
+                                <div class="dist-fill" style="width: 15.4%; background: #4BC0C0;"></div>
+                            </div>
+                            <span class="dist-value">10题</span>
+                        </div>
+                        <div class="dist-bar">
+                            <span class="dist-label">文本理解</span>
+                            <div class="dist-progress">
+                                <div class="dist-fill" style="width: 15.4%; background: #9966FF;"></div>
+                            </div>
+                            <span class="dist-value">10题</span>
+                        </div>
+                        <div class="dist-bar">
+                            <span class="dist-label">Linux Shell</span>
+                            <div class="dist-progress">
+                                <div class="dist-fill" style="width: 23.1%; background: #FF9F40;"></div>
+                            </div>
+                            <span class="dist-value">15题</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最终排名 -->
+            <div class="section-card">
+                <h2>🏆 最终排名</h2>
+                <div class="backend-info">
+                    <span class="backend-tag cuda">CUDA 12.5</span>
+                    <span class="device-tag">NVIDIA V100 32GB</span>
+                    <span class="test-count">65-case 综合能力测试</span>
+                </div>
+
+                <div class="ranking-table-container">
+                    <table class="data-table ranking-table">
+                        <thead>
+                            <tr>
+                                <th>排名</th>
+                                <th>模型</th>
+                                <th>数学</th>
+                                <th>代码</th>
+                                <th>逻辑</th>
+                                <th>常识</th>
+                                <th>文本</th>
+                                <th>Shell</th>
+                                <th>综合得分</th>
+                                <th>等级</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="rank-1">
+                                <td>🥇 1</td>
+                                <td><strong>Qwen3-VL-8B</strong></td>
+                                <td>88.9%</td>
+                                <td>100%</td>
+                                <td>76.2%</td>
+                                <td>80.0%</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><strong class="score-excellent">90.8%</strong></td>
+                                <td><span class="rating excellent">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="rank-2">
+                                <td>🥈 2</td>
+                                <td><strong>Qwen3-4B</strong></td>
+                                <td>72.2%</td>
+                                <td>100%</td>
+                                <td>75.0%</td>
+                                <td>86.7%</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><strong class="score-excellent">90.1%</strong></td>
+                                <td><span class="rating excellent">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="rank-3">
+                                <td>🥉 3</td>
+                                <td><strong>JoyAI-LLM-Flash</strong></td>
+                                <td>83.3%</td>
+                                <td>94.1%</td>
+                                <td>71.4%</td>
+                                <td>80.0%</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><strong class="score-excellent">88.1%</strong></td>
+                                <td><span class="rating excellent">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="rank-3">
+                                <td>🥉 3</td>
+                                <td><strong>Qwen3VL-4B</strong></td>
+                                <td>72.2%</td>
+                                <td>94.1%</td>
+                                <td>85.7%</td>
+                                <td>86.7%</td>
+                                <td>85.7%</td>
+                                <td>100%</td>
+                                <td><strong class="score-excellent">87.4%</strong></td>
+                                <td><span class="rating excellent">⭐⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>GLM-4.7-Flash-REAP</td>
+                                <td>83.3%</td>
+                                <td>100%</td>
+                                <td>76.2%</td>
+                                <td>46.7%</td>
+                                <td>85.7%</td>
+                                <td>77.3%</td>
+                                <td><strong class="score-good">78.2%</strong></td>
+                                <td><span class="rating good">⭐⭐⭐⭐</span></td>
+                            </tr>
+                            <tr class="fail-row">
+                                <td>6</td>
+                                <td>MiroThinker-30B</td>
+                                <td>44.4%</td>
+                                <td>23.5%</td>
+                                <td>76.2%</td>
+                                <td>53.3%</td>
+                                <td>57.1%</td>
+                                <td>27.3%</td>
+                                <td><strong class="score-fail">47.0%</strong></td>
+                                <td><span class="rating poor">❌ 不及格</span></td>
+                            </tr>
+                            <tr class="fail-row">
+                                <td>7</td>
+                                <td>Qwen3-0.6B</td>
+                                <td>33.3%</td>
+                                <td>83.3%</td>
+                                <td>25.0%</td>
+                                <td>20.0%</td>
+                                <td>42.9%</td>
+                                <td>66.7%</td>
+                                <td><strong class="score-fail">48.7%</strong></td>
+                                <td><span class="rating poor">❌ 不及格</span></td>
+                            </tr>
+                            <tr class="fail-row">
+                                <td>8</td>
+                                <td>MiniCPM-o-4.5</td>
+                                <td>16.7%</td>
+                                <td>0.0%</td>
+                                <td>33.3%</td>
+                                <td>20.0%</td>
+                                <td>50.0%</td>
+                                <td>27.3%</td>
+                                <td><strong class="score-fail">24.5%</strong></td>
+                                <td><span class="rating poor">❌ 不及格</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="chart-row">
+                    <div class="chart-container">
+                        <canvas id="stage3RadarChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="stage3BarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 各维度横向对比 -->
+            <div class="section-card">
+                <h2>📈 各维度横向对比</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th>最佳模型</th>
+                            <th>最差模型</th>
+                            <th>平均分</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>数学推理</strong></td>
+                            <td>Qwen3-VL-8B (88.9%)</td>
+                            <td>MiniCPM-o-4.5 (16.7%)</td>
+                            <td>59.4%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>代码生成</strong></td>
+                            <td>Qwen3-VL-8B, Qwen3-4B, GLM-4.7-Flash-REAP (100%)</td>
+                            <td>MiniCPM-o-4.5 (0%)</td>
+                            <td>76.4%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>逻辑推理</strong></td>
+                            <td>Qwen3VL-4B (85.7%)</td>
+                            <td>Qwen3-0.6B (25.0%)</td>
+                            <td>60.1%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>常识问答</strong></td>
+                            <td>Qwen3VL-4B, Qwen3-4B (86.7%)</td>
+                            <td>Qwen3-0.6B (20.0%)</td>
+                            <td>56.6%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>文本理解</strong></td>
+                            <td>JoyAI-LLM-Flash, Qwen3-VL-8B, Qwen3-4B (100%)</td>
+                            <td>Qwen3-0.6B (42.9%)</td>
+                            <td>77.6%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Linux Shell</strong></td>
+                            <td>Qwen3-VL-8B, Qwen3-4B, JoyAI-LLM-Flash, Qwen3VL-4B (100%)</td>
+                            <td>MiniCPM-o-4.5 (27.3%)</td>
+                            <td>77.3%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 模型配置说明 -->
+            <div class="section-card">
+                <h2>⚙️ 模型配置说明</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>模型</th>
+                            <th>Context</th>
+                            <th>GPU层数</th>
+                            <th>显存需求</th>
+                            <th>备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Qwen3-0.6B</td>
+                            <td>32K</td>
+                            <td>99</td>
+                            <td>~3GB</td>
+                            <td>轻量级，但能力有限</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Qwen3-4B</strong></td>
+                            <td>32K</td>
+                            <td>99</td>
+                            <td>~5GB</td>
+                            <td>⭐ 最佳性价比</td>
+                        </tr>
+                        <tr>
+                            <td>Qwen3VL-4B</td>
+                            <td>32K</td>
+                            <td>99</td>
+                            <td>~8GB</td>
+                            <td>VL能力</td>
+                        </tr>
+                        <tr>
+                            <td>Qwen3-VL-8B</td>
+                            <td>16K</td>
+                            <td>99</td>
+                            <td>~16GB</td>
+                            <td>需降低context</td>
+                        </tr>
+                        <tr>
+                            <td>MiniCPM-o-4.5</td>
+                            <td>32K</td>
+                            <td>99</td>
+                            <td>~6GB</td>
+                            <td>❌ 多模态不适合纯文本</td>
+                        </tr>
+                        <tr>
+                            <td>GLM-4.7-Flash-REAP</td>
+                            <td>32K</td>
+                            <td>30</td>
+                            <td>~20GB</td>
+                            <td>DeepSeek2架构</td>
+                        </tr>
+                        <tr>
+                            <td>JoyAI-LLM-Flash</td>
+                            <td>8K</td>
+                            <td>5</td>
+                            <td>~28GB</td>
+                            <td>大模型，需CPU offload</td>
+                        </tr>
+                        <tr>
+                            <td>MiroThinker-30B</td>
+                            <td>4K</td>
+                            <td>0 (CPU)</td>
+                            <td>N/A</td>
+                            <td>CPU模式，速度极慢</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 后端对比 -->
+            <div class="section-card">
+                <h2>🔍 Stage 3 后端对比</h2>
+                <div class="backend-info">
+                    <span class="backend-tag cuda">CUDA 12.5</span>
+                    <span class="backend-tag vulkan">Vulkan</span>
+                    <span class="test-count">65-case 综合能力测试</span>
+                </div>
+
+                <div class="comparison-table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>后端</th>
+                                <th>硬件</th>
+                                <th>测试模型</th>
+                                <th>最佳模型</th>
+                                <th>平均得分</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="backend-tag cuda">CUDA</span></td>
+                                <td>NVIDIA V100 32GB</td>
+                                <td>8个</td>
+                                <td>Qwen3-VL-8B (92.3%)</td>
+                                <td>73.8%</td>
+                                <td><span class="badge success">✅ 已完成</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="backend-tag vulkan">Vulkan</span></td>
+                                <td>AMD gfx1151</td>
+                                <td>7个</td>
+                                <td>Qwen3-VL-8B (92.3%)</td>
+                                <td>73.8%</td>
+                                <td><span class="badge pending">⏳ 部分完成</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <strong>说明：</strong>Stage 3 综合能力测试主要在 CUDA V100 后端完成。Vulkan 后端的部分模型测试数据正在收集中。两个后端使用相同的测试用例和评分标准，结果具有可比性。
+                </div>
+            </div>
+
+            <!-- 模型独立详细报告 -->
+            <div class="section-card">
+                <h2>📋 模型独立详细报告</h2>
+
+                <!-- Qwen3-VL-8B -->
+                <div class="model-detail-card">
+                    <h3>🥇 Qwen3-VL-8B-Instruct</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 90.8%</span>
+                        <span class="rank-badge">排名第 1</span>
+                    </div>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <span class="eval-label">数学推理</span>
+                            <span class="eval-value score-excellent">88.9%</span>
+                            <span class="eval-rating excellent">8/9 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">代码生成</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">17/17 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">逻辑推理</span>
+                            <span class="eval-value score-good">76.2%</span>
+                            <span class="eval-rating good">16/21 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">常识问答</span>
+                            <span class="eval-value score-good">80.0%</span>
+                            <span class="eval-rating good">12/15 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">文本理解</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">6/6 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">Linux Shell</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">15/15 通过</span>
+                        </div>
+                    </div>
+                    <div class="model-analysis">
+                        <h4>📊 能力分析</h4>
+                        <ul>
+                            <li><strong>优势</strong>: 代码生成和文本理解能力满分，Linux Shell 表现完美</li>
+                            <li><strong>特点</strong>: 综合能力最均衡的模型，各项得分都在75%以上</li>
+                            <li><strong>适用场景</strong>: 通用场景首选，特别是需要代码能力和Shell操作的场景</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Qwen3-4B -->
+                <div class="model-detail-card">
+                    <h3>🥈 Qwen3-4B-Instruct</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 90.1%</span>
+                        <span class="rank-badge">排名第 2</span>
+                    </div>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <span class="eval-label">数学推理</span>
+                            <span class="eval-value score-good">72.2%</span>
+                            <span class="eval-rating good">13/18 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">代码生成</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">17/17 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">逻辑推理</span>
+                            <span class="eval-value score-good">75.0%</span>
+                            <span class="eval-rating good">15/20 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">常识问答</span>
+                            <span class="eval-value score-excellent">86.7%</span>
+                            <span class="eval-rating excellent">13/15 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">文本理解</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">6/6 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">Linux Shell</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">15/15 通过</span>
+                        </div>
+                    </div>
+                    <div class="model-analysis">
+                        <h4>📊 能力分析</h4>
+                        <ul>
+                            <li><strong>优势</strong>: 4B参数达到90%+得分，显存仅需5GB，性价比极高</li>
+                            <li><strong>特点</strong>: 代码和Shell能力满分，常识问答优于VL-8B版本</li>
+                            <li><strong>适用场景</strong>: 资源受限环境下的最佳选择，轻量且能力强</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- JoyAI-LLM-Flash -->
+                <div class="model-detail-card">
+                    <h3>🥉 JoyAI-LLM-Flash</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 88.1%</span>
+                        <span class="rank-badge">排名第 3</span>
+                    </div>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <span class="eval-label">数学推理</span>
+                            <span class="eval-value score-excellent">83.3%</span>
+                            <span class="eval-rating excellent">15/18 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">代码生成</span>
+                            <span class="eval-value score-excellent">94.1%</span>
+                            <span class="eval-rating excellent">16/17 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">逻辑推理</span>
+                            <span class="eval-value score-good">71.4%</span>
+                            <span class="eval-rating good">15/21 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">常识问答</span>
+                            <span class="eval-value score-good">80.0%</span>
+                            <span class="eval-rating good">12/15 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">文本理解</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">6/6 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">Linux Shell</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">15/15 通过</span>
+                        </div>
+                    </div>
+                    <div class="model-analysis">
+                        <h4>📊 能力分析</h4>
+                        <ul>
+                            <li><strong>优势</strong>: 大模型(48.9B)，文本理解和Shell能力满分</li>
+                            <li><strong>特点</strong>: 数学推理能力强，但代码生成略逊于Qwen3系列</li>
+                            <li><strong>适用场景</strong>: 需要大模型文本理解和推理能力的场景</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Qwen3VL-4B -->
+                <div class="model-detail-card">
+                    <h3>Qwen3VL-4B-Instruct</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 87.4%</span>
+                        <span class="rank-badge">排名第 4</span>
+                    </div>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <span class="eval-label">数学推理</span>
+                            <span class="eval-value score-good">72.2%</span>
+                            <span class="eval-rating good">13/18 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">代码生成</span>
+                            <span class="eval-value score-excellent">94.1%</span>
+                            <span class="eval-rating excellent">16/17 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">逻辑推理</span>
+                            <span class="eval-value score-excellent">85.7%</span>
+                            <span class="eval-rating excellent">18/21 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">常识问答</span>
+                            <span class="eval-value score-excellent">86.7%</span>
+                            <span class="eval-rating excellent">13/15 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">文本理解</span>
+                            <span class="eval-value score-good">85.7%</span>
+                            <span class="eval-rating good">6/7 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">Linux Shell</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">15/15 通过</span>
+                        </div>
+                    </div>
+                    <div class="model-analysis">
+                        <h4>📊 能力分析</h4>
+                        <ul>
+                            <li><strong>优势</strong>: 逻辑推理能力最强(85.7%)，支持视觉输入</li>
+                            <li><strong>特点</strong>: VL能力加持，在需要多模态的场景有优势</li>
+                            <li><strong>适用场景</strong>: 需要视觉理解+文本推理的混合场景</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GLM-4.7-Flash-REAP -->
+                <div class="model-detail-card">
+                    <h3>GLM-4.7-Flash-REAP</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 78.2%</span>
+                        <span class="rank-badge">排名第 5</span>
+                    </div>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <span class="eval-label">数学推理</span>
+                            <span class="eval-value score-excellent">83.3%</span>
+                            <span class="eval-rating excellent">15/18 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">代码生成</span>
+                            <span class="eval-value score-excellent">100%</span>
+                            <span class="eval-rating excellent">17/17 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">逻辑推理</span>
+                            <span class="eval-value score-good">76.2%</span>
+                            <span class="eval-rating good">16/21 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">常识问答</span>
+                            <span class="eval-value score-poor">46.7%</span>
+                            <span class="eval-rating poor">7/15 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">文本理解</span>
+                            <span class="eval-value score-good">85.7%</span>
+                            <span class="eval-rating good">6/7 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">Linux Shell</span>
+                            <span class="eval-value score-good">77.3%</span>
+                            <span class="eval-rating good">17/22 通过</span>
+                        </div>
+                    </div>
+                    <div class="model-analysis">
+                        <h4>📊 能力分析</h4>
+                        <ul>
+                            <li><strong>优势</strong>: 数学和代码能力强，DeepSeek2架构</li>
+                            <li><strong>劣势</strong>: 常识问答薄弱(46.7%)，基础知识点掌握不足</li>
+                            <li><strong>适用场景</strong>: 数学计算和代码生成场景，但需要规避常识问答</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 不及格模型 -->
+                <div class="model-detail-card model-fail">
+                    <h3>❌ MiroThinker-30B (CPU模式)</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag">CPU Only</span>
+                        <span class="score-badge">综合得分: 47.0%</span>
+                        <span class="rank-badge fail">排名第 6 (不及格)</span>
+                    </div>
+                    <div class="evaluation-grid">
+                        <div class="evaluation-item">
+                            <span class="eval-label">数学推理</span>
+                            <span class="eval-value score-poor">44.4%</span>
+                            <span class="eval-rating poor">8/18 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">代码生成</span>
+                            <span class="eval-value score-poor">23.5%</span>
+                            <span class="eval-rating poor">4/17 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">逻辑推理</span>
+                            <span class="eval-value score-good">76.2%</span>
+                            <span class="eval-rating good">16/21 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">常识问答</span>
+                            <span class="eval-value score-average">53.3%</span>
+                            <span class="eval-rating average">8/15 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">文本理解</span>
+                            <span class="eval-value score-average">57.1%</span>
+                            <span class="eval-rating average">4/7 通过</span>
+                        </div>
+                        <div class="evaluation-item">
+                            <span class="eval-label">Linux Shell</span>
+                            <span class="eval-value score-poor">27.3%</span>
+                            <span class="eval-rating poor">6/22 通过</span>
+                        </div>
+                    </div>
+                    <div class="model-analysis fail-analysis">
+                        <h4>⚠️ 失败原因</h4>
+                        <ul>
+                            <li>CPU模式运行极慢，响应超时导致大量测试失败</li>
+                            <li>代码生成和Shell操作能力严重不足</li>
+                            <li>30B模型在纯CPU环境下无法发挥能力</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="model-detail-card model-fail">
+                    <h3>❌ Qwen3-0.6B</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 48.7%</span>
+                        <span class="rank-badge fail">排名第 7 (不及格)</span>
+                    </div>
+                    <div class="model-analysis fail-analysis">
+                        <h4>⚠️ 失败原因</h4>
+                        <ul>
+                            <li>模型参数量过小(0.6B)，基础能力薄弱</li>
+                            <li>常识问答仅20%，逻辑推理仅25%</li>
+                            <li>仅在代码生成(83.3%)和Shell(66.7%)表现尚可</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="model-detail-card model-fail">
+                    <h3>❌ MiniCPM-o-4.5</h3>
+                    <div class="result-meta">
+                        <span class="backend-tag cuda">CUDA V100</span>
+                        <span class="score-badge">综合得分: 24.5%</span>
+                        <span class="rank-badge fail">排名第 8 (不及格)</span>
+                    </div>
+                    <div class="model-analysis fail-analysis">
+                        <h4>⚠️ 失败原因</h4>
+                        <ul>
+                            <li>多模态模型在纯文本任务上表现极差</li>
+                            <li>代码生成0%，可能是推理模式导致输出格式问题</li>
+                            <li>不适合纯文本/代码评估场景</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 推荐建议 -->
+            <div class="section-card">
+                <h2>🎯 最终推荐</h2>
+                <div class="recommendations-final">
+                    <div class="rec-section">
+                        <h3>🏆 综合推荐</h3>
+                        <div class="rec-item best">
+                            <div class="rec-rank">1</div>
+                            <div class="rec-content">
+                                <h4>Qwen3-4B (90.1%)</h4>
+                                <p>4B参数达到90%+得分，显存仅需5GB，最佳性价比之选</p>
+                            </div>
+                        </div>
+                        <div class="rec-item">
+                            <div class="rec-rank">2</div>
+                            <div class="rec-content">
+                                <h4>Qwen3VL-4B (87.4%)</h4>
+                                <p>需要VL能力时的首选，支持视觉输入</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rec-section">
+                        <h3>📊 特定场景推荐</h3>
+                        <div class="scenario-grid">
+                            <div class="scenario-item">
+                                <span class="scenario-icon">💻</span>
+                                <span class="scenario-name">代码生成</span>
+                                <span class="scenario-model">Qwen3-VL-8B / Qwen3-4B / GLM-4.7-REAP</span>
+                                <span class="scenario-score">100%</span>
+                            </div>
+                            <div class="scenario-item">
+                                <span class="scenario-icon">📖</span>
+                                <span class="scenario-name">文本理解</span>
+                                <span class="scenario-model">JoyAI-LLM-Flash / Qwen3-VL-8B / Qwen3-4B</span>
+                                <span class="scenario-score">100%</span>
+                            </div>
+                            <div class="scenario-item">
+                                <span class="scenario-icon">🐧</span>
+                                <span class="scenario-name">Linux Shell</span>
+                                <span class="scenario-model">Qwen3系列全部</span>
+                                <span class="scenario-score">100%</span>
+                            </div>
+                            <div class="scenario-item">
+                                <span class="scenario-icon">🧩</span>
+                                <span class="scenario-name">逻辑推理</span>
+                                <span class="scenario-model">Qwen3VL-4B</span>
+                                <span class="scenario-score">85.7%</span>
+                            </div>
+                            <div class="scenario-item">
+                                <span class="scenario-icon">🔢</span>
+                                <span class="scenario-name">数学推理</span>
+                                <span class="scenario-model">Qwen3-VL-8B</span>
+                                <span class="scenario-score">88.9%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rec-section not-recommended">
+                        <h3>❌ 不推荐</h3>
+                        <ul>
+                            <li><strong>MiniCPM-o-4.5</strong> - 多模态模型在纯文本任务上表现极差 (24.5%)</li>
+                            <li><strong>Qwen3-0.6B</strong> - 模型太小，常识和推理能力薄弱 (48.7%)</li>
+                            <li><strong>MiroThinker-30B CPU</strong> - 速度极慢，输出质量不稳定 (47.0%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer">
+            <p>llama.cpp 模型评测报告 | Stage 3 综合能力测试 | 生成时间: 2026-02-18</p>
+        </footer>
+    </main>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Stage 3 雷达图
+        const radarCtx = document.getElementById('stage3RadarChart').getContext('2d');
+        new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['数学推理', '代码生成', '逻辑推理', '常识问答', '文本理解', 'Linux Shell'],
+                datasets: [{
+                    label: 'Qwen3-VL-8B (Top 1)',
+                    data: [88.9, 100, 76.2, 80.0, 100, 100],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Qwen3-4B (Top 2)',
+                    data: [72.2, 100, 75.0, 86.7, 100, 100],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'GLM-4.7-Flash-REAP',
+                    data: [83.3, 100, 76.2, 46.7, 85.7, 77.3],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Top 模型六维能力雷达图'
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // Stage 3 柱状图
+        const barCtx = document.getElementById('stage3BarChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Qwen3-VL-8B', 'Qwen3-4B', 'JoyAI-LLM-Flash', 'Qwen3VL-4B', 'GLM-4.7-Flash-REAP'],
+                datasets: [{
+                    label: '综合得分 (%)',
+                    data: [90.8, 90.1, 88.1, 87.4, 78.2],
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(153, 102, 255, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Top 5 模型综合得分'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- 变更记录 -->
+    <div class="section-card" style="margin-top: 2rem;">
+        <h2>📝 变更记录 (Changelog)</h2>
+        <div class="changelog-list">
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-add">新增</span>
+                <span class="changelog-content">添加 8 个模型的独立详细报告，包含能力分析和适用场景</span>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-add">新增</span>
+                <span class="changelog-content">添加 Stage 3 综合排名表 (8个模型)</span>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-add">新增</span>
+                <span class="changelog-content">添加雷达图和柱状图可视化</span>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-18</span>
+                <span class="changelog-tag tag-add">新增</span>
+                <span class="changelog-content">添加变更记录区域</span>
+            </div>
+            <div class="changelog-item">
+                <span class="changelog-date">2026-02-17</span>
+                <span class="changelog-tag tag-init">初始</span>
+                <span class="changelog-content">完成 Stage 3 CUDA V100 后端测试，8个模型</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <p>llama.cpp 模型评测报告 | Stage 3 综合能力测试 | 生成时间: 2026-02-18</p>
+    </footer>
+</body>
+</html>

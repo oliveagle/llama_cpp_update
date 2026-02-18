@@ -1,0 +1,427 @@
+{
+  "model": "Qwen3VL-4B-Instruct-Q8_0",
+  "size": "4B",
+  "timestamp": "2026-02-17T23:33:59.566082",
+  "code": {
+    "passed": 9,
+    "total": 9,
+    "pass_rate": 1.0,
+    "duration": 21.40550398826599,
+    "details": [
+      {
+        "name": "has_close_elements",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 9104.54511642456,
+        "details": {
+          "description": "检查列表中是否有两个元素距离小于阈值",
+          "generated_code": "def has_close_elements(numbers: list[float], threshold: float) -> bool:\n    for i in range(len(numbers)):\n        for j in range(i + 1, len(numbers)):\n            if abs(numbers[i] - numbers[j]) < threshold:\n                return True\n    return False",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "separate_paren_groups",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 3648.677349090576,
+        "details": {
+          "description": "分离括号组",
+          "generated_code": "def separate_paren_groups(paren_string: str) -> list[str]:\n    result = []\n    start = 0\n    n = len(paren_string)\n    \n    for i in range(n):\n        if paren_string[i] == '(':\n            # 找到匹配的右括号\n            count = 1\n            j = i + 1\n            while j < n and count > 0:\n                if paren_string[j] == '(':\n                    count += 1\n                elif paren_string[j] == ')':\n                    count -= 1\n                j += 1\n            # 从i到j-1是完整的括号组\n            res",
+          "score": 0.65
+        },
+        "error": null
+      },
+      {
+        "name": "truncate_number",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 421.82230949401855,
+        "details": {
+          "description": "截断小数",
+          "generated_code": "def truncate_number(number: float) -> float:\n    return int(number)",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "below_zero",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 1648.9686965942383,
+        "details": {
+          "description": "检查余额是否曾低于零",
+          "generated_code": "def below_zero(operations: List[Tuple[str, int]]) -> bool:\n    balance = 0\n    for op, amount in operations:\n        if op == '存款':\n            balance += amount\n        else:  # '取款'\n            balance -= amount\n        if balance < 0:\n            return True\n    return False",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 1471.2350368499756,
+        "details": {
+          "description": "计算平均绝对导数",
+          "generated_code": "def mean_absolute_derivative(xs: list[int]) -> float:\n    if len(xs) <= 1:\n        return 0.0\n    diffs = [abs(xs[i] - xs[i-1]) for i in range(1, len(xs))]\n    return sum(diffs) / len(diffs)",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "intersperse",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 1361.081600189209,
+        "details": {
+          "description": "在列表元素间插入分隔符",
+          "generated_code": "def intersperse(numbers: List[int], delimiter: int) -> List[int]:\n    if not numbers:\n        return []\n    result = [numbers[0]]\n    for i in range(1, len(numbers)):\n        result.append(delimiter)\n        result.append(numbers[i])\n    return result",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "count_vowels",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 1163.51318359375,
+        "details": {
+          "description": "统计元音字母数量",
+          "generated_code": "def count_vowels(s: str) -> int:\n    vowels = \"aeiouAEIOU\"\n    count = 0\n    for char in s:\n        if char in vowels:\n            count += 1\n    return count",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "remove_duplicates",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 1120.2690601348877,
+        "details": {
+          "description": "移除重复元素保持顺序",
+          "generated_code": "def remove_duplicates(numbers: List[int]) -> List[int]:\n    seen = set()\n    result = []\n    for num in numbers:\n        if num not in seen:\n            seen.add(num)\n            result.append(num)\n    return result",
+          "score": 0.8
+        },
+        "error": null
+      },
+      {
+        "name": "is_palindrome",
+        "category": "代码能力",
+        "passed": true,
+        "duration_ms": 1461.3292217254639,
+        "details": {
+          "description": "检查字符串是否为回文",
+          "generated_code": "def is_palindrome(s: str) -> bool:\n    # 只保留字母数字字符并转为小写\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    # 检查是否与反转后相同\n    return cleaned == cleaned[::-1]",
+          "score": 0.8
+        },
+        "error": null
+      }
+    ]
+  },
+  "math": {
+    "passed": 5,
+    "total": 11,
+    "pass_rate": 0.45454545454545453,
+    "duration": 7.454441785812378,
+    "details": [
+      {
+        "name": "价格计算",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 142.36044883728027,
+        "details": {
+          "description": "基础价格计算",
+          "problem": "一个商店正在促销。买3件衬衫每件25元，或者买5件衬衫每件20元。如果小明想买12件衬衫，最少需要多少钱？",
+          "expected_answer": 245,
+          "extracted_answer": 150.0,
+          "model_answer": "150"
+        },
+        "error": null
+      },
+      {
+        "name": "速度距离",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 128.71766090393066,
+        "details": {
+          "description": "速度距离时间计算",
+          "problem": "一辆汽车以每小时60公里的速度行驶了2.5小时，然后以每小时80公里的速度行驶了1.5小时。总行驶距离是多少公里？",
+          "expected_answer": 270,
+          "extracted_answer": 330.0,
+          "model_answer": "330"
+        },
+        "error": null
+      },
+      {
+        "name": "比例问题",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 124.41205978393555,
+        "details": {
+          "description": "比例和百分比",
+          "problem": "一个班级有40名学生，其中25%喜欢数学，35%喜欢英语，其余喜欢科学。喜欢科学的学生有多少人？",
+          "expected_answer": 16,
+          "extracted_answer": 10.0,
+          "model_answer": "10"
+        },
+        "error": null
+      },
+      {
+        "name": "连续整数",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 892.9615020751953,
+        "details": {
+          "description": "连续整数求和",
+          "problem": "三个连续整数的和是72。这三个整数中最大的是多少？",
+          "expected_answer": 25,
+          "extracted_answer": 72.0,
+          "model_answer": "72 ÷ 3 = 24\n\n所以三个连续整数是：22, 23, 24\n\n最大的是：24\n\n24"
+        },
+        "error": null
+      },
+      {
+        "name": "工作效率",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 79.87785339355469,
+        "details": {
+          "description": "工作效率问题",
+          "problem": "A单独完成一项工作需要6天，B单独完成需要4天。如果A和B一起工作，需要多少天完成？",
+          "expected_answer": 2.4,
+          "extracted_answer": 3.0,
+          "model_answer": "3"
+        },
+        "error": null
+      },
+      {
+        "name": "混合物问题",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 5350.239038467407,
+        "details": {
+          "description": "混合浓度",
+          "problem": "有10%浓度的盐水200克，要配制成20%浓度的盐水，需要加入多少克盐？",
+          "expected_answer": 25,
+          "extracted_answer": 200.0,
+          "model_answer": "设需要加入盐的质量为 $ x $ 克。\n\n原盐水质量为 200 克，浓度为 10%，所以含盐量为：\n\n$$\n200 \\times 10\\% = 20 \\text{ 克}\n$$\n\n加入 $ x $ 克盐后，总质量变为 $ 200 + x $ 克，盐的总质量为 $ 20 + x $ 克，浓度变为 20%，即：\n\n$$\n\\frac{20 + x}{200 + x} = 0.2\n$$\n\n解这个方程：\n\n$"
+        },
+        "error": null
+      },
+      {
+        "name": "年龄问题",
+        "category": "数学能力",
+        "passed": true,
+        "duration_ms": 109.76886749267578,
+        "details": {
+          "description": "年龄差问题",
+          "problem": "父亲现在45岁，儿子15岁。多少年后父亲的年龄是儿子年龄的2倍？",
+          "expected_answer": 15,
+          "extracted_answer": 15.0,
+          "model_answer": "15"
+        },
+        "error": null
+      },
+      {
+        "name": "利润计算",
+        "category": "数学能力",
+        "passed": true,
+        "duration_ms": 112.18452453613281,
+        "details": {
+          "description": "利润百分比",
+          "problem": "一件商品成本价是80元，售价是104元。利润率是多少？",
+          "expected_answer": 30,
+          "extracted_answer": 30.0,
+          "model_answer": "30%"
+        },
+        "error": null
+      },
+      {
+        "name": "数列求和",
+        "category": "数学能力",
+        "passed": true,
+        "duration_ms": 133.24666023254395,
+        "details": {
+          "description": "等差数列求和",
+          "problem": "计算1到100所有整数的和是多少？",
+          "expected_answer": 5050,
+          "extracted_answer": 5050.0,
+          "model_answer": "5050"
+        },
+        "error": null
+      },
+      {
+        "name": "利息计算",
+        "category": "数学能力",
+        "passed": true,
+        "duration_ms": 230.45659065246582,
+        "details": {
+          "description": "复利计算",
+          "problem": "本金10000元，年利率5%，存3年后本息共多少？（复利计算）",
+          "expected_answer": 11576.25,
+          "extracted_answer": 11576.25,
+          "model_answer": "11576.25"
+        },
+        "error": null
+      },
+      {
+        "name": "几何面积",
+        "category": "数学能力",
+        "passed": true,
+        "duration_ms": 145.25938034057617,
+        "details": {
+          "description": "圆形面积",
+          "problem": "一个圆的半径是5厘米，它的面积是多少？（π取3.14）",
+          "expected_answer": 78.5,
+          "extracted_answer": 78.5,
+          "model_answer": "78.5"
+        },
+        "error": null
+      }
+    ]
+  },
+  "text": {
+    "passed": 10,
+    "total": 10,
+    "pass_rate": 1.0,
+    "duration": 0.9310739040374756,
+    "details": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "passed": true,
+        "duration_ms": 101.46522521972656,
+        "details": {
+          "question": "中国的四大发明不包括以下哪一项？",
+          "expected": "D",
+          "extracted": "D",
+          "model_answer": "D"
+        },
+        "error": null
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "passed": true,
+        "duration_ms": 110.12005805969238,
+        "details": {
+          "question": "光在真空中的传播速度约为多少？",
+          "expected": "B",
+          "extracted": "B",
+          "model_answer": "B"
+        },
+        "error": null
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "passed": true,
+        "duration_ms": 107.99717903137207,
+        "details": {
+          "question": "所有的猫都是哺乳动物。汤姆是一只猫。因此：",
+          "expected": "A",
+          "extracted": "A",
+          "model_answer": "A"
+        },
+        "error": null
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "passed": true,
+        "duration_ms": 86.21001243591309,
+        "details": {
+          "question": "《红楼梦》的作者是？",
+          "expected": "A",
+          "extracted": "A",
+          "model_answer": "A"
+        },
+        "error": null
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "passed": true,
+        "duration_ms": 81.76612854003906,
+        "details": {
+          "question": "水的化学式是？",
+          "expected": "B",
+          "extracted": "B",
+          "model_answer": "B"
+        },
+        "error": null
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "passed": true,
+        "duration_ms": 82.30304718017578,
+        "details": {
+          "question": "世界上面积最大的国家是？",
+          "expected": "C",
+          "extracted": "C",
+          "model_answer": "C"
+        },
+        "error": null
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "passed": true,
+        "duration_ms": 84.86127853393555,
+        "details": {
+          "question": "如果 A > B 且 B > C，那么：",
+          "expected": "A",
+          "extracted": "A",
+          "model_answer": "A"
+        },
+        "error": null
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "passed": true,
+        "duration_ms": 84.95330810546875,
+        "details": {
+          "question": "人类有多少对染色体？",
+          "expected": "B",
+          "extracted": "B",
+          "model_answer": "B"
+        },
+        "error": null
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "passed": true,
+        "duration_ms": 84.35845375061035,
+        "details": {
+          "question": "太阳系中最大的行星是？",
+          "expected": "C",
+          "extracted": "C",
+          "model_answer": "C"
+        },
+        "error": null
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "passed": true,
+        "duration_ms": 102.89430618286133,
+        "details": {
+          "question": "HTTP状态码404表示什么意思？",
+          "expected": "B",
+          "extracted": "B",
+          "model_answer": "B"
+        },
+        "error": null
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 30,
+    "total_passed": 24,
+    "total_pass_rate": 0.8,
+    "total_duration": 29.791019678115845
+  }
+}

@@ -1,0 +1,54 @@
+# Vulkan Backend Configuration - AMD gfx1151 (Strix Halo)
+backend:
+  type: vulkan
+  name: "Vulkan on AMD gfx1151"
+  device: gfx1151
+
+server:
+  port: 8400
+  binary_path: "/mnt/volume3/llama_cpp/current/llama-server"
+  base_url: "http://localhost:8400"
+
+  # Vulkan 特定环境变量
+  env:
+    AMD_VULKAN_ICD: "RADV"
+    VK_ICD_FILENAMES: "/usr/share/vulkan/icd.d/radeon_icd.x86_64.json"
+
+  # 通用参数
+  default_params:
+    n_ctx: 32768
+    n_batch: 2048
+    n_ubatch: 512
+    n_threads: 16
+    n_threads_batch: 16
+    embeddings: true
+
+  # 模型并行配置
+  model_params:
+    # 默认参数，会被模型配置覆盖
+    ngl: 99  # 所有层 offload 到 GPU
+
+# 测试配置
+testing:
+  # 测试超时（秒）
+  timeout: 300
+
+  # 测试类型默认参数
+  test_defaults:
+    prompt_processing:
+      prompt_length: 4096
+      max_tokens: 1
+
+    token_generation:
+      prompt_length: 1024
+      max_tokens: 512
+
+    context_scaling:
+      base_context: 4096
+      max_context: 131072
+      step_multiplier: 2
+
+# 性能预期（用于健康检查）
+performance:
+  min_prompt_tps: 50.0
+  min_generation_tps: 10.0

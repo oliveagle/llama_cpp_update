@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>llama.cpp 模型评测报告中心</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --vulkan-color: #dd6b20;
+            --cuda-color: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Grid */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .nav-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .nav-card.main-report {
+            border-top: 4px solid #f59e0b;
+        }
+
+        .nav-card.stage-1 {
+            border-top: 4px solid #3b82f6;
+        }
+
+        .nav-card.stage-2 {
+            border-top: 4px solid #8b5cf6;
+        }
+
+        .nav-card.stage-3 {
+            border-top: 4px solid #ec4899;
+        }
+
+        .nav-card.methodology {
+            border-top: 4px solid #10b981;
+        }
+
+        .nav-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .nav-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .nav-meta {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tag.vulkan {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .tag.cuda {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .tag.both {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .stats-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-item {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Backend Status */
+        .backend-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .backend-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .backend-card.vulkan {
+            border-left: 4px solid var(--vulkan-color);
+        }
+
+        .backend-card.cuda {
+            border-left: 4px solid var(--cuda-color);
+        }
+
+        .backend-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .backend-header h3 {
+            font-size: 1.2rem;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-left: auto;
+        }
+
+        .status-indicator.active {
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+        }
+
+        .status-indicator.inactive {
+            background: #9ca3af;
+        }
+
+        .backend-info {
+            list-style: none;
+        }
+
+        .backend-info li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .backend-info li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: var(--text-secondary);
+        }
+
+        .info-value {
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Quick Access */
+        .quick-access {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .quick-access h2 {
+            margin-bottom: 1rem;
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-color);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .quick-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🦙 llama.cpp 模型评测报告中心</h1>
+            <p>基于 Vulkan (AMD gfx1151) 和 CUDA (NVIDIA V100) 后端的全面模型能力评估</p>
+        </header>
+
+        <!-- Navigation Grid -->
+        <div class="nav-grid">
+            <a href="stage1.html" class="nav-card stage-1">
+                <div class="nav-icon">⚡</div>
+                <h2>Stage 1 - 性能/吞吐量测试</h2>
+                <p>Prompt 处理速度、Token 生成速度、Context 扩展能力、显存占用分析</p>
+                <div class="nav-meta">
+                    <span class="tag vulkan">Vulkan 完成</span>
+                    <span class="tag cuda">CUDA 计划中</span>
+                </div>
+            </a>
+
+            <a href="stage2.html" class="nav-card stage-2">
+                <div class="nav-icon">🔧</div>
+                <h2>Stage 2 - 基础能力测试</h2>
+                <p>代码生成、数学推理、文本理解、工具使用能力评估 (30-case)</p>
+                <div class="nav-meta">
+                    <span class="tag vulkan">Vulkan 完成</span>
+                    <span class="tag cuda">CUDA 完成</span>
+                </div>
+            </a>
+
+            <a href="stage3.html" class="nav-card stage-3">
+                <div class="nav-icon">🧠</div>
+                <h2>Stage 3 - 综合能力测试</h2>
+                <p>数学、代码、逻辑、常识、文本、Shell - 每项100个测试用例 (600-case)</p>
+                <div class="nav-meta">
+                    <span class="tag cuda">CUDA 测试中</span>
+                </div>
+            </a>
+
+            <a href="methodology.html" class="nav-card methodology">
+                <div class="nav-icon">📋</div>
+                <h2>测试规范与方法论</h2>
+                <p>测试框架说明、评估标准、测试流程、结果解读方法</p>
+                <div class="nav-meta">
+                    <span class="tag both">通用文档</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Backend Status -->
+        <div class="backend-status">
+            <div class="backend-card vulkan">
+                <div class="backend-header">
+                    <span>🔥</span>
+                    <h3>Vulkan (AMD gfx1151)</h3>
+                    <span class="status-indicator active"></span>
+                </div>
+                <ul class="backend-info">
+                    <li>
+                        <span class="info-label">设备</span>
+                        <span class="info-value">AMD Strix Halo APU</span>
+                    </li>
+                    <li>
+                        <span class="info-label">端口</span>
+                        <span class="info-value">8400</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Stage 1</span>
+                        <span class="info-value">6 模型已测试</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Stage 2</span>
+                        <span class="info-value">Qwen3-4B (66.7%)</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Stage 3</span>
+                        <span class="info-value">待执行</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="backend-card cuda">
+                <div class="backend-header">
+                    <span>⚡</span>
+                    <h3>CUDA (NVIDIA V100)</h3>
+                    <span class="status-indicator active"></span>
+                </div>
+                <ul class="backend-info">
+                    <li>
+                        <span class="info-label">设备</span>
+                        <span class="info-value">Tesla V100 32GB</span>
+                    </li>
+                    <li>
+                        <span class="info-label">端口</span>
+                        <span class="info-value">8401</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Stage 1</span>
+                        <span class="info-value">计划中</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Stage 2</span>
+                        <span class="info-value">Qwen3-VL-8B (30.0%)</span>
+                    </li>
+                    <li>
+                        <span class="info-label">Stage 3</span>
+                        <span class="info-value">待执行</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="quick-access">
+            <h2>🔗 快速访问</h2>
+            <div class="quick-links">
+                <a href="stage1.html" class="quick-link">
+                    <span>⚡</span>
+                    <span>Stage 1 性能测试</span>
+                </a>
+                <a href="stage2.html" class="quick-link">
+                    <span>🔧</span>
+                    <span>Stage 2 基础能力</span>
+                </a>
+                <a href="stage3.html" class="quick-link">
+                    <span>🧠</span>
+                    <span>Stage 3 综合能力</span>
+                </a>
+                <a href="methodology.html" class="quick-link">
+                    <span>📋</span>
+                    <span>测试规范</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-section">
+            <h2>📊 测试概览</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">测试后端</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">测试阶段</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">7+</div>
+                    <div class="stat-label">已测模型</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">630+</div>
+                    <div class="stat-label">测试用例</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 变更记录 -->
+        <div class="changelog-section">
+            <h2>📝 变更记录 (Changelog)</h2>
+            <div class="changelog-list">
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-add">新增</span>
+                    <span class="changelog-content">添加 Stage 3 模型独立详细报告 (8个模型)</span>
+                </div>
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-add">新增</span>
+                    <span class="changelog-content">添加变更记录区域到所有页面</span>
+                </div>
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-fix">修复</span>
+                    <span class="changelog-content">修复 Stage 2 Vulkan/CUDA 数据区分问题，正确显示不同模型</span>
+                </div>
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-add">新增</span>
+                    <span class="changelog-content">部署 nginx 容器服务，提供 0.0.0.0:8080 访问</span>
+                </div>
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-add">新增</span>
+                    <span class="changelog-content">创建 4 个报告页面：Stage 1/2/3 + 测试规范</span>
+                </div>
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-17</span>
+                    <span class="changelog-tag tag-init">初始</span>
+                    <span class="changelog-content">完成 Stage 1 (Vulkan) 和 Stage 2 (Vulkan/CUDA) 测试</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>llama.cpp 模型评测报告 | 生成时间: 2026-02-18 | 服务运行于 0.0.0.0:8080</p>
+        </footer>
+    </div>
+</body>
+</html>

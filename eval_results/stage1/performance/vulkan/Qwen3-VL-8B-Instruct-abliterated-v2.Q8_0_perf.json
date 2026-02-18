@@ -1,0 +1,58 @@
+{
+  "model": "Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0",
+  "display_name": "Qwen3-VL-8B (Q8_0)",
+  "timestamp": "2026-02-17T20:42:13.742835",
+  "context_tests": [
+    {
+      "prompt_tokens": 6736,
+      "completion_tokens": 8,
+      "prompt_speed_tps": 27671.81,
+      "gen_speed_tps": 32.86,
+      "ttft_ms": 243.42,
+      "elapsed_sec": 0.24,
+      "status": "success",
+      "context_size": 4096
+    },
+    {
+      "prompt_tokens": 13465,
+      "completion_tokens": 128,
+      "prompt_speed_tps": 4113.49,
+      "gen_speed_tps": 39.1,
+      "ttft_ms": 3273.38,
+      "elapsed_sec": 3.27,
+      "status": "success",
+      "context_size": 8192
+    },
+    {
+      "prompt_tokens": 20195,
+      "completion_tokens": 128,
+      "prompt_speed_tps": 1731.86,
+      "gen_speed_tps": 10.98,
+      "ttft_ms": 11660.85,
+      "elapsed_sec": 11.66,
+      "status": "success",
+      "context_size": 12288
+    },
+    {
+      "prompt_tokens": 26924,
+      "completion_tokens": 1,
+      "prompt_speed_tps": 3154.43,
+      "gen_speed_tps": 0.12,
+      "ttft_ms": 8535.29,
+      "elapsed_sec": 8.54,
+      "status": "success",
+      "context_size": 16384
+    },
+    {
+      "prompt_tokens": 40382,
+      "completion_tokens": 1,
+      "prompt_speed_tps": 2311.16,
+      "gen_speed_tps": 0.06,
+      "ttft_ms": 17472.58,
+      "elapsed_sec": 17.47,
+      "status": "success",
+      "context_size": 24576
+    }
+  ],
+  "max_context_supported": 24576
+}

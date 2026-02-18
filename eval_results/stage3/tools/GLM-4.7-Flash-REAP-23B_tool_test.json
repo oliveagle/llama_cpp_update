@@ -1,0 +1,284 @@
+{
+  "model": "GLM-4.7-Flash-REAP-23B",
+  "size": "23B",
+  "passed": 9,
+  "total": 20,
+  "pass_rate": 0.45,
+  "duration": 492.8836336135864,
+  "categories": {
+    "工具理解": {
+      "total": 10,
+      "passed": 4
+    },
+    "工具调用": {
+      "total": 9,
+      "passed": 5
+    },
+    "工具选择": {
+      "total": 1,
+      "passed": 0
+    }
+  },
+  "tests": [
+    {
+      "name": "天气查询工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3095.4926013946533,
+      "details": {
+        "description": "理解天气查询工具参数",
+        "expected_keywords": [
+          "get_weather",
+          "北京",
+          "city"
+        ],
+        "model_response": "好的，用户问的是“北京明天天气怎么样？”。首先，我需要确定用户需要的是明天的天气，所以日期应该是今天日期的下一天。不过用户没有指定具体日期，所以应该默认是当前日期的明天。\n\n接下来，查看可用的工具，有一个get_weather函数，需要城市名和日期。城市名这里明确是“北京”，日期需要是YYYY-MM-DD格式。\n\n现在需要确定明天的日期。假设今天是2023-10-05，那么明天就是2023-10-06。不过实际调用的时候可能需要动态计算，但作为工具调用，可能需要用户提供具体日期或者系统自动处理。不过根据问题描述，用户问的是“明天”，所以应该用当前日期的明天。\n\n不过工具的参数里date是必填项",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "计算器工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3890.03586769104,
+      "details": {
+        "description": "生成计算器工具调用",
+        "expected_keywords": [
+          "calculator",
+          "expression",
+          "158",
+          "67",
+          "234"
+        ],
+        "model_response": "我们被问到：“计算：158 × 67 + 234 = ?” 并且提供了一个工具：calculator，参数是expression，类型是数学表达式。我们需要输出工具调用。注意：用户要求计算这个表达式。作为AI，我们需要调用calculator工具来执行计算。但是注意：问题说“请输出工具调用”，意思是我们需要按照指定的格式输出工具调用的参数。通常在这种设置中，我们需要生成一个JSON或类似结构表示调用工具。但问题描述是：“请根据用户需求输出正确的工具调用参数。” 并且给出了工具的定义：{\"name\": \"calculator\", \"parameters\": {\"expression\": \"数学表",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "搜索引擎工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3290.0938987731934,
+      "details": {
+        "description": "理解搜索工具参数",
+        "expected_keywords": [
+          "web_search",
+          "query",
+          "iPhone"
+        ],
+        "model_response": "<tool_call>\n{\"name\": \"web_search\", \"arguments\": {\"query\": \"最新的iPhone发布日期\", \"num_results\": 5}}\n</tool_call>",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "数据库查询工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3455.7011127471924,
+      "details": {
+        "description": "生成SQL查询工具调用",
+        "expected_keywords": [
+          "execute_sql",
+          "sql",
+          "SELECT",
+          "age",
+          ">",
+          "25"
+        ],
+        "model_response": "我们被问到：“查询：获取所有年龄大于25岁的用户”，并且提供了一个工具：execute_sql，参数是sql语句。\n 注意：问题是要获取所有年龄大于25岁的用户。我们需要构造一个SQL查询来实现这个。\n 但是，问题没有指定数据库结构。通常，我们假设有一个用户表（比如叫users），其中包含年龄字段（比如叫age）。\n 因此，我们需要写一个SQL查询：SELECT * FROM users WHERE age > 25;\n 但是，注意：问题中说的是“所有年龄大于25岁的用户”，所以我们需要选择所有字段。\n 然而，在实际中，我们可能不需要选择所有字段，但问题没有指定，所以用*是合理的。\n 但是，我",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "发送邮件工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3399.74308013916,
+      "details": {
+        "description": "理解邮件工具参数",
+        "expected_keywords": [
+          "send_email",
+          "zhangsan@example.com",
+          "会议通知"
+        ],
+        "model_response": "好的，我现在需要处理用户的请求，发送邮件给zhangsan@example.com，主题是“会议通知”，内容是“明天下午2点开会”。首先，我要确认用户提供的工具是否适用。用户给出的工具是send_email，参数包括to、subject和body。\n\n首先，检查用户提供的参数是否符合工具的要求。用户已经明确给出了收件人、主题和内容，所以应该可以直接调用这个工具。需要确认每个参数是否正确对应。to应该是zhangsan@example.com，subject是会议通知，body是明天下午2点开会。\n\n接下来，我需要确保没有遗漏任何必填参数。工具的参数中to、subject、body都是必须的，用",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "文件读取工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3399.6174335479736,
+      "details": {
+        "description": "生成文件读取调用",
+        "expected_keywords": [
+          "read_file",
+          "path",
+          "/home/user/data.txt"
+        ],
+        "model_response": "我们被要求读取文件：/home/user/data.txt\n 可用工具：read_file，参数需要path（文件路径）\n 因此，我们需要调用read_file工具，并将路径设置为\"/home/user/data.txt\"\n 注意：输出应该是一个工具调用的格式，通常按照指定的格式输出。\n 但是，问题中没有指定具体的输出格式，但根据常见的工具调用格式，我们可能需要输出一个JSON对象或者特定的标记。\n 然而，题目中给出的工具定义是：{\"name\": \"read_file\", \"parameters\": {\"path\": \"文件路径\"}}\n 所以，我们可能需要输出一个包含工具名称和参数的调用。\n\n",
+        "score": 0.7
+      },
+      "error": null
+    },
+    {
+      "name": "日期时间工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 3428.5383224487305,
+      "details": {
+        "description": "理解时间工具参数",
+        "expected_keywords": [
+          "get_datetime",
+          "timezone",
+          "Beijing",
+          "Asia/Shanghai"
+        ],
+        "model_response": "我们被问到：“获取当前北京时间”。注意，用户要求的是“北京时间”，即中国标准时间（CST），通常对应UTC+8时区。但是，提供的工具是`get_datetime`，其参数有`timezone`和`format`。我们需要调用这个工具来获取当前时间。\n\n首先，我们需要确定时区。北京时间是UTC+8，所以`timezone`参数应该设置为\"Asia/Shanghai\"（这是标准的时区名称，对应北京时间）。但是，工具的参数描述是“时区”，我们需要确认工具是否接受这样的字符串。通常，在编程中，时区可以用IANA时区数据库名称，如\"Asia/Shanghai\"。\n\n其次，用户没有指定格式，但工具要求`f",
+        "score": 0.44999999999999996
+      },
+      "error": null
+    },
+    {
+      "name": "翻译工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 62540.327310562134,
+      "details": {
+        "description": "生成翻译工具调用",
+        "expected_keywords": [
+          "translate",
+          "text",
+          "Hello World",
+          "zh",
+          "中文"
+        ],
+        "model_response": "我们被要求将'Hello World'翻译成中文。可用的工具是translate函数，参数包括text和target_lang。\n 注意：目标语言是中文，通常用\"zh\"表示。但题目中写的是“中文”，我们需要确认工具是否接受中文作为目标语言代码。通常，翻译工具使用ISO 639-1代码，中文是\"zh\"。但题目中工具描述是“目标语言”，可能接受中文名称或代码。为了安全，我们可以使用常见的代码\"zh\"。\n 但是，题目中工具的参数描述是“目标语言”，没有指定是代码还是名称。在示例中，我们通常使用代码。另外，题目中给出的例子是“中文”，但工具可能期望的是语言代码。由于题目没有明确，但根据常见做法，我们使",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "地图定位工具",
+      "category": "工具理解",
+      "passed": true,
+      "duration_ms": 3367.8131103515625,
+      "details": {
+        "description": "理解地图工具参数",
+        "expected_keywords": [
+          "geocode",
+          "address",
+          "天安门"
+        ],
+        "model_response": "好的，用户让我查找天安门广场的坐标。首先，我需要确认用户需要的具体信息是什么。坐标通常指的是经纬度，也就是经度（longitude）和纬度（latitude）。用户可能是在做地图相关的工作，或者需要定位、导航，或者有其他地理需求。\n\n接下来，看看提供的工具。有一个叫geocode的工具，参数是address和city。这个工具应该可以用来将地址转换为坐标。不过用户只提到了“天安门广场”，没有指定城市，但天安门广场位于中国，所以城市应该是北京。不过工具的参数里同时有address和city，可能需要填写这两个参数。\n\n不过用户的问题里只提到了“天安门广场”，可能需要将address设为“天安门广",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "单位换算工具",
+      "category": "工具调用",
+      "passed": true,
+      "duration_ms": 3385.1728439331055,
+      "details": {
+        "description": "生成单位换算调用",
+        "expected_keywords": [
+          "unit_convert",
+          "value",
+          "100",
+          "mile",
+          "km"
+        ],
+        "model_response": "我们被问到：“将100英里换算成公里”。我们需要使用提供的工具：unit_convert，参数包括value, from_unit, to_unit。\n 注意：工具的参数描述中，value是“数值”，from_unit是“原单位”，to_unit是“目标单位”。我们需要将100英里（miles）转换为公里（kilometers）。\n 首先，我们需要知道单位代码：英里通常用\"mile\"或\"miles\"，公里用\"kilometer\"或\"km\"。但工具的参数描述是“原单位”和“目标单位”，我们需要使用工具支持的单位名称。由于工具的具体单位代码未明确给出，但根据常见情况，我们可以使用标准的单位缩写或全",
+        "score": 0.6
+      },
+      "error": null
+    },
+    {
+      "name": "随机数生成工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=120)"
+    },
+    {
+      "name": "URL解析工具",
+      "category": "工具调用",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=120)"
+    },
+    {
+      "name": "Base64编码工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=120)"
+    },
+    {
+      "name": "哈希计算工具",
+      "category": "工具调用",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
+    {
+      "name": "JSON解析工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "name": "正则表达式工具",
+      "category": "工具调用",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "name": "汇率转换工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "name": "定时提醒工具",
+      "category": "工具调用",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "name": "图像识别工具",
+      "category": "工具理解",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "name": "多工具选择",
+      "category": "工具选择",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    }
+  ]
+}

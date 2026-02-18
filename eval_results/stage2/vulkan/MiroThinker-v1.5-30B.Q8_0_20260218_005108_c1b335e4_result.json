@@ -1,0 +1,713 @@
+{
+  "test_id": "MiroThinker-v1.5-30B.Q8_0_20260218_005108_c1b335e4",
+  "model": "MiroThinker-v1.5-30B.Q8_0",
+  "timestamp": "2026-02-18T00:55:15.298606",
+  "endpoint": "http://localhost:8400",
+  "code": {
+    "passed": 6,
+    "total": 9,
+    "pass_rate": 0.6666666666666666,
+    "tests": [
+      {
+        "name": "has_close_elements",
+        "description": "检查列表中是否有两个元素距离小于阈值",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 95680.446,
+        "error": null,
+        "generated_code": "用户要求完成一个Python函数，检查列表中是否有任意两个元素的距离小于给定阈值。函数签名是：\ndef has_close_elements(numbers: list[float], threshold: float) -> bool:\n\n需要实现这个函数，只输出代码，不要解释。\n\n首先，我需要理解这个函数的需求：\n- 输入：一个浮点数列表和一个阈值\n- 输出：如果列表中存在任意两个元素，它们的绝对差值小于阈值，则返回True，否则返回False\n\n我可以想到几种实现方式：\n1. 使用双重循环遍历所有元素对，计算绝对差值\n2. 先排序，然后检查相邻元素的差值（因为排序后，最小的差值一定在相邻元素之间）\n\n让我考虑一下效率：\n- 双重循环：时间复杂度O(n²)，空间复杂度O(1)\n- 排序后检查相邻元素：时间复杂度O(n log n)，空间复杂度O(1)或O(n)取决于排序算法\n\n对于这个问题，排序后检查相邻元素更高效。因为如果排序后，相邻元素的差值都大于等于阈值，那么任意两个元素的差值都大于等于阈值。\n\n实现步骤：\n1. 如果列表长度小于2，直接返回False（因为至少需要两个元素才"
+      },
+      {
+        "name": "separate_paren_groups",
+        "description": "分离括号组",
+        "status": "success",
+        "passed": false,
+        "score": 0.3,
+        "elapsed_ms": 12805.159,
+        "error": null,
+        "generated_code": "用户要求完成一个Python函数，将输入字符串中的括号组分离成独立字符串，括号平衡。输入是一个包含括号的字符串，需要将其分割成多个独立的括号组。\n\n首先，我需要理解这个函数的需求：\n1. 输入是一个字符串，包含括号（可能是圆括号、方括号、花括号等）\n2. 输出是一个列表，包含多个独立的括号组\n3. 每个括号组都是平衡的\n4. 示例：输入 '( ) (( )) (( )( ))'，输出 ['()', '(())', '(()())']\n\n让我分析一下示例：\n输入：'( ) (( )) (( )( ))'\n输出：['()', '(())', '(()())']\n\n看起来输入字符串中的括号组是用空格分隔的，但括号内部可能有空格。函数需要：\n1. 忽略空格\n2. 识别每个独立的括号组\n3. 确保每个括号组是平衡的\n4. 返回这些组的列表\n\n让我思考实现思路：\n- 遍历字符串，跟踪括号的平衡状态\n- 当遇到左括号时，开始一个新的组\n- 当遇到右括号时，检查是否平衡\n- 当平衡状态为0时，结束当前组\n\n等等，不对。让我重新看示例：\n输入：'( ) (( )) (( )( ))'\n输出：['()',"
+      },
+      {
+        "name": "truncate_number",
+        "description": "截断小数",
+        "status": "success",
+        "passed": true,
+        "score": 1.0,
+        "elapsed_ms": 6794.4839999999995,
+        "error": null,
+        "generated_code": "```python\ndef truncate_number(number: float) -> float:\n    \"\"\"截断数字的小数部分（向零取整）\n    >>> truncate_number(3.5)\n    3\n    >>> truncate_number(-2.7)\n    -2\n    \"\"\"\n    return int(number)\n```"
+      },
+      {
+        "name": "below_zero",
+        "description": "检查余额是否曾低于零",
+        "status": "success",
+        "passed": true,
+        "score": 1.0,
+        "elapsed_ms": 12941.985,
+        "error": null,
+        "generated_code": "用户要求完成一个Python函数，检查银行操作列表中余额是否曾低于零。函数签名是：\n```python\nfrom typing import List, Tuple\n\ndef below_zero(operations: List[Tuple[str, int]]) -> bool:\n    \"\"\"给定银行操作列表（存款/取款），检查余额是否曾低于零\n    操作格式: ('存款', 100) 或 ('取款', 50)\n    >>> below_zero([('存款', 100), ('取款', 50)])\n    False\n    >>> below_zero([('取款', 100)])\n    True\n    \"\"\"\n```\n\n我需要实现这个函数。让我分析一下：\n1. 输入是一个列表，每个元素是一个元组，格式是 ('存款', 金额) 或 ('取款', 金额)\n2. 需要检查在执行这些操作的过程中，余额是否曾低于零\n3. 返回布尔值\n\n实现思路：\n- 初始化余额为0\n- 遍历每个操作\n- 对于每个操作，如果是'存款'，则余额增加金额；如果是'取款'，则余额减少金额\n- 在每次"
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "description": "计算平均绝对导数",
+        "status": "success",
+        "passed": false,
+        "score": 0.3,
+        "elapsed_ms": 12442.264,
+        "error": null,
+        "generated_code": "用户要求完成一个Python函数mean_absolute_derivative，计算序列的平均绝对导数（相邻元素差的绝对值的平均）。\n\n首先，我需要理解这个函数的逻辑：\n1. 输入是一个整数列表xs\n2. 计算相邻元素之间的差的绝对值\n3. 将这些绝对值求平均\n\n让我分析一下示例：\n- 对于[1, 2, 3, 4, 5]：\n  - 相邻差：|1-2| = 1, |2-3| = 1, |3-4| = 1, |4-5| = 1\n  - 平均值：(1+1+1+1)/4 = 1.0\n\n- 对于[1, 5, 3, 7]：\n  - 相邻差：|1-5| = 4, |5-3| = 2, |3-7| = 4\n  - 平均值：(4+2+4)/3 = 10/3 ≈ 3.33... 等等，不对，题目说结果是3.0\n\n让我重新计算第二个示例：\n|1-5| = 4\n|5-3| = 2\n|3-7| = 4\n总和是4+2+4=10，除以3是10/3≈3.33，但题目说结果是3.0\n\n等等，让我再仔细看题目：\nmean_absolute_derivative([1, 5, 3, 7]) = 3.0\n\n让我重新计算：\n"
+      },
+      {
+        "name": "intersperse",
+        "description": "在列表元素间插入分隔符",
+        "status": "success",
+        "passed": true,
+        "score": 1.0,
+        "elapsed_ms": 11933.002999999999,
+        "error": null,
+        "generated_code": "用户要求完成一个Python函数，函数名为intersperse，功能是在列表的每对连续元素之间插入分隔符。函数签名是：\nfrom typing import List\n\ndef intersperse(numbers: List[int], delimiter: int) -> List[int]:\n    \"\"\"在列表的每对连续元素之间插入分隔符\n    >>> intersperse([1, 2, 3], 0)\n    [1, 0, 2, 0, 3]\n    >>> intersperse([], 5)\n    []\n    \"\"\"\n\n我需要只输出函数实现代码，不要解释。\n\n让我思考一下这个函数的实现：\n1. 如果列表为空，直接返回空列表\n2. 如果列表只有一个元素，返回原列表（因为没有连续元素对）\n3. 对于有多个元素的列表，需要在每对连续元素之间插入分隔符\n\n我可以使用列表推导式或者循环来实现。\n\n一种方法是：\n- 初始化一个空结果列表\n- 遍历列表中的每个元素\n- 对于每个元素，先添加元素本身，然后如果这不是最后一个元素，添加分隔符\n\n或者更简洁的方法：\n- 使用列表推导式"
+      },
+      {
+        "name": "count_vowels",
+        "description": "统计元音字母数量",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 7836.019,
+        "error": null,
+        "generated_code": "def count_vowels(s: str) -> int:\n    return sum(1 for char in s.lower() if char in 'aeiou')"
+      },
+      {
+        "name": "remove_duplicates",
+        "description": "移除重复元素保持顺序",
+        "status": "success",
+        "passed": false,
+        "score": 0.15,
+        "elapsed_ms": 10746.34,
+        "error": null,
+        "generated_code": "```python\ndef remove"
+      },
+      {
+        "name": "is_palindrome",
+        "description": "检查字符串是否为回文",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 10619.151,
+        "error": null,
+        "generated_code": "用户要求完成一个Python函数，检查字符串是否为回文，忽略大小写和非字母数字字符。需要输出完整的函数实现代码，不要解释。\n\n首先，我需要理解需求：\n1. 忽略大小写：将字符串转换为统一的大小写（比如全部转为小写）\n2. 忽略非字母数字字符：只保留字母和数字\n3. 检查是否为回文：比较处理后的字符串与其反转是否相同\n\n实现思路：\n1. 创建一个空字符串，用于存储处理后的字符\n2. 遍历原字符串的每个字符\n3. 如果字符是字母或数字，将其转换为小写后添加到新字符串中\n4. 比较新字符串与其反转是否相同\n\n或者更简洁的方式：\n1. 使用列表推导式过滤并转换字符\n2. 比较列表与反转列表\n\n让我写代码：\n\n```python\ndef is_palindrome(s: str) -> bool:\n    filtered = ''.join(char.lower() for char in s if char.isalnum())\n    return filtered == filtered[::-1]\n```\n\n这个实现：\n- `char.isalnum()` 检查字符是否为字母或数字\n-"
+      }
+    ]
+  },
+  "math": {
+    "passed": 5,
+    "total": 11,
+    "pass_rate": 0.45454545454545453,
+    "tests": [
+      {
+        "name": "价格计算",
+        "status": "success",
+        "passed": false,
+        "expected": 245,
+        "extracted": 25.0,
+        "elapsed_ms": 5264.855,
+        "error": null,
+        "model_answer": "用户现在需要解决的是买12件衬衫的最少花费问题，首先得比较两种促销方式的单价和组合。首先，先算两种方案的单价：买3件每件25元，总价是3×25=75元，单价是75/3=25元；买5件每件20元，总价是5×20=100元，单价是100/5=20元，所以5件的单价更便宜。那现在要凑12件，怎么组合最划算呢？首先，5件的组合，12除以5是2个5件，剩下2件，但2件不能买3件的，因为3件的单价贵，那有没有"
+      },
+      {
+        "name": "速度距离",
+        "status": "success",
+        "passed": true,
+        "expected": 270,
+        "extracted": 270.0,
+        "elapsed_ms": 4302.131,
+        "error": null,
+        "model_answer": "270"
+      },
+      {
+        "name": "比例问题",
+        "status": "success",
+        "passed": true,
+        "expected": 16,
+        "extracted": 16.0,
+        "elapsed_ms": 4772.286,
+        "error": null,
+        "model_answer": "16"
+      },
+      {
+        "name": "连续整数",
+        "status": "success",
+        "passed": true,
+        "expected": 25,
+        "extracted": 25.0,
+        "elapsed_ms": 3235.106,
+        "error": null,
+        "model_answer": "25"
+      },
+      {
+        "name": "工作效率",
+        "status": "success",
+        "passed": false,
+        "expected": 2.4,
+        "extracted": 1.0,
+        "elapsed_ms": 5375.661,
+        "error": null,
+        "model_answer": "用户现在需要解决的是A和B一起工作完成一项工作的时间问题。首先，我应该回忆一下工程问题的基本解法，通常是用工作总量为1，然后计算各自的工作效率，再求合作的效率，最后用总量除以合作效率得到时间。\n\n首先，A单独完成需要6天，所以A的工作效率是1/6（每天完成1/6的工作量）；B单独完成需要4天，所以B的工作效率是1/4（每天完成1/4的工作量）。合作的时候，他们的效率相加，就是1/6 + 1/4。然"
+      },
+      {
+        "name": "混合物问题",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": 20.0,
+        "elapsed_ms": 5117.662,
+        "error": null,
+        "model_answer": "用户问了一个问题：\"有10%浓度的盐水200克，要配制成20%浓度的盐水，需要加入多少克盐？\" 这是一个典型的浓度问题。我们需要计算需要加入多少克盐才能使200克10%的盐水变成20%的盐水。\n\n设x为需要加入的盐的质量（单位为克）。加入盐后，总质量变为200 + x克。盐的质量变为原来的10%加上x克。因此，盐的质量为0.10 × 200 + x = 20 + x克。浓度为20%，即盐的质量除以"
+      },
+      {
+        "name": "年龄问题",
+        "status": "success",
+        "passed": false,
+        "expected": 15,
+        "extracted": 45.0,
+        "elapsed_ms": 5124.161,
+        "error": null,
+        "model_answer": "用户问了一个问题：\"父亲现在45岁，儿子15岁。多少年后父亲的年龄是儿子年龄的2倍？\" 这是一个典型的年龄问题。我们需要找出一个年数 x，使得在 x 年后，父亲的年龄（45 + x）是儿子年龄（15 + x）的两倍。因此方程为：45 + x = 2*(15 + x)。解这个方程：45 + x = 30 + 2x → 45 - 30 = 2x - x → 15 = x。所以答案是 15 年后。但用户"
+      },
+      {
+        "name": "利润计算",
+        "status": "success",
+        "passed": false,
+        "expected": 30,
+        "extracted": 100.0,
+        "elapsed_ms": 5192.781,
+        "error": null,
+        "model_answer": "用户问了一个问题：\"一件商品成本价是80元，售价是104元。利润率是多少？\" 他们只需要最终答案的数字。利润率通常定义为（售价 - 成本价）/ 成本价 × 100%。因此计算：(104 - 80) / 80 = 24 / 80 = 0.3，即30%。所以答案是30。但需要确认他们是否想要百分比形式的数字，还是小数形式？题目中说“利润率是多少？”，通常利润率以百分比表示，因此答案应为30（或30%）"
+      },
+      {
+        "name": "数列求和",
+        "status": "success",
+        "passed": true,
+        "expected": 5050,
+        "extracted": 5050.0,
+        "elapsed_ms": 4409.9529999999995,
+        "error": null,
+        "model_answer": "5050"
+      },
+      {
+        "name": "利息计算",
+        "status": "success",
+        "passed": false,
+        "expected": 11576.25,
+        "extracted": 1.0,
+        "elapsed_ms": 5153.574,
+        "error": null,
+        "model_answer": "用户现在需要计算本金10000元，年利率5%，存3年后的本息和，复利计算。首先得回忆复利的公式，复利的本息和公式应该是A = P(1 + r)^n，其中P是本金，r是年利率，n是年数。这里P=10000，r=5%也就是0.05，n=3。那先算(1+0.05)^3是多少，1.05的三次方，1.05*1.05=1.1025，再乘以1.05的话，1.1025*1.05=1.157625。然后乘以1000"
+      },
+      {
+        "name": "几何面积",
+        "status": "success",
+        "passed": true,
+        "expected": 78.5,
+        "extracted": 78.5,
+        "elapsed_ms": 2841.846,
+        "error": null,
+        "model_answer": "78.5"
+      }
+    ]
+  },
+  "text": {
+    "passed": 4,
+    "total": 10,
+    "pass_rate": 0.4,
+    "tests": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "status": "success",
+        "passed": false,
+        "expected": "D",
+        "extracted": "A",
+        "elapsed_ms": 1760.645,
+        "error": null,
+        "model_answer": "用户问的是中国的四大发明不包括哪一项，选项是A. 造纸术，B. 指南针，C. 火药，D. 地动仪。我需要直接回答选项字母。\n\n中国的四大发明是造纸术、指南针、火药、印刷"
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "D",
+        "elapsed_ms": 1429.7930000000001,
+        "error": null,
+        "model_answer": "用户问的是光在真空中的传播速度约为多少，给出了四个选项：\nA. 3×10^6 m/s\nB. 3×10^8 m/s\nC. 3×10^10 m/s\nD. 3×10^4"
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 1416.8829999999998,
+        "error": null,
+        "model_answer": "用户提出了一个逻辑推理问题：所有的猫都是哺乳动物。汤姆是一只猫。因此：A. 汤姆是哺乳动物 B. 汤姆不是哺乳动物 C. 无法确定 D. 汤姆是狗。需要直接回答选项字母。\n\n这是一个典型的三"
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 1428.9959999999999,
+        "error": null,
+        "model_answer": "用户问的是《红楼梦》的作者是谁，给出了四个选项：A. 曹雪芹，B. 罗贯中，C. 施耐庵，D. 吴承恩。\n\n我需要直接回答选项字母。《红楼梦》的作者是曹雪芹，所以正确"
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 1406.223,
+        "error": null,
+        "model_answer": "用户问的是水的化学式，给出了四个选项：\nA. HO\nB. H2O\nC. H2O2\nD. CO2\n\n水的化学式是H2O，也就是两个氢原子和一个氧原子组成的分子。选项B是H2O，所以"
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "status": "success",
+        "passed": false,
+        "expected": "C",
+        "extracted": "A",
+        "elapsed_ms": 1412.972,
+        "error": null,
+        "model_answer": "用户问的是世界上面积最大的国家是哪个，给出了四个选项：A. 中国，B. 美国，C. 俄罗斯，D. 加拿大。我需要直接回答选项字母。\n\n根据我的知识，世界上面积最大的国家是俄罗斯，面积约为1710万"
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 1390.481,
+        "error": null,
+        "model_answer": "用户提出了一个逻辑推理问题：如果 A > B 且 B > C，那么：\nA. A > C\nB. A < C\nC. A = C\nD. 无法确定\n\n这是一个关于不等式传递性的基本数学问题。根据数学中的传递性"
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "A",
+        "elapsed_ms": 1407.372,
+        "error": null,
+        "model_answer": "用户问的是人类有多少对染色体，选项是A. 22对，B. 23对，C. 24对，D. 46对。\n\n首先，我需要回忆一下人类染色体的基本知识。人类是二倍体生物，体细胞"
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "status": "success",
+        "passed": false,
+        "expected": "C",
+        "extracted": "A",
+        "elapsed_ms": 1408.582,
+        "error": null,
+        "model_answer": "用户问的是太阳系中最大的行星是哪一个，选项是A. 地球，B. 土星，C. 木星，D. 火星。我需要直接回答选项字母。\n\n太阳系中最大的行星是木星，所以正确答案是C。\n\n我应该"
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "D",
+        "elapsed_ms": 1399.296,
+        "error": null,
+        "model_answer": "用户问的是HTTP状态码404表示什么意思，选项是：\nA. 服务器错误\nB. 未找到\nC. 重定向\nD. 禁止访问\n\n我需要直接回答选项字母。\n\nHTTP状态码404是\"未找到\"（Not Found"
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 50,
+    "total_passed": 30,
+    "total_pass_rate": 0.6,
+    "total_duration": 114.9610915184021
+  },
+  "tool": {
+    "passed": 15,
+    "total": 20,
+    "pass_rate": 0.75,
+    "duration": 114.9610915184021,
+    "details": [
+      {
+        "name": "天气查询工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 64015.620708465576,
+        "details": {
+          "description": "理解天气查询工具参数",
+          "expected_keywords": [
+            "get_weather",
+            "北京",
+            "city"
+          ],
+          "model_response": "{\"city\": \"北京\", \"date\": \"2024-01-28\"}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "计算器工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 2911.871910095215,
+        "details": {
+          "description": "生成计算器工具调用",
+          "expected_keywords": [
+            "calculator",
+            "expression",
+            "158",
+            "67",
+            "234"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"calculator\",\n  \"arguments\": {\n    \"expression\": \"158 * 67 + 234\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "搜索引擎工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1616.492509841919,
+        "details": {
+          "description": "理解搜索工具参数",
+          "expected_keywords": [
+            "web_search",
+            "query",
+            "iPhone"
+          ],
+          "model_response": "{\"name\": \"web_search\", \"parameters\": {\"query\": \"最新的iPhone发布日期\", \"num_results\": 5}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "数据库查询工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 2468.353033065796,
+        "details": {
+          "description": "生成SQL查询工具调用",
+          "expected_keywords": [
+            "execute_sql",
+            "sql",
+            "SELECT",
+            "age",
+            ">",
+            "25"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"execute_sql\",\n  \"arguments\": {\n    \"sql\": \"SELECT * FROM users WHERE age > 25\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "发送邮件工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 3773.5564708709717,
+        "details": {
+          "description": "理解邮件工具参数",
+          "expected_keywords": [
+            "send_email",
+            "zhangsan@example.com",
+            "会议通知"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"send_email\",\n  \"arguments\": {\n    \"to\": \"zhangsan@example.com\",\n    \"subject\": \"会议通知\",\n    \"body\": \"明天下午2点开会\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "文件读取工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1527.3809432983398,
+        "details": {
+          "description": "生成文件读取调用",
+          "expected_keywords": [
+            "read_file",
+            "path",
+            "/home/user/data.txt"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"read_file\",\n  \"arguments\": {\n    \"path\": \"/home/user/data.txt\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "日期时间工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 3130.0511360168457,
+        "details": {
+          "description": "理解时间工具参数",
+          "expected_keywords": [
+            "get_datetime",
+            "timezone",
+            "Beijing",
+            "Asia/Shanghai"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"get_datetime\",\n  \"arguments\": {\n    \"timezone\": \"Asia/Shanghai\",\n    \"format\": \"YYYY-MM-DD HH:mm:ss\"\n  }\n}\n```",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "翻译工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 1598.9301204681396,
+        "details": {
+          "description": "生成翻译工具调用",
+          "expected_keywords": [
+            "translate",
+            "text",
+            "Hello World",
+            "zh",
+            "中文"
+          ],
+          "model_response": "{\"name\": \"translate\", \"arguments\": {\"text\": \"Hello World\", \"target_lang\": \"zh\"}}",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "地图定位工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 2045.7656383514404,
+        "details": {
+          "description": "理解地图工具参数",
+          "expected_keywords": [
+            "geocode",
+            "address",
+            "天安门"
+          ],
+          "model_response": "{\"name\": \"geocode\", \"arguments\": {\"address\": \"天安门广场\", \"city\": \"北京\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "单位换算工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 2303.2350540161133,
+        "details": {
+          "description": "生成单位换算调用",
+          "expected_keywords": [
+            "unit_convert",
+            "value",
+            "100",
+            "mile",
+            "km"
+          ],
+          "model_response": "{\"name\": \"unit_convert\", \"arguments\": {\"value\": 100, \"from_unit\": \"英里\", \"to_unit\": \"公里\"}}",
+          "score": 0.45999999999999996
+        },
+        "error": null
+      },
+      {
+        "name": "随机数生成工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 2026.9224643707275,
+        "details": {
+          "description": "理解随机数工具参数",
+          "expected_keywords": [
+            "random_number",
+            "min",
+            "max",
+            "1",
+            "100"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"random_number\",\n  \"arguments\": {\n    \"min\": 1,\n    \"max\": 100,\n    \"type\": \"integer\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "URL解析工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1806.868076324463,
+        "details": {
+          "description": "生成URL解析调用",
+          "expected_keywords": [
+            "parse_url",
+            "url",
+            "https://www.example.com"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"parse_url\",\n  \"arguments\": {\n    \"url\": \"https://www.example.com/path?key=value#anchor\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "Base64编码工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1796.703815460205,
+        "details": {
+          "description": "理解编码工具参数",
+          "expected_keywords": [
+            "base64_encode",
+            "data",
+            "admin",
+            "password"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"base64_encode\",\n  \"arguments\": {\n    \"data\": \"admin:password\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "哈希计算工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1894.0768241882324,
+        "details": {
+          "description": "生成哈希工具调用",
+          "expected_keywords": [
+            "compute_hash",
+            "text",
+            "hello",
+            "md5",
+            "MD5"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"compute_hash\",\n  \"arguments\": {\n    \"text\": \"hello\",\n    \"algorithm\": \"md5\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "JSON解析工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 5269.627332687378,
+        "details": {
+          "description": "理解JSON解析参数",
+          "expected_keywords": [
+            "json_extract",
+            "json_str",
+            "name",
+            "path"
+          ],
+          "model_response": "用户想要从JSON字符串中提取\"name\"字段的值。JSON字符串是'{\"name\": \"张三\", \"age\": 25}'，需要提取的字段是\"name\"。\n\n根据可用工具，json_extract工具需要两个参数：\n1. json_str: JSON字符串\n2. path: 提取路径\n\n对于提取\"name\"字段，路径应该是\"$['name']\"或者直接\"name\"，但根据工具描述，path应该是提取路径。在JSONPath中，提取根对象的name字段应该是\"$['name']\"或者直接\"name\"。\n\n让我检查一下工具的参数说明：\n- json_str: JSON字符串\n- path: 提取路",
+          "score": 0.9999999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "正则表达式工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 5270.148038864136,
+        "details": {
+          "description": "生成正则匹配调用",
+          "expected_keywords": [
+            "regex_extract",
+            "pattern",
+            "@",
+            "email"
+          ],
+          "model_response": "用户想要从文本中提取所有邮箱地址，需要使用regex_extract工具。邮箱地址的正则表达式应该是常见的邮箱格式匹配模式。\n\n邮箱地址的正则表达式可以是：`[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}`\n\n这个正则表达式匹配：\n- `[a-zA-Z0-9._%+-]+`：用户名部分，可以包含字母、数字、点、百分号、加号、减号\n- `@`：@符号\n- `[a-zA-Z0-9.-]+`：域名部分，可以包含字母、数字、点、减号\n- `\\.`：点号（转义）\n- `[a-zA-Z]{2,}`：顶级域名，至少2个字母\n\n所以工具调用应该是：\n```json",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "汇率转换工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 2451.7483711242676,
+        "details": {
+          "description": "理解汇率工具参数",
+          "expected_keywords": [
+            "currency_convert",
+            "amount",
+            "100",
+            "USD",
+            "CNY"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"currency_convert\",\n  \"arguments\": {\n    \"amount\": 100,\n    \"from\": \"USD\",\n    \"to\": \"CNY\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "定时提醒工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 5154.736757278442,
+        "details": {
+          "description": "生成提醒工具调用",
+          "expected_keywords": [
+            "set_reminder",
+            "time",
+            "message",
+            "开会"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"set_reminder\",\n  \"arguments\":",
+          "score": 0.25
+        },
+        "error": null
+      },
+      {
+        "name": "图像识别工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1330.2958011627197,
+        "details": {
+          "description": "理解图像识别参数",
+          "expected_keywords": [
+            "ocr_image",
+            "image_path",
+            "/image/photo.jpg"
+          ],
+          "model_response": "{\"name\": \"ocr_image\", \"parameters\": {\"image_path\": \"/image/photo.jpg\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "多工具选择",
+        "category": "工具选择",
+        "passed": true,
+        "duration_ms": 2555.177927017212,
+        "details": {
+          "description": "在多个工具中选择正确的",
+          "expected_keywords": [
+            "calculate_distance",
+            "上海",
+            "北京",
+            "from",
+            "to"
+          ],
+          "model_response": "calculate_distance({\"from\": \"上海\", \"to\": \"北京\"})",
+          "score": 0.8999999999999999
+        },
+        "error": null
+      }
+    ]
+  }
+}

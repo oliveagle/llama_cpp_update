@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+
+{% block title %}Stage 3 综合能力测试 - llama.cpp 模型测试报告{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1><i class="bi bi-3-circle-fill text-info"></i> Stage 3 综合能力测试</h1>
+            <p class="lead text-muted">
+                数学推理 / 代码生成 / 逻辑推理 / 常识问答 / 文本理解 / Linux Shell | 65项测试 | 测试模型数: <strong>{{ models|length }}</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">推理能力</h5>
+                            <h3>30项</h3>
+                            <small>数学10 + 逻辑10 + 常识10</small>
+                        </div>
+                        <i class="bi bi-brain fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">实用技能</h5>
+                            <h3>35项</h3>
+                            <small>代码10 + 文本10 + Shell15</small>
+                        </div>
+                        <i class="bi bi-tools fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="card-title">平均得分</h5>
+                            {% set total_avg = models | map(attribute='total_rate') | sum / models|length %}
+                            <h3>{{ "%.1f"|format(total_avg) }}%</h3>
+                            <small>所有模型平均</small>
+                        </div>
+                        <i class="bi bi-graph-up fs-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Table -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0"><i class="bi bi-table"></i> 综合排名表</h5>
+                    <span class="badge bg-light text-info">{{ models|length }} 个模型</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped mb-0">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="text-center" style="width: 50px;">排名</th>
+                                    <th>模型名称</th>
+                                    <th class="text-center">数学</th>
+                                    <th class="text-center">代码</th>
+                                    <th class="text-center">逻辑</th>
+                                    <th class="text-center">常识</th>
+                                    <th class="text-center">文本</th>
+                                    <th class="text-center">Shell</th>
+                                    <th class="text-center">总计</th>
+                                    <th class="text-center">评级</th>
+                                    <th class="text-center">详情</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for model in models %}
+                                <tr>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if loop.index == 1 %}warning text-dark{% elif loop.index <= 3 %}secondary{% else %}light text-dark{% endif %} fs-6">
+                                            {{ loop.index }}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>{{ model.name }}</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if model.math_score >= 80 %}success{% elif model.math_score >= 60 %}info{% else %}warning text-dark{% endif %}">
+                                            {{ model.math_passed }}/{{ model.math_total }}
+                                        </span>
+                                        <br><small>{{ "%.0f"|format(model.math_score) }}%</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if model.code_score >= 80 %}success{% elif model.code_score >= 60 %}info{% else %}warning text-dark{% endif %}">
+                                            {{ model.code_passed }}/{{ model.code_total }}
+                                        </span>
+                                        <br><small>{{ "%.0f"|format(model.code_score) }}%</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if model.logic_score >= 80 %}success{% elif model.logic_score >= 60 %}info{% else %}warning text-dark{% endif %}">
+                                            {{ model.logic_passed }}/{{ model.logic_total }}
+                                        </span>
+                                        <br><small>{{ "%.0f"|format(model.logic_score) }}%</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if model.commonsense_score >= 80 %}success{% elif model.commonsense_score >= 60 %}info{% else %}warning text-dark{% endif %}">
+                                            {{ model.commonsense_passed }}/{{ model.commonsense_total }}
+                                        </span>
+                                        <br><small>{{ "%.0f"|format(model.commonsense_score) }}%</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if model.text_score >= 80 %}success{% elif model.text_score >= 60 %}info{% else %}warning text-dark{% endif %}">
+                                            {{ model.text_passed }}/{{ model.text_total }}
+                                        </span>
+                                        <br><small>{{ "%.0f"|format(model.text_score) }}%</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-{% if model.shell_score >= 80 %}success{% elif model.shell_score >= 60 %}info{% else %}warning text-dark{% endif %}">
+                                            {{ model.shell_passed }}/{{ model.shell_total }}
+                                        </span>
+                                        <br><small>{{ "%.0f"|format(model.shell_score) }}%</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <strong class="text-info">{{ model.total_passed }}/{{ model.total_total }}</strong>
+                                        <br><span class="badge bg-info">{{ "%.1f"|format(model.total_rate) }}%</span>
+                                    </td>
+                                    <td class="text-center">
+                                        {% if model.total_rate >= 90 %}
+                                            <span class="text-warning">⭐⭐⭐⭐⭐</span>
+                                            <br><small class="text-muted">优秀</small>
+                                        {% elif model.total_rate >= 75 %}
+                                            <span class="text-secondary">⭐⭐⭐⭐</span>
+                                            <br><small class="text-muted">良好</small>
+                                        {% elif model.total_rate >= 50 %}
+                                            <span class="text-muted">⭐⭐⭐</span>
+                                            <br><small class="text-muted">及格</small>
+                                        {% else %}
+                                            <span class="text-muted">⭐⭐</span>
+                                            <br><small class="text-muted">需改进</small>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#model-{{ loop.index }}" class="btn btn-sm btn-outline-info">
+                                            <i class="bi bi-eye"></i> 查看
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Individual Model Reports -->
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-3"><i class="bi bi-file-earmark-text"></i> 模型详细报告</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for model in models %}
+        <div class="col-lg-6 mb-4" id="model-{{ loop.index }}">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div>
+                        <span class="badge bg-info me-2">#{{ loop.index }}</span>
+                        <strong>{{ model.name }}</strong>
+                    </div>
+                    <span class="badge bg-info">{{ "%.1f"|format(model.total_rate) }}%</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Category Scores -->
+                        <div class="col-md-6">
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small><i class="bi bi-calculator"></i> 数学推理</small>
+                                    <small>{{ "%.0f"|format(model.math_score) }}%</small>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-primary" style="width: {{ model.math_score }}%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small><i class="bi bi-code-slash"></i> 代码生成</small>
+                                    <small>{{ "%.0f"|format(model.code_score) }}%</small>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-success" style="width: {{ model.code_score }}%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small><i class="bi bi-brain"></i> 逻辑推理</small>
+                                    <small>{{ "%.0f"|format(model.logic_score) }}%</small>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-info" style="width: {{ model.logic_score }}%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small><i class="bi bi-question-circle"></i> 常识问答</small>
+                                    <small>{{ "%.0f"|format(model.commonsense_score) }}%</small>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" style="width: {{ model.commonsense_score }}%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small><i class="bi bi-file-text"></i> 文本理解</small>
+                                    <small>{{ "%.0f"|format(model.text_score) }}%</small>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-secondary" style="width: {{ model.text_score }}%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small><i class="bi bi-terminal"></i> Linux Shell</small>
+                                    <small>{{ "%.0f"|format(model.shell_score) }}%</small>
+                                </div>
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar bg-dark" style="width: {{ model.shell_score }}%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Radar Chart -->
+                        <div class="col-md-6" style="height: 200px;">
+                            <canvas id="chart-{{ loop.index }}"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Raw data accordion -->
+                    <div class="accordion mt-3" id="accordion-{{ loop.index }}">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ loop.index }}">
+                                    <i class="bi bi-code-square"></i> 原始数据
+                                </button>
+                            </h2>
+                            <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" data-bs-parent="#accordion-{{ loop.index }}">
+                                <div class="accordion-body">
+                                    <pre class="bg-light p-2 rounded"><code>{{ model.raw_data | tojson(indent=2) }}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Initialize radar charts for each model
+document.addEventListener('DOMContentLoaded', function() {
+    {% for model in models %}
+    {
+        const ctx{{ loop.index }} = document.getElementById('chart-{{ loop.index }}').getContext('2d');
+        new Chart(ctx{{ loop.index }}, {
+            type: 'radar',
+            data: {
+                labels: ['数学', '代码', '逻辑', '常识', '文本', 'Shell'],
+                datasets: [{
+                    label: '{{ model.name }}',
+                    data: [
+                        {{ model.math_score }},
+                        {{ model.code_score }},
+                        {{ model.logic_score }},
+                        {{ model.commonsense_score }},
+                        {{ model.text_score }},
+                        {{ model.shell_score }}
+                    ],
+                    backgroundColor: 'rgba(23, 162, 184, 0.2)',
+                    borderColor: 'rgba(23, 162, 184, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(23, 162, 184, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(23, 162, 184, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    }
+    {% endfor %}
+});
+</script>
+{% endblock %}

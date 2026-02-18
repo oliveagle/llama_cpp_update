@@ -1,0 +1,22 @@
+{
+  "model": "GLM-4.7-Flash-Q4_K_M",
+  "timestamp": "2026-02-17T21:07:18.378576",
+  "base_url": "http://localhost:8400",
+  "tests": [
+    {
+      "target_tokens": 4096,
+      "actual_tokens": 8644,
+      "status": "success",
+      "response_time": 221.64478611946106,
+      "correct": false,
+      "answer": ""
+    },
+    {
+      "target_tokens": 8192,
+      "status": "timeout",
+      "error": "Timeout after 300s"
+    }
+  ],
+  "max_successful": 4096,
+  "max_correct": 0
+}

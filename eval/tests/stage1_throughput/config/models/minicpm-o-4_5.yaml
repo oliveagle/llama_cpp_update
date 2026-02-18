@@ -1,0 +1,32 @@
+# MiniCPM-o-4.5 模型特定配置
+model:
+  id: "MiniCPM-o-4.5"
+  gguf_pattern: "*MiniCPM*4_5*Q4_K_M.gguf"
+
+  # 该模型在 Vulkan 上需要特殊处理
+  backend_overrides:
+    vulkan:
+      # 使用较少的 GPU 层数以避免 OOM
+      ngl: 80
+      n_batch: 1024
+      # 需要特定的 chat template
+      chat_template: "minicpm-v"
+
+    cuda:
+      ngl: 99
+      n_batch: 2048
+      chat_template: "minicpm-v"
+
+  # 性能预期
+  expected_performance:
+    vulkan:
+      prompt_tps: 100
+      generation_tps: 20
+    cuda:
+      prompt_tps: 200
+      generation_tps: 40
+
+  # 测试配置覆盖
+  test_config:
+    context_scaling:
+      max: 32768  # 该模型在 Vulkan 上最大支持 32K

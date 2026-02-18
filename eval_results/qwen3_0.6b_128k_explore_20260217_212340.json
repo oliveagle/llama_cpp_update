@@ -1,0 +1,22 @@
+{
+  "model": "Qwen3-0.6B-Q4_0",
+  "timestamp": "2026-02-17T21:23:40.076261",
+  "max_context_supported": 0,
+  "results": [
+    {
+      "context_size": 16384,
+      "status": "error",
+      "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+    },
+    {
+      "context_size": 24576,
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    },
+    {
+      "context_size": 32768,
+      "status": "error",
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=8401): Failed to establish a new connection: [Errno 111] Connection refused\"))"
+    }
+  ]
+}

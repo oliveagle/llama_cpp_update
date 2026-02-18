@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试规范与流程 | llama.cpp 评测报告</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <h2>🦙 llama.cpp</h2>
+            <p>模型评测报告中心</p>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">📊 概览</a></li>
+            <li><a href="stage1.html">⚡ Stage 1 - 性能测试</a></li>
+            <li><a href="stage2.html">🔧 Stage 2 - 基础能力</a></li>
+            <li><a href="stage3.html">🧠 Stage 3 - 综合能力</a></li>
+            <li><a href="methodology.html" class="active">📋 测试规范</a></li>
+        </ul>
+        <div class="nav-footer">
+            <p>最后更新: 2026-02-18</p>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="page-header">
+            <h1>📋 测试规范与流程</h1>
+            <p>llama.cpp 模型评测框架的测试标准、流程说明和方法论</p>
+        </header>
+
+        <div class="content-section">
+            <!-- 测试框架概述 -->
+            <div class="section-card">
+                <h2>🎯 测试框架概述</h2>
+                <p>llama.cpp 模型评测框架采用三层递进式测试架构，从基础性能到综合能力全面评估模型表现。</p>
+
+                <div class="process-flow">
+                    <div class="process-step">
+                        <div class="step-num">1</div>
+                        <h4>Stage 1</h4>
+                        <p>性能/吞吐量测试</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">2</div>
+                        <h4>Stage 2</h4>
+                        <p>基础能力测试</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">3</div>
+                        <h4>Stage 3</h4>
+                        <p>综合能力测试</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 1 测试规范 -->
+            <div class="section-card methodology-section">
+                <h2>⚡ Stage 1: 性能/吞吐量测试</h2>
+
+                <h3>测试目的</h3>
+                <p>测量模型的响应速度、token 生成速率和上下文扩展能力，验证模型在特定硬件上的可用性。</p>
+
+                <h3>测试指标</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>指标</th>
+                            <th>说明</th>
+                            <th>单位</th>
+                            <th>通过标准</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>首 token 延迟 (TTFT)</td>
+                            <td>从请求到首个 token 返回的时间</td>
+                            <td>ms</td>
+                            <td>&lt; 500ms</td>
+                        </tr>
+                        <tr>
+                            <td>生成速率 (TPS)</td>
+                            <td>每秒生成的 token 数量</td>
+                            <td>t/s</td>
+                            <td>&gt; 30 t/s</td>
+                        </tr>
+                        <tr>
+                            <td>预填充速度</td>
+                            <td>Prompt 处理速度</td>
+                            <td>t/s</td>
+                            <td>&gt; 100 t/s</td>
+                        </tr>
+                        <tr>
+                            <td>上下文支持</td>
+                            <td>最大可处理的上下文长度</td>
+                            <td>tokens</td>
+                            <td>≥ 4K</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Context 测试层级</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>层级</th>
+                            <th>Token 数量</th>
+                            <th>预期结果</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>4K</td>
+                            <td>4096</td>
+                            <td><span class="badge success">必须通过</span></td>
+                            <td>基础上下文</td>
+                        </tr>
+                        <tr>
+                            <td>8K</td>
+                            <td>8192</td>
+                            <td><span class="badge success">推荐通过</span></td>
+                            <td>标准上下文</td>
+                        </tr>
+                        <tr>
+                            <td>16K</td>
+                            <td>16384</td>
+                            <td><span class="badge warning">可选测试</span></td>
+                            <td>长上下文</td>
+                        </tr>
+                        <tr>
+                            <td>32K</td>
+                            <td>32768</td>
+                            <td><span class="badge warning">可选测试</span></td>
+                            <td>超长上下文</td>
+                        </tr>
+                        <tr>
+                            <td>64K+</td>
+                            <td>65536+</td>
+                            <td><span class="badge pending">扩展测试</span></td>
+                            <td>极限测试</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>测试方法</h3>
+                <div class="info-box">
+                    <strong>大海捞针 (Needle in a Haystack):</strong> 在长上下文的特定位置插入关键信息，要求模型回忆该信息，验证信息保留率。
+                </div>
+            </div>
+
+            <!-- Stage 2 测试规范 -->
+            <div class="section-card methodology-section">
+                <h2>🔧 Stage 2: 基础能力测试</h2>
+
+                <h3>测试框架</h3>
+                <p>50-case 综合测试，覆盖代码生成、数学推理、文本理解和工具使用四大维度。</p>
+
+                <div class="metric-cards">
+                    <div class="metric-card">
+                        <div class="metric-value">9</div>
+                        <div class="metric-label">代码测试</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">11</div>
+                        <div class="metric-label">数学测试</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">文本测试</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">20</div>
+                        <div class="metric-label">工具测试</div>
+                    </div>
+                </div>
+
+                <h3>测试维度详情</h3>
+                <div class="test-dimension">
+                    <div class="dimension-card">
+                        <h4>💻 代码生成 (9题)</h4>
+                        <ul>
+                            <li>Python 基础语法 (3题)</li>
+                            <li>算法实现 (3题)</li>
+                            <li>数据处理 (2题)</li>
+                            <li>错误处理 (1题)</li>
+                        </ul>
+                    </div>
+                    <div class="dimension-card">
+                        <h4>🔢 数学推理 (11题)</h4>
+                        <ul>
+                            <li>基础运算 (3题)</li>
+                            <li>代数方程 (3题)</li>
+                            <li>几何计算 (2题)</li>
+                            <li>逻辑推理 (3题)</li>
+                        </ul>
+                    </div>
+                    <div class="dimension-card">
+                        <h4>📖 文本理解 (10题)</h4>
+                        <ul>
+                            <li>阅读理解 (4题)</li>
+                            <li>情感分析 (2题)</li>
+                            <li>摘要生成 (2题)</li>
+                            <li>文本分类 (2题)</li>
+                        </ul>
+                    </div>
+                    <div class="dimension-card">
+                        <h4>🛠️ 工具使用 (20题)</h4>
+                        <ul>
+                            <li>文件操作 (5题)</li>
+                            <li>系统命令 (5题)</li>
+                            <li>网络请求 (4题)</li>
+                            <li>数据处理 (6题)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>评分标准</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>得分</th>
+                            <th>评级</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>≥ 80%</td>
+                            <td><span class="badge success">⭐⭐⭐⭐⭐ 优秀</span></td>
+                            <td>能力全面，可放心使用</td>
+                        </tr>
+                        <tr>
+                            <td>70-79%</td>
+                            <td><span class="badge success">⭐⭐⭐⭐ 良好</span></td>
+                            <td>能力较好，部分场景需注意</td>
+                        </tr>
+                        <tr>
+                            <td>60-69%</td>
+                            <td><span class="badge warning">⭐⭐⭐ 及格</span></td>
+                            <td>基本可用，有明显短板</td>
+                        </tr>
+                        <tr>
+                            <td>50-59%</td>
+                            <td><span class="badge warning">⭐⭐ 较差</span></td>
+                            <td>能力有限，谨慎使用</td>
+                        </tr>
+                        <tr>
+                            <td>&lt; 50%</td>
+                            <td><span class="badge error">⭐ 不及格</span></td>
+                            <td>不建议使用</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Stage 3 测试规范 -->
+            <div class="section-card methodology-section">
+                <h2>🧠 Stage 3: 综合能力测试</h2>
+
+                <h3>测试框架</h3>
+                <p>65-case 深度测试，覆盖6大能力维度，全面评估模型综合表现。</p>
+
+                <div class="metric-cards">
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">数学推理</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">代码生成</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">逻辑推理</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">常识问答</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10</div>
+                        <div class="metric-label">文本理解</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">15</div>
+                        <div class="metric-label">Linux Shell</div>
+                    </div>
+                </div>
+
+                <h3>测试维度说明</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th>测试内容</th>
+                            <th>评估方式</th>
+                            <th>权重</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>数学推理</td>
+                            <td>GSM8K、基础数学、应用题</td>
+                            <td>答案准确率</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td>代码生成</td>
+                            <td>HumanEval、MBPP风格题目</td>
+                            <td>pass@1</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td>逻辑推理</td>
+                            <td>逻辑题、推理链、谜题</td>
+                            <td>人工评估</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td>常识问答</td>
+                            <td>科学、历史、地理等常识</td>
+                            <td>答案准确率</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td>文本理解</td>
+                            <td>阅读理解、摘要、情感分析</td>
+                            <td>ROUGE/人工</td>
+                            <td>15.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Linux Shell</td>
+                            <td>命令使用、脚本编写、系统管理</td>
+                            <td>命令正确性</td>
+                            <td>23.0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>综合评级标准</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>综合得分</th>
+                            <th>等级</th>
+                            <th>说明</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>≥ 85%</td>
+                            <td><span class="badge success">优秀</span></td>
+                            <td>全能型模型，6项能力全面优秀</td>
+                        </tr>
+                        <tr>
+                            <td>70-84%</td>
+                            <td><span class="badge success">良好</span></td>
+                            <td>综合能力较好，个别维度需改进</td>
+                        </tr>
+                        <tr>
+                            <td>60-69%</td>
+                            <td><span class="badge warning">及格</span></td>
+                            <td>基本可用，有明显短板</td>
+                        </tr>
+                        <tr>
+                            <td>&lt; 60%</td>
+                            <td><span class="badge error">不及格</span></td>
+                            <td>能力不足，不建议使用</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 测试平台 -->
+            <div class="section-card methodology-section">
+                <h2>🔧 测试平台</h2>
+
+                <div class="two-column">
+                    <div>
+                        <h3>🔥 Vulkan (AMD gfx1151)</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>参数</th>
+                                    <th>值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GPU</td>
+                                    <td>AMD Strix Halo gfx1151</td>
+                                </tr>
+                                <tr>
+                                    <td>显存</td>
+                                    <td>32GB 共享内存</td>
+                                </tr>
+                                <tr>
+                                    <td>后端</td>
+                                    <td>Vulkan</td>
+                                </tr>
+                                <tr>
+                                    <td>端口</td>
+                                    <td>8400</td>
+                                </tr>
+                                <tr>
+                                    <td>llama.cpp</td>
+                                    <td>b7952+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h3>⚡ CUDA (NVIDIA V100)</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>参数</th>
+                                    <th>值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GPU</td>
+                                    <td>NVIDIA Tesla V100</td>
+                                </tr>
+                                <tr>
+                                    <td>显存</td>
+                                    <td>32GB HBM2</td>
+                                </tr>
+                                <tr>
+                                    <td>CUDA</td>
+                                    <td>12.5</td>
+                                </tr>
+                                <tr>
+                                    <td>端口</td>
+                                    <td>8401</td>
+                                </tr>
+                                <tr>
+                                    <td>llama.cpp</td>
+                                    <td>b8073+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 数据存档规范 -->
+            <div class="section-card methodology-section">
+                <h2>📁 数据存档规范</h2>
+
+                <h3>目录结构</h3>
+                <pre class="code-block">
+eval_results/
+├── stage1/                    # Stage 1: 性能测试
+│   ├── BENCHMARK_REPORT.md
+│   └── *_stage1.json
+├── stage2/                    # Stage 2: 基础能力
+│   ├── GFX1151_STAGE2_BENCHMARK_REPORT.md
+│   ├── V100_COMPLETE_TOOL_USE_REPORT.md
+│   └── *_result.json
+├── stage3/                    # Stage 3: 综合能力
+│   ├── STAGE3_TEST_SUMMARY.md
+│   ├── BENCHMARK_REPORT.md
+│   └── *_stage3.json
+├── vulkan/                    # Vulkan 专项结果
+│   ├── throughput/
+│   ├── context/
+│   └── comprehensive/
+└── cuda/                      # CUDA 专项结果
+    └── context_256k/
+                </pre>
+
+                <h3>文件命名规范</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>文件类型</th>
+                            <th>命名格式</th>
+                            <th>示例</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Markdown 报告</td>
+                            <td>{MODEL_NAME}_report.md</td>
+                            <td>Qwen3-VL-8B_report.md</td>
+                        </tr>
+                        <tr>
+                            <td>JSON 数据</td>
+                            <td>{MODEL_NAME}_{stage}.json</td>
+                            <td>Qwen3-VL-8B_stage3.json</td>
+                        </tr>
+                        <tr>
+                            <td>原始数据</td>
+                            <td>{MODEL_NAME}_raw.jsonl</td>
+                            <td>v100_2026-02-18.jsonl</td>
+                        </tr>
+                        <tr>
+                            <td>日志文件</td>
+                            <td>{MODEL_NAME}.log</td>
+                            <td>Qwen3-VL-8B.log</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 执行命令参考 -->
+            <div class="section-card methodology-section">
+                <h2>🚀 执行命令参考</h2>
+
+                <h3>Vulkan 版本 (端口 8400)</h3>
+                <pre class="code-block">
+# 1. 基础吞吐量 + Context 测试
+python3 eval/eval_throughput.py \
+  --model-url http://localhost:8400 \
+  --model-name MODEL_NAME \
+  --output-dir eval_results/vulkan/throughput
+
+# 2. 综合能力测试
+python3 eval/eval_all_capabilities.py \
+  --model-path /path/to/model.gguf \
+  --model-name MODEL_NAME \
+  --model-url http://localhost:8400 \
+  --output-dir eval_results/vulkan/comprehensive
+
+# 3. Linux Shell 测试
+python3 eval/eval_tools_capability.py \
+  --model-url http://localhost:8400 \
+  --model-name MODEL_NAME \
+  --output-dir eval_results/vulkan/linux_shell \
+  --linux
+                </pre>
+
+                <h3>CUDA 版本 (端口 8401)</h3>
+                <pre class="code-block">
+# 同上，将 8400 替换为 8401
+# 输出目录改为 eval_results/cuda/
+
+# Stage 2 批量测试
+python3 eval/run_stage2_all_models.py
+
+# Stage 3 批量测试
+python3 eval/run_stage3_all_models.py
+                </pre>
+            </div>
+
+            <!-- 测试结果解读 -->
+            <div class="section-card methodology-section">
+                <h2>📖 测试结果解读指南</h2>
+
+                <h3>如何阅读测试报告</h3>
+                <div class="info-box">
+                    <strong>1. 先看综合得分：</strong>综合得分反映模型整体能力，≥85%为优秀，70-84%为良好，60-69%为及格，&lt;60%为不及格。
+                </div>
+                <div class="info-box">
+                    <strong>2. 分析维度得分：</strong>查看各维度得分，找出模型的优势和短板，根据使用场景选择合适的模型。
+                </div>
+                <div class="info-box">
+                    <strong>3. 对比同类模型：</strong>同一家族的模型通常有相似的特点，对比不同家族的模型可以找到最适合的选项。
+                </div>
+
+                <h3>常见结果模式</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>模式</th>
+                            <th>特征</th>
+                            <th>代表模型</th>
+                            <th>适用场景</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>全能型</td>
+                            <td>各维度得分均衡且高</td>
+                            <td>Qwen3-VL-8B</td>
+                            <td>通用任务</td>
+                        </tr>
+                        <tr>
+                            <td>代码专家</td>
+                            <td>代码满分，数学较弱</td>
+                            <td>Qwen3系列</td>
+                            <td>编程辅助</td>
+                        </tr>
+                        <tr>
+                            <td>数学专家</td>
+                            <td>数学强，其他均衡</td>
+                            <td>GLM-4家族</td>
+                            <td>数学推理</td>
+                        </tr>
+                        <tr>
+                            <td>大模型</td>
+                            <td>理解能力强，资源占用大</td>
+                            <td>JoyAI-LLM-Flash</td>
+                            <td>深度理解</td>
+                        </tr>
+                        <tr>
+                            <td>小模型</td>
+                            <td>资源占用小，能力有限</td>
+                            <td>Qwen3-0.6B</td>
+                            <td>边缘设备</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 版本历史 -->
+            <div class="section-card methodology-section">
+                <h2>📝 版本历史</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>版本</th>
+                            <th>日期</th>
+                            <th>更新内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>v1.0</td>
+                            <td>2026-02-18</td>
+                            <td>初始版本，完成三层测试框架搭建</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Stage 1: 性能/吞吐量测试</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Stage 2: 50-case 基础能力测试</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Stage 3: 65-case 综合能力测试</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 变更记录 -->
+        <div class="section-card" style="margin-top: 2rem;">
+            <h2>📝 变更记录 (Changelog)</h2>
+            <div class="changelog-list">
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-add">新增</span>
+                    <span class="changelog-content">添加变更记录区域到所有页面</span>
+                </div>
+                <div class="changelog-item">
+                    <span class="changelog-date">2026-02-18</span>
+                    <span class="changelog-tag tag-init">初始</span>
+                    <span class="changelog-content">创建测试规范文档，包含三个阶段的测试说明</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer">
+            <p>llama.cpp 模型评测报告 | 测试规范与流程 | 生成时间: 2026-02-18</p>
+        </footer>
+    </main>
+</body>
+</html>

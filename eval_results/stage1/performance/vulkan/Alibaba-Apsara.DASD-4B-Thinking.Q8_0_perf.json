@@ -1,0 +1,58 @@
+{
+  "model": "Alibaba-Apsara.DASD-4B-Thinking.Q8_0",
+  "display_name": "Apsara-4B (Q8_0)",
+  "timestamp": "2026-02-17T20:29:28.394655",
+  "context_tests": [
+    {
+      "prompt_tokens": 6736,
+      "completion_tokens": 8,
+      "prompt_speed_tps": 19570.84,
+      "gen_speed_tps": 23.24,
+      "ttft_ms": 344.19,
+      "elapsed_sec": 0.34,
+      "status": "success",
+      "context_size": 4096
+    },
+    {
+      "prompt_tokens": 13465,
+      "completion_tokens": 128,
+      "prompt_speed_tps": 271.88,
+      "gen_speed_tps": 2.58,
+      "ttft_ms": 49525.42,
+      "elapsed_sec": 49.53,
+      "status": "success",
+      "context_size": 8192
+    },
+    {
+      "prompt_tokens": 20195,
+      "completion_tokens": 128,
+      "prompt_speed_tps": 970.37,
+      "gen_speed_tps": 6.15,
+      "ttft_ms": 20811.67,
+      "elapsed_sec": 20.81,
+      "status": "success",
+      "context_size": 12288
+    },
+    {
+      "prompt_tokens": 26924,
+      "completion_tokens": 1,
+      "prompt_speed_tps": 3117.65,
+      "gen_speed_tps": 0.12,
+      "ttft_ms": 8636.0,
+      "elapsed_sec": 8.64,
+      "status": "success",
+      "context_size": 16384
+    },
+    {
+      "prompt_tokens": 40382,
+      "completion_tokens": 1,
+      "prompt_speed_tps": 2110.77,
+      "gen_speed_tps": 0.05,
+      "ttft_ms": 19131.36,
+      "elapsed_sec": 19.13,
+      "status": "success",
+      "context_size": 24576
+    }
+  ],
+  "max_context_supported": 24576
+}

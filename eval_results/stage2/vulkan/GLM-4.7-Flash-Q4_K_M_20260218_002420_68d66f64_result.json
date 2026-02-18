@@ -1,0 +1,342 @@
+{
+  "test_id": "GLM-4.7-Flash-Q4_K_M_20260218_002420_68d66f64",
+  "model": "GLM-4.7-Flash-Q4_K_M",
+  "timestamp": "2026-02-18T00:26:49.275821",
+  "endpoint": "http://localhost:8400",
+  "code": {
+    "passed": 6,
+    "total": 9,
+    "pass_rate": 0.6666666666666666,
+    "tests": [
+      {
+        "name": "has_close_elements",
+        "description": "检查列表中是否有两个元素距离小于阈值",
+        "status": "success",
+        "passed": false,
+        "score": 0.3,
+        "elapsed_ms": 9351.918,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **目标：** 实现 Python 函数 `has_close_elements`。\n    *   **输入：**\n        *   `numbers`：浮点数列表。\n        *   `threshold`：浮点数。\n    *   **功能：** 检查列表中是否有任意两个元素的距离小于给定阈值。\n    *   **约束：** 只输出函数实现代码，不要解释。\n    *   **提供的示例：**\n        *   `has_close_elements([1.0, 2.0, 3.0], 0.5)` -> `False`（1.0 和 2.0 之间的距离是 1.0，大于 0.5）。\n        *   `has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)` -> `True`（2.8 和 2.0 之间的距离是 0.8，等等，0.8 > 0.3。让我再检查一下。啊，2.8 和 3.0 是 0.2。0.2 < 0.3。所以是 True）。\n\n2.  **确定算法："
+      },
+      {
+        "name": "separate_paren_groups",
+        "description": "分离括号组",
+        "status": "success",
+        "passed": true,
+        "score": 0.65,
+        "elapsed_ms": 9312.908,
+        "error": null,
+        "generated_code": "1.  **分析需求：**\n    *   **函数签名：** `def separate_paren_groups(paren_string: str) -> list[str]:`\n    *   **文档字符串：** \"将输入字符串中的括号组分离成独立字符串，括号平衡。\"（将输入字符串中的括号组分离成独立字符串，括号平衡。）\n    *   **示例：**\n        *   输入：`'( ) (( )) (( )( ))'`\n        *   输出：`['()', '(())', '(()())']`\n    *   **约束：** 只输出函数实现代码，不要解释。\n\n2.  **理解逻辑：**\n    *   输入是一个包含空格和括号的字符串。\n    *   目标是提取出平衡的括号组。\n    *   示例显示空格被忽略，但括号组是连续的。\n    *   算法：\n        *   遍历字符串。\n        *   维护一个计数器（`count`）来跟踪当前的括号平衡状态。\n        *   当 `count` 为 0 时，我们处于一个新组的开始。\n"
+      },
+      {
+        "name": "truncate_number",
+        "description": "截断小数",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 9376.777,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **目标：** 实现 Python 函数 `truncate_number(number: float) -> float`。\n    *   **功能：** 截断数字的小数部分（向零取整）。\n    *   **示例：**\n        *   `truncate_number(3.5)` -> `3`\n        *   `truncate_number(-2.7)` -> `-2`\n    *   **约束：** *仅*输出函数实现代码。不要解释。\n\n2.  **确定方法：**\n    *   Python 有一个内置函数 `math.trunc()`，它执行向零取整。\n    *   另一种方法是使用 `int()`，因为 `int()` 会截断浮点数（向零取整）。\n    *   另一种方法是使用 `//` 运算符，但要注意负数的行为（例如，`-2.7 // 1` 是 `-3`，这不符合“向零取整”的要求）。\n    *   因此，`math.trunc()` 或 `int()` 是最好的选择。\n\n3.  **起草代码：**\n"
+      },
+      {
+        "name": "below_zero",
+        "description": "检查余额是否曾低于零",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 9402.015000000001,
+        "error": null,
+        "generated_code": "1.  **分析需求：**\n    *   **目标：** 实现 Python 函数 `below_zero`。\n    *   **输入：** 一个元组列表 `operations`，其中每个元组包含一个字符串（操作类型）和一个整数（金额）。\n    *   **输出：** 一个布尔值 `True` 或 `False`。\n    *   **逻辑：** 模拟银行账户。从零余额开始。遍历操作。如果是“存款”，增加余额。如果是“取款”，减少余额。如果在任何步骤余额变为负数，返回 `True`。如果遍历结束且余额从未为负，返回 `False`。\n    *   **约束：** 只输出函数实现代码，不要解释。\n\n2.  **确定操作映射：**\n    *   “存款” -> 加法 (+)\n    *   “取款” -> 减法 (-)\n\n3.  **起草代码：**\n\n    *   *方法 1：直接遍历*\n        ```python\n        def below_zero(operations):\n            balance = 0\n            for o"
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "description": "计算平均绝对导数",
+        "status": "success",
+        "passed": false,
+        "score": 0.15,
+        "elapsed_ms": 9392.324999999999,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **目标：** 实现 Python 函数 `mean_absolute_derivative`。\n    *   **输入：** 一个整数列表 `xs`。\n    *   **输出：** 一个浮点数。\n    *   **功能：** 计算序列的平均绝对导数（相邻元素差的绝对值的平均）。\n    *   **约束：** 只输出函数实现代码，不要解释。\n\n2.  **理解数学逻辑：**\n    *   设序列为 $x_1, x_2, \\dots, x_n$。\n    *   相邻差值：$|x_2 - x_1|, |x_3 - x_2|, \\dots, |x_n - x_{n-1}|$。\n    *   差值的数量：$n - 1$。\n    *   平均值 = (差值之和) / (差值的数量)。\n\n3.  **处理边缘情况：**\n    *   如果列表为空怎么办？除以零错误。\n    *   如果列表只有一个元素怎么办？除以零错误。\n    *   *自我修正/假设：* 题目没有明确说明如何处理空列表或单元素列表。然而，通常在这些编程问题中，如果"
+      },
+      {
+        "name": "intersperse",
+        "description": "在列表元素间插入分隔符",
+        "status": "success",
+        "passed": false,
+        "score": 0.3,
+        "elapsed_ms": 9397.586000000001,
+        "error": null,
+        "generated_code": "1.  **分析需求：**\n    *   **目标：** 实现 Python 函数 `intersperse`。\n    *   **输入：** 一个整数列表 `numbers` 和一个整数 `delimiter`。\n    *   **功能：** 在列表的每对连续元素之间插入 `delimiter`。\n    *   **约束：** 如果列表为空，返回空列表。\n    *   **输出格式：** 仅包含函数实现的代码，不要解释。\n\n2.  **分析示例：**\n    *   `intersperse([1, 2, 3], 0)` -> `[1, 0, 2, 0, 3]`\n        *   1 和 2 之间插入 0。\n        *   2 和 3 之间插入 0。\n    *   `intersperse([], 5)` -> `[]`\n        *   空列表保持为空。\n\n3.  **确定方法：**\n    *   *方法 1：循环。* 遍历列表。将当前元素添加到结果中。如果还有下一个元素，添加分隔符。\n    *   *方法 2：列表推导式。* 这通常更简洁。\n "
+      },
+      {
+        "name": "count_vowels",
+        "description": "统计元音字母数量",
+        "status": "success",
+        "passed": true,
+        "score": 1.0,
+        "elapsed_ms": 9269.934,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **目标：** 实现 Python 函数 `count_vowels(s: str) -> int`。\n    *   **功能：** 统计字符串中元音字母（'a', 'e', 'i', 'o', 'u'）的数量，不区分大小写。\n    *   **约束：** 只输出函数实现代码，不要解释。\n    *   **提供的示例：**\n        *   `count_vowels('Hello World')` -> 3 ('e', 'o', 'o')。\n        *   `count_vowels('Python')` -> 1 ('o')。\n\n2.  **确定方法：**\n    *   *方法 1：循环和条件判断。* 遍历字符串中的每个字符。检查它是否为元音（转换为小写或大写）。如果是，增加计数器。\n    *   *方法 2：使用 `sum` 和生成器表达式。* `sum(1 for char in s if char.lower() in 'aeiou')`。\n    *   *方法 3：使用 `count`。* `s.lowe"
+      },
+      {
+        "name": "remove_duplicates",
+        "description": "移除重复元素保持顺序",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 9398.112,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **角色：** Python编程助手。\n    *   **任务：** 实现一个特定的Python函数 `remove_duplicates`。\n    *   **输入：** 一个整数列表 `numbers`。\n    *   **输出：** 一个移除重复项的整数列表，同时保持第一次出现的顺序。\n    *   **约束：** 只输出函数实现代码，不要解释。\n    *   **提供的代码片段：** 包含导入和函数签名的模板。\n\n2.  **确定算法：**\n    *   我需要遍历输入列表。\n    *   我需要跟踪已经见过的元素。\n    *   如果一个元素是新的，将其添加到结果列表中。\n    *   如果一个元素已经见过了，跳过它。\n    *   由于Python 3.7+，字典会保留插入顺序，这使得它们非常适合这种“保持顺序”的去重任务。\n\n3.  **起草解决方案（构思或草稿）：**\n\n    *   *方法1：使用 `dict.fromkeys()`（Pythonic且高效）*\n        ```python\n   "
+      },
+      {
+        "name": "is_palindrome",
+        "description": "检查字符串是否为回文",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 9416.081,
+        "error": null,
+        "generated_code": "1.  **分析请求：**\n    *   **目标：** 实现 `is_palindrome` 函数。\n    *   **输入：** 一个字符串 `s`。\n    *   **输出：** 一个布尔值（`True` 或 `False`）。\n    *   **约束条件：**\n        *   检查回文（正读反读相同）。\n        *   忽略大小写（'A' == 'a'）。\n        *   忽略非字母数字字符（例如，' '、'!'、'.'）。\n    *   **提供的示例：**\n        *   `is_palindrome('A man a plan a canal Panama')` -> `True`\n        *   `is_palindrome('hello')` -> `False`\n    *   **输出格式：** 仅函数实现代码，不要解释。\n\n2.  **确定算法：**\n    *   *步骤 1：清理字符串。* 将所有字符转换为小写（或大写）并移除非字母数字字符。\n        *   Python 方法：`re.sub`（正则"
+      }
+    ]
+  },
+  "math": {
+    "passed": 0,
+    "total": 11,
+    "pass_rate": 0.0,
+    "tests": [
+      {
+        "name": "价格计算",
+        "status": "success",
+        "passed": false,
+        "expected": 245,
+        "extracted": 12.0,
+        "elapsed_ms": 4751.097,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一个特定的数学问题。\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n    *   **问题：** 一个商店正在促销。买3件衬衫每件25元，或者买5件衬衫每件20元。如果小明想买12件衬衫，最少需要多少钱？\n\n2.  **拆解问题：**\n    *   "
+      },
+      {
+        "name": "速度距离",
+        "status": "success",
+        "passed": false,
+        "expected": 270,
+        "extracted": 80.0,
+        "elapsed_ms": 4738.5599999999995,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一道数学题。\n    *   **问题：** 一辆汽车以每小时60公里的速度行驶了2.5小时，然后以每小时80公里的速度行驶了1.5小时。总行驶距离是多少公里？\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **拆解问题：**\n    *   "
+      },
+      {
+        "name": "比例问题",
+        "status": "success",
+        "passed": false,
+        "expected": 16,
+        "extracted": 10.0,
+        "elapsed_ms": 4727.7480000000005,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一个特定的数学问题。\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n    *   **问题：** 一个班级有40名学生。25%喜欢数学，35%喜欢英语，其余喜欢科学。喜欢科学的学生有多少人？\n\n2.  **拆解问题：**\n    *   总学生数 ($"
+      },
+      {
+        "name": "连续整数",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": 1.0,
+        "elapsed_ms": 4661.293,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一个特定的数学问题。\n    *   **问题：** “三个连续整数的和是72。这三个整数中最大的是多少？”\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **解构数学问题：**\n    *   设这三个连续整数为 $x$, $x+1$, 和 "
+      },
+      {
+        "name": "工作效率",
+        "status": "success",
+        "passed": false,
+        "expected": 2.4,
+        "extracted": 6.0,
+        "elapsed_ms": 4727.834,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一道特定的数学题。\n    *   **问题：** A单独完成一项工作需要6天，B单独完成需要4天。如果A和B一起工作，需要多少天完成？\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **拆解问题：**\n    *   设总工作量为1个单位（例"
+      },
+      {
+        "name": "混合物问题",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": 200.0,
+        "elapsed_ms": 4693.569,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一个特定的数学问题。\n    *   **问题：** 有10%浓度的盐水200克，要配制成20%浓度的盐水，需要加入多少克盐？\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **拆解问题：**\n    *   **初始状态：**\n       "
+      },
+      {
+        "name": "年龄问题",
+        "status": "success",
+        "passed": false,
+        "expected": 15,
+        "extracted": 4.0,
+        "elapsed_ms": 4635.483,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一个特定的数学问题。\n    *   **问题：** 父亲现在45岁，儿子15岁。多少年后父亲的年龄是儿子年龄的2倍？\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **拆解问题：**\n    *   设 $x$ 为“多少年后”。\n    * "
+      },
+      {
+        "name": "利润计算",
+        "status": "success",
+        "passed": false,
+        "expected": 30,
+        "extracted": 24.0,
+        "elapsed_ms": 4660.275000000001,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一道具体的数学题。\n    *   **问题：** 一件商品成本价是80元，售价是104元。利润率是多少？\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **拆解数学问题：**\n    *   **已知：**\n        *   成本价 ("
+      },
+      {
+        "name": "数列求和",
+        "status": "success",
+        "passed": false,
+        "expected": 5050,
+        "extracted": 50.0,
+        "elapsed_ms": 4671.053,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 计算1到100所有整数的和。\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **确定数学方法：**\n    *   问题要求计算 $S = 1 + 2 + 3 + \\dots + 100$。\n    *   这是一个经典的等差数列求和问题。\n   "
+      },
+      {
+        "name": "利息计算",
+        "status": "success",
+        "passed": false,
+        "expected": 11576.25,
+        "extracted": 1.05,
+        "elapsed_ms": 4768.067,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 计算本金10000元，年利率5%，存3年后的本息总额（复利计算）。\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **确定数学公式：**\n    *   复利公式为 $A = P(1 + r)^t$，其中：\n        *   $A$ = 本息"
+      },
+      {
+        "name": "几何面积",
+        "status": "success",
+        "passed": false,
+        "expected": 78.5,
+        "extracted": 75.0,
+        "elapsed_ms": 4730.095,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 数学助手。\n    *   **任务：** 解答一个特定的数学问题。\n    *   **问题：** 一个圆的半径是5厘米，它的面积是多少？（π取3.14）。\n    *   **约束：** 在解释后，必须在最后一行单独输出最终答案数字。\n\n2.  **识别数学概念：**\n    *   圆的面积公式：$A = \\pi r^2$。\n "
+      }
+    ]
+  },
+  "text": {
+    "passed": 2,
+    "total": 10,
+    "pass_rate": 0.2,
+    "tests": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "status": "success",
+        "passed": false,
+        "expected": "D",
+        "extracted": "",
+        "elapsed_ms": 1283.048,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 回答一个关于中国四大发明的选择题。\n    *   **问题：** 中国的四大发明不包括以"
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "A",
+        "elapsed_ms": 1340.145,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 回答关于光在真空中的传播速度的问题。\n    *   **输入：** 一个多项选择题。\n "
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "status": "success",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 1313.157,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 直接回答选项字母。\n    *   **输入：** 一个逻辑问题。\n        *  "
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 1166.406,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 回答关于《红楼梦》作者的问题。\n    *   **格式：** 仅输出选项字母（A/B/C"
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "A",
+        "elapsed_ms": 1182.4360000000001,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   角色：知识问答助手。\n    *   任务：回答关于水的化学式的问题。\n    *   选项：\n        *   A. HO\n        *  "
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "status": "success",
+        "passed": false,
+        "expected": "C",
+        "extracted": "A",
+        "elapsed_ms": 1166.26,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   角色：知识问答助手。\n    *   任务：回答“世界上面积最大的国家是？”这个问题。\n    *   选项：A. 中国，B. 美国，C. 俄罗斯，D. "
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "status": "success",
+        "passed": true,
+        "expected": "A",
+        "extracted": "A",
+        "elapsed_ms": 1281.5449999999998,
+        "error": null,
+        "model_answer": "1.  **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 直接回答选项字母。\n    *   **问题：** 如果 A > B 且 B > C，那"
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "A",
+        "elapsed_ms": 1168.4959999999999,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 回答关于人类染色体数量的问题。\n    *   **格式：** 仅输出选项字母（A/B/C"
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "status": "success",
+        "passed": false,
+        "expected": "C",
+        "extracted": "A",
+        "elapsed_ms": 1173.485,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   角色：知识问答助手。\n    *   任务：回答关于太阳系中最大行星的问题。\n    *   选项：A. 地球，B. 土星，C. 木星，D. 火星。\n  "
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 1175.078,
+        "error": null,
+        "model_answer": "1. **分析用户请求：**\n    *   **角色：** 知识问答助手。\n    *   **任务：** 回答关于HTTP状态码404的问题。\n    *   **问题：** HTTP状态码404"
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 30,
+    "total_passed": 8,
+    "total_pass_rate": 0.26666666666666666
+  }
+}

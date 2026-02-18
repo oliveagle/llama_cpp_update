@@ -1,0 +1,335 @@
+{
+  "model": "Qwen3-Coder-Next-Q4_K_M",
+  "timestamp": "2026-02-18T10:36:49.753250",
+  "test_type": "tool",
+  "endpoint": "http://localhost:8400",
+  "tool": {
+    "passed": 13,
+    "total": 20,
+    "pass_rate": 0.65,
+    "duration": 555.5376343727112,
+    "details": [
+      {
+        "name": "天气查询工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 0,
+        "details": {},
+        "error": "HTTPConnectionPool(host='localhost', port=8400): Read timed out. (read timeout=120)"
+      },
+      {
+        "name": "计算器工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 0,
+        "details": {},
+        "error": "HTTPConnectionPool(host='localhost', port=8400): Read timed out. (read timeout=120)"
+      },
+      {
+        "name": "搜索引擎工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 0,
+        "details": {},
+        "error": "HTTPConnectionPool(host='localhost', port=8400): Read timed out. (read timeout=120)"
+      },
+      {
+        "name": "数据库查询工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 0,
+        "details": {},
+        "error": "HTTPConnectionPool(host='localhost', port=8400): Read timed out. (read timeout=120)"
+      },
+      {
+        "name": "发送邮件工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 10635.740756988525,
+        "details": {
+          "description": "理解邮件工具参数",
+          "expected_keywords": [
+            "send_email",
+            "zhangsan@example.com",
+            "会议通知"
+          ],
+          "model_response": "```json\n{\n  \"to\": \"zhangsan@example.com\",\n  \"subject\": \"会议通知\",\n  \"body\": \"明天下午2点开会\"\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "文件读取工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 825.5176544189453,
+        "details": {
+          "description": "生成文件读取调用",
+          "expected_keywords": [
+            "read_file",
+            "path",
+            "/home/user/data.txt"
+          ],
+          "model_response": "{\"name\": \"read_file\", \"parameters\": {\"path\": \"/home/user/data.txt\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "日期时间工具",
+        "category": "工具理解",
+        "passed": false,
+        "duration_ms": 1152.9738903045654,
+        "details": {
+          "description": "理解时间工具参数",
+          "expected_keywords": [
+            "get_datetime",
+            "timezone",
+            "Beijing",
+            "Asia/Shanghai"
+          ],
+          "model_response": "```json\n{\"name\": \"get_datetime\", \"parameters\": {\"timezone\": \"Asia/Shanghai\", \"format\": \"YYYY-MM-DD HH:mm:ss\"}}\n```",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "翻译工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 935.1136684417725,
+        "details": {
+          "description": "生成翻译工具调用",
+          "expected_keywords": [
+            "translate",
+            "text",
+            "Hello World",
+            "zh",
+            "中文"
+          ],
+          "model_response": "{\"name\": \"translate\", \"parameters\": {\"text\": \"Hello World\", \"target_lang\": \"zh\"}}",
+          "score": 0.58
+        },
+        "error": null
+      },
+      {
+        "name": "地图定位工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 968.7454700469971,
+        "details": {
+          "description": "理解地图工具参数",
+          "expected_keywords": [
+            "geocode",
+            "address",
+            "天安门"
+          ],
+          "model_response": "{\"name\": \"geocode\", \"parameters\": {\"address\": \"天安门广场\", \"city\": \"北京\"}}",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "单位换算工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1307.9817295074463,
+        "details": {
+          "description": "生成单位换算调用",
+          "expected_keywords": [
+            "unit_convert",
+            "value",
+            "100",
+            "mile",
+            "km"
+          ],
+          "model_response": "```json\n{\"name\": \"unit_convert\", \"parameters\": {\"value\": 100, \"from_unit\": \"mile\", \"to_unit\": \"km\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "随机数生成工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1231.3048839569092,
+        "details": {
+          "description": "理解随机数工具参数",
+          "expected_keywords": [
+            "random_number",
+            "min",
+            "max",
+            "1",
+            "100"
+          ],
+          "model_response": "```json\n{\"name\": \"random_number\", \"parameters\": {\"min\": 1, \"max\": 100, \"type\": \"integer\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "URL解析工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1245.3265190124512,
+        "details": {
+          "description": "生成URL解析调用",
+          "expected_keywords": [
+            "parse_url",
+            "url",
+            "https://www.example.com"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"parse_url\",\n  \"parameters\": {\n    \"url\": \"https://www.example.com/path?key=value#anchor\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "Base64编码工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 951.5550136566162,
+        "details": {
+          "description": "理解编码工具参数",
+          "expected_keywords": [
+            "base64_encode",
+            "data",
+            "admin",
+            "password"
+          ],
+          "model_response": "```json\n{\"name\": \"base64_encode\", \"parameters\": {\"data\": \"admin:password\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "哈希计算工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1023.3662128448486,
+        "details": {
+          "description": "生成哈希工具调用",
+          "expected_keywords": [
+            "compute_hash",
+            "text",
+            "hello",
+            "md5",
+            "MD5"
+          ],
+          "model_response": "```json\n{\"name\": \"compute_hash\", \"parameters\": {\"text\": \"hello\", \"algorithm\": \"MD5\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "JSON解析工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1638.4799480438232,
+        "details": {
+          "description": "理解JSON解析参数",
+          "expected_keywords": [
+            "json_extract",
+            "json_str",
+            "name",
+            "path"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"json_extract\",\n  \"parameters\": {\n    \"json_str\": \"{\\\"name\\\": \\\"张三\\\", \\\"age\\\": 25}\",\n    \"path\": \"name\"\n  }\n}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "正则表达式工具",
+        "category": "工具调用",
+        "passed": false,
+        "duration_ms": 1977.6511192321777,
+        "details": {
+          "description": "生成正则匹配调用",
+          "expected_keywords": [
+            "regex_extract",
+            "pattern",
+            "@",
+            "email"
+          ],
+          "model_response": "```json\n{\n  \"name\": \"regex_extract\",\n  \"parameters\": {\n    \"text\": \"请提供包含邮箱地址的文本\",\n    \"pattern\": \"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\"\n  }\n}\n```",
+          "score": 0.5499999999999999
+        },
+        "error": null
+      },
+      {
+        "name": "汇率转换工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 1301.4440536499023,
+        "details": {
+          "description": "理解汇率工具参数",
+          "expected_keywords": [
+            "currency_convert",
+            "amount",
+            "100",
+            "USD",
+            "CNY"
+          ],
+          "model_response": "```json\n{\"name\": \"currency_convert\", \"parameters\": {\"amount\": 100, \"from\": \"USD\", \"to\": \"CNY\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "定时提醒工具",
+        "category": "工具调用",
+        "passed": true,
+        "duration_ms": 1089.101791381836,
+        "details": {
+          "description": "生成提醒工具调用",
+          "expected_keywords": [
+            "set_reminder",
+            "time",
+            "message",
+            "开会"
+          ],
+          "model_response": "```json\n{\"name\": \"set_reminder\", \"parameters\": {\"time\": \"明天上午9点\", \"message\": \"开会\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "图像识别工具",
+        "category": "工具理解",
+        "passed": true,
+        "duration_ms": 904.3951034545898,
+        "details": {
+          "description": "理解图像识别参数",
+          "expected_keywords": [
+            "ocr_image",
+            "image_path",
+            "/image/photo.jpg"
+          ],
+          "model_response": "```json\n{\"name\": \"ocr_image\", \"parameters\": {\"image_path\": \"/image/photo.jpg\"}}\n```",
+          "score": 0.7
+        },
+        "error": null
+      },
+      {
+        "name": "多工具选择",
+        "category": "工具选择",
+        "passed": true,
+        "duration_ms": 1057.234525680542,
+        "details": {
+          "description": "在多个工具中选择正确的",
+          "expected_keywords": [
+            "calculate_distance",
+            "上海",
+            "北京",
+            "from",
+            "to"
+          ],
+          "model_response": "{\"name\": \"calculate_distance\", \"parameters\": {\"from\": \"上海\", \"to\": \"北京\"}}",
+          "score": 0.7
+        },
+        "error": null
+      }
+    ]
+  }
+}

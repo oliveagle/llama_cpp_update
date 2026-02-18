@@ -1,0 +1,427 @@
+{
+  "model": "GLM-4.7-Flash-Q4_K_M",
+  "size": "4.7B",
+  "timestamp": "2026-02-17T23:37:57.655131",
+  "code": {
+    "passed": 0,
+    "total": 9,
+    "pass_rate": 0.0,
+    "duration": 104.13229703903198,
+    "details": [
+      {
+        "name": "has_close_elements",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 31546.237468719482,
+        "details": {
+          "description": "检查列表中是否有两个元素距离小于阈值",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "separate_paren_groups",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9018.576622009277,
+        "details": {
+          "description": "分离括号组",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "truncate_number",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9077.594995498657,
+        "details": {
+          "description": "截断小数",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "below_zero",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9142.676830291748,
+        "details": {
+          "description": "检查余额是否曾低于零",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9012.839317321777,
+        "details": {
+          "description": "计算平均绝对导数",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "intersperse",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9088.08946609497,
+        "details": {
+          "description": "在列表元素间插入分隔符",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "count_vowels",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9075.891494750977,
+        "details": {
+          "description": "统计元音字母数量",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "remove_duplicates",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9089.759588241577,
+        "details": {
+          "description": "移除重复元素保持顺序",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      },
+      {
+        "name": "is_palindrome",
+        "category": "代码能力",
+        "passed": false,
+        "duration_ms": 9075.994729995728,
+        "details": {
+          "description": "检查字符串是否为回文",
+          "generated_code": "",
+          "score": 0.15
+        },
+        "error": null
+      }
+    ]
+  },
+  "math": {
+    "passed": 0,
+    "total": 11,
+    "pass_rate": 0.0,
+    "duration": 51.177934408187866,
+    "details": [
+      {
+        "name": "价格计算",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4820.548057556152,
+        "details": {
+          "description": "基础价格计算",
+          "problem": "一个商店正在促销。买3件衬衫每件25元，或者买5件衬衫每件20元。如果小明想买12件衬衫，最少需要多少钱？",
+          "expected_answer": 245,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "速度距离",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4714.914798736572,
+        "details": {
+          "description": "速度距离时间计算",
+          "problem": "一辆汽车以每小时60公里的速度行驶了2.5小时，然后以每小时80公里的速度行驶了1.5小时。总行驶距离是多少公里？",
+          "expected_answer": 270,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "比例问题",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4679.459810256958,
+        "details": {
+          "description": "比例和百分比",
+          "problem": "一个班级有40名学生，其中25%喜欢数学，35%喜欢英语，其余喜欢科学。喜欢科学的学生有多少人？",
+          "expected_answer": 16,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "连续整数",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4647.862672805786,
+        "details": {
+          "description": "连续整数求和",
+          "problem": "三个连续整数的和是72。这三个整数中最大的是多少？",
+          "expected_answer": 25,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "工作效率",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4686.163902282715,
+        "details": {
+          "description": "工作效率问题",
+          "problem": "A单独完成一项工作需要6天，B单独完成需要4天。如果A和B一起工作，需要多少天完成？",
+          "expected_answer": 2.4,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "混合物问题",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4657.115936279297,
+        "details": {
+          "description": "混合浓度",
+          "problem": "有10%浓度的盐水200克，要配制成20%浓度的盐水，需要加入多少克盐？",
+          "expected_answer": 25,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "年龄问题",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4653.721332550049,
+        "details": {
+          "description": "年龄差问题",
+          "problem": "父亲现在45岁，儿子15岁。多少年后父亲的年龄是儿子年龄的2倍？",
+          "expected_answer": 15,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "利润计算",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4593.384504318237,
+        "details": {
+          "description": "利润百分比",
+          "problem": "一件商品成本价是80元，售价是104元。利润率是多少？",
+          "expected_answer": 30,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "数列求和",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4559.5550537109375,
+        "details": {
+          "description": "等差数列求和",
+          "problem": "计算1到100所有整数的和是多少？",
+          "expected_answer": 5050,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "利息计算",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4574.655771255493,
+        "details": {
+          "description": "复利计算",
+          "problem": "本金10000元，年利率5%，存3年后本息共多少？（复利计算）",
+          "expected_answer": 11576.25,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "几何面积",
+        "category": "数学能力",
+        "passed": false,
+        "duration_ms": 4585.022449493408,
+        "details": {
+          "description": "圆形面积",
+          "problem": "一个圆的半径是5厘米，它的面积是多少？（π取3.14）",
+          "expected_answer": 78.5,
+          "extracted_answer": null,
+          "model_answer": ""
+        },
+        "error": null
+      }
+    ]
+  },
+  "text": {
+    "passed": 0,
+    "total": 10,
+    "pass_rate": 0.0,
+    "duration": 13.39598274230957,
+    "details": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "passed": false,
+        "duration_ms": 1363.0475997924805,
+        "details": {
+          "question": "中国的四大发明不包括以下哪一项？",
+          "expected": "D",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "passed": false,
+        "duration_ms": 1388.6423110961914,
+        "details": {
+          "question": "光在真空中的传播速度约为多少？",
+          "expected": "B",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "passed": false,
+        "duration_ms": 1367.6204681396484,
+        "details": {
+          "question": "所有的猫都是哺乳动物。汤姆是一只猫。因此：",
+          "expected": "A",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "passed": false,
+        "duration_ms": 1320.6613063812256,
+        "details": {
+          "question": "《红楼梦》的作者是？",
+          "expected": "A",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "passed": false,
+        "duration_ms": 1318.145990371704,
+        "details": {
+          "question": "水的化学式是？",
+          "expected": "B",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "passed": false,
+        "duration_ms": 1314.9292469024658,
+        "details": {
+          "question": "世界上面积最大的国家是？",
+          "expected": "C",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "passed": false,
+        "duration_ms": 1331.8288326263428,
+        "details": {
+          "question": "如果 A > B 且 B > C，那么：",
+          "expected": "A",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "passed": false,
+        "duration_ms": 1326.3261318206787,
+        "details": {
+          "question": "人类有多少对染色体？",
+          "expected": "B",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "passed": false,
+        "duration_ms": 1325.9005546569824,
+        "details": {
+          "question": "太阳系中最大的行星是？",
+          "expected": "C",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "passed": false,
+        "duration_ms": 1334.1028690338135,
+        "details": {
+          "question": "HTTP状态码404表示什么意思？",
+          "expected": "B",
+          "extracted": "",
+          "model_answer": ""
+        },
+        "error": null
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 30,
+    "total_passed": 0,
+    "total_pass_rate": 0.0,
+    "total_duration": 168.70621418952942
+  }
+}

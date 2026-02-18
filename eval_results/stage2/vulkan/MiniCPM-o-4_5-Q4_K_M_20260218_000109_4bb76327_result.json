@@ -1,0 +1,342 @@
+{
+  "test_id": "MiniCPM-o-4_5-Q4_K_M_20260218_000109_4bb76327",
+  "model": "MiniCPM-o-4_5-Q4_K_M",
+  "timestamp": "2026-02-18T00:03:29.544015",
+  "endpoint": "http://localhost:8400",
+  "code": {
+    "passed": 5,
+    "total": 9,
+    "pass_rate": 0.5555555555555556,
+    "tests": [
+      {
+        "name": "has_close_elements",
+        "description": "检查列表中是否有两个元素距离小于阈值",
+        "status": "success",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 20862.887000000002,
+        "error": null,
+        "generated_code": null
+      },
+      {
+        "name": "separate_paren_groups",
+        "description": "分离括号组",
+        "status": "success",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 13056.448,
+        "error": null,
+        "generated_code": null
+      },
+      {
+        "name": "truncate_number",
+        "description": "截断小数",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 12034.479,
+        "error": null,
+        "generated_code": "```python\ndef truncate_number(number: float) -> float:\n    return int(number)\n```"
+      },
+      {
+        "name": "below_zero",
+        "description": "检查余额是否曾低于零",
+        "status": "success",
+        "passed": false,
+        "score": 0.35,
+        "elapsed_ms": 1529.684,
+        "error": null,
+        "generated_code": "    balance = 0\n    for op, amount in operations:\n        if op == '存款':\n            balance += amount\n        elif op == '取款':\n            balance -= amount\n        if balance < 0:\n            return True\n    return False"
+      },
+      {
+        "name": "mean_absolute_derivative",
+        "description": "计算平均绝对导数",
+        "status": "success",
+        "passed": false,
+        "score": 0.0,
+        "elapsed_ms": 13032.409,
+        "error": null,
+        "generated_code": null
+      },
+      {
+        "name": "intersperse",
+        "description": "在列表元素间插入分隔符",
+        "status": "success",
+        "passed": true,
+        "score": 0.5,
+        "elapsed_ms": 1152.252,
+        "error": null,
+        "generated_code": "    result = []\n    for i, num in enumerate(numbers):\n        result.append(num)\n        if i < len(numbers) - 1:\n            result.append(delimiter)\n    return result"
+      },
+      {
+        "name": "count_vowels",
+        "description": "统计元音字母数量",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1042.753,
+        "error": null,
+        "generated_code": "def count_vowels(s: str) -> int:\n    vowels = 'aeiou'\n    return sum(1 for char in s.lower() if char in vowels)"
+      },
+      {
+        "name": "remove_duplicates",
+        "description": "移除重复元素保持顺序",
+        "status": "success",
+        "passed": true,
+        "score": 0.5,
+        "elapsed_ms": 1046.75,
+        "error": null,
+        "generated_code": "    seen = set()\n    result = []\n    for num in numbers:\n        if num not in seen:\n            seen.add(num)\n            result.append(num)\n    return result"
+      },
+      {
+        "name": "is_palindrome",
+        "description": "检查字符串是否为回文",
+        "status": "success",
+        "passed": true,
+        "score": 0.8,
+        "elapsed_ms": 1068.6100000000001,
+        "error": null,
+        "generated_code": "def is_palindrome(s: str) -> bool:\n    s = ''.join(c.lower() for c in s if c.isalnum())\n    return s == s[::-1]"
+      }
+    ]
+  },
+  "math": {
+    "passed": 1,
+    "total": 11,
+    "pass_rate": 0.09090909090909091,
+    "tests": [
+      {
+        "name": "价格计算",
+        "status": "success",
+        "passed": false,
+        "expected": 245,
+        "extracted": null,
+        "elapsed_ms": 6572.487,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "速度距离",
+        "status": "success",
+        "passed": false,
+        "expected": 270,
+        "extracted": 60.0,
+        "elapsed_ms": 5692.143,
+        "error": null,
+        "model_answer": "确定汽车行驶的总距离需分别计算两段路程后相加。  \n第一段距离：60 km/h × 2.5 h = 150 km  \n第二段距离：80 km/h × 1.5 h = 120 km  \n总距离：150 + 120 = 270 km  \n\n270"
+      },
+      {
+        "name": "比例问题",
+        "status": "success",
+        "passed": false,
+        "expected": 16,
+        "extracted": 10.0,
+        "elapsed_ms": 5157.504,
+        "error": null,
+        "model_answer": "首先计算喜欢数学的学生人数：40 × 25% = 10人。  \n然后计算喜欢英语的学生人数：40 × 35% = 14人。  \n剩余喜欢科学的学生人数为：40 - 10 - 14 = 16人。  \n\n16"
+      },
+      {
+        "name": "连续整数",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": null,
+        "elapsed_ms": 6487.784000000001,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "工作效率",
+        "status": "success",
+        "passed": false,
+        "expected": 2.4,
+        "extracted": 6.0,
+        "elapsed_ms": 6518.057,
+        "error": null,
+        "model_answer": "首先计算A和B的工作效率：  \nA单独完成需6天，效率为 $ \\frac{1}{6} $；  \nB单独完成需4天，效率为 $ \\frac{1}{4} $。  \n\n两人合作效率为两者之和：  \n$ \\frac{1}{6} + \\frac{1}{4} = \\frac{2}{12} + \\frac"
+      },
+      {
+        "name": "混合物问题",
+        "status": "success",
+        "passed": false,
+        "expected": 25,
+        "extracted": null,
+        "elapsed_ms": 6526.397,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "年龄问题",
+        "status": "success",
+        "passed": false,
+        "expected": 15,
+        "extracted": 45.0,
+        "elapsed_ms": 4872.677000000001,
+        "error": null,
+        "model_answer": "确定方程：设x年后，父亲年龄为45+x，儿子年龄为15+x。依题意，45 + x = 2(15 + x)。展开得45 + x = 30 + 2x，移项得45 - 30 = 2x - x，即15 = x。  \n\n15"
+      },
+      {
+        "name": "利润计算",
+        "status": "success",
+        "passed": true,
+        "expected": 30,
+        "extracted": 30.0,
+        "elapsed_ms": 1767.018,
+        "error": null,
+        "model_answer": "首先，计算利润：售价 - 成本价 = 104 - 80 = 24元。然后，计算利润率：利润 / 成本价 * 100% = 24 / 80 * 100% = 30%。最终答案是30。"
+      },
+      {
+        "name": "数列求和",
+        "status": "success",
+        "passed": false,
+        "expected": 5050,
+        "extracted": 2.0,
+        "elapsed_ms": 6692.827,
+        "error": null,
+        "model_answer": "计算1到100所有整数的和可以使用等差数列求和公式：  \n和 = n×(首项 + 末项)÷2  \n其中n=1"
+      },
+      {
+        "name": "利息计算",
+        "status": "success",
+        "passed": false,
+        "expected": 11576.25,
+        "extracted": null,
+        "elapsed_ms": 6684.343,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "几何面积",
+        "status": "success",
+        "passed": false,
+        "expected": 78.5,
+        "extracted": 2.0,
+        "elapsed_ms": 4405.216,
+        "error": null,
+        "model_answer": "要计算圆的面积，使用公式 \\( S = \\pi r^2 \\)，其中半径 \\( r = 5 \\) 厘米，\\( \\pi = 3.14 \\)。  \n代入计算：\\( 3.14 \\times 5^2 = 3.14 \\times 25 = 78.5 \\)。  \n\n78.5"
+      }
+    ]
+  },
+  "text": {
+    "passed": 2,
+    "total": 10,
+    "pass_rate": 0.2,
+    "tests": [
+      {
+        "name": "历史知识",
+        "category": "人文历史",
+        "status": "success",
+        "passed": false,
+        "expected": "D",
+        "extracted": "",
+        "elapsed_ms": 1736.034,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "物理常识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 1758.9550000000002,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "逻辑推理",
+        "category": "逻辑推理",
+        "status": "success",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 1742.12,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "文学常识",
+        "category": "文学艺术",
+        "status": "success",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 1682.71,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "化学知识",
+        "category": "自然科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 1679.901,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "地理知识",
+        "category": "地理",
+        "status": "success",
+        "passed": true,
+        "expected": "C",
+        "extracted": "C",
+        "elapsed_ms": 125.256,
+        "error": null,
+        "model_answer": "C"
+      },
+      {
+        "name": "数学逻辑",
+        "category": "数学逻辑",
+        "status": "success",
+        "passed": false,
+        "expected": "A",
+        "extracted": "",
+        "elapsed_ms": 1681.9379999999999,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "生物知识",
+        "category": "生命科学",
+        "status": "success",
+        "passed": false,
+        "expected": "B",
+        "extracted": "",
+        "elapsed_ms": 1670.385,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "天文知识",
+        "category": "天文地理",
+        "status": "success",
+        "passed": false,
+        "expected": "C",
+        "extracted": "",
+        "elapsed_ms": 1674.376,
+        "error": null,
+        "model_answer": null
+      },
+      {
+        "name": "计算机基础",
+        "category": "计算机科学",
+        "status": "success",
+        "passed": true,
+        "expected": "B",
+        "extracted": "B",
+        "elapsed_ms": 127.613,
+        "error": null,
+        "model_answer": "B"
+      }
+    ]
+  },
+  "summary": {
+    "total_tests": 30,
+    "total_passed": 8,
+    "total_pass_rate": 0.26666666666666666
+  }
+}

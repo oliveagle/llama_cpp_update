@@ -1,0 +1,25 @@
+# Qwen2.5-7B 模型特定配置
+model:
+  id: "Qwen2.5-7B"
+  gguf_pattern: "*Qwen2.5-7B*Q4_K_M.gguf"
+
+  backend_overrides:
+    vulkan:
+      ngl: 99
+      chat_template: "qwen2"
+
+    cuda:
+      ngl: 99
+      chat_template: "qwen2"
+
+  expected_performance:
+    vulkan:
+      prompt_tps: 120
+      generation_tps: 25
+    cuda:
+      prompt_tps: 250
+      generation_tps: 50
+
+  test_config:
+    context_scaling:
+      max: 131072

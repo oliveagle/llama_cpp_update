@@ -1,0 +1,74 @@
+{
+  "model": "Qwen3-VL-8B-Instruct-abliterated-v2.Q8_0",
+  "url": "http://localhost:8401",
+  "stage": 2,
+  "stage_name": "\u57fa\u7840\u80fd\u529b\u6d4b\u8bd5-\u4ee3\u7801",
+  "total_tests": 5,
+  "passed_tests": 3,
+  "failed_tests": 2,
+  "pass_rate": 0.6,
+  "duration_seconds": 27.804294109344482,
+  "passed_threshold": true,
+  "tests": [
+    {
+      "name": "has_close_elements",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 1454.9987316131592,
+      "details": {
+        "description": "\u68c0\u67e5\u5217\u8868\u4e2d\u662f\u5426\u6709\u4e24\u4e2a\u5143\u7d20\u8ddd\u79bb\u5c0f\u4e8e\u9608\u503c",
+        "generated_code": "def has_close_elements(numbers: list[float], threshold: float) -> bool:\n    numbers.sort()\n    for i in range(len(numbers) - 1):\n        if abs(numbers[i] - numbers[i + 1]) < threshold:\n            return True\n    return False",
+        "score": 0.8
+      },
+      "error": null
+    },
+    {
+      "name": "separate_paren_groups",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 3536.7188453674316,
+      "details": {
+        "description": "\u5206\u79bb\u62ec\u53f7\u7ec4",
+        "generated_code": "```python\ndef separate_paren_groups(paren_string: str) -> list[str]:\n    result = []\n    i = 0\n    while i < len(paren_string):\n        if paren_string[i] == '(':\n            start = i\n            depth = 1\n            i += 1\n            while i < len(paren_string) and depth > 0:\n                if paren_string[i] == '(':\n                    depth += 1\n                elif paren_string[i] == ')':\n                    depth -= 1\n                i += 1\n            result.append(paren_string[start:i",
+        "score": 0.65
+      },
+      "error": null
+    },
+    {
+      "name": "truncate_number",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": false,
+      "duration_ms": 10679.101467132568,
+      "details": {
+        "description": "\u622a\u65ad\u5c0f\u6570",
+        "generated_code": "",
+        "score": 0.15
+      },
+      "error": null
+    },
+    {
+      "name": "below_zero",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 1979.499101638794,
+      "details": {
+        "description": "\u68c0\u67e5\u4f59\u989d\u662f\u5426\u66fe\u4f4e\u4e8e\u96f6",
+        "generated_code": "```python\nfrom typing import List, Tuple\n\ndef below_zero(operations: List[Tuple[str, int]]) -> bool:\n    balance = 0\n    for operation in operations:\n        if operation[0] == '\u5b58\u6b3e':\n            balance += operation[1]\n        else:\n            balance -= operation[1]\n        if balance < 0:\n            return True\n    return False\n```",
+        "score": 0.8
+      },
+      "error": null
+    },
+    {
+      "name": "mean_absolute_derivative",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": false,
+      "duration_ms": 10151.151895523071,
+      "details": {
+        "description": "\u8ba1\u7b97\u5e73\u5747\u7edd\u5bf9\u5bfc\u6570",
+        "generated_code": "",
+        "score": 0.15
+      },
+      "error": null
+    }
+  ]
+}
