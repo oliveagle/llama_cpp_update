@@ -505,7 +505,7 @@ class KnowledgeEvaluator(BaseEvaluator):
                     {"role": "system", "content": "你是一个知识问答专家。只回答选项字母，不要解释。"},
                     {"role": "user", "content": prompt}
                 ],
-                "max_tokens": 10,
+                "max_tokens": 100,
                 "temperature": 0.1
             }
 
@@ -574,10 +574,33 @@ class KnowledgeEvaluator(BaseEvaluator):
             )
 
     def _extract_answer(self, response: str) -> str:
-        """从响应中提取答案字母"""
+        """从响应中提取答案字母，支持多种格式"""
         if not response:
             return ""
-        match = re.search(r'[A-D]', response.upper())
+        text_upper = response.upper()
+
+        # 尝试匹配 "答案: A" 或 "答案是 B" 格式
+        patterns = [
+            r'答案[:：]\s*([A-D])',  # 答案: A
+            r'答案(?:是|为)[:：]?\s*([A-D])',  # 答案是 A / 答案为A
+            r'[\(\[\{]([A-D])[\)\]\}]',  # (A) [A] {A}
+            r'\b([A-D])[\.、\)]',  # A. A、 A)
+            r'选项[:：]?\s*([A-D])',  # 选项: A
+            r'[选|答][择|案][:：]?\s*([A-D])',  # 选择: A / 答案: A
+        ]
+
+        for pattern in patterns:
+            match = re.search(pattern, text_upper)
+            if match:
+                return match.group(1)
+
+        # 如果都没匹配到，找最后一个独立的 A-D 字母（通常在回答末尾）
+        matches = re.findall(r'\b([A-D])\b', text_upper)
+        if matches:
+            return matches[-1]  # 返回最后一个匹配
+
+        # 最后的备选：找第一个 A-D 字符
+        match = re.search(r'[A-D]', text_upper)
         return match.group(0) if match else ""
 
 
