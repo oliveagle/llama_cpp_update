@@ -14,7 +14,7 @@ import json
 from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from tests.stage3_deep import (
+from eval.tests.stage3_deep import (
     run_math_test, run_code_test, run_logic_test,
     run_commonsense_test, run_text_test, run_shell_test
 )
