@@ -4,3 +4,7 @@ downloads
 /scripts
 eval/scripts/*.log
 eval/scripts/*.pyc
+
+# Python
+__pycache__/
+*.py[cod]
