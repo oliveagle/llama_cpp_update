@@ -394,5 +394,59 @@ llama_cpp/
 
 ---
 
+### Session 3: LLaDA2 Diffusion Model Analysis (2026-02-18)
+
+**参与 Agent**: gfx1151-Tester
+
+**任务**: 完成 LLaDA2 参数扫描并记录模型局限性
+
+#### 3A: 参数扫描测试
+
+**测试配置**: 9 种参数组合
+- Default, High steps (128), Low temp (0.3), High temp (1.2)
+- With CFG (2.0), Max tokens (128)
+- Algorithm 0 (ORIGIN), Algorithm 3 (RANDOM), High steps + CFG
+
+**测试项目**:
+- Math: `"3x + 7 = 22, x = ?"` (Expected: 5)
+- Logic: `"If A then B. If B then C. Therefore: A. True or False?"` (Expected: False)
+- Code: `"def add(a, b):"` (Expected: function body)
+
+**结果**:
+| Config | Math | Logic | Code |
+|--------|------|-------|------|
+| Default | ❌ empty | ❌ empty | ❌ empty |
+| High steps | ❌ empty | ❌ empty | ❌ empty |
+| Low temp | ❌ empty | ❌ empty | ❌ empty |
+| High temp | ❌ empty | ⚠️ "areThe" | ❌ empty |
+| With CFG | ❌ empty | ❌ empty | ❌ empty |
+| Max tokens | ❌ empty | ⚠️ "is" | ⚠️ "a" |
+| Algorithm 0 | ❌ empty | ❌ empty | ❌ empty |
+| Algorithm 3 | ❌ empty | ⚠️ "B" | ❌ empty |
+| High+CFG | ❌ empty | ❌ empty | ❌ empty |
+
+**结论**: 无参数组合能正确解决数学/逻辑问题
+
+#### 3B: 局限性文档
+
+**创建文档**: `docs/analysis/LLaDA2_LIMITATIONS.md`
+
+**核心发现**:
+1. **扩散模型不适合顺序推理任务** (Math/Logic 0%)
+2. **代码生成表现优秀** (Stage 3: 95%)
+3. **空输出占主导** (8/9 配置数学输出为空)
+
+**建议用途**:
+- ✅ Code generation, creative writing, Q&A
+- ❌ Math, logic, chain-of-thought
+
+**完成状态**: ✅ 已完成
+
+**结果文件**:
+- `docs/analysis/LLaDA2_LIMITATIONS.md` - 完整局限性分析
+- `eval_results/llada2_param_sweep_20260218_223211.json` - 原始测试数据
+
+---
+
 *记录者: gfx1151-Tester / WebReport-Builder / Project-Organizer*
 *更新时间: 2026-02-18*

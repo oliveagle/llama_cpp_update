@@ -1,0 +1,209 @@
+[
+  {
+    "params": {
+      "name": "Default",
+      "steps": 16,
+      "block": 32,
+      "temp": 0.8,
+      "algo": 4,
+      "cfg": 0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "High steps",
+      "steps": 128,
+      "block": 64,
+      "temp": 0.8,
+      "algo": 4,
+      "cfg": 0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "Low temp",
+      "steps": 16,
+      "block": 32,
+      "temp": 0.3,
+      "algo": 4,
+      "cfg": 0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "High temp",
+      "steps": 16,
+      "block": 32,
+      "temp": 1.2,
+      "algo": 4,
+      "cfg": 0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "areThe",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "With CFG",
+      "steps": 16,
+      "block": 32,
+      "temp": 0.8,
+      "algo": 4,
+      "cfg": 2.0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "Max tokens",
+      "steps": 16,
+      "block": 32,
+      "temp": 0.8,
+      "algo": 4,
+      "cfg": 0,
+      "tokens": 128
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "is",
+      "has_true": false
+    },
+    "code": {
+      "output": "a",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "Algorithm 0 (ORIGIN)",
+      "steps": 16,
+      "block": 32,
+      "temp": 0.8,
+      "algo": 0,
+      "cfg": 0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "Algorithm 3 (RANDOM)",
+      "steps": 16,
+      "block": 32,
+      "temp": 0.8,
+      "algo": 3,
+      "cfg": 0,
+      "tokens": 32
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "B",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  },
+  {
+    "params": {
+      "name": "High steps + CFG",
+      "steps": 64,
+      "block": 64,
+      "temp": 0.8,
+      "algo": 4,
+      "cfg": 2.0,
+      "tokens": 64
+    },
+    "math": {
+      "output": "",
+      "has_answer": false
+    },
+    "logic": {
+      "output": "",
+      "has_true": false
+    },
+    "code": {
+      "output": "",
+      "has_code": false
+    }
+  }
+]
