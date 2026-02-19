@@ -1,8 +1,0 @@
-{
-  "model": "DASD-4B-Thinking",
-  "size": "4B",
-  "passed": 0,
-  "total": 20,
-  "pass_rate": 0,
-  "error": "Server failed to start"
-}

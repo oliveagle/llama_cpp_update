@@ -1,8 +1,0 @@
-{
-  "model": "JoyAI-LLM-Flash",
-  "size": "8B",
-  "passed": 0,
-  "total": 20,
-  "pass_rate": 0,
-  "error": "Server failed to start"
-}

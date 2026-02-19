@@ -1,8 +1,0 @@
-{
-  "model": "MiniCPM-o-4_5",
-  "size": "4.5B",
-  "passed": 0,
-  "total": 20,
-  "pass_rate": 0,
-  "error": "Server failed to start"
-}
