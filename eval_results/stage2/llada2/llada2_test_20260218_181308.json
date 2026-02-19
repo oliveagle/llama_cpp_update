@@ -1,0 +1,53 @@
+{
+  "model": "LLaDA2.0-mini-preview-Q4_0",
+  "timestamp": "2026-02-18T18:13:08.432974",
+  "total_tests": 5,
+  "passed": 5,
+  "results": [
+    {
+      "category": "text_completion",
+      "prompt": "The quick brown fox",
+      "description": "Simple text completion",
+      "success": true,
+      "output": "",
+      "duration": 43.535505056381226,
+      "error": null
+    },
+    {
+      "category": "qa",
+      "prompt": "Q: What is the capital of France? A:",
+      "description": "Question answering",
+      "success": true,
+      "output": "capital of",
+      "duration": 43.31908297538757,
+      "error": null
+    },
+    {
+      "category": "code",
+      "prompt": "def hello_world():",
+      "description": "Code generation",
+      "success": true,
+      "output": "",
+      "duration": 43.26488709449768,
+      "error": null
+    },
+    {
+      "category": "math",
+      "prompt": "Solve: 2 + 2 =",
+      "description": "Simple math",
+      "success": true,
+      "output": "",
+      "duration": 43.31844973564148,
+      "error": null
+    },
+    {
+      "category": "chinese",
+      "prompt": "中国的首都是",
+      "description": "Chinese text",
+      "success": true,
+      "output": "中国的是的",
+      "duration": 43.28802943229675,
+      "error": null
+    }
+  ]
+}

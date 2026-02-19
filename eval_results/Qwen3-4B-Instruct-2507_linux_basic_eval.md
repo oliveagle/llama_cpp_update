@@ -1,19 +1,19 @@
-# JoyAI-LLM-Flash-Q4_K_M_Linux基础 工具使用能力评估报告
+# Qwen3-4B-Instruct-2507_Linux基础 工具使用能力评估报告
 
 ## 总体得分
 
 | 指标 | 数值 |
 |------|------|
 | 总测试数 | 30 |
-| 通过数 | 26 |
-| 失败数 | 4 |
-| 准确率 | 86.7% |
+| 通过数 | 23 |
+| 失败数 | 7 |
+| 准确率 | 76.7% |
 
 ## 分类统计
 
 | 类别 | 测试数 | 通过 | 失败 | 准确率 |
 |------|--------|------|------|--------|
-| 其他 | 30 | 26 | 4 | 86.7% |
+| 其他 | 30 | 23 | 7 | 76.7% |
 
 ## 详细结果
 
@@ -28,17 +28,17 @@
 | 查看文件内容 | 其他 | ❌ | read_file | ❌ |
 | 查看文件前10行 | 其他 | ✅ | execute_command | ✅ |
 | 搜索文本 | 其他 | ✅ | execute_command | ✅ |
-| 统计行数 | 其他 | ✅ | execute_command | ✅ |
-| 查看磁盘空间 | 其他 | ❌ | execute_command | ❌ |
+| 统计行数 | 其他 | ❌ | execute_command | ❌ |
+| 查看磁盘空间 | 其他 | ✅ | execute_command | ✅ |
 | 查看内存 | 其他 | ✅ | execute_command | ✅ |
-| 查看当前用户 | 其他 | ✅ | execute_command | ✅ |
+| 查看当前用户 | 其他 | ❌ | None | ❌ |
 | 查看系统时间 | 其他 | ❌ | get_time | ❌ |
 | 查看进程 | 其他 | ✅ | execute_command | ✅ |
 | 结束进程 | 其他 | ✅ | execute_command | ✅ |
-| 实时查看进程 | 其他 | ✅ | execute_command | ✅ |
+| 实时查看进程 | 其他 | ❌ | execute_command | ❌ |
 | 查找进程 | 其他 | ✅ | execute_command | ✅ |
 | 测试网络连通 | 其他 | ✅ | execute_command | ✅ |
-| 下载文件 | 其他 | ✅ | execute_command | ✅ |
+| 下载文件 | 其他 | ❌ | None | ❌ |
 | SSH登录 | 其他 | ✅ | execute_command | ✅ |
 | 查看网络连接 | 其他 | ❌ | execute_command | ❌ |
 | 运行容器 | 其他 | ✅ | execute_command | ✅ |
@@ -57,28 +57,49 @@
 - **错误**: Unknown error
 - **期望工具**: execute_command
 - **实际工具**: read_file
-- **原始响应**: `[{"type": "function", "function": {"name": "read_file", "arguments": "{\"filename\":\"config.txt\"}"}, "id": "InoUtKPy4o8H8E2rrOcm3h6Exl1mpYos"}]`
+- **原始响应**: `[{"type": "function", "function": {"name": "read_file", "arguments": "{\"filename\":\"config.txt\"}"}, "id": "HkqO5GiM74vRwqHkgw6V0epCBxvc3iwA"}]`
 
-### 查看磁盘空间
+### 统计行数
 
 - **错误**: Unknown error
 - **期望工具**: execute_command
 - **实际工具**: execute_command
-- **原始响应**: `[{"type": "function", "function": {"name": "execute_command", "arguments": "{\"command\":\"df\"}"}, "id": "vnxxCddtt2fjBJ2r1lqLc7BVurzw6Dyx"}]`
+- **原始响应**: `[{"type": "function", "function": {"name": "execute_command", "arguments": "{\"command\":\"cat\",\"args\":\"file.txt | wc -l\"}"}, "id": "L0iUTdIQUbBzUHYaooruA5lF6U28zvqb"}]`
+
+### 查看当前用户
+
+- **错误**: No tool call detected
+- **期望工具**: N/A
+- **实际工具**: None
+- **原始响应**: `我无法获取当前登录的用户名，因为这需要访问系统级别的用户信息，而我的功能集不包含此类操作。您可能需要在操作系统命令行中使用 `whoami` 或 `id` 命令来查看当前登录用户。`
 
 ### 查看系统时间
 
 - **错误**: Unknown error
 - **期望工具**: execute_command
 - **实际工具**: get_time
-- **原始响应**: `[{"type": "function", "function": {"name": "get_time", "arguments": "{}"}, "id": "OMIPhArx68RTzRGPs5fywBX0EoTsB2PZ"}]`
+- **原始响应**: `[{"type": "function", "function": {"name": "get_time", "arguments": "{}"}, "id": "QIP219UwBPNyuLhrNjhFmrNm78LHxf10"}]`
+
+### 实时查看进程
+
+- **错误**: Unknown error
+- **期望工具**: execute_command
+- **实际工具**: execute_command
+- **原始响应**: `[{"type": "function", "function": {"name": "execute_command", "arguments": "{\"command\":\"ps\",\"args\":\"\"}"}, "id": "xRK3XFNYRUahB6LzqW5c7kGDJauwahWy"}]`
+
+### 下载文件
+
+- **错误**: No tool call detected
+- **期望工具**: N/A
+- **实际工具**: None
+- **原始响应**: `我目前无法直接下载文件。您需要使用支持文件下载的工具或浏览器来完成此操作。如果您有其他问题或需要帮助，请随时告诉我！`
 
 ### 查看网络连接
 
 - **错误**: Unknown error
 - **期望工具**: execute_command
 - **实际工具**: execute_command
-- **原始响应**: `[{"type": "function", "function": {"name": "execute_command", "arguments": "{\"command\":\"netstat\",\"args\":\"-an\"}"}, "id": "A2e6QsbME1xbvtAj7WyY8YB7IiAFM7t3"}]`
+- **原始响应**: `[{"type": "function", "function": {"name": "execute_command", "arguments": "{\"command\":\"ping\",\"args\":\"google.com\"}"}, "id": "3OdKuBNjLjqKDKrLQWeWwr5vuFiLo7mF"}]`
 
 
 ## 原始响应详情
@@ -89,7 +110,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ls\\\",\\\"args\\\":\\\"-la\\\"}\"}, \"id\": \"8FWvzC5xD9TcGtulND5SYkfAlgbLtH8x\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ls\\\",\\\"args\\\":\\\"\\\"}\"}, \"id\": \"EbWVT4cfA4uB1dBqYYYPFJBOlCJAGG6l\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -101,7 +122,7 @@
       "tool": "execute_command",
       "args": {
         "command": "ls",
-        "args": "-la"
+        "args": ""
       }
     },
     "method": "native",
@@ -112,7 +133,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"pwd\\\"}\"}, \"id\": \"CQxJGDRSiggAzBsIgPAzS7T6nci91TBK\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"pwd\\\"}\"}, \"id\": \"4gnEyw6ssddo1A7SiYKlzbIWPPll3xul\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -133,7 +154,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"mkdir\\\",\\\"args\\\":\\\"test\\\"}\"}, \"id\": \"LI1GlHLX9N7nnRU1TX9GV1N5ufUCy5RS\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"mkdir\\\",\\\"args\\\":\\\"test\\\"}\"}, \"id\": \"Bom097V9tAUlgaNkpvF7q1HG1J6L3Rxd\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -156,7 +177,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"cp\\\",\\\"args\\\":\\\"file1.txt file2.txt\\\"}\"}, \"id\": \"XgIhQAi0GIbyZPEM3d8BJ7XkOgSr1aSI\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"cp\\\",\\\"args\\\":\\\"file1.txt file2.txt\\\"}\"}, \"id\": \"5mb2mEI5XlS5rgJEEkDoNDhWEXqXRnkh\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -179,7 +200,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"mv\\\",\\\"args\\\":\\\"data.txt backup\\\"}\"}, \"id\": \"i5aFvhguTLpSKj2kUMfoTKc0MO2ZisN3\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"mv\\\",\\\"args\\\":\\\"data.txt backup/\\\"}\"}, \"id\": \"VjeCbhQtgOiUyKSZXqc9GkKwtNxako4e\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -191,7 +212,7 @@
       "tool": "execute_command",
       "args": {
         "command": "mv",
-        "args": "data.txt backup"
+        "args": "data.txt backup/"
       }
     },
     "method": "native",
@@ -202,7 +223,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"rm\\\",\\\"args\\\":\\\"temp.txt\\\"}\"}, \"id\": \"vy6RuYB8puzZXbaRhGNBjJW7jzOjFkZ7\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"rm\\\",\\\"args\\\":\\\"temp.txt\\\"}\"}, \"id\": \"vI8ThCa0a7z1p1pr6gvh5OJtTdl5kpsp\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -225,7 +246,7 @@
     "success": false,
     "called_tool": "read_file",
     "arguments_match": false,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"read_file\", \"arguments\": \"{\\\"filename\\\":\\\"config.txt\\\"}\"}, \"id\": \"InoUtKPy4o8H8E2rrOcm3h6Exl1mpYos\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"read_file\", \"arguments\": \"{\\\"filename\\\":\\\"config.txt\\\"}\"}, \"id\": \"HkqO5GiM74vRwqHkgw6V0epCBxvc3iwA\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -247,7 +268,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"head\\\",\\\"args\\\":\\\"log.txt\\\"}\"}, \"id\": \"2L4Hv0k0j6TDPtaFU7xOX0RfPTcStaC3\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"head\\\",\\\"args\\\":\\\"-n 10 log.txt\\\"}\"}, \"id\": \"PaG61kUVZ2EFOCVtNBt8bCvefOMqb5Mf\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -259,7 +280,7 @@
       "tool": "execute_command",
       "args": {
         "command": "head",
-        "args": "log.txt"
+        "args": "-n 10 log.txt"
       }
     },
     "method": "native",
@@ -270,7 +291,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"grep\\\",\\\"args\\\":\\\"-i \\\\\\\"error\\\\\\\" /var/log/syslog\\\"}\"}, \"id\": \"rFIAQ0vGkAehTfEIjv6yiYXmNJsipFWA\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"grep\\\",\\\"args\\\":\\\"-r \\\\\\\"error\\\\\\\" .\\\"}\"}, \"id\": \"z55gI9nb7GVtPivCBIJVbfK1gwNIyL3b\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -282,7 +303,7 @@
       "tool": "execute_command",
       "args": {
         "command": "grep",
-        "args": "-i \"error\" /var/log/syslog"
+        "args": "-r \"error\" ."
       }
     },
     "method": "native",
@@ -290,10 +311,10 @@
     "test_description": "文本搜索"
   },
   {
-    "success": true,
+    "success": false,
     "called_tool": "execute_command",
-    "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"wc\\\",\\\"args\\\":\\\"-l file.txt\\\"}\"}, \"id\": \"XHKjFMTWoQWt047M6RPBdHrcdq9Oy6fZ\"}]",
+    "arguments_match": false,
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"cat\\\",\\\"args\\\":\\\"file.txt | wc -l\\\"}\"}, \"id\": \"L0iUTdIQUbBzUHYaooruA5lF6U28zvqb\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -304,8 +325,8 @@
     "actual": {
       "tool": "execute_command",
       "args": {
-        "command": "wc",
-        "args": "-l file.txt"
+        "command": "cat",
+        "args": "file.txt | wc -l"
       }
     },
     "method": "native",
@@ -313,10 +334,10 @@
     "test_description": "统计行数"
   },
   {
-    "success": false,
+    "success": true,
     "called_tool": "execute_command",
-    "arguments_match": false,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"df\\\"}\"}, \"id\": \"vnxxCddtt2fjBJ2r1lqLc7BVurzw6Dyx\"}]",
+    "arguments_match": true,
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"df\\\",\\\"args\\\":\\\"-h\\\"}\"}, \"id\": \"43JOB6WDy3K1kPSnps0URFZw5Jnwt43N\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -327,7 +348,8 @@
     "actual": {
       "tool": "execute_command",
       "args": {
-        "command": "df"
+        "command": "df",
+        "args": "-h"
       }
     },
     "method": "native",
@@ -338,7 +360,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"free\\\",\\\"args\\\":\\\"- -h\\\"}\"}, \"id\": \"rcQz6Z75UEXNiFiBV1pKkJtQ4iL3PXH5\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"free\\\",\\\"args\\\":\\\"\\\"}\"}, \"id\": \"ynwcfecyRWyPeeD6Gy7ZYNNsb1nsG3vV\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -350,7 +372,7 @@
       "tool": "execute_command",
       "args": {
         "command": "free",
-        "args": "- -h"
+        "args": ""
       }
     },
     "method": "native",
@@ -358,22 +380,11 @@
     "test_description": "查看内存使用"
   },
   {
-    "success": true,
-    "called_tool": "execute_command",
-    "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"whoami\\\"}\"}, \"id\": \"ayZKGFEuSCkwoaQPoCYRN6n1pPVPiwyI\"}]",
-    "expected": {
-      "tool": "execute_command",
-      "args": {
-        "command": "whoami"
-      }
-    },
-    "actual": {
-      "tool": "execute_command",
-      "args": {
-        "command": "whoami"
-      }
-    },
+    "success": false,
+    "called_tool": null,
+    "arguments_match": false,
+    "raw_response": "我无法获取当前登录的用户名，因为这需要访问系统级别的用户信息，而我的功能集不包含此类操作。您可能需要在操作系统命令行中使用 `whoami` 或 `id` 命令来查看当前登录用户。",
+    "error": "No tool call detected",
     "method": "native",
     "test_name": "查看当前用户",
     "test_description": "查看当前用户"
@@ -382,7 +393,7 @@
     "success": false,
     "called_tool": "get_time",
     "arguments_match": false,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"get_time\", \"arguments\": \"{}\"}, \"id\": \"OMIPhArx68RTzRGPs5fywBX0EoTsB2PZ\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"get_time\", \"arguments\": \"{}\"}, \"id\": \"QIP219UwBPNyuLhrNjhFmrNm78LHxf10\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -401,7 +412,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ps\\\",\\\"args\\\":\\\"aux\\\"}\"}, \"id\": \"PgaEb3INeUzlRedfzzpNpGJpGOYYxFrq\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ps\\\",\\\"args\\\":\\\"\\\"}\"}, \"id\": \"ILu4qjP3Zi17vfdH9KQHtMmAmN0XKRJ6\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -413,7 +424,7 @@
       "tool": "execute_command",
       "args": {
         "command": "ps",
-        "args": "aux"
+        "args": ""
       }
     },
     "method": "native",
@@ -424,7 +435,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"kill\\\",\\\"args\\\":1234}\"}, \"id\": \"9uMccGrTMRYB1adTeoHMOHjBUvKyeK0y\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"kill\\\",\\\"args\\\":\\\"1234\\\"}\"}, \"id\": \"VQ3KlGWjPbRVgwNgWD0E1uLBXN4T6Vqa\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -436,7 +447,7 @@
       "tool": "execute_command",
       "args": {
         "command": "kill",
-        "args": 1234
+        "args": "1234"
       }
     },
     "method": "native",
@@ -444,10 +455,10 @@
     "test_description": "终止进程"
   },
   {
-    "success": true,
+    "success": false,
     "called_tool": "execute_command",
-    "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"top\\\",\\\"args\\\":\\\"-b -n 1\\\"}\"}, \"id\": \"l2IGZmKfKc0wFlF8NIw3rCgqnxWXEAri\"}]",
+    "arguments_match": false,
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ps\\\",\\\"args\\\":\\\"\\\"}\"}, \"id\": \"xRK3XFNYRUahB6LzqW5c7kGDJauwahWy\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -457,8 +468,8 @@
     "actual": {
       "tool": "execute_command",
       "args": {
-        "command": "top",
-        "args": "-b -n 1"
+        "command": "ps",
+        "args": ""
       }
     },
     "method": "native",
@@ -469,7 +480,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ps\\\",\\\"args\\\":\\\"aux | grep nginx | grep -v grep\\\"}\"}, \"id\": \"uYV9XQ3N1hoz4rNZmzfVMC5qH3r5Fni6\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ps\\\",\\\"args\\\":\\\"aux | grep nginx\\\"}\"}, \"id\": \"ihS4zqUXJvBEM41phpfX8M7iUAXLgCmj\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -481,7 +492,7 @@
       "tool": "execute_command",
       "args": {
         "command": "ps",
-        "args": "aux | grep nginx | grep -v grep"
+        "args": "aux | grep nginx"
       }
     },
     "method": "native",
@@ -492,7 +503,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ping\\\",\\\"args\\\":\\\"baidu.com -c 4\\\"}\"}, \"id\": \"dRveszqExONNtulumdPBKZTo2Ew35tap\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ping\\\",\\\"args\\\":\\\"baidu.com\\\"}\"}, \"id\": \"kxenAfG6tkSkqkfqLR1LbGcykZWb6jdm\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -504,7 +515,7 @@
       "tool": "execute_command",
       "args": {
         "command": "ping",
-        "args": "baidu.com -c 4"
+        "args": "baidu.com"
       }
     },
     "method": "native",
@@ -512,24 +523,11 @@
     "test_description": "ping测试"
   },
   {
-    "success": true,
-    "called_tool": "execute_command",
-    "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"curl\\\",\\\"args\\\":\\\"-O http://example.com/file.txt\\\"}\"}, \"id\": \"itD0IrVPj4Gnlenx9YGrA6JJBOMUecGf\"}]",
-    "expected": {
-      "tool": "execute_command",
-      "args": {
-        "command": "curl",
-        "args": "-O http://example.com/file.txt"
-      }
-    },
-    "actual": {
-      "tool": "execute_command",
-      "args": {
-        "command": "curl",
-        "args": "-O http://example.com/file.txt"
-      }
-    },
+    "success": false,
+    "called_tool": null,
+    "arguments_match": false,
+    "raw_response": "我目前无法直接下载文件。您需要使用支持文件下载的工具或浏览器来完成此操作。如果您有其他问题或需要帮助，请随时告诉我！",
+    "error": "No tool call detected",
     "method": "native",
     "test_name": "下载文件",
     "test_description": "下载文件"
@@ -538,7 +536,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ssh\\\",\\\"args\\\":\\\"192.168.1.100\\\"}\"}, \"id\": \"WTJigFTlUwY08K4GXviHtEjmd1YnyzwH\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ssh\\\",\\\"args\\\":\\\"192.168.1.100\\\"}\"}, \"id\": \"ONZ2EftxuY66XUrVmMQeXDGpRxHD7QPh\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -561,7 +559,7 @@
     "success": false,
     "called_tool": "execute_command",
     "arguments_match": false,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"netstat\\\",\\\"args\\\":\\\"-an\\\"}\"}, \"id\": \"A2e6QsbME1xbvtAj7WyY8YB7IiAFM7t3\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"ping\\\",\\\"args\\\":\\\"google.com\\\"}\"}, \"id\": \"3OdKuBNjLjqKDKrLQWeWwr5vuFiLo7mF\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -572,8 +570,8 @@
     "actual": {
       "tool": "execute_command",
       "args": {
-        "command": "netstat",
-        "args": "-an"
+        "command": "ping",
+        "args": "google.com"
       }
     },
     "method": "native",
@@ -584,7 +582,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"run -d --name nginx -p 80:80 nginx\\\"}\"}, \"id\": \"yWSiulIcrwSYkPHx0Vr0ZI5QQnDpLhCt\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"run -d -p 8080:80 --name my-nginx nginx\\\"}\"}, \"id\": \"vgjPT3yRZCH1BhpRjnEbX6fOf6yYsRWS\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -596,7 +594,7 @@
       "tool": "execute_command",
       "args": {
         "command": "docker",
-        "args": "run -d --name nginx -p 80:80 nginx"
+        "args": "run -d -p 8080:80 --name my-nginx nginx"
       }
     },
     "method": "native",
@@ -607,7 +605,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"ps -a\\\"}\"}, \"id\": \"HyAS98hMSAdtcKg8yoet54WWGNsZsxLN\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"ps\\\"}\"}, \"id\": \"XAxix1vkiN1L72pTnKGhuKbfQbOtJqzi\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -619,7 +617,7 @@
       "tool": "execute_command",
       "args": {
         "command": "docker",
-        "args": "ps -a"
+        "args": "ps"
       }
     },
     "method": "native",
@@ -630,7 +628,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"stop myapp\\\"}\"}, \"id\": \"wASWNjvaDD5ccX2Y6jjq8k3TY6WkIkmN\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"stop myapp\\\"}\"}, \"id\": \"H51V4REb4UNvEBJUuJaeE7OLrqrXY7HF\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -653,7 +651,7 @@
     "success": true,
     "called_tool": "execute_command",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"logs myapp\\\"}\"}, \"id\": \"hH0nlYZQ4WwKjSS19Ba8zFyEF4YZQuEl\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"docker\\\",\\\"args\\\":\\\"logs myapp\\\"}\"}, \"id\": \"mBVicWettc96Q3m2Fqs76RQBGUazz57S\"}]",
     "expected": {
       "tool": "execute_command",
       "args": {
@@ -676,7 +674,7 @@
     "success": true,
     "called_tool": "write_file",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"#!/bin/bash\\\\necho \\\\\\\"Hello World\\\\\\\"\\\"}\"}, \"id\": \"jCaErGEfQg7Fm04DaPVY8u3oXGWtIbeB\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"#!/bin/bash\\\\necho \\\\\\\"Hello World\\\\\\\"\\\"}\"}, \"id\": \"dgFgljgzlIElBKrRG7IYpgq1AcZC62vW\"}]",
     "expected": {
       "tool": "write_file",
       "args": {
@@ -699,7 +697,7 @@
     "success": true,
     "called_tool": "write_file",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"NAME=\\\\\\\"John\\\\\\\"\\\"}\"}, \"id\": \"VPaFkX8LskLuFE43Doyf01xS9fLQQKOP\"}, {\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"chmod\\\"}\"}, \"id\": \"rMdlpT3JhcZVKqCtltI4XOvwpPAzbICC\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"NAME=John\\\"}\"}, \"id\": \"BT4QzGrEsPlqKEGFBL3VqzlMl223XUFp\"}]",
     "expected": {
       "tool": "write_file",
       "args": {
@@ -711,7 +709,7 @@
       "tool": "write_file",
       "args": {
         "filename": "script.sh",
-        "content": "NAME=\"John\""
+        "content": "NAME=John"
       }
     },
     "method": "native",
@@ -722,7 +720,7 @@
     "success": true,
     "called_tool": "write_file",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"#!/bin/bash\\\\nfor i in {1..5}\\\\ndo\\\\n  echo $i\\\\ndone\\\"}\"}, \"id\": \"oppYQp853uXxpbOyBhb6P8GXpfIMlhza\"}, {\"type\": \"function\", \"function\": {\"name\": \"execute_command\", \"arguments\": \"{\\\"command\\\":\\\"chmod +x script.sh\\\"}\"}, \"id\": \"eFI7lc47lnZooxuFX3r4F4KcB6tnX0Pg\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"#!/bin/bash\\\\n\\\\nfor i in {1..5}; do\\\\n    echo \\\\\\\"\\\\u5f53\\\\u524d\\\\u6570\\\\u5b57\\\\u662f: $i\\\\\\\"\\\\ndone\\\"}\"}, \"id\": \"75o1EKEbCKd8irwmpz8nk7vnMDYq942I\"}]",
     "expected": {
       "tool": "write_file",
       "args": {
@@ -734,7 +732,7 @@
       "tool": "write_file",
       "args": {
         "filename": "script.sh",
-        "content": "#!/bin/bash\nfor i in {1..5}\ndo\n  echo $i\ndone"
+        "content": "#!/bin/bash\n\nfor i in {1..5}; do\n    echo \"当前数字是: $i\"\ndone"
       }
     },
     "method": "native",
@@ -745,7 +743,7 @@
     "success": true,
     "called_tool": "write_file",
     "arguments_match": true,
-    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"#!/bin/bash\\\\nif [ -e \\\\\\\"script.sh\\\\\\\" ]; then\\\\n  echo \\\\\\\"yes\\\\\\\"\\\\nfi\\\"}\"}, \"id\": \"3Wa2D7F5rUN3Fw6JJrW8lsniCRItLxXa\"}]",
+    "raw_response": "[{\"type\": \"function\", \"function\": {\"name\": \"write_file\", \"arguments\": \"{\\\"filename\\\":\\\"script.sh\\\",\\\"content\\\":\\\"#!/bin/bash\\\\nif [ -f \\\\\\\"file.txt\\\\\\\" ]; then\\\\n    echo \\\\\\\"yes\\\\\\\"\\\\nelse\\\\n    echo \\\\\\\"no\\\\\\\"\\\\nfi\\\"}\"}, \"id\": \"lQMLjzhGD4L3xj9ahdI3mQlz3iibBc0b\"}]",
     "expected": {
       "tool": "write_file",
       "args": {
@@ -757,7 +755,7 @@
       "tool": "write_file",
       "args": {
         "filename": "script.sh",
-        "content": "#!/bin/bash\nif [ -e \"script.sh\" ]; then\n  echo \"yes\"\nfi"
+        "content": "#!/bin/bash\nif [ -f \"file.txt\" ]; then\n    echo \"yes\"\nelse\n    echo \"no\"\nfi"
       }
     },
     "method": "native",

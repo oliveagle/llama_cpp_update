@@ -1,4 +1,6 @@
 current
 presets
 downloads
-scripts
+/scripts
+eval/scripts/*.log
+eval/scripts/*.pyc

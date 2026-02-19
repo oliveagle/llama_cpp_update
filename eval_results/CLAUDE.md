@@ -7,16 +7,8 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #4377 | 8:49 PM | 🟣 | V100 CUDA全模型完整性能基准测试报告已生成 | ~186 |
-| #4329 | 8:17 PM | 🟣 | V100 CUDA 性能测试标准文档已创建 | ~101 |
-
-### Feb 18, 2026
-
-| ID | Time | T | Title | Read |
-|----|------|---|-------|------|
-| #5175 | 10:10 AM | 🟣 | 新模型Stage2测试报告：Youtu-VL-4B 86.7%领先 | ~180 |
-| #5146 | 9:50 AM | 🔵 | 新模型第二层测试报告已生成 | ~114 |
-| #4764 | 12:07 AM | 🟣 | 第二层32K能力测试汇总报告已完成 | ~160 |
-| #4739 | 12:01 AM | 🟣 | 64K Context配置指南文档已创建 | ~123 |
-| #4736 | " | ✅ | ALL_GGUF模型测试报告已更新：新增GLM-4.7-Flash-REAP | ~118 |
+| #4233 | 4:31 PM | 🔵 | JoyAI-LLM-Flash Linux evaluation shows 86.7% accuracy | ~208 |
+| #4170 | 4:13 PM | 🟣 | [**Qwen3VL-4B-Instruct achieved 76.7% on Linux tool-calling evaluation**] | ~210 |
+| #4123 | 3:46 PM | 🟣 | [**JoyAI-LLM-Flash achieved 80% on Linux tool-calling evaluation**] | ~241 |
+| #4049 | 3:22 PM | 🟣 | **Linux operations evaluation for JoyAI model** | ~171 |
 </claude-mem-context>
