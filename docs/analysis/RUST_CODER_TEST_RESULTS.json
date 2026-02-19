@@ -1,0 +1,208 @@
+{
+  "rust_coder": {
+    "model": "Fortytwo-Strand-Rust-Coder-14B",
+    "avg_score": 0.813888888888889,
+    "avg_time": 2.0196842749913535,
+    "results": [
+      {
+        "name": "traits",
+        "score": 1.0,
+        "passed": 4,
+        "total": 4,
+        "time": 2.0064451694488525,
+        "content": "**Generated Code:**\n\n```rust\ntrait Drawable {\n    fn draw(&self);\n}\n\nstruct Circle {\n    radius: f64,\n}\n\nimpl Drawable for Circle {\n    fn draw(&self) {\n        println!(\"Drawing a circle with radius {}\", self.radius);\n    }\n}\n\nfn main() {\n    let circle = Circle { radius: 5.0 };\n    circle.draw();\n}\n```"
+      },
+      {
+        "name": "closures_iterators",
+        "score": 0.8,
+        "passed": 4,
+        "total": 5,
+        "time": 1.7188622951507568,
+        "content": "**Generated Code:**\n\n```rust\nlet v = vec![1, 2, 3, 4, 5];\nlet result: Vec<_> = v.into_iter()\n    .filter(|&x| x % 2 == 0)\n    .map(|x| x * 2)\n    .collect();\n```"
+      },
+      {
+        "name": "smart_pointers",
+        "score": 0.75,
+        "passed": 3,
+        "total": 4,
+        "time": 5.281280279159546,
+        "content": "**Generated Code:**\n\n```rust\nuse std::rc::Rc;\nuse std::cell::RefCell;\n\n#[derive(Debug, PartialEq, Eq)]\npub enum List<T> {\n    Cons(T, Rc<RefCell<List<T>>>),\n    Nil,\n}\n\nimpl<T> List<T> {\n    pub fn new() -> Self {\n        List::Nil\n    }\n\n    pub fn append(&self, item: T) -> Rc<RefCell<Self>> {\n        let new_node = Rc::new(RefCell::new(List::Cons(item, Rc::new(RefCell::new(List::Nil)))));\n        match self {\n            List::Cons(_, next) => {\n                let mut next_ref = next.borrow_m..."
+      },
+      {
+        "name": "concurrency",
+        "score": 0.8,
+        "passed": 4,
+        "total": 5,
+        "time": 2.1177124977111816,
+        "content": "**Generated Code:**\n\n```rust\nuse std::thread;\nuse std::sync::mpsc;\n\nfn main() {\n    let (tx, rx) = mpsc::channel();\n    let handle = thread::spawn(move || {\n        for i in 1..=5 {\n            tx.send(i).unwrap();\n        }\n    });\n    handle.join().unwrap();\n    for msg in rx {\n        println!(\"Received: {}\", msg);\n    }\n}\n```"
+      },
+      {
+        "name": "custom_error",
+        "score": 1.0,
+        "passed": 4,
+        "total": 4,
+        "time": 1.9956119060516357,
+        "content": "**Generated Code:**\n\n```rust\nuse std::fmt;\nuse std::error::Error;\n\n#[derive(Debug)]\npub struct ParseError {\n    pub message: String,\n}\n\nimpl fmt::Display for ParseError {\n    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {\n        write!(f, \"Parse error: {}\", self.message)\n    }\n}\n\nimpl Error for ParseError {}\n```"
+      },
+      {
+        "name": "generics_bounds",
+        "score": 0.75,
+        "passed": 3,
+        "total": 4,
+        "time": 0.9705305099487305,
+        "content": "**Generated Code:**\n\n```rust\nfn find_max<T: Ord>(slice: &[T]) -> Option<&T> {\n    slice.iter().max()\n}\n```"
+      },
+      {
+        "name": "option_result",
+        "score": 0.5,
+        "passed": 2,
+        "total": 4,
+        "time": 0.9688582420349121,
+        "content": "**Generated Code:**\n\n```rust\nfn parse_option(s: &str) -> Option<i32> {\n    s.parse::<i32>().ok()\n}\n```"
+      },
+      {
+        "name": "reverse_words",
+        "score": 1.0,
+        "passed": 4,
+        "total": 4,
+        "time": 0.9364650249481201,
+        "content": "**Generated Code:**\n\n```rust\nfn reverse_words(input: &str) -> Vec<&str> {\n    input.split_whitespace().rev().collect()\n}\n```"
+      },
+      {
+        "name": "macro",
+        "score": 1.0,
+        "passed": 4,
+        "total": 4,
+        "time": 1.0525002479553223,
+        "content": "**Generated Code:**\n\n```rust\nmacro_rules! vec_of_strings {\n    ($($x:expr),*) => {\n        vec![$($x.to_string()),*]\n    };\n}\n```"
+      },
+      {
+        "name": "bank_account",
+        "score": 1.0,
+        "passed": 5,
+        "total": 5,
+        "time": 3.0901994705200195,
+        "content": "**Generated Code:**\n\n```rust\npub struct BankAccount {\n    balance: u32,\n}\n\nimpl BankAccount {\n    pub fn new(initial: u32) -> Self {\n        BankAccount { balance: initial }\n    }\n\n    pub fn deposit(&mut self, amount: u32) {\n        self.balance += amount;\n    }\n\n    pub fn withdraw(&mut self, amount: u32) -> Result<(), &'static str> {\n        if amount > self.balance {\n            Err(\"Insufficient funds\")\n        } else {\n            self.balance -= amount;\n            Ok(())\n        }\n    }\n..."
+      },
+      {
+        "name": "fibonacci",
+        "score": 0.5,
+        "passed": 2,
+        "total": 4,
+        "time": 2.4017417430877686,
+        "content": "**Generated Code:**\n\n```rust\npub fn fibonacci(n: u128) -> u128 {\n    match n {\n        0 => 0,\n        1 => 1,\n        _ => {\n            let mut a = 0u128;\n            let mut b = 1u128;\n            for _ in 2..=n {\n                let next = a + b;\n                a = b;\n                b = next;\n            }\n            b\n        }\n    }\n}\n```"
+      },
+      {
+        "name": "vec_reverse",
+        "score": 0.6666666666666666,
+        "passed": 2,
+        "total": 3,
+        "time": 1.6960039138793945,
+        "content": "**Generated Code:**\n\n```rust\nfn reverse_vector(v: &mut Vec<i32>) {\n    let mut left = 0;\n    let mut right = v.len() - 1;\n    while left < right {\n        v.swap(left, right);\n        left += 1;\n        right -= 1;\n    }\n}\n```"
+      }
+    ]
+  },
+  "qwen3_coder": {
+    "model": "Qwen3-Coder-Next",
+    "avg_score": 0.0,
+    "avg_time": 0.004030545552571614,
+    "results": [
+      {
+        "name": "traits",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.005226612091064453,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "closures_iterators",
+        "score": 0.0,
+        "passed": 0,
+        "total": 5,
+        "time": 0.004991769790649414,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "smart_pointers",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.004386425018310547,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "concurrency",
+        "score": 0.0,
+        "passed": 0,
+        "total": 5,
+        "time": 0.0039031505584716797,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "custom_error",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.0034143924713134766,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "generics_bounds",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.003223896026611328,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "option_result",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.0035800933837890625,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "reverse_words",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.004281759262084961,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "macro",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.0034551620483398438,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "bank_account",
+        "score": 0.0,
+        "passed": 0,
+        "total": 5,
+        "time": 0.004000663757324219,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "fibonacci",
+        "score": 0.0,
+        "passed": 0,
+        "total": 4,
+        "time": 0.0040662288665771484,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      },
+      {
+        "name": "vec_reverse",
+        "score": 0.0,
+        "passed": 0,
+        "total": 3,
+        "time": 0.003836393356323242,
+        "content": "ERROR: Expecting value: line 1 column 1 (char 0)"
+      }
+    ]
+  }
+}
