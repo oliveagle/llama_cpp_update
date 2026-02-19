@@ -1,0 +1,80 @@
+{
+  "versions": {
+    "7947": {
+      "directory": "/mnt/volume3/llama_cpp/downloads/llama-b7947/",
+      "binary": "native",
+      "info": {
+        "build_number": 7947,
+        "git_hash": "a4ea7a188",
+        "backend": "vulkan",
+        "compiler": "GNU 11.4.0 for Linux x86_64",
+        "path": "/mnt/volume3/llama_cpp/downloads/llama-b7947//llama-server"
+      }
+    },
+    "7951": {
+      "directory": "/mnt/volume3/llama_cpp/downloads/llama-b7951/",
+      "binary": "native",
+      "info": {
+        "build_number": 7951,
+        "git_hash": "22cae8321",
+        "backend": "vulkan",
+        "compiler": "GNU 11.4.0 for Linux x86_64",
+        "path": "/mnt/volume3/llama_cpp/downloads/llama-b7951//llama-server"
+      }
+    },
+    "7952": {
+      "directory": "/mnt/volume3/llama_cpp/downloads/llama-b7952/",
+      "binary": "native",
+      "info": {
+        "build_number": 7952,
+        "git_hash": "3e2164766",
+        "backend": "vulkan",
+        "compiler": "GNU 11.4.0 for Linux x86_64",
+        "path": "/mnt/volume3/llama_cpp/downloads/llama-b7952//llama-server"
+      }
+    },
+    "8040": {
+      "directory": "/mnt/volume3/llama_cpp/downloads/llama-b8040/",
+      "binary": "native",
+      "info": {
+        "build_number": 8040,
+        "git_hash": "0ccbfdef3",
+        "backend": "cpu",
+        "compiler": "GNU 11.4.0 for Linux x86_64",
+        "path": "/mnt/volume3/llama_cpp/downloads/llama-b8040//llama-server"
+      }
+    },
+    "8069": {
+      "directory": "/mnt/volume3/llama_cpp/downloads/llama-b8069/",
+      "binary": "native",
+      "info": {
+        "build_number": 8069,
+        "git_hash": "d5dfc3302",
+        "backend": "vulkan",
+        "compiler": "GNU 11.4.0 for Linux x86_64",
+        "path": "/mnt/volume3/llama_cpp/downloads/llama-b8069//llama-server"
+      }
+    }
+  },
+  "backends": {
+    "vulkan": {
+      "name": "Vulkan",
+      "gpu": "AMD gfx1151",
+      "description": "AMD Strix Halo GPU"
+    },
+    "cuda": {
+      "name": "CUDA",
+      "gpu": "NVIDIA V100",
+      "description": "NVIDIA Tesla V100 32GB"
+    },
+    "cpu": {
+      "name": "CPU",
+      "gpu": "None",
+      "description": "CPU-only inference"
+    }
+  },
+  "active": {
+    "vulkan": "8069",
+    "cuda": null
+  }
+}
