@@ -3,116 +3,92 @@
   "url": "http://localhost:8401",
   "stage": 2,
   "stage_name": "\u57fa\u7840\u80fd\u529b\u6d4b\u8bd5-\u6587\u672c",
-  "total_tests": 8,
-  "passed_tests": 5,
-  "failed_tests": 3,
-  "pass_rate": 0.625,
-  "duration_seconds": 5.244953393936157,
-  "passed_threshold": true,
+  "total_tests": 10,
+  "passed_tests": 0,
+  "failed_tests": 10,
+  "pass_rate": 0.0,
+  "duration_seconds": 601.0098958015442,
+  "passed_threshold": false,
   "tests": [
     {
       "name": "\u5386\u53f2\u77e5\u8bc6",
       "category": "\u4eba\u6587\u5386\u53f2",
       "passed": false,
-      "duration_ms": 1595.1080322265625,
-      "details": {
-        "question": "\u4e2d\u56fd\u7684\u56db\u5927\u53d1\u660e\u4e0d\u5305\u62ec\u4ee5\u4e0b\u54ea\u4e00\u9879\uff1f",
-        "expected": "D",
-        "extracted": "",
-        "model_answer": ""
-      },
-      "error": null
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u7269\u7406\u5e38\u8bc6",
       "category": "\u81ea\u7136\u79d1\u5b66",
       "passed": false,
-      "duration_ms": 1385.0324153900146,
-      "details": {
-        "question": "\u5149\u5728\u771f\u7a7a\u4e2d\u7684\u4f20\u64ad\u901f\u5ea6\u7ea6\u4e3a\u591a\u5c11\uff1f",
-        "expected": "B",
-        "extracted": "",
-        "model_answer": ""
-      },
-      "error": null
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u903b\u8f91\u63a8\u7406",
       "category": "\u903b\u8f91\u63a8\u7406",
-      "passed": true,
-      "duration_ms": 356.1735153198242,
-      "details": {
-        "question": "\u6240\u6709\u7684\u732b\u90fd\u662f\u54fa\u4e73\u52a8\u7269\u3002\u6c64\u59c6\u662f\u4e00\u53ea\u732b\u3002\u56e0\u6b64\uff1a",
-        "expected": "A",
-        "extracted": "A",
-        "model_answer": "A"
-      },
-      "error": null
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u6587\u5b66\u5e38\u8bc6",
       "category": "\u6587\u5b66\u827a\u672f",
       "passed": false,
-      "duration_ms": 1442.2276020050049,
-      "details": {
-        "question": "\u300a\u7ea2\u697c\u68a6\u300b\u7684\u4f5c\u8005\u662f\uff1f",
-        "expected": "A",
-        "extracted": "",
-        "model_answer": ""
-      },
-      "error": null
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u5316\u5b66\u77e5\u8bc6",
       "category": "\u81ea\u7136\u79d1\u5b66",
-      "passed": true,
-      "duration_ms": 102.81085968017578,
-      "details": {
-        "question": "\u6c34\u7684\u5316\u5b66\u5f0f\u662f\uff1f",
-        "expected": "B",
-        "extracted": "B",
-        "model_answer": "B"
-      },
-      "error": null
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u5730\u7406\u77e5\u8bc6",
       "category": "\u5730\u7406",
-      "passed": true,
-      "duration_ms": 140.0296688079834,
-      "details": {
-        "question": "\u4e16\u754c\u4e0a\u9762\u79ef\u6700\u5927\u7684\u56fd\u5bb6\u662f\uff1f",
-        "expected": "C",
-        "extracted": "C",
-        "model_answer": "C"
-      },
-      "error": null
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u6570\u5b66\u903b\u8f91",
       "category": "\u6570\u5b66\u903b\u8f91",
-      "passed": true,
-      "duration_ms": 109.02714729309082,
-      "details": {
-        "question": "\u5982\u679c A > B \u4e14 B > C\uff0c\u90a3\u4e48\uff1a",
-        "expected": "A",
-        "extracted": "A",
-        "model_answer": "A"
-      },
-      "error": null
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     },
     {
       "name": "\u751f\u7269\u77e5\u8bc6",
       "category": "\u751f\u547d\u79d1\u5b66",
-      "passed": true,
-      "duration_ms": 111.53459548950195,
-      "details": {
-        "question": "\u4eba\u7c7b\u6709\u591a\u5c11\u5bf9\u67d3\u8272\u4f53\uff1f",
-        "expected": "B",
-        "extracted": "B",
-        "model_answer": "B"
-      },
-      "error": null
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
+    },
+    {
+      "name": "\u5929\u6587\u77e5\u8bc6",
+      "category": "\u5929\u6587\u5730\u7406",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
+    },
+    {
+      "name": "\u8ba1\u7b97\u673a\u57fa\u7840",
+      "category": "\u8ba1\u7b97\u673a\u79d1\u5b66",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=60)"
     }
   ]
 }

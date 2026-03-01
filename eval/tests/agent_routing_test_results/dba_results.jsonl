@@ -1,0 +1,5 @@
+{"task":"设计数据库范式","expected":"dba","actual":"backend-dev","matched":false}
+{"task":"优化慢查询","expected":"dba","actual":"backend-dev","matched":false}
+{"task":"配置主从复制","expected":"dba","actual":"backend-dev","matched":false}
+{"task":"设计索引策略","expected":"dba","actual":"backend-dev","matched":false}
+{"task":"实施数据库备份","expected":"dba","actual":"backend-dev","matched":false}

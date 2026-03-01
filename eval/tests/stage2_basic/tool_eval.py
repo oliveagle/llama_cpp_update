@@ -14,6 +14,7 @@ import re
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import clean_reasoning_output
 
 
 # 工具使用测试用例 (10个)
@@ -163,13 +164,13 @@ class ToolEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个智能助手，可以使用各种工具帮助用户。请根据用户需求输出正确的工具调用参数。"},
                 {"role": "user", "content": test_case["prompt"]}
             ],
-            "max_tokens": 256,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -231,7 +232,9 @@ class ToolEvaluator(BaseEvaluator):
         评估工具使用回答质量
         返回 0-1 的分数
         """
-        content_lower = content.lower()
+        # 使用清理后的内容（支持推理模型）
+        cleaned_content = clean_reasoning_output(content)
+        content_lower = cleaned_content.lower()
         score = 0.0
 
         # 1. 检查必须包含的关键词

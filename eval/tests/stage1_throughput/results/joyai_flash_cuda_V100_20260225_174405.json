@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-02-25T17:44:05.994907",
+  "backend": "cuda",
+  "device": "V100",
+  "model": "JoyAI-LLM-Flash-Q4_K_M",
+  "model_file": "/mnt/volume3/modelscope_models/yairpatch/JoyAI-LLM-Flash-GGUF/JoyAI-LLM-Flash-Q4_K_M.gguf",
+  "iterations": 3,
+  "results": [
+    {
+      "ctx_size": 32768,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    }
+  ]
+}

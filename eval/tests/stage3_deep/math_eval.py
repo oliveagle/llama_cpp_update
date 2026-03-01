@@ -293,7 +293,7 @@ class MathEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个数学专家。只回答数字，不要解释。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 50,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
@@ -359,13 +359,53 @@ class MathEvaluator(BaseEvaluator):
                 error_message=str(e)
             )
 
+    def _extract_after_think(self, text: str) -> str:
+        """提取 </think> 标签后的内容"""
+        if not text:
+            return text
+        # 匹配 </think> 标签及其后的内容
+        patterns = [
+            r'</think>\s*(.*)',  # 标准格式
+            r'\*\*Final Answer:\*\*\s*(.*)',  # 某些模型的格式
+            r'答案是\s*[:：]\s*(.*)',  # 中文格式
+            r'答案[是为]\s*[:：]\s*(.*)',  # 中文格式变体
+        ]
+        for pattern in patterns:
+            match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
+            if match:
+                return match.group(1).strip()
+        return text
+
     def _extract_number(self, text: str) -> float:
-        """从文本中提取数字"""
-        # 查找所有数字
-        numbers = re.findall(r'-?\d+\.?\d*', text.replace(',', ''))
-        if numbers:
+        """从文本中提取数字 - 支持推理模型"""
+        # 先提取 </think> 后的内容
+        text = self._extract_after_think(text)
+
+        # 先尝试找明确的答案标记
+        patterns = [
+            r'答案[是为:]+\s*([\d.]+)',
+            r'结果[是为:]+\s*([\d.]+)',
+            r'等于\s*([\d.]+)',
+            r'([\d.]+)\s*元',
+            r'([\d.]+)\s*天',
+            r'([\d.]+)\s*人',
+            r'([\d.]+)\s*公里',
+            r'([\d.]+)\s*克',
+            r'([\d.]+)\s*%',
+        ]
+        for pattern in patterns:
+            matches = re.findall(pattern, text)
+            if matches:
+                try:
+                    return float(matches[-1])  # 取最后一个匹配
+                except:
+                    continue
+
+        # 最后尝试：取文本中最后一个单独的数字
+        all_numbers = re.findall(r'\b([\d.]+)\b', text.replace(',', ''))
+        if all_numbers:
             try:
-                return float(numbers[0])
+                return float(all_numbers[-1])
             except:
                 pass
         return float('inf')

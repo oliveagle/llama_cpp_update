@@ -1,0 +1,160 @@
+{
+  "timestamp": "2026-02-25T17:50:18.660903",
+  "backend": "cuda",
+  "device": "V100",
+  "model": "JoyAI-LLM-Flash-Q4_K_M",
+  "model_file": "/mnt/volume3/modelscope_models/yairpatch/JoyAI-LLM-Flash-GGUF/JoyAI-LLM-Flash-Q4_K_M.gguf",
+  "iterations": 3,
+  "results": [
+    {
+      "ctx_size": 4096,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 4096,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 4096,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 4096,
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    },
+    {
+      "ctx_size": 8192,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 8192,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 8192,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 8192,
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    },
+    {
+      "ctx_size": 16384,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 16384,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 16384,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 16384,
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    },
+    {
+      "ctx_size": 32768,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 32768,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 32768,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 32768,
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    },
+    {
+      "ctx_size": 65536,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 65536,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 65536,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 65536,
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    },
+    {
+      "ctx_size": 131072,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 131072,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 131072,
+          "error": "HTTP Error 500: Internal Server Error"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 131072,
+          "error": "HTTP Error 500: Internal Server Error"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    }
+  ]
+}

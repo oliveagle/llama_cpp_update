@@ -1,0 +1,5 @@
+{"task":"设计 SLO/SLI 指标","expected":"sre","actual":"backend-dev","matched":false}
+{"task":"配置错误预算告警","expected":"sre","actual":"backend-dev","matched":false}
+{"task":"实施混沌工程","expected":"sre","actual":"backend-dev","matched":false}
+{"task":"设计容量规划","expected":"sre","actual":"backend-dev","matched":false}
+{"task":"配置分布式追踪","expected":"sre","actual":"backend-dev","matched":false}

@@ -1,0 +1,20 @@
+{"task":"配置 CI/CD 流水线","expected_agent":"devops-engineer"}
+{"task":"编写 Docker 多阶段构建","expected_agent":"devops-engineer"}
+{"task":"设计 Kubernetes 部署配置","expected_agent":"devops-engineer"}
+{"task":"实现自动回滚机制","expected_agent":"devops-engineer"}
+{"task":"配置监控告警系统","expected_agent":"devops-engineer"}
+{"task":"编写 Terraform 基础设施","expected_agent":"devops-engineer"}
+{"task":"设计服务网格配置","expected_agent":"devops-engineer"}
+{"task":"实现蓝绿部署策略","expected_agent":"devops-engineer"}
+{"task":"配置日志收集系统","expected_agent":"devops-engineer"}
+{"task":"编写 Ansible 部署脚本","expected_agent":"devops-engineer"}
+{"task":"设计容器镜像仓库","expected_agent":"devops-engineer"}
+{"task":"实现自动化测试流程","expected_agent":"devops-engineer"}
+{"task":"配置负载均衡器","expected_agent":"devops-engineer"}
+{"task":"编写 Helm Chart 配置","expected_agent":"devops-engineer"}
+{"task":"设计 GitOps 流程","expected_agent":"devops-engineer"}
+{"task":"实现密钥管理系统","expected_agent":"devops-engineer"}
+{"task":"配置网络策略","expected_agent":"devops-engineer"}
+{"task":"编写备份恢复脚本","expected_agent":"devops-engineer"}
+{"task":"设计灾备方案","expected_agent":"devops-engineer"}
+{"task":"实现资源配额管理","expected_agent":"devops-engineer"}

@@ -1,0 +1,20 @@
+{"task":"设计系统提示词","expected_agent":"prompt-engineer"}
+{"task":"优化 Few-shot 示例","expected_agent":"prompt-engineer"}
+{"task":"设计思维链提示","expected_agent":"prompt-engineer"}
+{"task":"创建角色扮演 prompt","expected_agent":"prompt-engineer"}
+{"task":"优化输出格式","expected_agent":"prompt-engineer"}
+{"task":"设计多轮对话","expected_agent":"prompt-engineer"}
+{"task":"创建评估 prompt","expected_agent":"prompt-engineer"}
+{"task":"设计自一致性提示","expected_agent":"prompt-engineer"}
+{"task":"优化 token 使用","expected_agent":"prompt-engineer"}
+{"task":"设计 ReAct 模式","expected_agent":"prompt-engineer"}
+{"task":"创建代码生成 prompt","expected_agent":"prompt-engineer"}
+{"task":"设计分析 prompt","expected_agent":"prompt-engineer"}
+{"task":"优化摘要 prompt","expected_agent":"prompt-engineer"}
+{"task":"设计翻译 prompt","expected_agent":"prompt-engineer"}
+{"task":"创建分类 prompt","expected_agent":"prompt-engineer"}
+{"task":"设计提取 prompt","expected_agent":"prompt-engineer"}
+{"task":"优化创意写作 prompt","expected_agent":"prompt-engineer"}
+{"task":"设计 debugging prompt","expected_agent":"prompt-engineer"}
+{"task":"创建教学 prompt","expected_agent":"prompt-engineer"}
+{"task":"设计研究 prompt","expected_agent":"prompt-engineer"}

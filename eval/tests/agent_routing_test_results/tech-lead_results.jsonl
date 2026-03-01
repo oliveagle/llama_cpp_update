@@ -1,0 +1,5 @@
+{"task":"制定技术路线图","expected":"tech-lead","actual":"backend-dev","matched":false}
+{"task":"评审架构设计","expected":"tech-lead","actual":"backend-dev","matched":false}
+{"task":"指导初级工程师","expected":"tech-lead","actual":"backend-dev","matched":false}
+{"task":"决策技术选型","expected":"tech-lead","actual":"architect","matched":false}
+{"task":"协调代码审查","expected":"tech-lead","actual":"code-reviewer","matched":false}

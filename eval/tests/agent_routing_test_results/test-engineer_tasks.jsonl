@@ -1,0 +1,20 @@
+{"task":"编写单元测试用例","expected_agent":"test-engineer"}
+{"task":"设计集成测试方案","expected_agent":"test-engineer"}
+{"task":"实现 TDD 开发流程","expected_agent":"test-engineer"}
+{"task":"配置自动化测试","expected_agent":"test-engineer"}
+{"task":"设计测试数据工厂","expected_agent":"test-engineer"}
+{"task":"编写端到端测试","expected_agent":"test-engineer"}
+{"task":"实施测试覆盖率检查","expected_agent":"test-engineer"}
+{"task":"设计 Mock 测试策略","expected_agent":"test-engineer"}
+{"task":"配置 CI 测试流水线","expected_agent":"test-engineer"}
+{"task":"实现性能基准测试","expected_agent":"test-engineer"}
+{"task":"设计回归测试套件","expected_agent":"test-engineer"}
+{"task":"编写契约测试","expected_agent":"test-engineer"}
+{"task":"实施视觉回归测试","expected_agent":"test-engineer"}
+{"task":"配置测试环境","expected_agent":"test-engineer"}
+{"task":"设计模糊测试方案","expected_agent":"test-engineer"}
+{"task":"实现错误注入测试","expected_agent":"test-engineer"}
+{"task":"设计负载测试","expected_agent":"test-engineer"}
+{"task":"编写安全测试用例","expected_agent":"test-engineer"}
+{"task":"实施并行测试","expected_agent":"test-engineer"}
+{"task":"配置测试报告生成","expected_agent":"test-engineer"}

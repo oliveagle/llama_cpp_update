@@ -1,0 +1,20 @@
+{"task":"执行套利交易","expected_agent":"crypto-trader"}
+{"task":"监控链上数据","expected_agent":"crypto-trader"}
+{"task":"分析资金费率","expected_agent":"crypto-trader"}
+{"task":"执行网格交易","expected_agent":"crypto-trader"}
+{"task":"监控流动性","expected_agent":"crypto-trader"}
+{"task":"分析市场情绪","expected_agent":"crypto-trader"}
+{"task":"执行趋势跟踪","expected_agent":"crypto-trader"}
+{"task":"监控鲸鱼地址","expected_agent":"crypto-trader"}
+{"task":"分析交易量","expected_agent":"crypto-trader"}
+{"task":"执行做市策略","expected_agent":"crypto-trader"}
+{"task":"监控 DeFi 协议","expected_agent":"crypto-trader"}
+{"task":"分析持仓分布","expected_agent":"crypto-trader"}
+{"task":"执行波段交易","expected_agent":"crypto-trader"}
+{"task":"监控交易所流量","expected_agent":"crypto-trader"}
+{"task":"分析恐慌贪婪指数","expected_agent":"crypto-trader"}
+{"task":"执行现货交易","expected_agent":"crypto-trader"}
+{"task":"监控 NFT 市场","expected_agent":"crypto-trader"}
+{"task":"分析社交媒体情绪","expected_agent":"crypto-trader"}
+{"task":"执行杠杆交易","expected_agent":"crypto-trader"}
+{"task":"监控稳定币流动","expected_agent":"crypto-trader"}

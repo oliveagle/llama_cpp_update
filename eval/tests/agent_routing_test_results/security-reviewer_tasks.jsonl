@@ -1,0 +1,20 @@
+{"task":"检查 SQL 注入漏洞","expected_agent":"security-reviewer"}
+{"task":"审查 XSS 防护","expected_agent":"security-reviewer"}
+{"task":"验证 CSRF 保护","expected_agent":"security-reviewer"}
+{"task":"检查认证逻辑","expected_agent":"security-reviewer"}
+{"task":"审查授权机制","expected_agent":"security-reviewer"}
+{"task":"识别敏感数据泄露","expected_agent":"security-reviewer"}
+{"task":"检查输入验证","expected_agent":"security-reviewer"}
+{"task":"审查密码存储","expected_agent":"security-reviewer"}
+{"task":"验证 JWT 实现","expected_agent":"security-reviewer"}
+{"task":"检查会话管理","expected_agent":"security-reviewer"}
+{"task":"审查 API 限流","expected_agent":"security-reviewer"}
+{"task":"识别路径遍历","expected_agent":"security-reviewer"}
+{"task":"检查命令注入","expected_agent":"security-reviewer"}
+{"task":"审查反序列化","expected_agent":"security-reviewer"}
+{"task":"验证 CORS 配置","expected_agent":"security-reviewer"}
+{"task":"检查安全头配置","expected_agent":"security-reviewer"}
+{"task":"审查依赖漏洞","expected_agent":"security-reviewer"}
+{"task":"识别硬编码密钥","expected_agent":"security-reviewer"}
+{"task":"检查日志脱敏","expected_agent":"security-reviewer"}
+{"task":"审查文件上传安全","expected_agent":"security-reviewer"}

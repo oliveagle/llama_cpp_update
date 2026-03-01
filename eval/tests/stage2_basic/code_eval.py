@@ -181,13 +181,13 @@ class CodeEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个Python编程助手，请输出完整的函数实现。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 512,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:

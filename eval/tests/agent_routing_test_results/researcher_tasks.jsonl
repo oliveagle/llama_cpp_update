@@ -1,0 +1,20 @@
+{"task":"调研技术选型方案","expected_agent":"researcher"}
+{"task":"对比竞品功能","expected_agent":"researcher"}
+{"task":"检索相关论文","expected_agent":"researcher"}
+{"task":"分析行业趋势","expected_agent":"researcher"}
+{"task":"调研开源方案","expected_agent":"researcher"}
+{"task":"对比云服务提供商","expected_agent":"researcher"}
+{"task":"检索技术文档","expected_agent":"researcher"}
+{"task":"分析最佳实践","expected_agent":"researcher"}
+{"task":"调研新兴技术","expected_agent":"researcher"}
+{"task":"对比数据库性能","expected_agent":"researcher"}
+{"task":"检索安全报告","expected_agent":"researcher"}
+{"task":"分析用户研究","expected_agent":"researcher"}
+{"task":"调研框架特性","expected_agent":"researcher"}
+{"task":"对比 API 设计","expected_agent":"researcher"}
+{"task":"检索性能基准","expected_agent":"researcher"}
+{"task":"分析技术风险","expected_agent":"researcher"}
+{"task":"调研工具链","expected_agent":"researcher"}
+{"task":"对比开发效率","expected_agent":"researcher"}
+{"task":"检索案例研究","expected_agent":"researcher"}
+{"task":"分析技术社区","expected_agent":"researcher"}

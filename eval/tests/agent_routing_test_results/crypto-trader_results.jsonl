@@ -1,0 +1,5 @@
+{"task":"执行套利交易","expected":"crypto-trader","actual":"backend-dev","matched":false}
+{"task":"监控链上数据","expected":"crypto-trader","actual":"backend-dev","matched":false}
+{"task":"分析资金费率","expected":"crypto-trader","actual":"backend-dev","matched":false}
+{"task":"执行网格交易","expected":"crypto-trader","actual":"backend-dev","matched":false}
+{"task":"监控流动性","expected":"crypto-trader","actual":"backend-dev","matched":false}

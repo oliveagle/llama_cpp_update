@@ -1,0 +1,5 @@
+{"task":"组织每日站会","expected":"scrum-master","actual":"fullstack-dev","matched":false}
+{"task":"移除团队障碍","expected":"scrum-master","actual":"backend-dev","matched":false}
+{"task":"促进回顾会议","expected":"scrum-master","actual":"backend-dev","matched":false}
+{"task":"跟踪迭代进度","expected":"scrum-master","actual":"backend-dev","matched":false}
+{"task":"协调跨团队合作","expected":"scrum-master","actual":"backend-dev","matched":false}

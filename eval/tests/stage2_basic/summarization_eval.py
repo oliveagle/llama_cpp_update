@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import clean_reasoning_output
 
 
 # 摘要测试用例
@@ -160,13 +161,13 @@ class SummarizationEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个文本摘要专家，请准确概括文本要点。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 128,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -184,9 +185,10 @@ class SummarizationEvaluator(BaseEvaluator):
             if not content:
                 content = message.get("reasoning_content", "")
 
-            # 检查关键词
+            # 检查关键词 - 使用清理后的内容（支持推理模型）
             keywords = test_case["expected_keywords"]
-            matched = sum(1 for kw in keywords if kw in content)
+            cleaned_content = clean_reasoning_output(content)
+            matched = sum(1 for kw in keywords if kw in cleaned_content)
             passed = matched >= len(keywords) * 0.6  # 至少60%关键词
 
             self.raw_logger.log_test_result({

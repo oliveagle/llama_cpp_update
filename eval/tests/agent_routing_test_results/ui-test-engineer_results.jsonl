@@ -1,0 +1,5 @@
+{"task":"编写 Playwright 测试","expected":"ui-test-engineer","actual":"backend-dev","matched":false}
+{"task":"实现视觉回归","expected":"ui-test-engineer","actual":"backend-dev","matched":false}
+{"task":"设计 UI 组件测试","expected":"ui-test-engineer","actual":"UI-UX","matched":false}
+{"task":"配置 Cypress","expected":"ui-test-engineer","actual":"backend-dev","matched":false}
+{"task":"实现表单测试","expected":"ui-test-engineer","actual":"backend-dev","matched":false}

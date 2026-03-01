@@ -1,0 +1,42 @@
+[Unit]
+Description=llama-npu-server - AMD NPU Inference Service
+Documentation=https://github.com/lemonade-sdk/ryzenai-server
+# 注意: 此服务当前已搁置
+# 官方 ryzenai-server 仅支持 Windows 11，无 Linux 版本
+# 后续可使用 DragonNPU 或 ONNX Runtime 替代
+After=network.target
+
+[Service]
+Type=simple
+User=oliveagle
+Group=oliveagle
+
+# 工作目录
+WorkingDirectory=/mnt/volume3/llama_cpp
+
+# 环境变量
+Environment="LLAMA_NPU_MODEL=/mnt/volume3/llama_cpp/models/onnx/model.onnx"
+Environment="LLAMA_NPU_PORT=8404"
+Environment="LLAMA_NPU_HOST=127.0.0.1"
+Environment="LLAMA_NPU_CTX_SIZE=8192"
+Environment="HOME=/home/oliveagle"
+
+# 启动命令
+ExecStart=/mnt/volume3/llama_cpp/bin/llama-npu-server.sh start
+ExecStop=/mnt/volume3/llama_cpp/bin/llama-npu-server.sh stop
+ExecReload=/mnt/volume3/llama_cpp/bin/llama-npu-server.sh restart
+
+# 重启策略
+Restart=on-failure
+RestartSec=5
+
+# 资源限制
+LimitNOFILE=65535
+
+# 日志
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=llama-npu-server
+
+[Install]
+WantedBy=multi-user.target

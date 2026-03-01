@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import extract_answer_letter
 
 
 # 文本理解测试用例
@@ -164,7 +165,7 @@ class TextEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个知识问答助手，请直接回答选项字母。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 64,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
@@ -231,15 +232,8 @@ class TextEvaluator(BaseEvaluator):
             )
 
     def _extract_answer(self, text: str) -> str:
-        """从回答中提取答案字母"""
-        text = text.upper()
-
-        # 查找 A/B/C/D
-        for char in ["A", "B", "C", "D"]:
-            if char in text:
-                return char
-
-        return ""
+        """从回答中提取答案字母 - 修复版，支持推理模型"""
+        return extract_answer_letter(text)
 
 
 def run_text_test(model_url: str, model_name: str) -> dict:

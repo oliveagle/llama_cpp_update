@@ -486,7 +486,7 @@ class CodeEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个专业的Python程序员。只输出代码，不要解释。确保代码语法正确。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 1024,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 

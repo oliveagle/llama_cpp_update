@@ -1,0 +1,20 @@
+{"task":"设计一个支持百万用户的微服务架构","expected_agent":"architect"}
+{"task":"评估使用 PostgreSQL 还是 MongoDB","expected_agent":"architect"}
+{"task":"规划系统的水平扩展策略","expected_agent":"architect"}
+{"task":"设计事件驱动的架构模式","expected_agent":"architect"}
+{"task":"选择合适的消息队列：Kafka vs RabbitMQ","expected_agent":"architect"}
+{"task":"设计多租户 SaaS 架构","expected_agent":"architect"}
+{"task":"评估使用 monorepo 还是多仓库","expected_agent":"architect"}
+{"task":"设计 CQRS 模式的数据流","expected_agent":"architect"}
+{"task":"选择适合高并发的缓存策略","expected_agent":"architect"}
+{"task":"设计服务网格架构","expected_agent":"architect"}
+{"task":"评估 Serverless 架构的适用场景","expected_agent":"architect"}
+{"task":"设计领域驱动驱动的架构","expected_agent":"architect"}
+{"task":"规划技术债务的偿还策略","expected_agent":"architect"}
+{"task":"设计 API 网关的架构","expected_agent":"architect"}
+{"task":"选择合适的服务发现方案","expected_agent":"architect"}
+{"task":"设计容错和降级机制","expected_agent":"architect"}
+{"task":"评估使用 gRPC 还是 REST","expected_agent":"architect"}
+{"task":"设计数据一致性保障方案","expected_agent":"architect"}
+{"task":"规划多云部署架构","expected_agent":"architect"}
+{"task":"设计可观测性架构","expected_agent":"architect"}

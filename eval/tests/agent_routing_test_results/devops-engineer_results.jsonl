@@ -1,0 +1,5 @@
+{"task":"配置 CI/CD 流水线","expected":"devops-engineer","actual":"backend-dev","matched":false}
+{"task":"编写 Docker 构建","expected":"devops-engineer","actual":"backend-dev","matched":false}
+{"task":"设计 K8s 部署","expected":"devops-engineer","actual":"backend-dev","matched":false}
+{"task":"配置监控告警","expected":"devops-engineer","actual":"backend-dev","matched":false}
+{"task":"编写 Terraform","expected":"devops-engineer","actual":"backend-dev","matched":false}

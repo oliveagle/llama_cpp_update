@@ -1,0 +1,4252 @@
+[
+  {
+    "id": 1,
+    "name": "算法-二分查找-1",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "寻找旋转数组最小值用？",
+    "options": [
+      "二分",
+      "线性",
+      "贪心",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "算法-排序-2",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "堆排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "算法-树-3",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树后序遍历顺序？",
+    "options": [
+      "左右根",
+      "根左右",
+      "左根右",
+      "右左根"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "算法-排序-4",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "归并排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "算法-树-5",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树后序遍历顺序？",
+    "options": [
+      "左右根",
+      "根左右",
+      "左根右",
+      "右左根"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "算法-二分查找-6",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "寻找旋转数组最小值用？",
+    "options": [
+      "二分",
+      "线性",
+      "贪心",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "算法-栈和队列-7",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "单调栈用于？",
+    "options": [
+      "找下一个更大元素",
+      "排序",
+      "查找",
+      "去重"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "算法-数组简单-8",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "数组 [1,2,3,4,5] 反转后的结果是？",
+    "options": [
+      "[5,4,3,2,1]",
+      "[1,2,3,4,5]",
+      "[2,1,4,3,5]",
+      "[5,1,2,3,4]"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "算法-数组简单-9",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "Python 中 arr[::-1] 的作用是？",
+    "options": [
+      "反转数组",
+      "排序数组",
+      "复制数组",
+      "清空数组"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "算法-链表-10",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "反转链表的时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "算法-栈和队列-11",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "栈的特性是？",
+    "options": [
+      "后进先出",
+      "先进先出",
+      "随机访问",
+      "有序"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "算法-二分查找-12",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "寻找旋转数组最小值用？",
+    "options": [
+      "二分",
+      "线性",
+      "贪心",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "算法-排序-13",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "堆排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "算法-数组简单-14",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "双指针法常用于？",
+    "options": [
+      "有序数组查找",
+      "无序数组排序",
+      "图遍历",
+      "树搜索"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "算法-数组简单-15",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "arr[0] 访问的是？",
+    "options": [
+      "第一个元素",
+      "最后一个元素",
+      "中间元素",
+      "随机元素"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "算法-树-16",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "平衡二叉树 AVL 要求？",
+    "options": [
+      "左右子树高度差<=1",
+      "完全二叉树",
+      "满二叉树",
+      "任意"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "算法-树-17",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树层序遍历用？",
+    "options": [
+      "BFS 队列",
+      "DFS 栈",
+      "递归",
+      "迭代"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "算法-栈和队列-18",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "栈的特性是？",
+    "options": [
+      "后进先出",
+      "先进先出",
+      "随机访问",
+      "有序"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "算法-二分查找-19",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找复杂度？",
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "算法-栈和队列-20",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "单调栈用于？",
+    "options": [
+      "找下一个更大元素",
+      "排序",
+      "查找",
+      "去重"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "算法-树-21",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树后序遍历顺序？",
+    "options": [
+      "左右根",
+      "根左右",
+      "左根右",
+      "右左根"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "算法-数组简单-22",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "Python 中 arr[::-1] 的作用是？",
+    "options": [
+      "反转数组",
+      "排序数组",
+      "复制数组",
+      "清空数组"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "算法-链表-23",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "检测链表环用？",
+    "options": [
+      "快慢指针",
+      "哈希表",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "算法-二分查找-24",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找边界处理？",
+    "options": [
+      "left<=right",
+      "left<right",
+      "left=right",
+      "任意"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "算法-数组简单-25",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "数组长度用哪个函数获取？",
+    "options": [
+      "len(arr)",
+      "arr.length",
+      "arr.size",
+      "sizeof(arr)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "算法-栈和队列-26",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "队列的特性是？",
+    "options": [
+      "先进先出",
+      "后进先出",
+      "随机访问",
+      "有序"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "算法-链表-27",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "合并两个有序链表用？",
+    "options": [
+      "双指针",
+      "递归",
+      "都可以",
+      "都不行"
+    ],
+    "answer": "C",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "算法-链表-28",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "检测链表环用？",
+    "options": [
+      "快慢指针",
+      "哈希表",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "算法-排序-29",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "计数排序适用于？",
+    "options": [
+      "小范围整数",
+      "任意数据",
+      "浮点数",
+      "字符串"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "算法-栈和队列-30",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "有效的括号用？",
+    "options": [
+      "栈",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "算法-树-31",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树后序遍历顺序？",
+    "options": [
+      "左右根",
+      "根左右",
+      "左根右",
+      "右左根"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "算法-排序-32",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "归并排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "算法-数组简单-33",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "数组长度用哪个函数获取？",
+    "options": [
+      "len(arr)",
+      "arr.length",
+      "arr.size",
+      "sizeof(arr)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "算法-链表-34",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "检测链表环用？",
+    "options": [
+      "快慢指针",
+      "哈希表",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "算法-树-35",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树后序遍历顺序？",
+    "options": [
+      "左右根",
+      "根左右",
+      "左根右",
+      "右左根"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "算法-数组简单-36",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "Python 中 arr[::-1] 的作用是？",
+    "options": [
+      "反转数组",
+      "排序数组",
+      "复制数组",
+      "清空数组"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "算法-树-37",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "平衡二叉树 AVL 要求？",
+    "options": [
+      "左右子树高度差<=1",
+      "完全二叉树",
+      "满二叉树",
+      "任意"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "算法-二分查找-38",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找复杂度？",
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "算法-排序-39",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "归并排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "算法-链表-40",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "反转链表的时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "算法-排序-41",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "堆排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "算法-链表-42",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "删除链表倒数第 N 个节点用？",
+    "options": [
+      "双指针",
+      "单指针",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "算法-数组简单-43",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "双指针法常用于？",
+    "options": [
+      "有序数组查找",
+      "无序数组排序",
+      "图遍历",
+      "树搜索"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "算法-树-44",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "BST 的中序遍历是？",
+    "options": [
+      "升序",
+      "降序",
+      "无序",
+      "随机"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "算法-链表-45",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "合并两个有序链表用？",
+    "options": [
+      "双指针",
+      "递归",
+      "都可以",
+      "都不行"
+    ],
+    "answer": "C",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "算法-链表-46",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "LRU 缓存用？",
+    "options": [
+      "哈希 + 双向链表",
+      "数组",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "算法-链表-47",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "合并两个有序链表用？",
+    "options": [
+      "双指针",
+      "递归",
+      "都可以",
+      "都不行"
+    ],
+    "answer": "C",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "算法-二分查找-48",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找复杂度？",
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "算法-栈和队列-49",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "有效的括号用？",
+    "options": [
+      "栈",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "算法-树-50",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树层序遍历用？",
+    "options": [
+      "BFS 队列",
+      "DFS 栈",
+      "递归",
+      "迭代"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "算法-栈和队列-51",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "最小栈需要？",
+    "options": [
+      "辅助栈",
+      "单栈",
+      "队列",
+      "哈希"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "算法-排序-52",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "堆排序复杂度？",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "算法-二分查找-53",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找复杂度？",
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "算法-二分查找-54",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "寻找旋转数组最小值用？",
+    "options": [
+      "二分",
+      "线性",
+      "贪心",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "算法-排序-55",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "计数排序适用于？",
+    "options": [
+      "小范围整数",
+      "任意数据",
+      "浮点数",
+      "字符串"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "算法-二分查找-56",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找要求数组？",
+    "options": [
+      "有序",
+      "无序",
+      "任意",
+      "随机"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "算法-链表-57",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "合并两个有序链表用？",
+    "options": [
+      "双指针",
+      "递归",
+      "都可以",
+      "都不行"
+    ],
+    "answer": "C",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "算法-树-58",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "BST 的中序遍历是？",
+    "options": [
+      "升序",
+      "降序",
+      "无序",
+      "随机"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "算法-链表-59",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "检测链表环用？",
+    "options": [
+      "快慢指针",
+      "哈希表",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "算法-栈和队列-60",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "队列的特性是？",
+    "options": [
+      "先进先出",
+      "后进先出",
+      "随机访问",
+      "有序"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "算法-二分查找-61",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找要求数组？",
+    "options": [
+      "有序",
+      "无序",
+      "任意",
+      "随机"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "算法-二分查找-62",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找要求数组？",
+    "options": [
+      "有序",
+      "无序",
+      "任意",
+      "随机"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "算法-二分查找-63",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "寻找旋转数组最小值用？",
+    "options": [
+      "二分",
+      "线性",
+      "贪心",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "算法-二分查找-64",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找边界处理？",
+    "options": [
+      "left<=right",
+      "left<right",
+      "left=right",
+      "任意"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "算法-排序-65",
+    "category": "排序",
+    "difficulty": "简单",
+    "question": "稳定排序是？",
+    "options": [
+      "归并排序",
+      "快速排序",
+      "堆排序",
+      "选择排序"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "算法-链表-66",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "删除链表倒数第 N 个节点用？",
+    "options": [
+      "双指针",
+      "单指针",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "算法-二分查找-67",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找边界处理？",
+    "options": [
+      "left<=right",
+      "left<right",
+      "left=right",
+      "任意"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "算法-树-68",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树最大深度用？",
+    "options": [
+      "DFS 或 BFS",
+      "只 DFS",
+      "只 BFS",
+      "贪心"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "算法-栈和队列-69",
+    "category": "栈和队列",
+    "difficulty": "简单",
+    "question": "最小栈需要？",
+    "options": [
+      "辅助栈",
+      "单栈",
+      "队列",
+      "哈希"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "算法-树-70",
+    "category": "树",
+    "difficulty": "简单",
+    "question": "二叉树后序遍历顺序？",
+    "options": [
+      "左右根",
+      "根左右",
+      "左根右",
+      "右左根"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "算法-二分查找-71",
+    "category": "二分查找",
+    "difficulty": "简单",
+    "question": "二分查找要求数组？",
+    "options": [
+      "有序",
+      "无序",
+      "任意",
+      "随机"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 72,
+    "name": "算法-链表-72",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "LRU 缓存用？",
+    "options": [
+      "哈希 + 双向链表",
+      "数组",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 73,
+    "name": "算法-链表-73",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "检测链表环用？",
+    "options": [
+      "快慢指针",
+      "哈希表",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 74,
+    "name": "算法-数组简单-74",
+    "category": "数组简单",
+    "difficulty": "简单",
+    "question": "arr[0] 访问的是？",
+    "options": [
+      "第一个元素",
+      "最后一个元素",
+      "中间元素",
+      "随机元素"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "算法-链表-75",
+    "category": "链表",
+    "difficulty": "简单",
+    "question": "删除链表倒数第 N 个节点用？",
+    "options": [
+      "双指针",
+      "单指针",
+      "递归",
+      "栈"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 76,
+    "name": "算法-回溯-76",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "算法-图-77",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Bellman-Ford 可以处理？",
+    "options": [
+      "负权边",
+      "只能正权",
+      "无向图",
+      "DAG"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "算法-动态规划-78",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "算法-动态规划-79",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "编辑距离用？",
+    "options": [
+      "DP",
+      "贪心",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "算法-回溯-80",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "全排列用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 81,
+    "name": "算法-动态规划-81",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 82,
+    "name": "算法-图-82",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "拓扑排序用于？",
+    "options": [
+      "DAG",
+      "无向图",
+      "完全图",
+      "二分图"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "算法-动态规划-83",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "斐波那契 DP 时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "算法-动态规划-84",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 空间优化常用？",
+    "options": [
+      "滚动数组",
+      "哈希表",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 85,
+    "name": "算法-数组中等-85",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "合并区间前先？",
+    "options": [
+      "排序",
+      "去重",
+      "反转",
+      "二分"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 86,
+    "name": "算法-贪心-86",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "算法-动态规划-87",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "编辑距离用？",
+    "options": [
+      "DP",
+      "贪心",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "算法-数组中等-88",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "滑动窗口最大值用？",
+    "options": [
+      "单调双端队列",
+      "普通队列",
+      "栈",
+      "哈希表"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "算法-贪心-89",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "霍夫曼编码用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "算法-回溯-90",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "算法-回溯-91",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "算法-回溯-92",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "算法-回溯-93",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "算法-图-94",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "图的 BFS 用？",
+    "options": [
+      "队列",
+      "栈",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "算法-回溯-95",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "算法-数组中等-96",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "算法-贪心-97",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "算法-贪心-98",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "霍夫曼编码用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "算法-回溯-99",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "算法-回溯-100",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "全排列用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "算法-贪心-101",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 102,
+    "name": "算法-动态规划-102",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "斐波那契 DP 时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "算法-回溯-103",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "算法-图-104",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "图的 DFS 用？",
+    "options": [
+      "栈或递归",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "算法-数组中等-105",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "合并区间前先？",
+    "options": [
+      "排序",
+      "去重",
+      "反转",
+      "二分"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "算法-动态规划-106",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "算法-动态规划-107",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最长递增子序列用？",
+    "options": [
+      "DP 或贪心 + 二分",
+      "只贪心",
+      "只回溯",
+      "只分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 108,
+    "name": "算法-贪心-108",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "最小生成树 Prim 是？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 109,
+    "name": "算法-数组中等-109",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "Kadane 算法用于解决？",
+    "options": [
+      "最大子数组和",
+      "数组排序",
+      "数组去重",
+      "数组合并"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "算法-回溯-110",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 111,
+    "name": "算法-贪心-111",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 112,
+    "name": "算法-数组中等-112",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "滑动窗口最大值用？",
+    "options": [
+      "单调双端队列",
+      "普通队列",
+      "栈",
+      "哈希表"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 113,
+    "name": "算法-动态规划-113",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最大子数组和用？",
+    "options": [
+      "Kadane(DP)",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 114,
+    "name": "算法-图-114",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "图的 DFS 用？",
+    "options": [
+      "栈或递归",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 115,
+    "name": "算法-回溯-115",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "全排列用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 116,
+    "name": "算法-回溯-116",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "全排列用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 117,
+    "name": "算法-贪心-117",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "霍夫曼编码用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "算法-图-118",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "并查集用于？",
+    "options": [
+      "连通分量",
+      "最短路径",
+      "拓扑排序",
+      "关键路径"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 119,
+    "name": "算法-动态规划-119",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "算法-数组中等-120",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "Kadane 算法用于解决？",
+    "options": [
+      "最大子数组和",
+      "数组排序",
+      "数组去重",
+      "数组合并"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 121,
+    "name": "算法-动态规划-121",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最长递增子序列用？",
+    "options": [
+      "DP 或贪心 + 二分",
+      "只贪心",
+      "只回溯",
+      "只分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 122,
+    "name": "算法-图-122",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "并查集用于？",
+    "options": [
+      "连通分量",
+      "最短路径",
+      "拓扑排序",
+      "关键路径"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 123,
+    "name": "算法-贪心-123",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "最小生成树 Prim 是？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 124,
+    "name": "算法-图-124",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Bellman-Ford 可以处理？",
+    "options": [
+      "负权边",
+      "只能正权",
+      "无向图",
+      "DAG"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 125,
+    "name": "算法-回溯-125",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 126,
+    "name": "算法-动态规划-126",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "算法-回溯-127",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 128,
+    "name": "算法-贪心-128",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 129,
+    "name": "算法-回溯-129",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 130,
+    "name": "算法-数组中等-130",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 131,
+    "name": "算法-回溯-131",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 132,
+    "name": "算法-动态规划-132",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 133,
+    "name": "算法-图-133",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 134,
+    "name": "算法-图-134",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Bellman-Ford 可以处理？",
+    "options": [
+      "负权边",
+      "只能正权",
+      "无向图",
+      "DAG"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 135,
+    "name": "算法-数组中等-135",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 136,
+    "name": "算法-图-136",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 137,
+    "name": "算法-贪心-137",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "霍夫曼编码用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 138,
+    "name": "算法-动态规划-138",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 139,
+    "name": "算法-动态规划-139",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最大子数组和用？",
+    "options": [
+      "Kadane(DP)",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 140,
+    "name": "算法-图-140",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 141,
+    "name": "算法-图-141",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "图的 BFS 用？",
+    "options": [
+      "队列",
+      "栈",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 142,
+    "name": "算法-动态规划-142",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "编辑距离用？",
+    "options": [
+      "DP",
+      "贪心",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 143,
+    "name": "算法-动态规划-143",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最长递增子序列用？",
+    "options": [
+      "DP 或贪心 + 二分",
+      "只贪心",
+      "只回溯",
+      "只分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 144,
+    "name": "算法-回溯-144",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 145,
+    "name": "算法-贪心-145",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 146,
+    "name": "算法-回溯-146",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 147,
+    "name": "算法-动态规划-147",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 148,
+    "name": "算法-贪心-148",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "最小生成树 Prim 是？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 149,
+    "name": "算法-动态规划-149",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 空间优化常用？",
+    "options": [
+      "滚动数组",
+      "哈希表",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 150,
+    "name": "算法-回溯-150",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 151,
+    "name": "算法-回溯-151",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 152,
+    "name": "算法-回溯-152",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 153,
+    "name": "算法-动态规划-153",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最大子数组和用？",
+    "options": [
+      "Kadane(DP)",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 154,
+    "name": "算法-数组中等-154",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "合并区间前先？",
+    "options": [
+      "排序",
+      "去重",
+      "反转",
+      "二分"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 155,
+    "name": "算法-动态规划-155",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 156,
+    "name": "算法-回溯-156",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 157,
+    "name": "算法-数组中等-157",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 158,
+    "name": "算法-贪心-158",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "最小生成树 Prim 是？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 159,
+    "name": "算法-贪心-159",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 160,
+    "name": "算法-动态规划-160",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 161,
+    "name": "算法-贪心-161",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 162,
+    "name": "算法-回溯-162",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 163,
+    "name": "算法-贪心-163",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 164,
+    "name": "算法-图-164",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "拓扑排序用于？",
+    "options": [
+      "DAG",
+      "无向图",
+      "完全图",
+      "二分图"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 165,
+    "name": "算法-数组中等-165",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 166,
+    "name": "算法-动态规划-166",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 空间优化常用？",
+    "options": [
+      "滚动数组",
+      "哈希表",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 167,
+    "name": "算法-回溯-167",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "全排列用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 168,
+    "name": "算法-动态规划-168",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 169,
+    "name": "算法-动态规划-169",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 空间优化常用？",
+    "options": [
+      "滚动数组",
+      "哈希表",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 170,
+    "name": "算法-动态规划-170",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "最大子数组和用？",
+    "options": [
+      "Kadane(DP)",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 171,
+    "name": "算法-图-171",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 172,
+    "name": "算法-动态规划-172",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 173,
+    "name": "算法-回溯-173",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 174,
+    "name": "算法-贪心-174",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 175,
+    "name": "算法-回溯-175",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 176,
+    "name": "算法-图-176",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "并查集用于？",
+    "options": [
+      "连通分量",
+      "最短路径",
+      "拓扑排序",
+      "关键路径"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 177,
+    "name": "算法-贪心-177",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 178,
+    "name": "算法-动态规划-178",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "斐波那契 DP 时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 179,
+    "name": "算法-数组中等-179",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 180,
+    "name": "算法-数组中等-180",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "接雨水问题用？",
+    "options": [
+      "单调栈",
+      "贪心",
+      "回溯",
+      "位运算"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 181,
+    "name": "算法-图-181",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Bellman-Ford 可以处理？",
+    "options": [
+      "负权边",
+      "只能正权",
+      "无向图",
+      "DAG"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 182,
+    "name": "算法-动态规划-182",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 183,
+    "name": "算法-数组中等-183",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "合并区间前先？",
+    "options": [
+      "排序",
+      "去重",
+      "反转",
+      "二分"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 184,
+    "name": "算法-回溯-184",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "括号生成用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 185,
+    "name": "算法-回溯-185",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 186,
+    "name": "算法-数组中等-186",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "合并区间前先？",
+    "options": [
+      "排序",
+      "去重",
+      "反转",
+      "二分"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 187,
+    "name": "算法-贪心-187",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "区间调度用？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 188,
+    "name": "算法-数组中等-188",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "滑动窗口最大值用？",
+    "options": [
+      "单调双端队列",
+      "普通队列",
+      "栈",
+      "哈希表"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 189,
+    "name": "算法-贪心-189",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 190,
+    "name": "算法-贪心-190",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "最小生成树 Prim 是？",
+    "options": [
+      "贪心",
+      "DP",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 191,
+    "name": "算法-贪心-191",
+    "category": "贪心",
+    "difficulty": "中等",
+    "question": "贪心算法的核心是？",
+    "options": [
+      "局部最优",
+      "全局最优",
+      "回溯",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 192,
+    "name": "算法-回溯-192",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "N 皇后用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 193,
+    "name": "算法-动态规划-193",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "斐波那契 DP 时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 194,
+    "name": "算法-数组中等-194",
+    "category": "数组中等",
+    "difficulty": "中等",
+    "question": "Kadane 算法用于解决？",
+    "options": [
+      "最大子数组和",
+      "数组排序",
+      "数组去重",
+      "数组合并"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 195,
+    "name": "算法-回溯-195",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "子集问题用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 196,
+    "name": "算法-图-196",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 197,
+    "name": "算法-回溯-197",
+    "category": "回溯",
+    "difficulty": "中等",
+    "question": "全排列用？",
+    "options": [
+      "回溯",
+      "贪心",
+      "DP",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 198,
+    "name": "算法-动态规划-198",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 199,
+    "name": "算法-动态规划-199",
+    "category": "动态规划",
+    "difficulty": "中等",
+    "question": "斐波那契 DP 时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 200,
+    "name": "算法-图-200",
+    "category": "图",
+    "difficulty": "中等",
+    "question": "拓扑排序用于？",
+    "options": [
+      "DAG",
+      "无向图",
+      "完全图",
+      "二分图"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 201,
+    "name": "算法-动态规划-201",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 202,
+    "name": "算法-动态规划-202",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "编辑距离用？",
+    "options": [
+      "DP",
+      "贪心",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 203,
+    "name": "算法-图-203",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 DFS 用？",
+    "options": [
+      "栈或递归",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 204,
+    "name": "算法-数组困难-204",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "中位数维护用？",
+    "options": [
+      "双堆",
+      "单堆",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 205,
+    "name": "算法-图-205",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 206,
+    "name": "算法-图-206",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "并查集用于？",
+    "options": [
+      "连通分量",
+      "最短路径",
+      "拓扑排序",
+      "关键路径"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 207,
+    "name": "算法-数组困难-207",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "第 K 大元素 O(n) 用？",
+    "options": [
+      "快速选择",
+      "排序",
+      "暴力",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 208,
+    "name": "算法-动态规划-208",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 209,
+    "name": "算法-数组困难-209",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "最长连续序列 O(n) 用？",
+    "options": [
+      "哈希集合",
+      "排序",
+      "DP",
+      "贪心"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 210,
+    "name": "算法-图-210",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 211,
+    "name": "算法-动态规划-211",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "DP 空间优化常用？",
+    "options": [
+      "滚动数组",
+      "哈希表",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 212,
+    "name": "算法-动态规划-212",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "最大子数组和用？",
+    "options": [
+      "Kadane(DP)",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 213,
+    "name": "算法-动态规划-213",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "斐波那契 DP 时间复杂度？",
+    "options": [
+      "O(n)",
+      "O(2^n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 214,
+    "name": "算法-动态规划-214",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 215,
+    "name": "算法-图-215",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 216,
+    "name": "算法-图-216",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 217,
+    "name": "算法-数组困难-217",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "第 K 大元素 O(n) 用？",
+    "options": [
+      "快速选择",
+      "排序",
+      "暴力",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 218,
+    "name": "算法-图-218",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "并查集用于？",
+    "options": [
+      "连通分量",
+      "最短路径",
+      "拓扑排序",
+      "关键路径"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 219,
+    "name": "算法-图-219",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "拓扑排序用于？",
+    "options": [
+      "DAG",
+      "无向图",
+      "完全图",
+      "二分图"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 220,
+    "name": "算法-图-220",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 221,
+    "name": "算法-数组困难-221",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "最长连续序列 O(n) 用？",
+    "options": [
+      "哈希集合",
+      "排序",
+      "DP",
+      "贪心"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 222,
+    "name": "算法-动态规划-222",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "最长递增子序列用？",
+    "options": [
+      "DP 或贪心 + 二分",
+      "只贪心",
+      "只回溯",
+      "只分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 223,
+    "name": "算法-动态规划-223",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "最大子数组和用？",
+    "options": [
+      "Kadane(DP)",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 224,
+    "name": "算法-图-224",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Bellman-Ford 可以处理？",
+    "options": [
+      "负权边",
+      "只能正权",
+      "无向图",
+      "DAG"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 225,
+    "name": "算法-数组困难-225",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "第 K 大元素 O(n) 用？",
+    "options": [
+      "快速选择",
+      "排序",
+      "暴力",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 226,
+    "name": "算法-图-226",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 DFS 用？",
+    "options": [
+      "栈或递归",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 227,
+    "name": "算法-图-227",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 DFS 用？",
+    "options": [
+      "栈或递归",
+      "队列",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 228,
+    "name": "算法-图-228",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 229,
+    "name": "算法-图-229",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 BFS 用？",
+    "options": [
+      "队列",
+      "栈",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 230,
+    "name": "算法-数组困难-230",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "第 K 大元素 O(n) 用？",
+    "options": [
+      "快速选择",
+      "排序",
+      "暴力",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 231,
+    "name": "算法-图-231",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 BFS 用？",
+    "options": [
+      "队列",
+      "栈",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 232,
+    "name": "算法-图-232",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 233,
+    "name": "算法-图-233",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 234,
+    "name": "算法-数组困难-234",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "中位数维护用？",
+    "options": [
+      "双堆",
+      "单堆",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 235,
+    "name": "算法-数组困难-235",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "第 K 大元素 O(n) 用？",
+    "options": [
+      "快速选择",
+      "排序",
+      "暴力",
+      "DP"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 236,
+    "name": "算法-图-236",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 237,
+    "name": "算法-数组困难-237",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "中位数维护用？",
+    "options": [
+      "双堆",
+      "单堆",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 238,
+    "name": "算法-数组困难-238",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "中位数维护用？",
+    "options": [
+      "双堆",
+      "单堆",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 239,
+    "name": "算法-图-239",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "并查集用于？",
+    "options": [
+      "连通分量",
+      "最短路径",
+      "拓扑排序",
+      "关键路径"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 240,
+    "name": "算法-图-240",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 241,
+    "name": "算法-动态规划-241",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "DP 的核心是？",
+    "options": [
+      "状态转移方程",
+      "贪心策略",
+      "回溯搜索",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 242,
+    "name": "算法-动态规划-242",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "DP 空间优化常用？",
+    "options": [
+      "滚动数组",
+      "哈希表",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 243,
+    "name": "算法-图-243",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "Dijkstra 算法求？",
+    "options": [
+      "单源最短路径",
+      "多源最短路径",
+      "最小生成树",
+      "最大流"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 244,
+    "name": "算法-数组困难-244",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "中位数维护用？",
+    "options": [
+      "双堆",
+      "单堆",
+      "栈",
+      "队列"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 245,
+    "name": "算法-动态规划-245",
+    "category": "动态规划",
+    "difficulty": "困难",
+    "question": "0-1 背包问题用？",
+    "options": [
+      "DP",
+      "贪心",
+      "回溯",
+      "分治"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 246,
+    "name": "算法-图-246",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "最小生成树用？",
+    "options": [
+      "Prim 或 Kruskal",
+      "Dijkstra",
+      "BFS",
+      "DFS"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 247,
+    "name": "算法-数组困难-247",
+    "category": "数组困难",
+    "difficulty": "困难",
+    "question": "最长连续序列 O(n) 用？",
+    "options": [
+      "哈希集合",
+      "排序",
+      "DP",
+      "贪心"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 248,
+    "name": "算法-图-248",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "拓扑排序用于？",
+    "options": [
+      "DAG",
+      "无向图",
+      "完全图",
+      "二分图"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 249,
+    "name": "算法-图-249",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 BFS 用？",
+    "options": [
+      "队列",
+      "栈",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  },
+  {
+    "id": 250,
+    "name": "算法-图-250",
+    "category": "图",
+    "difficulty": "困难",
+    "question": "图的 BFS 用？",
+    "options": [
+      "队列",
+      "栈",
+      "哈希表",
+      "堆"
+    ],
+    "answer": "A",
+    "keywords": [
+      "algorithm"
+    ]
+  }
+]

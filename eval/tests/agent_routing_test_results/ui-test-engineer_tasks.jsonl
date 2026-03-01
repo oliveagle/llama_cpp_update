@@ -1,0 +1,20 @@
+{"task":"编写 Playwright E2E 测试","expected_agent":"ui-test-engineer"}
+{"task":"实现视觉回归测试","expected_agent":"ui-test-engineer"}
+{"task":"设计 UI 组件测试","expected_agent":"ui-test-engineer"}
+{"task":"配置 Cypress 测试","expected_agent":"ui-test-engineer"}
+{"task":"实现表单交互测试","expected_agent":"ui-test-engineer"}
+{"task":"设计导航流程测试","expected_agent":"ui-test-engineer"}
+{"task":"编写辅助功能测试","expected_agent":"ui-test-engineer"}
+{"task":"实现响应式布局测试","expected_agent":"ui-test-engineer"}
+{"task":"配置截图对比测试","expected_agent":"ui-test-engineer"}
+{"task":"设计动画测试","expected_agent":"ui-test-engineer"}
+{"task":"实现拖拽功能测试","expected_agent":"ui-test-engineer"}
+{"task":"编写模态框测试","expected_agent":"ui-test-engineer"}
+{"task":"设计表格交互测试","expected_agent":"ui-test-engineer"}
+{"task":"配置移动端测试","expected_agent":"ui-test-engineer"}
+{"task":"实现多浏览器测试","expected_agent":"ui-test-engineer"}
+{"task":"设计无障碍测试","expected_agent":"ui-test-engineer"}
+{"task":"编写性能测试","expected_agent":"ui-test-engineer"}
+{"task":"实现国际化测试","expected_agent":"ui-test-engineer"}
+{"task":"配置暗色模式测试","expected_agent":"ui-test-engineer"}
+{"task":"设计 PWA 测试","expected_agent":"ui-test-engineer"}

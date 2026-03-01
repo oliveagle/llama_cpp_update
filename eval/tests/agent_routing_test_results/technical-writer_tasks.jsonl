@@ -1,0 +1,20 @@
+{"task":"编写 API 文档","expected_agent":"technical-writer"}
+{"task":"撰写用户指南","expected_agent":"technical-writer"}
+{"task":"创建教程文档","expected_agent":"technical-writer"}
+{"task":"编写安装手册","expected_agent":"technical-writer"}
+{"task":"设计文档结构","expected_agent":"technical-writer"}
+{"task":"撰写发布说明","expected_agent":"technical-writer"}
+{"task":"创建 FAQ 文档","expected_agent":"technical-writer"}
+{"task":"编写迁移指南","expected_agent":"technical-writer"}
+{"task":"设计文档模板","expected_agent":"technical-writer"}
+{"task":"撰写最佳实践","expected_agent":"technical-writer"}
+{"task":"创建快速入门","expected_agent":"technical-writer"}
+{"task":"编写参考手册","expected_agent":"technical-writer"}
+{"task":"设计文档站点","expected_agent":"technical-writer"}
+{"task":"撰写技术博客","expected_agent":"technical-writer"}
+{"task":"创建示例代码","expected_agent":"technical-writer"}
+{"task":"编写变更日志","expected_agent":"technical-writer"}
+{"task":"设计文档流程","expected_agent":"technical-writer"}
+{"task":"撰写内部文档","expected_agent":"technical-writer"}
+{"task":"创建演示文稿","expected_agent":"technical-writer"}
+{"task":"编写培训材料","expected_agent":"technical-writer"}

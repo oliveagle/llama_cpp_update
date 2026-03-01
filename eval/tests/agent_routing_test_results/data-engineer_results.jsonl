@@ -1,0 +1,5 @@
+{"task":"设计数据仓库模型","expected":"data-engineer","actual":"backend-dev","matched":false}
+{"task":"构建 ETL 管道","expected":"data-engineer","actual":"backend-dev","matched":false}
+{"task":"实现实时数据流","expected":"data-engineer","actual":"backend-dev","matched":false}
+{"task":"设计数据湖","expected":"data-engineer","actual":"backend-dev","matched":false}
+{"task":"配置数据质量检查","expected":"data-engineer","actual":"backend-dev","matched":false}

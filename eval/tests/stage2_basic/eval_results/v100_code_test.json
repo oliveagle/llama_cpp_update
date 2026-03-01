@@ -3,21 +3,21 @@
   "url": "http://localhost:8401",
   "stage": 2,
   "stage_name": "\u57fa\u7840\u80fd\u529b\u6d4b\u8bd5-\u4ee3\u7801",
-  "total_tests": 5,
-  "passed_tests": 3,
+  "total_tests": 10,
+  "passed_tests": 8,
   "failed_tests": 2,
-  "pass_rate": 0.6,
-  "duration_seconds": 27.804294109344482,
+  "pass_rate": 0.8,
+  "duration_seconds": 2587.5230841636658,
   "passed_threshold": true,
   "tests": [
     {
       "name": "has_close_elements",
       "category": "\u4ee3\u7801\u80fd\u529b",
       "passed": true,
-      "duration_ms": 1454.9987316131592,
+      "duration_ms": 285356.0423851013,
       "details": {
         "description": "\u68c0\u67e5\u5217\u8868\u4e2d\u662f\u5426\u6709\u4e24\u4e2a\u5143\u7d20\u8ddd\u79bb\u5c0f\u4e8e\u9608\u503c",
-        "generated_code": "def has_close_elements(numbers: list[float], threshold: float) -> bool:\n    numbers.sort()\n    for i in range(len(numbers) - 1):\n        if abs(numbers[i] - numbers[i + 1]) < threshold:\n            return True\n    return False",
+        "generated_code": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task: Implement a Python function `has_close_elements`.\n    *   Input: `numbers` (list of floats), `threshold` (float).\n    *   Output: `bool` (True if any two elements have a distance less than `threshold`, False otherwise).\n    *   Constraint: Output *only* the function implementation code, no explanations.\n    *   Examples provided:\n        *   `[1.0, 2.0, 3.0], 0.5` -> `False` (Differences are 1.0, 1.0, 2.0, all >= 0.5).\n        *   `[1",
         "score": 0.8
       },
       "error": null
@@ -26,10 +26,10 @@
       "name": "separate_paren_groups",
       "category": "\u4ee3\u7801\u80fd\u529b",
       "passed": true,
-      "duration_ms": 3536.7188453674316,
+      "duration_ms": 299940.3131008148,
       "details": {
         "description": "\u5206\u79bb\u62ec\u53f7\u7ec4",
-        "generated_code": "```python\ndef separate_paren_groups(paren_string: str) -> list[str]:\n    result = []\n    i = 0\n    while i < len(paren_string):\n        if paren_string[i] == '(':\n            start = i\n            depth = 1\n            i += 1\n            while i < len(paren_string) and depth > 0:\n                if paren_string[i] == '(':\n                    depth += 1\n                elif paren_string[i] == ')':\n                    depth -= 1\n                i += 1\n            result.append(paren_string[start:i",
+        "generated_code": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task: Implement a Python function `separate_paren_groups`.\n    *   Input: A string `paren_string` containing parentheses.\n    *   Output: A list of strings, where each string represents a balanced group of parentheses.\n    *   Example: `separate_paren_groups('( ) (( )) (( )( ))')` should return `['()', '(())', '(()())']`.\n    *   Constraint: Output *only* the function implementation code, no explanations.\n\n2.  **Understand the Logic:**\n    ",
         "score": 0.65
       },
       "error": null
@@ -38,35 +38,87 @@
       "name": "truncate_number",
       "category": "\u4ee3\u7801\u80fd\u529b",
       "passed": false,
-      "duration_ms": 10679.101467132568,
-      "details": {
-        "description": "\u622a\u65ad\u5c0f\u6570",
-        "generated_code": "",
-        "score": 0.15
-      },
-      "error": null
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=300)"
     },
     {
       "name": "below_zero",
       "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": false,
+      "duration_ms": 0,
+      "details": {},
+      "error": "HTTPConnectionPool(host='localhost', port=8401): Read timed out. (read timeout=300)"
+    },
+    {
+      "name": "mean_absolute_derivative",
+      "category": "\u4ee3\u7801\u80fd\u529b",
       "passed": true,
-      "duration_ms": 1979.499101638794,
+      "duration_ms": 291849.8549461365,
       "details": {
-        "description": "\u68c0\u67e5\u4f59\u989d\u662f\u5426\u66fe\u4f4e\u4e8e\u96f6",
-        "generated_code": "```python\nfrom typing import List, Tuple\n\ndef below_zero(operations: List[Tuple[str, int]]) -> bool:\n    balance = 0\n    for operation in operations:\n        if operation[0] == '\u5b58\u6b3e':\n            balance += operation[1]\n        else:\n            balance -= operation[1]\n        if balance < 0:\n            return True\n    return False\n```",
+        "description": "\u8ba1\u7b97\u5e73\u5747\u7edd\u5bf9\u5bfc\u6570",
+        "generated_code": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Python programming assistant.\n    *   Task: Complete the provided Python function `mean_absolute_derivative`.\n    *   Input: A list of integers `xs`.\n    *   Output: A float representing the mean absolute derivative.\n    *   Definition: \"Average absolute derivative (average of absolute differences between adjacent elements)\".\n    *   Examples:\n        *   `[1, 2, 3, 4, 5]` -> `1.0` (Differences: 1, 1, 1, 1. Average: 1.0)\n        *   `",
         "score": 0.8
       },
       "error": null
     },
     {
-      "name": "mean_absolute_derivative",
+      "name": "intersperse",
       "category": "\u4ee3\u7801\u80fd\u529b",
-      "passed": false,
-      "duration_ms": 10151.151895523071,
+      "passed": true,
+      "duration_ms": 289954.5347690582,
       "details": {
-        "description": "\u8ba1\u7b97\u5e73\u5747\u7edd\u5bf9\u5bfc\u6570",
-        "generated_code": "",
-        "score": 0.15
+        "description": "\u5728\u5217\u8868\u5143\u7d20\u95f4\u63d2\u5165\u5206\u9694\u7b26",
+        "generated_code": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Python programming assistant.\n    *   Task: Complete the provided Python function `intersperse`.\n    *   Input: A list of integers `numbers` and an integer `delimiter`.\n    *   Output: A new list where the `delimiter` is inserted between every pair of consecutive elements in `numbers`.\n    *   Constraints: Output *only* the function implementation code, no explanations.\n    *   Examples provided:\n        *   `intersperse([1, 2, 3], 0)",
+        "score": 0.8
+      },
+      "error": null
+    },
+    {
+      "name": "count_vowels",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 274213.330745697,
+      "details": {
+        "description": "\u7edf\u8ba1\u5143\u97f3\u5b57\u6bcd\u6570\u91cf",
+        "generated_code": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Task: Complete a Python function `count_vowels(s: str) -> int`.\n    *   Functionality: Count the number of vowels (a, e, i, o, u) in a string, case-insensitive.\n    *   Examples provided:\n        *   `count_vowels('Hello World')` should return 3 (e, o, o).\n        *   `count_vowels('Python')` should return 1 (o).\n    *   Constraint: Output *only* the function implementation code, no explanations.\n\n2.  **Determine the Logic:**\n    *   Define",
+        "score": 0.8
+      },
+      "error": null
+    },
+    {
+      "name": "remove_duplicates",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 189748.49557876587,
+      "details": {
+        "description": "\u79fb\u9664\u91cd\u590d\u5143\u7d20\u4fdd\u6301\u987a\u5e8f",
+        "generated_code": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   Role: Python Programming Assistant.\n    *   Task: Complete the provided Python function `remove_duplicates`.\n    *   Input: A list of integers (`List[int]`).\n    *   Output: A list of integers with duplicates removed, preserving the order of first appearance.\n    *   Constraint: Output *only* the function implementation code, no explanations.\n    *   Examples provided:\n        *   `[1, 2, 2, 3, 1, 4]` -> `[1, 2, 3, 4]`\n        *   `[5, 5, 5",
+        "score": 0.8
+      },
+      "error": null
+    },
+    {
+      "name": "is_palindrome",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 195254.3387413025,
+      "details": {
+        "description": "\u68c0\u67e5\u5b57\u7b26\u4e32\u662f\u5426\u4e3a\u56de\u6587",
+        "generated_code": "```python\ndef is_palindrome(s: str) -> bool:\n    \"\"\"\u68c0\u67e5\u5b57\u7b26\u4e32\u662f\u5426\u4e3a\u56de\u6587\uff08\u6b63\u8bfb\u53cd\u8bfb\u76f8\u540c\uff09\uff0c\u5ffd\u7565\u5927\u5c0f\u5199\u548c\u975e\u5b57\u6bcd\u6570\u5b57\u5b57\u7b26\n    >>> is_palindrome('A man a plan a canal Panama')\n    True\n    >>> is_palindrome('hello')\n    False\n    \"\"\"\n    cleaned = ''.join(char.lower() for char in s if char.isalnum())\n    return cleaned == cleaned[::-1]\n```",
+        "score": 0.8
+      },
+      "error": null
+    },
+    {
+      "name": "fibonacci",
+      "category": "\u4ee3\u7801\u80fd\u529b",
+      "passed": true,
+      "duration_ms": 161002.90632247925,
+      "details": {
+        "description": "\u8ba1\u7b97\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7b2cn\u9879",
+        "generated_code": "```python\ndef fibonacci(n: int) -> int:\n    \"\"\"\u8ba1\u7b97\u6590\u6ce2\u90a3\u5951\u6570\u5217\u7684\u7b2cn\u9879\uff08\u4ece0\u5f00\u59cb\uff09\n    >>> fibonacci(0)\n    0\n    >>> fibonacci(1)\n    1\n    >>> fibonacci(10)\n    55\n    \"\"\"\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\n```",
+        "score": 0.8
       },
       "error": null
     }

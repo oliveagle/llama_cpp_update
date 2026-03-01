@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import extract_answer_letter
 
 
 # 知识问答测试用例
@@ -161,13 +162,13 @@ class KnowledgeEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个知识问答专家，请回答以下选择题。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 64,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -185,15 +186,16 @@ class KnowledgeEvaluator(BaseEvaluator):
             if not content:
                 content = message.get("reasoning_content", "")
 
-            # 提取答案
-            answer = test_case["answer"]
-            passed = answer.lower() in content.lower()
+            # 提取答案 - 使用修复版逻辑支持推理模型
+            expected_answer = test_case["answer"]
+            extracted_answer = extract_answer_letter(content)
+            passed = extracted_answer == expected_answer.upper()
 
             self.raw_logger.log_test_result({
                 "model": self.model_name,
                 "test_name": test_case["name"],
                 "question": test_case["question"],
-                "expected_answer": answer,
+                "expected_answer": expected_answer,
                 "generated_answer": content,
                 "passed": passed,
                 "raw_response": data
@@ -206,7 +208,7 @@ class KnowledgeEvaluator(BaseEvaluator):
                 duration_ms=elapsed * 1000,
                 details={
                     "question": test_case["question"],
-                    "expected_answer": answer,
+                    "expected_answer": expected_answer,
                     "model_answer": content[:100]
                 }
             )

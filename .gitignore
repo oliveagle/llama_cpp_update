@@ -1,10 +1,38 @@
 current
-presets
-downloads
-/scripts
-eval/scripts/*.log
-eval/scripts/*.pyc
+core/config/presets
+core/downloads
+core/logs
+*.log
 
 # Python
 __pycache__/
 *.py[cod]
+
+# Temp
+tmp/
+
+# Build
+dev/build/
+build/
+
+# Virtualenv
+venv/
+*.venv/
+
+# Large binary files (GGUF, ONNX, etc.)
+*.gguf
+*.safetensors
+*.onnx
+*.tar.gz
+*.zip
+downloads/
+models/
+
+# Python packages (wheels, site-packages)
+*.whl
+*.egg-info/
+dist/
+site-packages/
+
+# Git submodules (don't commit embedded repos)
+eval/frameworks/LiveCodeBench

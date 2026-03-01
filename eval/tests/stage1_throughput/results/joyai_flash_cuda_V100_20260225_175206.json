@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-02-25T17:52:06.229747",
+  "backend": "cuda",
+  "device": "V100",
+  "model": "JoyAI-LLM-Flash-Q4_K_M",
+  "model_file": "/mnt/volume3/modelscope_models/yairpatch/JoyAI-LLM-Flash-GGUF/JoyAI-LLM-Flash-Q4_K_M.gguf",
+  "iterations": 3,
+  "results": [
+    {
+      "ctx_size": 4096,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 2691.939,
+          "tps": 1027.88361846238,
+          "total_ms": 16270.10440826416
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 16.275,
+          "tps": 170015.36098310293,
+          "total_ms": 22.458314895629883
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 14.489,
+          "tps": 190972.4618676237,
+          "total_ms": 19.331932067871094
+        }
+      ],
+      "avg_tps": 120671.90215639635,
+      "avg_prompt_ms": 907.5676666666667,
+      "avg_tokens": 2767.0,
+      "success": true
+    },
+    {
+      "ctx_size": 8192,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 3461.969,
+          "tps": 1587.8247321105416,
+          "total_ms": 3470.4813957214355
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 16.836,
+          "tps": 326502.7322404372,
+          "total_ms": 24.659395217895508
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 16.639,
+          "tps": 330368.41156319494,
+          "total_ms": 24.288177490234375
+        }
+      ],
+      "avg_tps": 219486.32284524755,
+      "avg_prompt_ms": 1165.148,
+      "avg_tokens": 5497.0,
+      "success": true
+    },
+    {
+      "ctx_size": 16384,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 16384,
+          "prompt_tokens": 10959,
+          "prompt_ms": 9720.599,
+          "tps": 1127.3996592185315,
+          "total_ms": 9734.704971313477
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 16384,
+          "prompt_tokens": 10959,
+          "prompt_ms": 19.105,
+          "tps": 573619.4713425805,
+          "total_ms": 30.227184295654297
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 16384,
+          "prompt_tokens": 10959,
+          "prompt_ms": 18.821,
+          "tps": 582275.1182190106,
+          "total_ms": 29.47402000427246
+        }
+      ],
+      "avg_tps": 385673.99640693655,
+      "avg_prompt_ms": 3252.8416666666667,
+      "avg_tokens": 10959.0,
+      "success": true
+    },
+    {
+      "ctx_size": 32768,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    }
+  ]
+}

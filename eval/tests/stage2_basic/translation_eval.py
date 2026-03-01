@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import clean_reasoning_output
 
 
 # 翻译测试用例
@@ -160,13 +161,13 @@ class TranslationEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个专业翻译，请准确翻译以下文本。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 256,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -184,9 +185,10 @@ class TranslationEvaluator(BaseEvaluator):
             if not content:
                 content = message.get("reasoning_content", "")
 
-            # 检查关键词
+            # 检查关键词 - 使用清理后的内容（支持推理模型）
             keywords = test_case["expected_keywords"]
-            passed = sum(1 for kw in keywords if kw.lower() in content.lower()) >= len(keywords) * 0.5
+            cleaned_content = clean_reasoning_output(content)
+            passed = sum(1 for kw in keywords if kw.lower() in cleaned_content.lower()) >= len(keywords) * 0.5
 
             self.raw_logger.log_test_result({
                 "model": self.model_name,

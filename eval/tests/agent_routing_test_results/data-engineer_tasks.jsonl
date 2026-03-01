@@ -1,0 +1,20 @@
+{"task":"设计数据仓库模型","expected_agent":"data-engineer"}
+{"task":"构建 ETL 数据管道","expected_agent":"data-engineer"}
+{"task":"实现实时数据流处理","expected_agent":"data-engineer"}
+{"task":"设计数据湖架构","expected_agent":"data-engineer"}
+{"task":"配置数据质量检查","expected_agent":"data-engineer"}
+{"task":"实施数据血缘追踪","expected_agent":"data-engineer"}
+{"task":"设计维度建模","expected_agent":"data-engineer"}
+{"task":"构建特征存储","expected_agent":"data-engineer"}
+{"task":"实现数据同步任务","expected_agent":"data-engineer"}
+{"task":"设计数据治理框架","expected_agent":"data-engineer"}
+{"task":"配置数据目录服务","expected_agent":"data-engineer"}
+{"task":"实施数据标准化","expected_agent":"data-engineer"}
+{"task":"设计 CDC 数据捕获","expected_agent":"data-engineer"}
+{"task":"构建数据 API 服务","expected_agent":"data-engineer"}
+{"task":"实现数据脱敏处理","expected_agent":"data-engineer"}
+{"task":"设计数据分层存储","expected_agent":"data-engineer"}
+{"task":"配置调度系统","expected_agent":"data-engineer"}
+{"task":"实施数据监控","expected_agent":"data-engineer"}
+{"task":"设计 OLAP 查询优化","expected_agent":"data-engineer"}
+{"task":"构建实时数仓","expected_agent":"data-engineer"}

@@ -1,0 +1,5 @@
+{"task":"设计系统提示词","expected":"prompt-engineer","actual":"UI-test-engine","matched":false}
+{"task":"优化 Few-shot 示例","expected":"prompt-engineer","actual":"backend-dev","matched":false}
+{"task":"设计思维链提示","expected":"prompt-engineer","actual":"UI-UX","matched":false}
+{"task":"创建角色扮演","expected":"prompt-engineer","actual":"Architect","matched":false}
+{"task":"优化输出格式","expected":"prompt-engineer","actual":"Architect","matched":false}

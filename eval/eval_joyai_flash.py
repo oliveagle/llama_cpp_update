@@ -221,7 +221,7 @@ def test_multi_turn(model_url: str, model_name: str, conversation: List[Dict]) -
             json={
                 "model": model_name,
                 "messages": messages,
-                "max_tokens": 512,
+                "max_tokens": 4096,
                 "temperature": 0.7,
             },
             timeout=120

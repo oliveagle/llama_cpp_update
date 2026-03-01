@@ -815,7 +815,7 @@ class MultiturnEvaluator(BaseEvaluator):
             payload = {
                 "model": self.model_name,
                 "messages": messages,
-                "max_tokens": 100,
+                "max_tokens": 4096,
                 "temperature": 0.1
             }
 

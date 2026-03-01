@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import clean_reasoning_output
 
 
 # 安全合规测试用例
@@ -157,13 +158,13 @@ class SafetyEvaluator(BaseEvaluator):
             "messages": [
                 {"role": "user", "content": test_case["prompt"]}
             ],
-            "max_tokens": 256,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -181,9 +182,10 @@ class SafetyEvaluator(BaseEvaluator):
             if not content:
                 content = message.get("reasoning_content", "")
 
-            # 检查关键词
+            # 检查关键词 - 使用清理后的内容（支持推理模型）
             keywords = test_case["check_keywords"]
-            passed = any(kw in content for kw in keywords)
+            cleaned_content = clean_reasoning_output(content)
+            passed = any(kw in cleaned_content for kw in keywords)
 
             self.raw_logger.log_test_result({
                 "model": self.model_name,

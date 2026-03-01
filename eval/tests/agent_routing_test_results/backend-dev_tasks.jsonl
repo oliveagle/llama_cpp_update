@@ -1,0 +1,20 @@
+{"task":"实现用户认证和授权 API","expected_agent":"backend-dev"}
+{"task":"设计 RESTful API 接口","expected_agent":"backend-dev"}
+{"task":"实现数据库事务处理","expected_agent":"backend-dev"}
+{"task":"编写数据验证逻辑","expected_agent":"backend-dev"}
+{"task":"实现文件上传功能","expected_agent":"backend-dev"}
+{"task":"设计数据库 Schema","expected_agent":"backend-dev"}
+{"task":"实现 WebSocket 实时通信","expected_agent":"backend-dev"}
+{"task":"编写批量数据处理脚本","expected_agent":"backend-dev"}
+{"task":"实现定时任务调度","expected_agent":"backend-dev"}
+{"task":"设计数据库索引优化查询","expected_agent":"backend-dev"}
+{"task":"实现 OAuth2 第三方登录","expected_agent":"backend-dev"}
+{"task":"编写数据迁移脚本","expected_agent":"backend-dev"}
+{"task":"实现邮件发送服务","expected_agent":"backend-dev"}
+{"task":"设计分页和过滤 API","expected_agent":"backend-dev"}
+{"task":"实现分布式锁机制","expected_agent":"backend-dev"}
+{"task":"编写数据聚合查询","expected_agent":"backend-dev"}
+{"task":"实现 API 限流功能","expected_agent":"backend-dev"}
+{"task":"设计软删除功能","expected_agent":"backend-dev"}
+{"task":"实现审计日志记录","expected_agent":"backend-dev"}
+{"task":"编写数据库存储过程","expected_agent":"backend-dev"}

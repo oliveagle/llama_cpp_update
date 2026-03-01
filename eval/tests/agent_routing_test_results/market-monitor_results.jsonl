@@ -1,0 +1,5 @@
+{"task":"监控异常交易","expected":"market-monitor","actual":"backend-dev","matched":false}
+{"task":"检测价格异动","expected":"market-monitor","actual":"backend-dev","matched":false}
+{"task":"监控成交量","expected":"market-monitor","actual":"backend-dev","matched":false}
+{"task":"检测市场操纵","expected":"market-monitor","actual":"backend-dev","matched":false}
+{"task":"监控资金流向","expected":"market-monitor","actual":"backend-dev","matched":false}

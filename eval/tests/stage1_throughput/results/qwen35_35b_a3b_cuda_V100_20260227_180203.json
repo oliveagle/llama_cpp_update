@@ -1,0 +1,78 @@
+{
+  "timestamp": "2026-02-27T18:02:03.653345",
+  "backend": "cuda",
+  "device": "V100",
+  "model": "Qwen3.5-35B-A3B-UD-Q4_K_XL",
+  "model_file": "/mnt/volume3/modelscope_models/unsloth/Qwen3___5-35B-A3B-GGUF/Qwen3.5-35B-A3B-UD-Q4_K_XL.gguf",
+  "iterations": 3,
+  "results": [
+    {
+      "ctx_size": 32768,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 32768,
+          "prompt_tokens": 21853,
+          "prompt_ms": 31991.652,
+          "tps": 683.084449655804,
+          "total_ms": 32010.706663131714
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 32768,
+          "prompt_tokens": 21853,
+          "prompt_ms": 31724.071,
+          "tps": 688.8460185327413,
+          "total_ms": 31738.79885673523
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 32768,
+          "prompt_tokens": 21853,
+          "prompt_ms": 31834.187,
+          "tps": 686.463266676168,
+          "total_ms": 31849.11561012268
+        }
+      ],
+      "avg_tps": 686.1312449549044,
+      "avg_prompt_ms": 31849.97,
+      "avg_tokens": 21853.0,
+      "success": true
+    },
+    {
+      "ctx_size": 65536,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 65536,
+          "prompt_tokens": 43699,
+          "prompt_ms": 67412.527,
+          "tps": 648.2326348632503,
+          "total_ms": 67439.99195098877
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 65536,
+          "prompt_tokens": 43699,
+          "prompt_ms": 66797.135,
+          "tps": 654.2047050371248,
+          "total_ms": 66827.7485370636
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 65536,
+          "prompt_tokens": 43699,
+          "prompt_ms": 67211.521,
+          "tps": 650.1712704879868,
+          "total_ms": 67241.56951904297
+        }
+      ],
+      "avg_tps": 650.8695367961205,
+      "avg_prompt_ms": 67140.39433333333,
+      "avg_tokens": 43699.0,
+      "success": true
+    }
+  ]
+}

@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import clean_reasoning_output
 
 
 # 多轮对话测试用例
@@ -217,13 +218,13 @@ class MultiTurnEvaluator(BaseEvaluator):
         payload = {
             "model": self.model_name,
             "messages": messages,
-            "max_tokens": 256,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -241,15 +242,16 @@ class MultiTurnEvaluator(BaseEvaluator):
             if not content:
                 content = message.get("reasoning_content", "")
 
-            # 检查答案
+            # 检查答案 - 使用清理后的内容（支持推理模型）
+            cleaned_content = clean_reasoning_output(content)
             if "expected_answer" in test_case:
                 answers = test_case["expected_answer"]
                 if isinstance(answers, str):
                     answers = [answers]
-                passed = any(ans in content for ans in answers)
+                passed = any(ans in cleaned_content for ans in answers)
             elif "check_keywords" in test_case:
                 keywords = test_case["check_keywords"]
-                passed = sum(1 for kw in keywords if kw in content) >= len(keywords) * 0.5
+                passed = sum(1 for kw in keywords if kw in cleaned_content) >= len(keywords) * 0.5
             else:
                 passed = False
 

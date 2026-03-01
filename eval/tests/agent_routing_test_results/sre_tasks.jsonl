@@ -1,0 +1,20 @@
+{"task":"设计 SLO/SLI 指标","expected_agent":"sre"}
+{"task":"配置错误预算告警","expected_agent":"sre"}
+{"task":"实施混沌工程测试","expected_agent":"sre"}
+{"task":"设计容量规划方案","expected_agent":"sre"}
+{"task":"配置分布式追踪","expected_agent":"sre"}
+{"task":"实现自动扩容策略","expected_agent":"sre"}
+{"task":"设计灾难恢复流程","expected_agent":"sre"}
+{"task":"配置事件响应流程","expected_agent":"sre"}
+{"task":"实施变更管理流程","expected_agent":"sre"}
+{"task":"设计健康检查端点","expected_agent":"sre"}
+{"task":"配置指标收集系统","expected_agent":"sre"}
+{"task":"实现故障自动切换","expected_agent":"sre"}
+{"task":"设计降级预案","expected_agent":"sre"}
+{"task":"配置日志分析告警","expected_agent":"sre"}
+{"task":"实施发布检查清单","expected_agent":"sre"}
+{"task":"设计压测方案","expected_agent":"sre"}
+{"task":"配置 APM 监控","expected_agent":"sre"}
+{"task":"实现值班轮换系统","expected_agent":"sre"}
+{"task":"设计事后分析流程","expected_agent":"sre"}
+{"task":"配置依赖健康检查","expected_agent":"sre"}

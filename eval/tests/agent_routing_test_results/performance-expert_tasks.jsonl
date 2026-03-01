@@ -1,0 +1,20 @@
+{"task":"分析接口响应延迟","expected_agent":"performance-expert"}
+{"task":"识别内存泄漏","expected_agent":"performance-expert"}
+{"task":"优化数据库查询","expected_agent":"performance-expert"}
+{"task":"分析 CPU 使用率","expected_agent":"performance-expert"}
+{"task":"优化缓存命中率","expected_agent":"performance-expert"}
+{"task":"识别 N+1 查询","expected_agent":"performance-expert"}
+{"task":"分析网络请求","expected_agent":"performance-expert"}
+{"task":"优化序列化性能","expected_agent":"performance-expert"}
+{"task":"识别瓶颈代码","expected_agent":"performance-expert"}
+{"task":"优化并发处理","expected_agent":"performance-expert"}
+{"task":"分析 GC 行为","expected_agent":"performance-expert"}
+{"task":"优化 I/O 操作","expected_agent":"performance-expert"}
+{"task":"识别资源争用","expected_agent":"performance-expert"}
+{"task":"优化连接池","expected_agent":"performance-expert"}
+{"task":"分析线程使用","expected_agent":"performance-expert"}
+{"task":"优化批处理","expected_agent":"performance-expert"}
+{"task":"识别慢查询","expected_agent":"performance-expert"}
+{"task":"优化数据加载","expected_agent":"performance-expert"}
+{"task":"分析队列积压","expected_agent":"performance-expert"}
+{"task":"优化异步处理","expected_agent":"performance-expert"}

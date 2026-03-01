@@ -1,0 +1,128 @@
+{
+  "timestamp": "2026-02-25T14:22:22.508463",
+  "backend": "vulkan",
+  "device": "gfx1151",
+  "model": "JoyAI-LLM-Flash-Q4_K_M",
+  "model_file": "/mnt/volume3/modelscope_models/yairpatch/JoyAI-LLM-Flash-GGUF/JoyAI-LLM-Flash-Q4_K_M.gguf",
+  "iterations": 3,
+  "results": [
+    {
+      "ctx_size": 4096,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 28608.116,
+          "tps": 96.72080468353805,
+          "total_ms": 40904.300928115845
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 31.159,
+          "tps": 88802.59315125646,
+          "total_ms": 41.120052337646484
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 22.82,
+          "tps": 121253.2865907099,
+          "total_ms": 32.11355209350586
+        }
+      ],
+      "avg_tps": 70050.86684888329,
+      "avg_prompt_ms": 9554.031666666668,
+      "avg_tokens": 2767.0,
+      "success": true
+    },
+    {
+      "ctx_size": 8192,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 79315.845,
+          "tps": 69.30519368481795,
+          "total_ms": 79325.20413398743
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 33.294,
+          "tps": 165104.82369195652,
+          "total_ms": 48.262834548950195
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 29.413,
+          "tps": 186890.15061367422,
+          "total_ms": 43.00951957702637
+        }
+      ],
+      "avg_tps": 117354.75983310518,
+      "avg_prompt_ms": 26459.517333333333,
+      "avg_tokens": 5497.0,
+      "success": true
+    },
+    {
+      "ctx_size": 16384,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 16384,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 16384,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 16384,
+          "error": "HTTP Error 400: Bad Request"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    },
+    {
+      "ctx_size": 32768,
+      "iterations": 3,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        },
+        {
+          "iteration": 3,
+          "ctx_size": 32768,
+          "error": "HTTP Error 400: Bad Request"
+        }
+      ],
+      "avg_tps": 0,
+      "avg_prompt_ms": 0,
+      "avg_tokens": 0,
+      "success": false
+    }
+  ]
+}

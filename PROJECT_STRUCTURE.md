@@ -1,7 +1,17 @@
 # llama.cpp 项目目录结构
 
-> **最后更新**: 2026-02-18
-> **整理说明**: 本目录经过全面重组，建立清晰的模块化结构
+> **最后更新**: 2026-02-25
+> **整理说明**: 按功能模块重组为三大核心模块
+
+---
+
+## 项目目标
+
+本项目有三大核心目标：
+
+1. **llama.cpp 核心管理** - 支持 CUDA 和 Vulkan 两种后端的服务器管理和更新
+2. **llama.cpp 功能开发** - 新功能实验和开发（NPU、ONNX、其他实验性工作）
+3. **大模型本地化评估** - 各种大模型的评测框架和评估结果
 
 ---
 
@@ -9,88 +19,72 @@
 
 ```
 llama_cpp/
-├── CLAUDE.md                   # 项目主配置文档 (技术规范)
-├── AGENTS.md -> CLAUDE.md      # Agent 协作入口
-├── AGENTS-COLLABORATION.md     # 多 Agent 协作记录
-├── PROJECT_STRUCTURE.md        # 本文件 (目录结构说明)
-├── README.md                   # 项目说明
-├── LICENSE                     # 许可证
+├── CLAUDE.md / AGENTS.md           # 项目配置
+├── PROJECT_STRUCTURE.md            # 本文件 (目录结构说明)
+├── README.md / LICENSE             # 说明和许可证
+├── AGENTS-COLLABORATION.md         # 多 Agent 协作记录
 │
-├── bin/                        # 可执行脚本
-│   ├── llama-server-*.sh       # 服务器管理脚本
-│   └── update*.sh              # 更新脚本
+├── core/                           # [模块 1] llama.cpp 核心管理
+│   ├── bin/                        # 可执行脚本
+│   ├── config/                     # 配置文件 (presets, nginx, versions.json)
+│   ├── systemd/                    # systemd 服务
+│   ├── scripts/                    # 服务器启动脚本
+│   ├── downloads/                  # 下载的 llama.cpp 版本
+│   └── logs/                       # 服务日志
 │
-├── config/                     # 配置文件
-│   ├── presets/                # llama.cpp 预设配置
-│   │   ├── mypresets.ini       # Vulkan 预设 (端口 8400)
-│   │   └── mypresets-cuda.ini  # CUDA 预设 (端口 8401)
-│   └── nginx.conf              # nginx 配置
+├── dev/                            # [模块 2] llama.cpp 功能开发
+│   ├── src/                        # 源代码 (NPU, ONNX Runtime, RyzenAI)
+│   ├── nanoquant/                  # NanoQuant 量化工具
+│   ├── ryzenai/                    # RyzenAI NPU 工具
+│   ├── build/                      # 构建输出
+│   └── experimental/               # 实验性功能
 │
-├── docs/                       # 文档目录
-│   ├── guides/                 # 使用指南
-│   ├── reports/                # 技术报告
-│   ├── analysis/               # 分析报告
-│   └── benchmarks/             # 性能测试报告
+├── eval/                           # [模块 3] 大模型本地化评估
+│   ├── frameworks/                 # 评测框架 (LiveCodeBench, 等)
+│   ├── lib/                        # 评测库
+│   ├── framework/                  # 评测框架 (原 eval/framework)
+│   ├── tests/                      # 评测测试 (stage1/stage2/stage3/stage4)
+│   ├── scripts/                    # 评测脚本
+│   ├── tools/                      # 评测工具 (benchmark, test, utils)
+│   ├── web/                        # Web 报告
+│   ├── results/                    # 评测结果
+│   ├── reports/                    # 评测报告
+│   ├── config/                     # 评测配置
+│   ├── model_configs/              # 模型配置
+│   ├── eval_results/               # 评测结果 (软链接)
+│   └── [顶层评测脚本]
 │
-├── eval/                       # 评测框架
-│   ├── lib/                    # 评测库
-│   ├── run_stage2_single_model_v2.py
-│   ├── generate_report.py
-│   └── ...
+├── docs/                           # 文档目录
+│   ├── guides/                     # 使用指南
+│   ├── design/                     # 设计文档
+│   └── inbox/                      # 待整理文档
 │
-├── eval_results/               # 评测结果
-│   ├── stage1/                 # Stage 1 测试结果
-│   │   ├── performance/        # 吞吐量测试
-│   │   │   ├── vulkan/         # Vulkan 性能
-│   │   │   └── cuda/           # CUDA 性能
-│   │   └── context/            # 上下文测试
-│   │       ├── vulkan/         # Vulkan 上下文
-│   │       └── cuda/           # CUDA 上下文
-│   ├── stage2/                 # Stage 2 测试结果
-│   │   ├── vulkan/             # Vulkan Stage 2
-│   │   ├── cuda/               # CUDA Stage 2
-│   │   └── events/             # 事件流数据
-│   ├── stage3/                 # Stage 3 测试结果
-│   │   ├── vulkan/             # Vulkan Stage 3
-│   │   ├── cuda/               # CUDA Stage 3
-│   │   └── tools/              # 工具使用测试
-│   └── raw_data/               # 原始数据
-│       ├── vulkan/             # Vulkan 原始日志
-│       └── cuda/               # CUDA 原始日志
+├── models/                         # 模型相关
+│   ├── configs/                    # 模型配置
+│   ├── tokenizer_configs/          # Tokenizer 配置
+│   ├── cache/                      # 模型缓存
+│   ├── Nanbeige4.1-3B/             # Nanbeige 模型
+│   ├── lfm2.5-audio/               # 音频模型
+│   ├── qwen3-onnx/                 # Qwen3 ONNX 模型
+│   └── ruvltra/                    # Ruvltra 模型
 │
-├── models/                     # 模型配置
-│   └── embedding/              # Embedding 模型配置
-│
-├── scripts/                    # 工具脚本
-│   ├── benchmark/              # 性能测试脚本
-│   ├── test/                   # 测试脚本
-│   ├── tools/                  # 工具脚本
-│   └── utils/                  # 实用工具脚本
-│
-├── tests/                      # 项目测试脚本
-│   └── test_*.py               # 各种测试脚本
-│
-├── web/                        # Web 报告
-│   ├── index.html              # 报告首页
-│   ├── stage1.html             # Stage 1 报告
-│   ├── stage2.html             # Stage 2 报告
-│   ├── stage3.html             # Stage 3 报告
-│   └── methodology.html        # 测试规范
-│
-├── downloads/                  # 下载的 llama.cpp 版本
-│   ├── llama-b8069/            # 当前 Vulkan 版本
-│   └── ...
-│
-├── current -> downloads/...    # 当前使用的版本链接
-├── logs/                       # 服务日志
-└── venv/                       # Python 虚拟环境
+├── tmp/                            # 临时文件
+├── current -> core/downloads/llama-b8069  # 当前版本链接
+└── eval_results -> /home/oliveagle/.agents/dashboard/llama-eval/eval_results
 ```
 
 ---
 
-## 核心目录详解
+## 核心模块详解
 
-### `bin/` - 可执行脚本
+### 模块 1: `core/` - llama.cpp 核心管理
+
+负责 llama.cpp 的日常运维，包括：
+- 服务器启动/停止
+- 版本更新
+- CUDA 和 Vulkan 双后端支持
+
+#### `core/bin/` - 可执行脚本
 
 | 脚本 | 功能 | 端口 |
 |------|------|------|
@@ -101,17 +95,19 @@ llama_cpp/
 | `llama-server-nanbeige-3b.sh` | Nanbeige 3B 专用 | 8400 |
 | `llama-server-step3-vl-10b.sh` | Step3-VL 10B 专用 | 8400 |
 | `llama-server-youtu-vl-4b.sh` | Youtu-VL 4B 专用 | 8400 |
-| `update-llama-cpp.sh` | 统一更新脚本 (Vulkan/CUDA) | - |
+| `llama-npu-server.sh` | NPU 服务器 | - |
+| `llama-onnx-server.sh` | ONNX Runtime 服务器 | - |
+| `llama-onnx-cuda.sh` | ONNX CUDA 脚本 | - |
+| `llama-xdna-*.sh` | XDNA NPU 相关脚本 | - |
+| `llama-server-ruvltra.sh` | Ruvltra 专用脚本 | - |
+| `llama-version-manager.sh` | 版本管理脚本 | - |
+| `manage-llama-binaries.sh` | 二进制管理脚本 | - |
+| `update-llama-cpp.sh` | 统一更新脚本 | - |
 | `update_report.sh` | 报告更新脚本 | - |
+| `download-lfm-audio.sh` | 下载音频模型脚本 | - |
+| `nanbeige-code-server.sh` | Nanbeige 代码服务器 | - |
 
-**使用方式**:
-```bash
-./bin/llama-server-vulkan.sh start    # 启动
-./bin/llama-server-vulkan.sh stop     # 停止
-./bin/llama-server-vulkan.sh status   # 状态
-```
-
-### `config/` - 配置文件
+#### `core/config/` - 配置文件
 
 | 文件/目录 | 说明 |
 |-----------|------|
@@ -119,119 +115,164 @@ llama_cpp/
 | `presets/mypresets-cuda.ini` | CUDA 模型预设 (端口 8401) |
 | `presets/mypresets-hip.ini` | HIP 后端预设 |
 | `nginx.conf` | nginx 配置文件 |
+| `versions.json` | llama.cpp 版本信息 |
 
-### `scripts/` - 工具脚本
-
-#### `scripts/benchmark/` - 性能测试脚本
-
-| 脚本 | 用途 |
-|------|------|
-| `bench_all_models.sh` | 全模型批量测试 |
-| `bench_all_models.py` | Python 版全模型测试 |
-| `bench_glm47.py` | GLM-4.7 专项测试 |
-| `bench_qwen3_comprehensive.sh` | Qwen3 综合测试 |
-| `bench_vulkan_multi_gpu.sh` | 多 GPU Vulkan 测试 |
-
-#### `scripts/test/` - 测试脚本
+#### `core/scripts/` - 服务器脚本 (旧版)
 
 | 脚本 | 用途 |
 |------|------|
-| `test_all_gguf_models.py` | 全 GGUF 模型测试 |
-| `test_rope_128k.py` | 128K RoPE 测试 |
-| `explore_128k_context.py` | 128K 上下文探索 |
-| `stage2_test_32k_all_models.py` | Stage2 32K 测试 |
-| `stage3_comprehensive_test.py` | Stage3 综合测试 |
+| `llama-server-vulkan.sh` | Vulkan 服务器启动 |
+| `llama-server-cuda.sh` | CUDA 服务器启动 |
+| `llama-server-embedding.sh` | Embedding 服务器启动 |
+| `llama-server-*.sh` | 其他各种服务器启动脚本 |
 
-#### `scripts/tools/` - 工具脚本
+#### `core/downloads/` - 下载的 llama.cpp 版本
+
+存放下载的预编译 llama.cpp 二进制包。
+
+#### `core/logs/` - 服务日志
+
+存放 llama.cpp 服务运行日志。
+
+#### `core/systemd/` - systemd 服务
+
+存放 systemd 服务配置文件。
+
+---
+
+### 模块 2: `dev/` - llama.cpp 功能开发
+
+用于 llama.cpp 新功能的实验和开发。
+
+#### `dev/src/` - 源代码
+
+| 目录 | 说明 |
+|------|------|
+| `amdxdna_npu/` | AMD XDNA NPU 相关代码 |
+| `onnx-runtime/` | ONNX Runtime 相关代码 |
+| `ryzenai/` | RyzenAI 相关代码 |
+
+#### `dev/nanoquant/` - NanoQuant 量化工具
+
+自主开发的量化工具，包含：
+- `src/` - 源代码
+- `tests/` - 测试
+- `docs/` - 文档
+- `models/` - 模型相关
+
+#### `dev/ryzenai/` - RyzenAI NPU 工具
+
+RyzenAI 相关的工具和脚本。
+
+#### `dev/build/` - 构建输出
+
+各种构建产物。
+
+#### `dev/experimental/` - 实验性功能
+
+实验性代码和功能。
+
+---
+
+### 模块 3: `eval/` - 大模型本地化评估
+
+用于各种大模型的评测和评估。
+
+#### `eval/frameworks/` - 评测框架
+
+| 框架 | 说明 |
+|------|------|
+| `LiveCodeBench/` | LiveCodeBench 评测框架 |
+
+#### `eval/tests/` - 评测测试
+
+按阶段组织的评测：
+
+| 目录 | 说明 |
+|------|------|
+| `tests/stage1_throughput/` | Stage 1 吞吐量测试 |
+| `tests/stage1_performance/` | Stage 1 性能测试 |
+| `tests/stage2_basic/` | Stage 2 基础能力测试 |
+| `tests/stage3_deep/` | Stage 3 深度能力测试 |
+| `tests/stage4_specialized/` | Stage 4 专项测试 |
+
+#### `eval/scripts/` - 评测脚本
+
+各种评测辅助脚本。
+
+#### `eval/tools/` - 评测工具
+
+| 目录 | 说明 |
+|------|------|
+| `tools/benchmark/` - 基准测试脚本 |
+| `tools/test/` - 测试脚本 |
+| `tools/utils/` - 实用工具 |
+
+#### `eval/web/` - Web 报告
+
+Web 版评测报告。
+
+#### `eval/results/` - 评测结果
+
+评测结果输出。
+
+#### `eval/reports/` - 评测报告
+
+评测报告文档。
+
+#### `eval/lib/` - 评测库
+
+评测核心库代码。
+
+#### `eval/framework/` - 评测框架 (原 eval/framework)
+
+原有的评测框架代码。
+
+#### `eval/config/` - 评测配置
+
+评测配置文件。
+
+#### `eval/model_configs/` - 模型配置
+
+评测用的模型配置。
+
+#### 顶层评测脚本
 
 | 脚本 | 用途 |
 |------|------|
-| `analyze_trending_models.py` | 热门模型分析 |
-| `fetch_trending_gguf.py` | 获取热门 GGUF |
-| `auto_eval_models.py` | 自动模型评测 |
+| `eval_llm.py` | LLM 评测 |
+| `eval_all_capabilities.py` | 全能力评测 |
+| `eval_tools_capability.py` | 工具能力评测 |
+| `eval_linux_ops.py` | Linux 操作评测 |
+| `eval_joyai_flash.py` | JoyAI Flash 评测 |
+| `eval_joyai_stage3.py` | JoyAI Stage 3 评测 |
+| `capability_test.py` / `_v2.py` | 能力测试 |
+| `run_all_evals.py` | 运行所有评测 |
+| `golden_benchmarks.py` | 基准测试 |
+| `linux_ops_test_cases.py` | Linux 操作测试用例 |
+| `tools_test_cases_large.py` | 工具测试用例 |
 
-#### `scripts/utils/` - 实用工具
+---
 
-| 脚本 | 用途 |
+### `models/` - 模型相关
+
+模型配置、缓存等。
+
+---
+
+### `docs/` - 文档
+
+| 目录 | 说明 |
 |------|------|
-| `find-optimal-config.sh` | 查找最优配置 |
-| `benchmark_single.sh` | 单模型基准 |
-| `quick_context_test.py` | 快速上下文测试 |
-| `check_invalid_models.sh` | 检查无效模型 |
+| `docs/guides/` - 使用指南 |
+| `docs/design/` - 设计文档 |
+| `docs/inbox/` - 待整理文档 |
 
-### `tests/` - 项目测试脚本
+---
 
-| 脚本 | 用途 |
-|------|------|
-| `test_3_missing_models.py` | 缺失模型检测 |
-| `test_new_models_stage2.py` | 新模型 Stage 2 测试 |
-| `test_remaining_5_models_tool.py` | 剩余模型工具测试 |
+### `tmp/` - 临时文件
 
-### `docs/` - 文档目录
-
-#### `docs/guides/` - 使用指南
-
-| 文档 | 内容 |
-|------|------|
-| `EMBEDDING_MODELS.md` | Embedding 模型使用指南 |
-| `EVALUATION_FRAMEWORK.md` | 评测框架说明 |
-
-#### `docs/reports/` - 技术报告
-
-| 文档 | 内容 |
-|------|------|
-| `HIP_BACKEND_REPORT.md` | HIP 后端报告 |
-| `CONFIG_ALIGNMENT_REPORT.md` | 配置对齐报告 |
-
-#### `docs/analysis/` - 分析报告
-
-| 文档 | 内容 |
-|------|------|
-| `ANALYSIS_SUMMARY.md` | 分析总结 |
-| `trending_analysis.md` | 热门模型分析 |
-
-#### `docs/benchmarks/` - 性能测试报告
-
-| 文档 | 内容 |
-|------|------|
-| `*-V100-benchmark.md` | V100 各模型基准报告 |
-
-### `web/` - Web 报告
-
-| 文件 | 说明 |
-|------|------|
-| `index.html` | 报告导航首页 |
-| `stage1.html` | Stage 1 性能测试报告 |
-| `stage2.html` | Stage 2 基础能力报告 |
-| `stage3.html` | Stage 3 综合能力报告 |
-| `methodology.html` | 测试方法规范 |
-| `app.py` | 报告服务器 (可选) |
-
-### `eval_results/` - 评测结果
-
-按阶段和后端组织的测试结果：
-
-```
-eval_results/
-├── stage1/
-│   ├── performance/
-│   │   ├── vulkan/         # Vulkan 吞吐量测试
-│   │   └── cuda/           # CUDA 吞吐量测试
-│   └── context/
-│       ├── vulkan/         # Vulkan 上下文测试
-│       └── cuda/           # CUDA 上下文测试
-├── stage2/
-│   ├── vulkan/             # Vulkan Stage 2 结果
-│   ├── cuda/               # CUDA Stage 2 结果
-│   └── events/vulkan/      # 事件流数据
-├── stage3/
-│   ├── vulkan/             # Vulkan Stage 3 结果
-│   ├── cuda/               # CUDA Stage 3 结果
-│   └── tools/              # 工具使用测试
-└── raw_data/
-    ├── vulkan/             # Vulkan 原始日志
-    └── cuda/               # CUDA 原始日志
-```
+临时文件存放目录。
 
 ---
 
@@ -249,93 +290,92 @@ eval_results/
 
 ## 快速命令参考
 
-### 启动服务
+### 启动服务 (core/)
+
 ```bash
 # Vulkan (AMD)
-./bin/llama-server-vulkan.sh start
+./core/bin/llama-server-vulkan.sh start
 
 # CUDA (V100)
-./bin/llama-server-cuda.sh start
+./core/bin/llama-server-cuda.sh start
 
 # Embedding
-./bin/llama-server-embedding.sh start
+./core/bin/llama-server-embedding.sh start
 ```
 
-### 运行测试
+### 运行评测 (eval/)
+
 ```bash
 # Stage 2 测试
-python3 eval/run_stage2_single_model_v2.py --model MODEL_NAME
+python3 eval/eval_llm.py --model MODEL_NAME
 
-# 全模型测试
-python3 scripts/test/test_all_gguf_models.py
+# 全能力评测
+python3 eval/eval_all_capabilities.py
+
+# 运行所有评测
+python3 eval/run_all_evals.py
 ```
 
-### 性能测试
+### 功能开发 (dev/)
+
 ```bash
-# 运行所有基准
-./scripts/benchmark/bench_all_models.sh
+# NanoQuant
+cd dev/nanoquant
+python3 main.py
 
-# GLM-4.7 专项
-python3 scripts/benchmark/bench_glm47.py
+# ONNX Runtime
+cd dev/src/onnx-runtime
 ```
-
-### 更新 llama.cpp
-```bash
-# 更新 Vulkan 版本
-./bin/update-llama-cpp.sh vulkan
-
-# 更新 CUDA 版本
-./bin/update-llama-cpp.sh cuda
-```
-
-### 查看报告
-```bash
-# 通过 nginx 容器
-./bin/update_report.sh
-# 访问 http://localhost:8080
-```
-
----
-
-## 注意事项
-
-1. **脚本权限**: 所有 `.sh` 脚本已设置为可执行 (`chmod +x`)
-2. **路径引用**: 脚本中使用相对路径，需在项目根目录执行
-3. **虚拟环境**: Python 脚本使用 `/mnt/volume3/llama_cpp/venv` 环境
-4. **日志位置**: 服务日志保存在 `logs/` 目录
-5. **模型位置**: GGUF 模型存储在 `/mnt/volume3/gguf/` (按模型分子目录)
-
----
-
-## 文件命名规范
-
-- **服务器脚本**: `llama-server-{后端}-{模型}[-rope].sh`
-- **测试脚本**: `{test|stageN}_{功能}.py`
-- **基准脚本**: `bench_{模型|功能}.[sh|py]`
-- **工具脚本**: `{动词}_{功能}.py`
 
 ---
 
 ## 重组历史
 
-### 2026-02-18 - 全面重组
+### 2026-02-25 - 按功能模块重组
+
+**目标**: 将项目按三大核心模块重组
+
+**变更**:
+- 新建 `core/` - llama.cpp 核心管理 (服务器、更新、配置)
+- 新建 `dev/` - 功能开发 (src, nanoquant, ryzenai, build)
+- 扩展 `eval/` - 大模型评测 (LiveCodeBench, tests, scripts, web)
+- 移动 `LiveCodeBench/` → `eval/frameworks/`
+- 移动 `bin/` → `core/bin/`
+- 移动 `config/` → `core/config/`
+- 移动 `systemd/` → `core/systemd/`
+- 移动 `downloads/` → `core/downloads/`
+- 移动 `logs/` → `core/logs/`
+- 移动 `scripts/server/` → `core/scripts/`
+- 移动 `src/` → `dev/src/`
+- 移动 `nanoquant/` → `dev/nanoquant/`
+- 移动 `ryzenai/` → `dev/ryzenai/`
+- 移动 `build/` → `dev/build/`
+- 移动 `tests/` → `eval/tests/`
+- 移动 `scripts/` → `eval/scripts/`
+- 移动 `reports/` → `eval/results/`
+- 移动 `web/` → `eval/web/`
+- 清理空目录
+
+**新的目录结构**:
+```
+llama_cpp/
+├── core/    # llama.cpp 核心管理
+├── dev/     # 功能开发
+├── eval/    # 大模型评测
+├── docs/    # 文档
+├── models/  # 模型
+└── tmp/     # 临时文件
+```
+
+### 2026-02-18 - 首次全面重组
 
 **变更**:
 - 新建 `bin/` 目录存放可执行脚本
 - 新建 `config/` 目录存放配置文件
 - 新建 `tests/` 目录存放测试脚本
-- 新建 `web/` 目录存放 Web 报告 (原 `report_web/`)
-- 移动 `benchmarks/` → `docs/benchmarks/`
+- 新建 `web/` 目录存放 Web 报告
 - 重组 `eval_results/` 按阶段和后端分类
-
-**移动的文件**:
-- 5 个服务器管理脚本 → `bin/`
-- 3 个测试脚本 → `tests/`
-- 整个 `presets/` → `config/presets/`
-- 整个 `report_web/` → `web/`
-- 整个 `benchmarks/` → `docs/benchmarks/`
-- 112 个测试结果文件 → `eval_results/` 子目录
 
 ---
 
-*目录结构整理完成 - 2026-02-18*
+*目录结构整理完成 - 2026-02-25*

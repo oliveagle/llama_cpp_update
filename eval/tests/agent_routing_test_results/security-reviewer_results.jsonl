@@ -1,0 +1,5 @@
+{"task":"检查 SQL 注入","expected":"security-reviewer","actual":"dba","matched":false}
+{"task":"审查 XSS 防护","expected":"security-reviewer","actual":"backend-dev","matched":false}
+{"task":"验证 CSRF 保护","expected":"security-reviewer","actual":"backend-dev","matched":false}
+{"task":"检查认证逻辑","expected":"security-reviewer","actual":"backend-dev","matched":false}
+{"task":"审查授权机制","expected":"security-reviewer","actual":"backend-dev","matched":false}

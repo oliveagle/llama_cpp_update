@@ -1,0 +1,20 @@
+{"task":"训练文本分类模型","expected_agent":"ml-engineer"}
+{"task":"部署机器学习模型","expected_agent":"ml-engineer"}
+{"task":"优化模型推理性能","expected_agent":"ml-engineer"}
+{"task":"设计特征工程流程","expected_agent":"ml-engineer"}
+{"task":"实现模型版本管理","expected_agent":"ml-engineer"}
+{"task":"配置模型监控告警","expected_agent":"ml-engineer"}
+{"task":"实施 A/B 测试框架","expected_agent":"ml-engineer"}
+{"task":"设计训练数据管道","expected_agent":"ml-engineer"}
+{"task":"构建推荐系统","expected_agent":"ml-engineer"}
+{"task":"优化超参数配置","expected_agent":"ml-engineer"}
+{"task":"实现模型蒸馏","expected_agent":"ml-engineer"}
+{"task":"配置 GPU 训练资源","expected_agent":"ml-engineer"}
+{"task":"设计在线学习系统","expected_agent":"ml-engineer"}
+{"task":"实施模型量化","expected_agent":"ml-engineer"}
+{"task":"构建嵌入向量服务","expected_agent":"ml-engineer"}
+{"task":"实现迁移学习","expected_agent":"ml-engineer"}
+{"task":"配置实验追踪","expected_agent":"ml-engineer"}
+{"task":"设计模型服务 API","expected_agent":"ml-engineer"}
+{"task":"实施数据标注流程","expected_agent":"ml-engineer"}
+{"task":"构建异常检测模型","expected_agent":"ml-engineer"}

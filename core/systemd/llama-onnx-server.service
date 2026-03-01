@@ -1,0 +1,48 @@
+# ONNX Runtime Server Systemd Service
+# 支持 AMD XDNA NPU、CUDA、ROCm、OpenVINO 等多种 Execution Provider
+
+[Unit]
+Description=ONNX Runtime Inference Server
+After=network.target
+Documentation=https://github.com/onnxruntime/onnxruntime
+
+[Service]
+Type=simple
+User=oliveagle
+Group=oliveagle
+WorkingDirectory=/mnt/volume3/llama_cpp
+
+# 环境变量
+Environment="PYTHONPATH=/mnt/volume3/llama_cpp/src"
+Environment="LLAMA_ONNX_HOST=0.0.0.0"
+Environment="LLAMA_ONNX_PORT=8406"
+Environment="LLAMA_ONNX_MODEL=/mnt/volume3/llama_cpp/models/qwen3-onnx/Qwen3-0.6B-ONNX/onnx/model_int8.onnx"
+Environment="LLAMA_ONNX_EP=cpu"
+Environment="LLAMA_ONNX_THREADS=1"
+Environment="LLAMA_ONNX_VENV=py312"
+
+# 启动命令
+ExecStart=/home/oliveagle/venvs/py312/bin/python \
+    /mnt/volume3/llama_cpp/scripts/onnx_runtime_server.py \
+    --host 0.0.0.0 \
+    --port 8406 \
+    --model /mnt/volume3/llama_cpp/models/qwen3-onnx/Qwen3-0.6B-ONNX/onnx/model_int8.onnx \
+    --ep cpu \
+    --threads 1
+
+# 重启策略
+Restart=always
+RestartSec=10
+
+# 资源限制
+LimitNOFILE=65536
+
+# 日志
+StandardOutput=append:/mnt/volume3/llama_cpp/logs/onnx-server.log
+StandardError=append:/mnt/volume3/llama_cpp/logs/onnx-server.log
+
+# 安全设置
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

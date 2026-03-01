@@ -10,18 +10,23 @@
 ## 现有资源
 
 ### Vulkan 版本
-- 位置: `/mnt/volume3/llama_cpp/downloads/llama-b7952/`
-- 当前 `current` 符号链接指向: `llama-b8040` (但没有 Vulkan 库)
-- 有 Vulkan 库的版本: `llama-b7825`, `llama-b7947`, `llama-b7951`, `llama-b7952`
+- 位置: `/mnt/volume3/llama_cpp/core/downloads/llama-b8183/`
+- 当前 `current` 符号链接指向: `llama-b8183`
+- 已编译支持: Vulkan, AMD gfx1151
 
 ### CUDA 版本
-- 位置: `~/opt/llama.cpp/build/bin/llama-server`
+- 位置: `/home/oliveagle/opt/llama.cpp/build/bin/llama-server`
 - 已编译支持: CUDA 12.5, sm_70 (V100)
+- 版本: 8134 (df1764dc5)
 - 更新方式: 源码自动编译（Linux 无预编译包）
 
+### ROCm 版本 (待完成)
+- 位置: `/mnt/volume3/llama_cpp/core/downloads/llama-b8183-rocm/`
+- 正在下载和配置中
+
 ### 模型配置
-- Presets 文件: `config/presets/mypresets.ini`
-- 包含 13 个 GGUF 模型配置
+- Presets 文件: `core/config/presets/mypresets.ini` (13个模型)
+- CUDA Presets: `core/config/presets/mypresets-cuda.ini` (11个模型)
 
 ## 需要完成的工作
 
@@ -64,29 +69,35 @@ llama_cpp/
 ├── CLAUDE.md                    # 本文件 (项目配置)
 ├── AGENTS.md -> CLAUDE.md       # 软链接
 ├── PROJECT_STRUCTURE.md         # 目录结构说明
-├── bin/                         # 可执行脚本
-│   ├── llama-server-*.sh        # 服务器管理脚本
-│   └── update*.sh               # 更新脚本
-├── config/                      # 配置文件
-│   ├── presets/                 # 模型预设配置
-│   └── nginx.conf               # nginx配置
+├── core/                        # [模块 1] llama.cpp 核心管理
+│   ├── bin/                     # 可执行脚本
+│   ├── config/                  # 配置文件 (presets, nginx, versions.json)
+│   ├── systemd/                 # systemd 服务
+│   ├── scripts/                 # 服务器启动脚本
+│   ├── downloads/               # 下载的 llama.cpp 版本
+│   └── logs/                    # 服务日志
+├── dev/                         # [模块 2] llama.cpp 功能开发
+│   ├── src/                     # 源代码 (NPU, ONNX Runtime, RyzenAI)
+│   ├── nanoquant/               # NanoQuant 量化工具
+│   ├── ryzenai/                 # RyzenAI NPU 工具
+│   ├── build/                   # 构建输出
+│   └── experimental/            # 实验性功能
+├── eval/                        # [模块 3] 大模型本地化评估
+│   ├── frameworks/              # 评测框架 (LiveCodeBench, 等)
+│   ├── tests/                   # 评测测试 (stage1/stage2/stage3/stage4)
+│   ├── scripts/                 # 评测脚本
+│   ├── tools/                   # 评测工具 (benchmark, test, utils)
+│   ├── web/                     # Web 报告
+│   ├── results/                 # 评测结果
+│   └── reports/                 # 评测报告
 ├── docs/                        # 文档目录
 │   ├── guides/                  # 使用指南
 │   ├── reports/                 # 技术报告
 │   ├── analysis/                # 分析报告
 │   └── benchmarks/              # 性能测试报告
-├── eval/                        # 评测框架
-├── eval_results/                # 评测结果
-│   ├── stage1/                  # Stage 1测试结果
-│   ├── stage2/                  # Stage 2测试结果
-│   ├── stage3/                  # Stage 3测试结果
-│   └── raw_data/                # 原始数据
-├── scripts/                     # 工具脚本
-├── tests/                       # 测试脚本
-├── web/                         # Web报告
-├── current -> downloads/...     # Vulkan 当前版本
-├── downloads/                   # 下载的 llama.cpp 版本
-└── logs/                        # 日志目录
+├── models/                      # 模型相关
+├── tmp/                         # 临时文件
+└── current -> core/downloads/llama-b8183  # 当前 Vulkan 版本链接
 ```
 
 ## 端口分配（最终方案）
@@ -103,55 +114,81 @@ llama_cpp/
 
 ### Vulkan 服务器 (gfx1151 - 8400)
 ```bash
-./bin/llama-server-vulkan.sh start   # 启动
-./bin/llama-server-vulkan.sh stop    # 停止
-./bin/llama-server-vulkan.sh restart # 重启
-./bin/llama-server-vulkan.sh status  # 查看状态
-./bin/llama-server-vulkan.sh logs    # 查看实时日志
+# 使用 systemd 服务（推荐）
+sudo systemctl start llama-server-8400.service
+sudo systemctl status llama-server-8400.service
+sudo systemctl stop llama-server-8400.service
+
+# 或使用脚本（core/scripts/）
+cd /mnt/volume3/llama_cpp
+./core/scripts/llama-server-vulkan.sh start   # 启动
+./core/scripts/llama-server-vulkan.sh stop    # 停止
+./core/scripts/llama-server-vulkan.sh restart # 重启
+./core/scripts/llama-server-vulkan.sh status  # 查看状态
 ```
 
 ### CUDA 服务器 (V100 - 8401)
 ```bash
-./bin/llama-server-cuda.sh start     # 启动
-./bin/llama-server-cuda.sh stop      # 停止
-./bin/llama-server-cuda.sh restart   # 重启
-./bin/llama-server-cuda.sh status    # 查看状态
-./bin/llama-server-cuda.sh logs      # 查看实时日志
+# 使用 systemd 服务（推荐）
+sudo systemctl start llama-server-8401.service
+sudo systemctl status llama-server-8401.service
+sudo systemctl stop llama-server-8401.service
+
+# 或使用脚本（core/scripts/）
+cd /mnt/volume3/llama_cpp
+./core/scripts/llama-server-cuda.sh start     # 启动
+./core/scripts/llama-server-cuda.sh stop      # 停止
+./core/scripts/llama-server-cuda.sh restart   # 重启
+./core/scripts/llama-server-cuda.sh status    # 查看状态
 ```
 
 ### Embedding 服务器 (端口 13232)
 ```bash
-./bin/llama-server-embedding.sh start   # 启动
-./bin/llama-server-embedding.sh stop    # 停止
-./bin/llama-server-embedding.sh status  # 查看状态
+# 使用 systemd 服务
+sudo systemctl start llama-server-13232.service
+
+# 或使用脚本
+cd /mnt/volume3/llama_cpp
+./core/scripts/llama-server-embedding.sh start   # 启动
+./core/scripts/llama-server-embedding.sh stop    # 停止
+./core/scripts/llama-server-embedding.sh status  # 查看状态
 ```
 
-### 统一更新脚本
+### 统一更新脚本 (v2)
 ```bash
+cd /mnt/volume3/llama_cpp
+
 # 查看状态
-./bin/update-llama-cpp.sh status
+./update-llama-cpp-v2.sh status
 
 # Vulkan 更新（自动下载预编译包）
-./bin/update-llama-cpp.sh vulkan           # 更新到最新
-./bin/update-llama-cpp.sh vulkan list      # 列出可用版本
-./bin/update-llama-cpp.sh vulkan 8069      # 指定版本
+./update-llama-cpp-v2.sh vulkan           # 更新到最新
+./update-llama-cpp-v2.sh vulkan list      # 列出可用版本
+./update-llama-cpp-v2.sh vulkan 8183      # 指定版本
 
 # CUDA 更新（自动源码编译）
-./bin/update-llama-cpp.sh cuda             # 编译最新版本
-./bin/update-llama-cpp.sh cuda 8069        # 编译指定版本
+./update-llama-cpp-v2.sh cuda             # 编译最新版本
+./update-llama-cpp-v2.sh cuda 8183        # 编译指定版本
+
+# ROCm 更新（自动下载预编译包）
+./update-llama-cpp-v2.sh rocm             # 更新到最新
+./update-llama-cpp-v2.sh rocm list        # 列出可用版本
+
+# 更新所有版本
+./update-llama-cpp-v2.sh all
 ```
 
 ## 测试命令
 ```bash
-# Vulkan 实例 (端口 8400)
+# Vulkan 实例 (端口 8400) - Qwen3 测试
 curl http://localhost:8400/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model": "MiniCPM-o-4_5-Q4_K_M", "messages": [{"role": "user", "content": "你好"}]}'
+  -d '{"model": "Qwen3-0.6B-Q4_0", "messages": [{"role": "user", "content": "你好"}]}'
 
-# CUDA 实例 (端口 8401)
+# CUDA 实例 (端口 8401) - Qwen3 测试
 curl http://localhost:8401/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -d '{"model": "MiniCPM-o-4_5-Q4_K_M", "messages": [{"role": "user", "content": "你好"}]}'
+  -d '{"model": "Qwen3-0.6B-Q4_0", "messages": [{"role": "user", "content": "你好"}]}'
 ```
 
 ## 注意事项
@@ -166,25 +203,24 @@ curl http://localhost:8401/v1/chat/completions \
 - [x] 创建 llama-server-cuda.sh (V100/8401)
 - [x] 创建 llama-server-vulkan.sh (gfx1151/8400)
 - [x] 创建 llama-server-embedding.sh (13232)
-- [x] 创建统一更新脚本 update-llama-cpp.sh
-  - [x] Vulkan 自动下载预编译包
-  - [x] CUDA 自动源码编译
+- [x] 创建统一更新脚本 update-llama-cpp-v2.sh
+  - [x] Vulkan 自动下载预编译包 (ubuntu-vulkan-x64)
+  - [x] CUDA 自动源码编译（Linux 无预编译包）
+  - [x] ROCm 自动下载预编译包 (ubuntu-rocm-7.2-x64)
 - [x] systemd 服务 (系统级，开机自启)
   - [x] llama-server-8400.service (Vulkan)
   - [x] llama-server-8401.service (CUDA)
 - [x] 多模型配置
   - [x] Vulkan: 13 个模型 (mypresets.ini)
-  - [x] CUDA: 7 个模型 (mypresets-cuda.ini)
+  - [x] CUDA: 11 个模型 (mypresets-cuda.ini)
 - [x] 测试双实例运行
 - [x] 验证模型切换功能
 - [x] 目录结构整理 (2026-02-18)
-  - [x] bin/ - 可执行脚本 (服务器管理、更新)
-  - [x] config/ - 配置文件 (presets, nginx)
-  - [x] tests/ - 测试脚本
-  - [x] web/ - Web 报告
+  - [x] core/ - llama.cpp 核心管理
+  - [x] dev/ - 功能开发
+  - [x] eval/ - 大模型评测
   - [x] docs/benchmarks/ - 性能测试报告
-  - [x] eval_results/ - 按阶段/后端重组
   - [x] PROJECT_STRUCTURE.md 目录结构文档
 
 ## 最后更新
-2026-02-18
+2026-03-01

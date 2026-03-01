@@ -325,7 +325,7 @@ class TextEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个文本理解专家。只回答选项字母，不要解释。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 100,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
@@ -385,9 +385,26 @@ class TextEvaluator(BaseEvaluator):
                 error_message=str(e)
             )
 
+    def _extract_after_think(self, text: str) -> str:
+        """提取 </think> 标签后的内容"""
+        if not text:
+            return text
+        patterns = [
+            r'</think>\s*(.*)',  # 标准格式
+            r'\*\*Final Answer:\*\*\s*(.*)',  # 某些模型的格式
+            r'答案是\s*[:：]\s*(.*)',  # 中文格式
+            r'答案[是为]\s*[:：]\s*(.*)',  # 中文格式变体
+        ]
+        for pattern in patterns:
+            match = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
+            if match:
+                return match.group(1).strip()
+        return text
+
     def _extract_answer(self, text: str) -> str:
-        """从文本中提取答案字母，支持多种格式"""
-        text_upper = text.upper()
+        """从文本中提取答案字母 - 支持推理模型"""
+        # 先提取 </think> 后的内容
+        text = self._extract_after_think(text).upper()
 
         # 尝试匹配 "答案: A" 或 "答案是 B" 格式
         patterns = [
@@ -398,19 +415,18 @@ class TextEvaluator(BaseEvaluator):
             r'选项[:：]?\s*([A-D])',  # 选项: A
             r'[选|答][择|案][:：]?\s*([A-D])',  # 选择: A / 答案: A
         ]
-
         for pattern in patterns:
-            match = re.search(pattern, text_upper)
+            match = re.search(pattern, text)
             if match:
                 return match.group(1)
 
-        # 如果都没匹配到，找最后一个独立的 A-D 字母（通常在回答末尾）
-        matches = re.findall(r'\b([A-D])\b', text_upper)
+        # 在 </think> 后的内容中找最后一个独立的 A-D 字母
+        matches = re.findall(r'\b([A-D])\b', text)
         if matches:
             return matches[-1]  # 返回最后一个匹配
 
         # 最后的备选：找第一个 A-D 字符
-        match = re.search(r'[A-D]', text_upper)
+        match = re.search(r'[A-D]', text)
         return match.group(0) if match else ""
 
 

@@ -1,0 +1,5 @@
+{"task":"设计微服务架构","expected":"architect","actual":"backend-dev","matched":false}
+{"task":"评估 PostgreSQL 还是 MongoDB","expected":"architect","actual":"backend-dev","matched":false}
+{"task":"规划水平扩展策略","expected":"architect","actual":"backend-dev","matched":false}
+{"task":"设计事件驱动架构","expected":"architect","actual":"backend-dev","matched":false}
+{"task":"选择消息队列","expected":"architect","actual":"backend-dev","matched":false}

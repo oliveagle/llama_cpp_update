@@ -1,0 +1,5 @@
+{"task":"编写 API 文档","expected":"technical-writer","actual":"API 文档","matched":false}
+{"task":"撰写用户指南","expected":"technical-writer","actual":"Architect","matched":false}
+{"task":"创建教程文档","expected":"technical-writer","actual":"Architect","matched":false}
+{"task":"编写安装手册","expected":"technical-writer","actual":"Architect","matched":false}
+{"task":"设计文档结构","expected":"technical-writer","actual":"backend-dev","matched":false}

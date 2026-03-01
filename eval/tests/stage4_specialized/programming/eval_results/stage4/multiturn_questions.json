@@ -1,0 +1,312 @@
+[
+  {
+    "id": 7,
+    "name": "多轮-角色扮演-7",
+    "category": "角色扮演",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "你现在是一位医生，我是你的病人。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请坐，您哪里不舒服？"
+      },
+      {
+        "role": "user",
+        "content": "我头痛。"
+      }
+    ],
+    "question": "模型是否保持了医生的角色？",
+    "expected_keywords": [],
+    "check_role_keywords": [
+      "医生",
+      "病人",
+      "检查",
+      "症状"
+    ],
+    "check_command": false
+  },
+  {
+    "id": 2,
+    "name": "多轮-意图变化-2",
+    "category": "意图变化",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我想吃意大利面。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，意大利面是不错的选择。"
+      },
+      {
+        "role": "user",
+        "content": "算了，还是吃寿司吧。"
+      }
+    ],
+    "question": "用户最终想吃什么？",
+    "expected_keywords": [
+      "寿司"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 10,
+    "name": "多轮-任务恢复-10",
+    "category": "任务恢复",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "帮我订明天上午的机票。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请问从哪里出发？"
+      },
+      {
+        "role": "user",
+        "content": "对了，今天天气怎么样？"
+      },
+      {
+        "role": "assistant",
+        "content": "今天天气晴朗。"
+      },
+      {
+        "role": "user",
+        "content": "继续说机票的事。"
+      }
+    ],
+    "question": "用户要订哪里的机票？",
+    "expected_keywords": [
+      "出发",
+      "哪里",
+      "目的地"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 5,
+    "name": "多轮-时间顺序-5",
+    "category": "时间顺序",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "早餐在8点。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，8点早餐。"
+      },
+      {
+        "role": "user",
+        "content": "午饭比早餐晚4个小时。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，午饭12点。"
+      },
+      {
+        "role": "user",
+        "content": "晚饭比午饭晚6个小时。"
+      }
+    ],
+    "question": "晚饭是几点？",
+    "expected_keywords": [
+      "18",
+      "6点",
+      "下午6点"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 1,
+    "name": "多轮-情感理解-1",
+    "category": "情感理解",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我今天被领导骂了。"
+      },
+      {
+        "role": "assistant",
+        "content": "听起来不太好受。"
+      },
+      {
+        "role": "user",
+        "content": "其实是我做错了。"
+      }
+    ],
+    "question": "用户现在的情绪状态？",
+    "expected_keywords": [
+      "自责",
+      "承认",
+      "难过",
+      "后悔"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 8,
+    "name": "多轮-角色扮演-8",
+    "category": "角色扮演",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "你现在是一位医生，我是你的病人。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请坐，您哪里不舒服？"
+      },
+      {
+        "role": "user",
+        "content": "我头痛。"
+      }
+    ],
+    "question": "模型是否保持了医生的角色？",
+    "expected_keywords": [],
+    "check_role_keywords": [
+      "医生",
+      "病人",
+      "检查",
+      "症状"
+    ],
+    "check_command": false
+  },
+  {
+    "id": 3,
+    "name": "多轮-上下文计算-3",
+    "category": "上下文计算",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我有100元钱。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，您有100元。"
+      },
+      {
+        "role": "user",
+        "content": "花了30元买了本书。"
+      }
+    ],
+    "question": "现在还剩多少钱？",
+    "expected_keywords": [
+      "70"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 6,
+    "name": "多轮-信息追踪-6",
+    "category": "信息追踪",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的手机号码是13812345678。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，已记录。"
+      },
+      {
+        "role": "user",
+        "content": "不对，我换号了，现在是13987654321。"
+      }
+    ],
+    "question": "用户的手机号是多少？",
+    "expected_keywords": [
+      "139",
+      "87654321"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 4,
+    "name": "多轮-时间顺序-4",
+    "category": "时间顺序",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "早餐在8点。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，8点早餐。"
+      },
+      {
+        "role": "user",
+        "content": "午饭比早餐晚4个小时。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，午饭12点。"
+      },
+      {
+        "role": "user",
+        "content": "晚饭比午饭晚6个小时。"
+      }
+    ],
+    "question": "晚饭是几点？",
+    "expected_keywords": [
+      "18",
+      "6点",
+      "下午6点"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  },
+  {
+    "id": 9,
+    "name": "多轮-任务恢复-9",
+    "category": "任务恢复",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "帮我订明天上午的机票。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请问从哪里出发？"
+      },
+      {
+        "role": "user",
+        "content": "对了，今天天气怎么样？"
+      },
+      {
+        "role": "assistant",
+        "content": "今天天气晴朗。"
+      },
+      {
+        "role": "user",
+        "content": "继续说机票的事。"
+      }
+    ],
+    "question": "用户要订哪里的机票？",
+    "expected_keywords": [
+      "出发",
+      "哪里",
+      "目的地"
+    ],
+    "check_role_keywords": [],
+    "check_command": false
+  }
+]

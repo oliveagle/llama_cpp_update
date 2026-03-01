@@ -1,0 +1,20 @@
+{"task":"挖掘 Alpha 因子","expected_agent":"quant-researcher"}
+{"task":"回测交易策略","expected_agent":"quant-researcher"}
+{"task":"分析因子 IC","expected_agent":"quant-researcher"}
+{"task":"优化投资组合","expected_agent":"quant-researcher"}
+{"task":"设计风险管理","expected_agent":"quant-researcher"}
+{"task":"分析市场微观结构","expected_agent":"quant-researcher"}
+{"task":"构建多因子模型","expected_agent":"quant-researcher"}
+{"task":"优化执行算法","expected_agent":"quant-researcher"}
+{"task":"分析统计套利","expected_agent":"quant-researcher"}
+{"task":"设计事件驱动策略","expected_agent":"quant-researcher"}
+{"task":"构建机器学习模型","expected_agent":"quant-researcher"}
+{"task":"优化参数敏感性","expected_agent":"quant-researcher"}
+{"task":"分析因子衰减","expected_agent":"quant-researcher"}
+{"task":"设计对冲策略","expected_agent":"quant-researcher"}
+{"task":"构建波动率模型","expected_agent":"quant-researcher"}
+{"task":"优化交易成本","expected_agent":"quant-researcher"}
+{"task":"分析动量效应","expected_agent":"quant-researcher"}
+{"task":"设计均值回归策略","expected_agent":"quant-researcher"}
+{"task":"构建神经网络模型","expected_agent":"quant-researcher"}
+{"task":"优化夏普比率","expected_agent":"quant-researcher"}

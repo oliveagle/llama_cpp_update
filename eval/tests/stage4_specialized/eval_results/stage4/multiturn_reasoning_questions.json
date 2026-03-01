@@ -1,0 +1,1758 @@
+[
+  {
+    "id": 1,
+    "name": "多轮-意图变化-1",
+    "category": "意图变化",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我想吃意大利面。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，意大利面是不错的选择。"
+      },
+      {
+        "role": "user",
+        "content": "算了，还是吃寿司吧。"
+      }
+    ],
+    "question": "用户最终想吃什么？",
+    "expected_keywords": [
+      "寿司"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "多轮-指代消解-2",
+    "category": "指代消解",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "张三和李四是好朋友。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了，他们是好朋友。"
+      },
+      {
+        "role": "user",
+        "content": "他昨天结婚了。"
+      }
+    ],
+    "question": "谁结婚了？",
+    "expected_keywords": [
+      "张三"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "多轮-指代消解-3",
+    "category": "指代消解",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "张三和李四是好朋友。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了，他们是好朋友。"
+      },
+      {
+        "role": "user",
+        "content": "他昨天结婚了。"
+      }
+    ],
+    "question": "谁结婚了？",
+    "expected_keywords": [
+      "张三"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "多轮-信息追踪-4",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "多轮-指代消解-5",
+    "category": "指代消解",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "张三和李四是好朋友。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了，他们是好朋友。"
+      },
+      {
+        "role": "user",
+        "content": "他昨天结婚了。"
+      }
+    ],
+    "question": "谁结婚了？",
+    "expected_keywords": [
+      "张三"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "多轮-指代消解-6",
+    "category": "指代消解",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "张三和李四是好朋友。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了，他们是好朋友。"
+      },
+      {
+        "role": "user",
+        "content": "他昨天结婚了。"
+      }
+    ],
+    "question": "谁结婚了？",
+    "expected_keywords": [
+      "张三"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "多轮-信息追踪-7",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "多轮-意图变化-8",
+    "category": "意图变化",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我想吃意大利面。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，意大利面是不错的选择。"
+      },
+      {
+        "role": "user",
+        "content": "算了，还是吃寿司吧。"
+      }
+    ],
+    "question": "用户最终想吃什么？",
+    "expected_keywords": [
+      "寿司"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "多轮-信息追踪-9",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "多轮-信息追踪-10",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "多轮-信息追踪-11",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "多轮-意图变化-12",
+    "category": "意图变化",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我想吃意大利面。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，意大利面是不错的选择。"
+      },
+      {
+        "role": "user",
+        "content": "算了，还是吃寿司吧。"
+      }
+    ],
+    "question": "用户最终想吃什么？",
+    "expected_keywords": [
+      "寿司"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "多轮-指代消解-13",
+    "category": "指代消解",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "张三和李四是好朋友。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了，他们是好朋友。"
+      },
+      {
+        "role": "user",
+        "content": "他昨天结婚了。"
+      }
+    ],
+    "question": "谁结婚了？",
+    "expected_keywords": [
+      "张三"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "多轮-信息追踪-14",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "多轮-信息追踪-15",
+    "category": "信息追踪",
+    "difficulty": "简单",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我的名字是小明。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，小明。"
+      },
+      {
+        "role": "user",
+        "content": "我今天买了本书。"
+      }
+    ],
+    "question": "谁买了书？",
+    "expected_keywords": [
+      "小明",
+      "你"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "多轮-多条件约束-16",
+    "category": "多条件约束",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我要找一家餐厅。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，有什么要求吗？"
+      },
+      {
+        "role": "user",
+        "content": "要便宜的。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，经济实惠的。"
+      },
+      {
+        "role": "user",
+        "content": "还要在市中心。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，市中心的位置。"
+      },
+      {
+        "role": "user",
+        "content": "最好有包间。"
+      }
+    ],
+    "question": "用户有哪些要求？",
+    "expected_keywords": [
+      "便宜",
+      "市中心",
+      "包间"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "多轮-多条件约束-17",
+    "category": "多条件约束",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我要找一家餐厅。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，有什么要求吗？"
+      },
+      {
+        "role": "user",
+        "content": "要便宜的。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，经济实惠的。"
+      },
+      {
+        "role": "user",
+        "content": "还要在市中心。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，市中心的位置。"
+      },
+      {
+        "role": "user",
+        "content": "最好有包间。"
+      }
+    ],
+    "question": "用户有哪些要求？",
+    "expected_keywords": [
+      "便宜",
+      "市中心",
+      "包间"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "多轮-情感理解-18",
+    "category": "情感理解",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我今天考试没考好，只得了60分。"
+      },
+      {
+        "role": "assistant",
+        "content": "60分刚好及格，别太灰心。"
+      },
+      {
+        "role": "user",
+        "content": "可是我同桌考了95分。"
+      }
+    ],
+    "question": "用户的情绪可能是什么？",
+    "expected_keywords": [
+      "难过",
+      "失落",
+      "羡慕",
+      "沮丧",
+      "不甘"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "多轮-多步计算-19",
+    "category": "多步计算",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我有100元钱。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，您有100元。"
+      },
+      {
+        "role": "user",
+        "content": "花了30元买了本书。"
+      },
+      {
+        "role": "assistant",
+        "content": "还剩70元。"
+      },
+      {
+        "role": "user",
+        "content": "又花了25元吃午饭。"
+      }
+    ],
+    "question": "现在还剩多少钱？",
+    "expected_keywords": [
+      "45"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "多轮-多步计算-20",
+    "category": "多步计算",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我有100元钱。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，您有100元。"
+      },
+      {
+        "role": "user",
+        "content": "花了30元买了本书。"
+      },
+      {
+        "role": "assistant",
+        "content": "还剩70元。"
+      },
+      {
+        "role": "user",
+        "content": "又花了25元吃午饭。"
+      }
+    ],
+    "question": "现在还剩多少钱？",
+    "expected_keywords": [
+      "45"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "多轮-意图识别-21",
+    "category": "意图识别",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "现在几点？"
+      },
+      {
+        "role": "assistant",
+        "content": "现在的时间是..."
+      },
+      {
+        "role": "user",
+        "content": "我不是问时间，我是问今天星期几。"
+      }
+    ],
+    "question": "用户真正的意图是什么？",
+    "expected_keywords": [
+      "星期",
+      "周几",
+      "礼拜"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "多轮-多条件约束-22",
+    "category": "多条件约束",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我要找一家餐厅。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，有什么要求吗？"
+      },
+      {
+        "role": "user",
+        "content": "要便宜的。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，经济实惠的。"
+      },
+      {
+        "role": "user",
+        "content": "还要在市中心。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，市中心的位置。"
+      },
+      {
+        "role": "user",
+        "content": "最好有包间。"
+      }
+    ],
+    "question": "用户有哪些要求？",
+    "expected_keywords": [
+      "便宜",
+      "市中心",
+      "包间"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "多轮-意图识别-23",
+    "category": "意图识别",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "现在几点？"
+      },
+      {
+        "role": "assistant",
+        "content": "现在的时间是..."
+      },
+      {
+        "role": "user",
+        "content": "我不是问时间，我是问今天星期几。"
+      }
+    ],
+    "question": "用户真正的意图是什么？",
+    "expected_keywords": [
+      "星期",
+      "周几",
+      "礼拜"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "多轮-比较推理-24",
+    "category": "比较推理",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "A比B高。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，A更高。"
+      },
+      {
+        "role": "user",
+        "content": "B比C高。"
+      }
+    ],
+    "question": "三个人中谁最高？",
+    "expected_keywords": [
+      "A"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "多轮-多条件约束-25",
+    "category": "多条件约束",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我要找一家餐厅。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，有什么要求吗？"
+      },
+      {
+        "role": "user",
+        "content": "要便宜的。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，经济实惠的。"
+      },
+      {
+        "role": "user",
+        "content": "还要在市中心。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，市中心的位置。"
+      },
+      {
+        "role": "user",
+        "content": "最好有包间。"
+      }
+    ],
+    "question": "用户有哪些要求？",
+    "expected_keywords": [
+      "便宜",
+      "市中心",
+      "包间"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "多轮-意图识别-26",
+    "category": "意图识别",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "现在几点？"
+      },
+      {
+        "role": "assistant",
+        "content": "现在的时间是..."
+      },
+      {
+        "role": "user",
+        "content": "我不是问时间，我是问今天星期几。"
+      }
+    ],
+    "question": "用户真正的意图是什么？",
+    "expected_keywords": [
+      "星期",
+      "周几",
+      "礼拜"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "多轮-情感理解-27",
+    "category": "情感理解",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我今天考试没考好，只得了60分。"
+      },
+      {
+        "role": "assistant",
+        "content": "60分刚好及格，别太灰心。"
+      },
+      {
+        "role": "user",
+        "content": "可是我同桌考了95分。"
+      }
+    ],
+    "question": "用户的情绪可能是什么？",
+    "expected_keywords": [
+      "难过",
+      "失落",
+      "羡慕",
+      "沮丧",
+      "不甘"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "多轮-情感理解-28",
+    "category": "情感理解",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我今天考试没考好，只得了60分。"
+      },
+      {
+        "role": "assistant",
+        "content": "60分刚好及格，别太灰心。"
+      },
+      {
+        "role": "user",
+        "content": "可是我同桌考了95分。"
+      }
+    ],
+    "question": "用户的情绪可能是什么？",
+    "expected_keywords": [
+      "难过",
+      "失落",
+      "羡慕",
+      "沮丧",
+      "不甘"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "多轮-意图识别-29",
+    "category": "意图识别",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "现在几点？"
+      },
+      {
+        "role": "assistant",
+        "content": "现在的时间是..."
+      },
+      {
+        "role": "user",
+        "content": "我不是问时间，我是问今天星期几。"
+      }
+    ],
+    "question": "用户真正的意图是什么？",
+    "expected_keywords": [
+      "星期",
+      "周几",
+      "礼拜"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "多轮-情感理解-30",
+    "category": "情感理解",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我今天考试没考好，只得了60分。"
+      },
+      {
+        "role": "assistant",
+        "content": "60分刚好及格，别太灰心。"
+      },
+      {
+        "role": "user",
+        "content": "可是我同桌考了95分。"
+      }
+    ],
+    "question": "用户的情绪可能是什么？",
+    "expected_keywords": [
+      "难过",
+      "失落",
+      "羡慕",
+      "沮丧",
+      "不甘"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "多轮-比较推理-31",
+    "category": "比较推理",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "A比B高。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，A更高。"
+      },
+      {
+        "role": "user",
+        "content": "B比C高。"
+      }
+    ],
+    "question": "三个人中谁最高？",
+    "expected_keywords": [
+      "A"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "多轮-比较推理-32",
+    "category": "比较推理",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "A比B高。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，A更高。"
+      },
+      {
+        "role": "user",
+        "content": "B比C高。"
+      }
+    ],
+    "question": "三个人中谁最高？",
+    "expected_keywords": [
+      "A"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "多轮-角色一致-33",
+    "category": "角色一致",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "假设你是一位历史老师，请用老师的身份和我对话。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的同学，我是你的历史老师。"
+      },
+      {
+        "role": "user",
+        "content": "老师，请介绍一下秦始皇。"
+      }
+    ],
+    "question": "老师的回答应该体现什么身份特征？",
+    "expected_keywords": [
+      "同学",
+      "我们",
+      "学习",
+      "历史",
+      "老师"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "多轮-角色一致-34",
+    "category": "角色一致",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "假设你是一位历史老师，请用老师的身份和我对话。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的同学，我是你的历史老师。"
+      },
+      {
+        "role": "user",
+        "content": "老师，请介绍一下秦始皇。"
+      }
+    ],
+    "question": "老师的回答应该体现什么身份特征？",
+    "expected_keywords": [
+      "同学",
+      "我们",
+      "学习",
+      "历史",
+      "老师"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "多轮-多步计算-35",
+    "category": "多步计算",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我有100元钱。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，您有100元。"
+      },
+      {
+        "role": "user",
+        "content": "花了30元买了本书。"
+      },
+      {
+        "role": "assistant",
+        "content": "还剩70元。"
+      },
+      {
+        "role": "user",
+        "content": "又花了25元吃午饭。"
+      }
+    ],
+    "question": "现在还剩多少钱？",
+    "expected_keywords": [
+      "45"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "多轮-时间顺序-36",
+    "category": "时间顺序",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "早上8点我吃了早餐。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，早餐在8点。"
+      },
+      {
+        "role": "user",
+        "content": "中午12点吃了午饭。"
+      },
+      {
+        "role": "assistant",
+        "content": "午餐在12点。"
+      },
+      {
+        "role": "user",
+        "content": "晚餐比午餐晚6个小时。"
+      }
+    ],
+    "question": "晚餐是几点？",
+    "expected_keywords": [
+      "18",
+      "下午6"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "多轮-时间顺序-37",
+    "category": "时间顺序",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "早上8点我吃了早餐。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，早餐在8点。"
+      },
+      {
+        "role": "user",
+        "content": "中午12点吃了午饭。"
+      },
+      {
+        "role": "assistant",
+        "content": "午餐在12点。"
+      },
+      {
+        "role": "user",
+        "content": "晚餐比午餐晚6个小时。"
+      }
+    ],
+    "question": "晚餐是几点？",
+    "expected_keywords": [
+      "18",
+      "下午6"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "多轮-意图识别-38",
+    "category": "意图识别",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "现在几点？"
+      },
+      {
+        "role": "assistant",
+        "content": "现在的时间是..."
+      },
+      {
+        "role": "user",
+        "content": "我不是问时间，我是问今天星期几。"
+      }
+    ],
+    "question": "用户真正的意图是什么？",
+    "expected_keywords": [
+      "星期",
+      "周几",
+      "礼拜"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "多轮-多条件约束-39",
+    "category": "多条件约束",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "我要找一家餐厅。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，有什么要求吗？"
+      },
+      {
+        "role": "user",
+        "content": "要便宜的。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，经济实惠的。"
+      },
+      {
+        "role": "user",
+        "content": "还要在市中心。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，市中心的位置。"
+      },
+      {
+        "role": "user",
+        "content": "最好有包间。"
+      }
+    ],
+    "question": "用户有哪些要求？",
+    "expected_keywords": [
+      "便宜",
+      "市中心",
+      "包间"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "多轮-时间顺序-40",
+    "category": "时间顺序",
+    "difficulty": "中等",
+    "turns": [
+      {
+        "role": "user",
+        "content": "早上8点我吃了早餐。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，早餐在8点。"
+      },
+      {
+        "role": "user",
+        "content": "中午12点吃了午饭。"
+      },
+      {
+        "role": "assistant",
+        "content": "午餐在12点。"
+      },
+      {
+        "role": "user",
+        "content": "晚餐比午餐晚6个小时。"
+      }
+    ],
+    "question": "晚餐是几点？",
+    "expected_keywords": [
+      "18",
+      "下午6"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "多轮-知识推理-41",
+    "category": "知识推理",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "水的化学式是H2O。"
+      },
+      {
+        "role": "assistant",
+        "content": "是的。"
+      },
+      {
+        "role": "user",
+        "content": "氧气有两个氧原子。"
+      }
+    ],
+    "question": "氧气的化学式是什么？",
+    "expected_keywords": [
+      "O2"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "多轮-任务恢复-42",
+    "category": "任务恢复",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "帮我订明天上午的机票。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请问从哪里出发？"
+      },
+      {
+        "role": "user",
+        "content": "对了，今天天气怎么样？"
+      },
+      {
+        "role": "assistant",
+        "content": "今天天气晴朗。"
+      },
+      {
+        "role": "user",
+        "content": "继续说机票的事。"
+      }
+    ],
+    "question": "客服需要继续问什么信息才能订票？",
+    "expected_keywords": [
+      "出发",
+      "目的地",
+      "城市",
+      "地点"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "多轮-任务恢复-43",
+    "category": "任务恢复",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "帮我订明天上午的机票。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请问从哪里出发？"
+      },
+      {
+        "role": "user",
+        "content": "对了，今天天气怎么样？"
+      },
+      {
+        "role": "assistant",
+        "content": "今天天气晴朗。"
+      },
+      {
+        "role": "user",
+        "content": "继续说机票的事。"
+      }
+    ],
+    "question": "客服需要继续问什么信息才能订票？",
+    "expected_keywords": [
+      "出发",
+      "目的地",
+      "城市",
+      "地点"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "多轮-任务恢复-44",
+    "category": "任务恢复",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "帮我订明天上午的机票。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，请问从哪里出发？"
+      },
+      {
+        "role": "user",
+        "content": "对了，今天天气怎么样？"
+      },
+      {
+        "role": "assistant",
+        "content": "今天天气晴朗。"
+      },
+      {
+        "role": "user",
+        "content": "继续说机票的事。"
+      }
+    ],
+    "question": "客服需要继续问什么信息才能订票？",
+    "expected_keywords": [
+      "出发",
+      "目的地",
+      "城市",
+      "地点"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "多轮-推理链-45",
+    "category": "推理链",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "如果明天下雨，球赛就会取消。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了。"
+      },
+      {
+        "role": "user",
+        "content": "明天下雨了。"
+      },
+      {
+        "role": "assistant",
+        "content": "所以球赛取消了。"
+      },
+      {
+        "role": "user",
+        "content": "但是体育馆有屋顶，所以比赛照常进行。"
+      }
+    ],
+    "question": "球赛最终进行了吗？",
+    "expected_keywords": [
+      "进行",
+      "照常",
+      "是"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "多轮-序列推理-46",
+    "category": "序列推理",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "第一天我读了10页书。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，第一天10页。"
+      },
+      {
+        "role": "user",
+        "content": "第二天读的页数是第一天的2倍。"
+      },
+      {
+        "role": "assistant",
+        "content": "第二天20页。"
+      },
+      {
+        "role": "user",
+        "content": "第三天读的页数比第二天少5页。"
+      }
+    ],
+    "question": "第三天读了多少页？",
+    "expected_keywords": [
+      "15"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "多轮-反事实推理-47",
+    "category": "反事实推理",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "如果昨天带了伞，我就不会被淋湿。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了。"
+      },
+      {
+        "role": "user",
+        "content": "但是我昨天确实被淋湿了。"
+      }
+    ],
+    "question": "可以推断出什么？",
+    "expected_keywords": [
+      "没带伞",
+      "没有带",
+      "忘记带"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "多轮-因果推理-48",
+    "category": "因果推理",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "因为今天下雨，所以地面湿了。"
+      },
+      {
+        "role": "assistant",
+        "content": "明白了。"
+      },
+      {
+        "role": "user",
+        "content": "现在地面是干的。"
+      }
+    ],
+    "question": "可以推断出什么？",
+    "expected_keywords": [
+      "没下雨",
+      "不下雨",
+      "雨停了",
+      "不可能"
+    ],
+    "min_keyword_match": 2,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "多轮-序列推理-49",
+    "category": "序列推理",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "第一天我读了10页书。"
+      },
+      {
+        "role": "assistant",
+        "content": "好的，第一天10页。"
+      },
+      {
+        "role": "user",
+        "content": "第二天读的页数是第一天的2倍。"
+      },
+      {
+        "role": "assistant",
+        "content": "第二天20页。"
+      },
+      {
+        "role": "user",
+        "content": "第三天读的页数比第二天少5页。"
+      }
+    ],
+    "question": "第三天读了多少页？",
+    "expected_keywords": [
+      "15"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "多轮-逻辑推理-50",
+    "category": "逻辑推理",
+    "difficulty": "困难",
+    "turns": [
+      {
+        "role": "user",
+        "content": "所有猫都是动物。"
+      },
+      {
+        "role": "assistant",
+        "content": "是的。"
+      },
+      {
+        "role": "user",
+        "content": "所有狗都是动物。"
+      },
+      {
+        "role": "assistant",
+        "content": "是的。"
+      },
+      {
+        "role": "user",
+        "content": "所以猫是狗吗？"
+      }
+    ],
+    "question": "正确的回答应该是什么？",
+    "expected_keywords": [
+      "不是",
+      "不能",
+      "不"
+    ],
+    "min_keyword_match": 1,
+    "keywords": [
+      "multiturn",
+      "conversation",
+      "reasoning"
+    ]
+  }
+]

@@ -13,6 +13,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import extract_last_number
 
 
 # GSM8K 风格数学测试用例
@@ -154,13 +155,13 @@ class MathEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个数学助手，请仔细思考后给出答案。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 256,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -222,30 +223,8 @@ class MathEvaluator(BaseEvaluator):
             )
 
     def _extract_number(self, text: str) -> float:
-        """从文本中提取数字答案"""
-        # 尝试找 "答案是" "结果是" 后面的数字
-        patterns = [
-            r'答案[是为:]+\s*([\d.]+)',
-            r'结果[是为:]+\s*([\d.]+)',
-            r'等于\s*([\d.]+)',
-            r'([\d.]+)\s*元',
-            r'([\d.]+)\s*天',
-            r'([\d.]+)\s*人',
-            r'([\d.]+)\s*公里',
-            r'([\d.]+)\s*克',
-            r'([\d.]+)\s*%',
-            r'\b([\d.]+)\b',  # 最后一个数字
-        ]
-
-        for pattern in patterns:
-            match = re.search(pattern, text)
-            if match:
-                try:
-                    return float(match.group(1))
-                except:
-                    continue
-
-        return None
+        """从文本中提取数字答案 - 修复版，支持推理模型"""
+        return extract_last_number(text)
 
 
 def run_math_test(model_url: str, model_name: str) -> dict:

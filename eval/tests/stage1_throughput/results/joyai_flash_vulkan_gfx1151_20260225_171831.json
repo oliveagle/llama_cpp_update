@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-02-25T17:18:31.535597",
+  "backend": "vulkan",
+  "device": "gfx1151",
+  "model": "JoyAI-LLM-Flash-Q4_K_M",
+  "model_file": "/mnt/volume3/modelscope_models/yairpatch/JoyAI-LLM-Flash-GGUF/JoyAI-LLM-Flash-Q4_K_M.gguf",
+  "iterations": 2,
+  "results": [
+    {
+      "ctx_size": 4096,
+      "iterations": 2,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 69.112,
+          "tps": 40036.46255353629,
+          "total_ms": 75.1333236694336
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 4096,
+          "prompt_tokens": 2767,
+          "prompt_ms": 24.475,
+          "tps": 113054.13687436159,
+          "total_ms": 29.259204864501953
+        }
+      ],
+      "avg_tps": 76545.29971394895,
+      "avg_prompt_ms": 46.793499999999995,
+      "avg_tokens": 2767.0,
+      "success": true
+    },
+    {
+      "ctx_size": 8192,
+      "iterations": 2,
+      "results": [
+        {
+          "iteration": 1,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 79591.27,
+          "tps": 69.06536357567857,
+          "total_ms": 79599.5466709137
+        },
+        {
+          "iteration": 2,
+          "ctx_size": 8192,
+          "prompt_tokens": 5497,
+          "prompt_ms": 30.606,
+          "tps": 179605.30614912108,
+          "total_ms": 44.52109336853027
+        }
+      ],
+      "avg_tps": 89837.18575634838,
+      "avg_prompt_ms": 39810.938,
+      "avg_tokens": 5497.0,
+      "success": true
+    }
+  ]
+}

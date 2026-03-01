@@ -1,0 +1,5 @@
+{"task":"训练文本分类模型","expected":"ml-engineer","actual":"backend-dev","matched":false}
+{"task":"部署机器学习模型","expected":"ml-engineer","actual":"backend-dev","matched":false}
+{"task":"优化模型推理","expected":"ml-engineer","actual":"backend-dev","matched":false}
+{"task":"设计特征工程","expected":"ml-engineer","actual":"backend-dev","matched":false}
+{"task":"构建推荐系统","expected":"ml-engineer","actual":"backend-dev","matched":false}

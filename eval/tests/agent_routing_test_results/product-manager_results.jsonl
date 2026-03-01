@@ -1,0 +1,5 @@
+{"task":"定义产品路线图","expected":"product-manager","actual":"产品路线图","matched":false}
+{"task":"编写用户故事","expected":"product-manager","actual":"backend-dev","matched":false}
+{"task":"确定功能优先级","expected":"product-manager","actual":"backend-dev","matched":false}
+{"task":"分析用户需求","expected":"product-manager","actual":"backend-dev","matched":false}
+{"task":"设计产品指标","expected":"product-manager","actual":"backend-dev","matched":false}

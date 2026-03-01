@@ -13,6 +13,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from framework.base import BaseEvaluator, TestResult, StageResult
 from utils.raw_data_logger import RawDataLogger
+from .utils_reasoning import extract_answer_letter, clean_reasoning_output
 
 
 # 逻辑推理测试用例
@@ -152,13 +153,13 @@ class ReasoningEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个逻辑推理专家，请仔细思考后给出简洁答案。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 256,
+            "max_tokens": 4096,
             "temperature": 0.1
         }
 
         start = time.time()
         try:
-            resp = requests.post(url, json=payload, timeout=120)
+            resp = requests.post(url, json=payload, timeout=300)
             elapsed = time.time() - start
 
             if resp.status_code != 200:
@@ -176,12 +177,21 @@ class ReasoningEvaluator(BaseEvaluator):
             if not content:
                 content = message.get("reasoning_content", "")
 
-            # 检查答案
+            # 检查答案 - 修复版支持推理模型
             answer = test_case["answer"]
+            # 清理推理过程
+            cleaned_content = clean_reasoning_output(content)
+
             if isinstance(answer, list):
-                passed = any(str(a).lower() in content.lower() for a in answer)
+                # 文本答案列表 - 在清理后的内容中查找
+                passed = any(str(a).lower() in cleaned_content.lower() for a in answer)
+            elif answer in ["A", "B", "C", "D"]:
+                # 选择题答案 - 使用字母提取
+                extracted = extract_answer_letter(cleaned_content)
+                passed = extracted == answer
             else:
-                passed = str(answer).lower() in content.lower()
+                # 单文本答案
+                passed = str(answer).lower() in cleaned_content.lower()
 
             self.raw_logger.log_test_result({
                 "model": self.model_name,
