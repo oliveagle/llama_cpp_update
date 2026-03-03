@@ -9,17 +9,19 @@ import os
 import json
 from datetime import datetime
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from tests.stage2_basic.code_eval import run_code_test
-from tests.stage2_basic.math_eval import run_math_test
-from tests.stage2_basic.text_eval import run_text_test
-from tests.stage2_basic.tool_eval import run_tool_test
-from tests.stage2_basic.reasoning_eval import run_reasoning_test
-from tests.stage2_basic.knowledge_eval import run_knowledge_test
-from tests.stage2_basic.translation_eval import run_translation_test
-from tests.stage2_basic.summarization_eval import run_summarization_test
-from tests.stage2_basic.safety_eval import run_safety_test
-from tests.stage2_basic.multiturn_eval import run_multiturn_test
+# 添加项目根目录到路径
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
+
+from eval.tests.stage2_basic.code_eval import run_code_test
+from eval.tests.stage2_basic.math_eval import run_math_test
+from eval.tests.stage2_basic.text_eval import run_text_test
+from eval.tests.stage2_basic.tool_eval import run_tool_test
+from eval.tests.stage2_basic.reasoning_eval import run_reasoning_test
+from eval.tests.stage2_basic.knowledge_eval import run_knowledge_test
+from eval.tests.stage2_basic.translation_eval import run_translation_test
+from eval.tests.stage2_basic.summarization_eval import run_summarization_test
+from eval.tests.stage2_basic.safety_eval import run_safety_test
+from eval.tests.stage2_basic.multiturn_eval import run_multiturn_test
 
 BASE_URL = "http://localhost:8401"
 
@@ -252,6 +254,7 @@ def main():
             "GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL",
             "Qwen3-4B-Instruct-2507-UD-Q4_K_XL",
             "MiroThinker-v1.5-30B.Q8_0",
+            "Qwen3.5-9B-UD-Q4_K_XL",  # 新增
         ]
         for m in models:
             print(f"  - {m}")

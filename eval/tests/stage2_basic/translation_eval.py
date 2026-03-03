@@ -188,7 +188,48 @@ class TranslationEvaluator(BaseEvaluator):
             # 检查关键词 - 使用清理后的内容（支持推理模型）
             keywords = test_case["expected_keywords"]
             cleaned_content = clean_reasoning_output(content)
-            passed = sum(1 for kw in keywords if kw.lower() in cleaned_content.lower()) >= len(keywords) * 0.5
+
+            # 优化关键词匹配 - 支持同义词
+            matched = 0
+            for kw in keywords:
+                if kw.lower() in cleaned_content.lower():
+                    matched += 1
+                else:
+                    # 同义词匹配表 - 修复重复条目和匹配逻辑
+                    synonym_matches = {
+                        "AI": ["artificial intelligence"],
+                        "artificial intelligence": ["AI"],
+                        "changing": ["transforming"],
+                        "life": ["lifestyle"],
+                        "lifestyle": ["life", "way of life"],
+                        "狐狸": ["狐"],
+                        "敏捷": ["快速", "灵敏"],
+                        "机器学习": ["machine learning"],
+                        "人工智能": ["AI", "artificial intelligence"],
+                        "子集": ["subset"],
+                        "敬启者": ["Dear"],
+                        "跟进": ["follow up"],
+                        "项目进度": ["project progress"],
+                        "生存": ["存在"],
+                        "毁灭": ["消亡"],
+                        "好久不见": ["long time no see"],
+                        "怎么样": ["how have you been"],
+                        "塞翁失马": ["a blessing in disguise"],
+                        "焉知非福": ["a blessing in disguise"],
+                        "通胀": ["inflation"],
+                        "缓解": ["ease"],
+                        "云计算": ["cloud computing"],
+                        "大数据": ["big data"],
+                        "物联网": ["IoT", "internet of things"],
+                        "数字化转型": ["digital transformation"]
+                    }
+                    if kw in synonym_matches:
+                        for syn in synonym_matches[kw]:
+                            if syn.lower() in cleaned_content.lower():
+                                matched += 1
+                                break
+
+            passed = matched >= len(keywords) * 0.5  # 50% 匹配即可通过
 
             self.raw_logger.log_test_result({
                 "model": self.model_name,

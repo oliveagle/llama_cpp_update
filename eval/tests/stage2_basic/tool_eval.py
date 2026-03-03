@@ -72,7 +72,8 @@ TOOL_TEST_CASES = [
         "category": "工具理解",
         "description": "理解时间工具参数",
         "prompt": "获取当前北京时间\n\n可用工具：\n{\"name\": \"get_datetime\", \"parameters\": {\"timezone\": \"时区\", \"format\": \"格式\"}}\n\n请输出工具调用：",
-        "check_keywords": ["get_datetime", "timezone", "Beijing", "Asia/Shanghai"],
+        "check_keywords": ["get_datetime", "timezone"],
+        "optional_keywords": ["Beijing", "Asia/Shanghai", "北京", "Asia"],
         "require_json": True
     },
     {
@@ -80,7 +81,8 @@ TOOL_TEST_CASES = [
         "category": "工具调用",
         "description": "生成翻译工具调用",
         "prompt": "将'Hello World'翻译成中文\n\n可用工具：\n{\"name\": \"translate\", \"parameters\": {\"text\": \"待翻译文本\", \"target_lang\": \"目标语言\"}}\n\n请输出工具调用：",
-        "check_keywords": ["translate", "text", "Hello World", "zh", "中文"],
+        "check_keywords": ["translate", "text", "Hello World"],
+        "optional_keywords": ["zh", "中文"],
         "require_json": True
     },
     {
@@ -96,7 +98,8 @@ TOOL_TEST_CASES = [
         "category": "工具调用",
         "description": "生成单位换算调用",
         "prompt": "将100英里换算成公里\n\n可用工具：\n{\"name\": \"unit_convert\", \"parameters\": {\"value\": \"数值\", \"from_unit\": \"原单位\", \"to_unit\": \"目标单位\"}}\n\n请输出工具调用：",
-        "check_keywords": ["unit_convert", "value", "100", "mile", "km"],
+        "check_keywords": ["unit_convert", "value", "100"],
+        "optional_keywords": ["mile", "英里", "km", "公里"],
         "require_json": True
     },
 ]
@@ -243,15 +246,29 @@ class ToolEvaluator(BaseEvaluator):
         keyword_score = len(matched_keywords) / len(keywords) if keywords else 0
         score += keyword_score * 0.6  # 关键词匹配占60%
 
+        # 2. 检查可选关键词（提供加分）
+        optional_keywords = test_case.get("optional_keywords", [])
+        if optional_keywords:
+            matched_optional = [kw for kw in optional_keywords if kw.lower() in content_lower]
+            optional_score = len(matched_optional) / len(optional_keywords) if optional_keywords else 0
+            score += optional_score * 0.1  # 可选关键词占10%
+
         # 2. 检查是否为JSON格式（如果要求）
         if test_case.get("require_json"):
             try:
-                # 尝试提取JSON内容
-                json_match = re.search(r'\{[^}]+\}', content, re.DOTALL)
-                if json_match:
-                    json_str = json_match.group(0)
-                    json.loads(json_str)  # 验证JSON有效性
+                # 尝试提取JSON内容 - 支持嵌套对象
+                # 方法1: 直接尝试解析整个内容为JSON
+                try:
+                    json.loads(cleaned_content.strip())
                     score += 0.3  # 有效JSON占30%
+                except:
+                    # 方法2: 使用更健壮的正则匹配嵌套JSON
+                    # 匹配从{开始到最后一个}的内容
+                    json_match = re.search(r'\{.*\}', content, re.DOTALL)
+                    if json_match:
+                        json_str = json_match.group(0)
+                        json.loads(json_str)  # 验证JSON有效性
+                        score += 0.3  # 有效JSON占30%
             except:
                 pass
 

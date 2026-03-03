@@ -13,14 +13,14 @@ import os
 import json
 from datetime import datetime
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from tests.stage3_deep import (
+sys.path.insert(0, '/mnt/volume3/llama_cpp')
+from eval.tests.stage3_deep import (
     run_math_test, run_code_test, run_logic_test,
     run_commonsense_test, run_text_test, run_shell_test,
     run_reasoning_test, run_knowledge_test, run_safety_test, run_multiturn_test
 )
 
-BASE_URL = "http://localhost:8402"
+BASE_URL = "http://localhost:8401"
 
 
 def test_single_model(model_name: str) -> dict:

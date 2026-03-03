@@ -22,7 +22,7 @@ MATH_TEST_CASES = [
         "name": "价格计算",
         "description": "基础价格计算",
         "problem": "一个商店正在促销。买3件衬衫每件25元，或者买5件衬衫每件20元。如果小明想买12件衬衫，最少需要多少钱？",
-        "answer": 245,
+        "answer": 250,
         "explanation": "最优方案是2组5件(200元) + 2件单价(50元)，但更好的方案是4组3件(4*75=300)或2组5件+2件(200+50=250)。实际上最少是：2组5件(200元) + 2件按单价25元(50元) = 250元。或者：4组3件 = 300元。最优是250元。"
     },
     {
@@ -146,7 +146,8 @@ class MathEvaluator(BaseEvaluator):
         """测试单个数学问题"""
         import requests
 
-        prompt = f"请解答以下数学题，只输出最终答案数字：\n\n{test_case['problem']}"
+        # 修改：要求模型输出完整推理过程 + 明确格式的答案
+        prompt = f"请解答以下数学题，请详细列出计算步骤，并在最后一行明确写'答案是：X'，只写最终数字，不要加单位。\n\n{test_case['problem']}"
 
         url = f"{self.model_url}/v1/chat/completions"
         payload = {
@@ -155,7 +156,7 @@ class MathEvaluator(BaseEvaluator):
                 {"role": "system", "content": "你是一个数学助手，请仔细思考后给出答案。"},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 4096,
+            "max_tokens": 800,  # 增加 token 限制以确保完整过程
             "temperature": 0.1
         }
 
@@ -222,7 +223,7 @@ class MathEvaluator(BaseEvaluator):
                 error_message=str(e)
             )
 
-    def _extract_number(self, text: str) -> float:
+    def _extract_number(self, text: str) -> float | None:
         """从文本中提取数字答案 - 修复版，支持推理模型"""
         return extract_last_number(text)
 

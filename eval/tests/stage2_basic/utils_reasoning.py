@@ -34,7 +34,7 @@ def extract_after_think(text: str) -> str:
     return text
 
 
-def extract_last_number(text: str) -> float:
+def extract_last_number(text: str) -> float | None:
     """
     从文本中提取最后一个数字
 
@@ -49,15 +49,20 @@ def extract_last_number(text: str) -> float:
 
     # 先尝试找明确的答案标记
     patterns = [
-        r'答案[是为:]+\s*([\d.]+)',
-        r'结果[是为:]+\s*([\d.]+)',
-        r'等于\s*([\d.]+)',
-        r'([\d.]+)\s*元',
-        r'([\d.]+)\s*天',
-        r'([\d.]+)\s*人',
-        r'([\d.]+)\s*公里',
-        r'([\d.]+)\s*克',
-        r'([\d.]+)\s*%',
+        r'答案[是为:]+\s*([\d.,]+)',
+        r'结果[是为:]+\s*([\d.,]+)',
+        r'等于\s*([\d.,]+)',
+        r'最终[答案结果].*?([\d.,]+)',
+        r'总共.*?([\d.,]+)\s*元',
+        r'共.*?([\d.,]+)\s*元',
+        r'合计.*?([\d.,]+)\s*元',
+        r'需要.*?([\d.,]+)\s*元',
+        r'([\d.,]+)\s*元',
+        r'([\d.,]+)\s*天',
+        r'([\d.,]+)\s*人',
+        r'([\d.,]+)\s*公里',
+        r'([\d.,]+)\s*克',
+        r'([\d.,]+)\s*%',
     ]
 
     for pattern in patterns:
