@@ -1,0 +1,94 @@
+{
+  "model": "Qwen3.5-4B-UD-Q4_K_XL",
+  "base_url": "http://localhost:8401",
+  "test_time": "2026-03-03 23:37:18",
+  "categories": {
+    "数学能力": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "代码能力": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "逻辑推理": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "常识问答": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "文本理解": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "运维能力": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "深度推理": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "知识问答": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "安全合规": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    },
+    "多轮对话": {
+      "passed": 0,
+      "failed": 100,
+      "total": 100,
+      "pass_rate": 0.0,
+      "test_cases": [],
+      "error": "'passed'"
+    }
+  },
+  "total": {
+    "passed": 0,
+    "failed": 1000,
+    "total": 1000,
+    "pass_rate": 0.0,
+    "test_duration": 0.07660865783691406
+  }
+}

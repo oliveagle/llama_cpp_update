@@ -223,4 +223,19 @@ curl http://localhost:8401/v1/chat/completions \
   - [x] PROJECT_STRUCTURE.md 目录结构文档
 
 ## 最后更新
-2026-03-01
+2026-03-04
+
+## 最近变更 (2026-03-04)
+
+**能力评测输出目录调整**:
+- ✅ knowledge/ → eval/results/capabilities/knowledge/
+- ✅ multiturn/ → eval/results/capabilities/multiturn/
+- ✅ reasoning/ → eval/results/capabilities/reasoning/
+- ✅ safety/ → eval/results/capabilities/safety/ (含 stage3_2026-03-03.jsonl)
+
+**文件结构整理**:
+- ✅ 将所有 `test_*.py` 文件从根目录移至 `eval/tests/`
+- ✅ 将根目录 `downloads/` 目录合并至 `core/downloads/`
+- ✅ 更新 `current` 符号链接指向 `core/downloads/llama-b8183`
+- ✅ 创建 `current-rocm` 符号链接指向 `core/downloads/current-rocm`
+- ✅ 将日志文件移至 `eval/logs/`

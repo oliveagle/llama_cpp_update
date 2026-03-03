@@ -1,7 +1,8 @@
 # llama.cpp 项目目录结构
 
-> **最后更新**: 2026-02-25
+> **最后更新**: 2026-03-04
 > **整理说明**: 按功能模块重组为三大核心模块
+> **最新变更**: 能力评测输出目录统一到 eval/results/capabilities/
 
 ---
 
@@ -48,6 +49,16 @@ llama_cpp/
 │   ├── tools/                      # 评测工具 (benchmark, test, utils)
 │   ├── web/                        # Web 报告
 │   ├── results/                    # 评测结果
+│   │   ├── capabilities/          # 能力评测输出
+│   │   │   ├── knowledge/         # 知识库能力
+│   │   │   ├── multiturn/         # 多轮对话能力
+│   │   │   ├── reasoning/         # 推理能力
+│   │   │   └── safety/            # 安全能力
+│   │   ├── stage1/                # Stage 1 测试输出
+│   │   ├── stage2/                # Stage 2 测试输出
+│   │   ├── stage3/                # Stage 3 测试输出
+│   │   ├── stage4/                # Stage 4 测试输出
+│   │   └── frameworks/            # 评测框架输出
 │   ├── reports/                    # 评测报告
 │   ├── config/                     # 评测配置
 │   ├── model_configs/              # 模型配置
@@ -69,7 +80,8 @@ llama_cpp/
 │   └── ruvltra/                    # Ruvltra 模型
 │
 ├── tmp/                            # 临时文件
-├── current -> core/downloads/llama-b8069  # 当前版本链接
+├── current -> core/downloads/llama-b8183  # 当前版本链接
+├── current-rocm -> core/downloads/current-rocm
 └── eval_results -> /home/oliveagle/.agents/dashboard/llama-eval/eval_results
 ```
 
@@ -331,6 +343,63 @@ cd dev/src/onnx-runtime
 
 ## 重组历史
 
+---
+
+## 重组历史
+
+### 2026-03-04 - 能力评测输出目录调整
+
+**目标**: 将评测输出目录统一到 eval/results/ 下
+
+**变更**:
+- knowledge/ → eval/results/capabilities/knowledge/
+- multiturn/ → eval/results/capabilities/multiturn/
+- reasoning/ → eval/results/capabilities/reasoning/
+- safety/ → eval/results/capabilities/safety/ (含 stage3_2026-03-03.jsonl)
+
+**新增目录结构**:
+```
+eval/results/
+├── capabilities/          # 能力评测输出
+│   ├── knowledge/         # 知识库能力
+│   ├── multiturn/         # 多轮对话能力
+│   ├── reasoning/         # 推理能力
+│   └── safety/            # 安全能力
+├── frameworks/            # 评测框架输出
+├── stage1/                # Stage 1 测试输出
+├── stage2/                # Stage 2 测试输出
+└── stage3/                # Stage 3 测试输出
+```
+
+### 2026-03-03 - 根目录清理
+
+**目标**: 清理根目录杂散文件，统一文件结构
+
+**变更**:
+- 移动所有 `test_*.py` 文件 → `eval/tests/`
+- 移动所有 `check_*.py` 文件 → `eval/tests/`
+- 合并 `downloads/` → `core/downloads/`
+- 移动 `*.log` 文件 → `eval/logs/`
+- 更新 `current` 符号链接 → `core/downloads/llama-b8183`
+- 创建 `current-rocm` 符号链接 → `core/downloads/current-rocm`
+
+**整理后根目录**:
+```
+llama_cpp/
+├── CLAUDE.md / AGENTS.md / PROJECT_STRUCTURE.md
+├── README.md / LICENSE / AGENTS-COLLABORATION.md
+├── core/         # llama.cpp 核心管理
+├── dev/          # 功能开发
+├── eval/         # 大模型评测
+├── docs/         # 文档
+├── models/       # 模型
+├── tmp/          # 临时文件
+├── logs/         # 日志
+├── current -> core/downloads/llama-b8183
+├── current-rocm -> core/downloads/current-rocm
+└── update-llama-cpp-v2.sh  # 统一更新脚本
+```
+
 ### 2026-02-25 - 按功能模块重组
 
 **目标**: 将项目按三大核心模块重组
@@ -378,4 +447,4 @@ llama_cpp/
 
 ---
 
-*目录结构整理完成 - 2026-02-25*
+*目录结构整理完成 - 2026-03-04*
