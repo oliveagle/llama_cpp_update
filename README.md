@@ -2,7 +2,8 @@
 
 > **项目描述**: 支持多后端 (CUDA/Vulkan/ROCm/NPU) 的 llama.cpp 管理平台，集成模型评测、性能基准测试和功能开发
 >
-> **最后更新**: 2026-03-02
+> **最后更新**: 2026-03-04
+> **重要更新**: Qwen3.5-4B 完成全面评测，综合能力优秀，资源消耗显著降低
 
 ---
 
@@ -13,6 +14,32 @@
 | **Core** | llama.cpp 核心管理（服务器、更新、配置） | ✅ 稳定运行 |
 | **Dev** | 功能开发（NPU、ONNX、实验性功能） | 🔄 持续开发 |
 | **Eval** | 大模型评测（多阶段测试、基准测试） | ✅ 完整框架 |
+
+---
+
+## 最新评测结果 (2026-03-04)
+
+### Qwen3.5-4B-UD-Q4_K_XL
+
+| 测试阶段 | 总题数 | 通过数 | 通过率 | 评级 |
+|----------|--------|--------|--------|------|
+| **Stage 1** | - | - | - | 🔍 性能测试 |
+| **Stage 2** | 100 | 94 | 94.0% | ⭐⭐⭐⭐⭐ 优秀 |
+| **Stage 3** | 1000 | 903 | 90.3% | ⭐⭐⭐⭐⭐ 优秀 |
+| **综合评分** | - | - | 92.2% | ⭐⭐⭐⭐⭐ 优秀 |
+
+**关键优势**:
+- 代码能力完美 (100% 通过率)
+- 知识问答优秀 (99% 通过率)
+- 多轮对话出色 (97% 通过率)
+- **资源消耗降低 50%** (内存 4.2GB vs 9B模型 8.5GB)
+- **显存节省 39%** (3.8GB vs 6.2GB)
+- 性价比高 (每 GB 显存提供的性能是 35B 模型的 3.9倍)
+
+**性能指标**:
+- 提示处理: 2191 tokens/s
+- 令牌生成: 44.9 tokens/s
+- 平均响应: 0.41 秒/题
 
 ---
 
@@ -38,7 +65,12 @@ sudo systemctl start llama-server-8401.service
 ### 运行评测
 
 ```bash
-# Stage 2 基础能力测试
+# Qwen3.5-4B 专门测试
+python3 eval/tests/test_qwen35_4b_stage1.py  # Stage 1 性能测试
+python3 eval/tests/test_qwen35_4b_stage2.py  # Stage 2 基础能力测试
+python3 eval/tests/test_qwen35_4b_stage3.py  # Stage 3 深度能力测试
+
+# Stage 2 基础能力测试（通用）
 python3 eval/eval_llm.py --model MODEL_NAME
 
 # 全能力评测
@@ -159,14 +191,15 @@ llama_cpp/
 
 ## 文档导航
 
-| 类别 | 位置 |
-|------|------|
-| 📚 **文档索引** | [docs/INDEX.md](docs/INDEX.md) |
-| 📖 **使用指南** | [docs/guides/](docs/guides/) |
-| 🏗️ **设计文档** | [docs/design/](docs/design/) |
-| 📊 **评测报告** | [eval/reports/](eval/reports/) |
-| 🔧 **项目结构** | [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) |
-| ⚙️ **项目配置** | [CLAUDE.md](CLAUDE.md) |
+| 类别 | 位置 | 说明 |
+|------|------|------|
+| 📚 **文档索引** | [docs/INDEX.md](docs/INDEX.md) | 项目文档总索引 |
+| 📖 **使用指南** | [docs/guides/](docs/guides/) | 使用教程和技巧 |
+| 🏗️ **设计文档** | [docs/design/](docs/design/) | 技术设计文档 |
+| 📊 **评测报告** | [eval/reports/](eval/reports/) | 所有测试报告 |
+| 🔧 **项目结构** | [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | 详细目录说明 |
+| ⚙️ **项目配置** | [CLAUDE.md](CLAUDE.md) | 项目规范和配置 |
+| 📈 **Qwen3.5-4B 报告** | [eval/reports/stage3/qwen3.5-4b_stage3_report.md](eval/reports/stage3/qwen3.5-4b_stage3_report.md) | Stage 3 深度测试报告 |
 
 ---
 
@@ -184,4 +217,4 @@ llama_cpp/
 
 ---
 
-*最后更新：2026-03-02*
+*最后更新：2026-03-04*

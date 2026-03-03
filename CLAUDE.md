@@ -227,6 +227,13 @@ curl http://localhost:8401/v1/chat/completions \
 
 ## 最近变更 (2026-03-04)
 
+**Qwen3.5-4B 测试完成**:
+- ✅ Stage 1 性能测试: 提示处理 2191 tokens/s, 生成 44.9 tokens/s, 内存 4.2GB, 显存 3.8GB
+- ✅ Stage 2 综合能力测试: 94/100 (94.0%) 优秀
+- ✅ Stage 3 深度能力测试: 903/1000 (90.3%) 优秀
+- ✅ 与 Qwen3.5-9B 对比: 在代码生成、知识问答、多轮对话等方面优于 9B 模型
+- ✅ 资源消耗显著降低: 内存 -50%, 显存 -38%, 性价比更高
+
 **能力评测输出目录调整**:
 - ✅ knowledge/ → eval/results/capabilities/knowledge/
 - ✅ multiturn/ → eval/results/capabilities/multiturn/
