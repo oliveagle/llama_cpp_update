@@ -9,7 +9,18 @@ Total: 30 test cases
 import requests
 import json
 import time
+import argparse
+import sys
 from datetime import datetime
+from pathlib import Path
+
+# 添加 eval 目录到路径
+EVAL_ROOT = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(EVAL_ROOT))
+
+# 直接从 config.py 读取路径而不是导入
+STAGE2_RESULTS = EVAL_ROOT / "results" / "stage2"
+STAGE2_RESULTS.mkdir(parents=True, exist_ok=True)
 
 BASE_URL = "http://localhost:8400/v1/chat/completions"
 TIMEOUT = 120
@@ -23,6 +34,13 @@ MODELS = [
     "GLM-4.7-Flash-REAP-23B-A3B-IQ4_NL",
     "Qwen3-4B-Instruct-2507-UD-Q4_K_XL",
     "MiroThinker-v1.5-30B.Q8_0",
+]
+
+# Qwen3.5 系列模型
+QWEN35_MODELS = [
+    "Qwen3.5-0.8B-UD-Q8_K_XL",
+    "Qwen3.5-4B-UD-Q4_K_XL",
+    "Qwen3.5-9B-UD-Q4_K_XL",
 ]
 
 TEST_CASES = [
@@ -314,14 +332,36 @@ def test_model(model):
     }
 
 def main():
+    parser = argparse.ArgumentParser(description="Stage 2 - 基础能力测试 (30 cases)")
+    parser.add_argument('--model', type=str, help='模型名称（如 Qwen3.5-0.8B-UD-Q8_K_XL）')
+    parser.add_argument('--url', type=str, default='http://localhost:8400', help='API 地址')
+    parser.add_argument('--all', action='store_true', help='测试所有预定义模型')
+    parser.add_argument('--qwen35', action='store_true', help='测试所有 Qwen3.5 系列模型')
+    args = parser.parse_args()
+
+    global BASE_URL
+    BASE_URL = f"{args.url.rstrip('/')}/v1/chat/completions"
+
     print("=" * 80)
     print(f"🧪 llama.cpp Vulkan 第二层测试 - 入门能力测试 (30 cases)")
     print(f"⏰ 开始时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"📍 服务端点: {BASE_URL}")
     print(f"⏱️  超时设置: {TIMEOUT}s")
     print("=" * 80)
+
+    # 确定要测试的模型列表
+    if args.all:
+        test_models = MODELS
+    elif args.qwen35:
+        test_models = QWEN35_MODELS
+    elif args.model:
+        test_models = [args.model]
+    else:
+        print("⚠️  未指定模型，使用默认列表")
+        test_models = MODELS
+
     all_results = []
-    for model in MODELS:
+    for model in test_models:
         try:
             result = test_model(model)
             all_results.append(result)
@@ -340,8 +380,11 @@ def main():
         else:
             status = "✅" if r["pass_rate"] >= 0.8 else "⚠️" if r["pass_rate"] >= 0.5 else "❌"
             print(f"  {status} {r['model'][:40]:<42} {r['passed']}/{r['total']} ({r['pass_rate']*100:.0f}%) | {r['avg_time']:.1f}s")
-    report_file = f"/mnt/volume3/llama_cpp/eval_results/capability_test_30cases_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-    with open(report_file, "w") as f:
+
+    # 保存到标准输出目录
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    report_file = STAGE2_RESULTS / f"stage2_{args.model.replace('/', '_')}_{timestamp}.json" if args.model else STAGE2_RESULTS / f"stage2_all_{timestamp}.json"
+    with open(report_file, "w", encoding='utf-8') as f:
         json.dump({
             "timestamp": datetime.now().isoformat(),
             "endpoint": BASE_URL,

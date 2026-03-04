@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 """
-llama.cpp 模型能力评估框架
+评估框架包
 
-三层架构:
-    Stage 1: 基础性能测试 (Performance)
-    Stage 2: 基础能力测试 (Capabilities)
-    Stage 3: 深度能力测试 (Deep Evaluation)
+导出核心类:
+- BaseEvaluator: 评估器基类
+- StageResult: 阶段测试结果
+- TestResult: 单个测试用例结果
+- EvaluationRunner: 测试执行器
+- ReportGenerator: 报告生成器
 """
 
-from .base import BaseEvaluator, TestResult, StageResult
+from .base import BaseEvaluator, StageResult, TestResult
 from .runner import EvaluationRunner
 from .report import ReportGenerator
 
-__version__ = "1.0.0"
-__all__ = ["BaseEvaluator", "TestResult", "StageResult", "EvaluationRunner", "ReportGenerator"]
+__all__ = [
+    'BaseEvaluator',
+    'StageResult',
+    'TestResult',
+    'EvaluationRunner',
+    'ReportGenerator',
+]
