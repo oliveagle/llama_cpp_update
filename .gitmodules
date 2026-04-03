@@ -1,0 +1,3 @@
+[submodule "docs/submodules/llama.cpp"]
+	path = docs/submodules/llama.cpp
+	url = git@github.com:oliveagle/llama.cpp.git
