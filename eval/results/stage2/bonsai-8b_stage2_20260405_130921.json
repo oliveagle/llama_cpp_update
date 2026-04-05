@@ -1,0 +1,226 @@
+{
+  "model": "Bonsai-8B",
+  "quantization": "Q1_0_g128",
+  "timestamp": "2026-04-05T13:09:21.318978",
+  "endpoint": "http://localhost:8442/v1/chat/completions",
+  "timeout": 180,
+  "total_tests": 16,
+  "total_passed": 1,
+  "pass_rate": 0.0625,
+  "avg_response_time": 8.58353142440319,
+  "category_stats": {
+    "basic_conversation": {
+      "total": 3,
+      "passed": 1,
+      "time_sum": 24.116461038589478
+    },
+    "coding": {
+      "total": 2,
+      "passed": 0,
+      "time_sum": 17.44570517539978
+    },
+    "reasoning": {
+      "total": 2,
+      "passed": 0,
+      "time_sum": 17.59073495864868
+    },
+    "knowledge": {
+      "total": 3,
+      "passed": 0,
+      "time_sum": 26.341389417648315
+    },
+    "roleplay": {
+      "total": 2,
+      "passed": 0,
+      "time_sum": 17.552008628845215
+    },
+    "text_understanding": {
+      "total": 2,
+      "passed": 0,
+      "time_sum": 16.7606463432312
+    },
+    "creative_writing": {
+      "total": 2,
+      "passed": 0,
+      "time_sum": 17.52955722808838
+    }
+  },
+  "details": [
+    {
+      "test": "基础对话 - 中文",
+      "passed": false,
+      "time": 8.7909574508667,
+      "prompt_tokens": 17,
+      "completion_tokens": 512,
+      "prefill_tps": 152.60902741092914,
+      "decode_tps": 58.885486360764226,
+      "category": "basic_conversation",
+      "content_preview": "keit), the problem is similar to the classic \"permutation with restrictions\" problem, which can be solved using inclusion-exclusion.\n\nLet me think. Th..."
+    },
+    {
+      "test": "基础对话 - 英文",
+      "passed": true,
+      "time": 8.772599458694458,
+      "prompt_tokens": 25,
+      "completion_tokens": 512,
+      "prefill_tps": 273.4006064522543,
+      "decode_tps": 59.12787083424229,
+      "category": "basic_conversation",
+      "content_preview": "within, it seems like the company wants to maintain some sort of control. So they could have been worried about the data being used for other purposes..."
+    },
+    {
+      "test": "基础对话 - 多轮",
+      "passed": false,
+      "time": 6.55290412902832,
+      "prompt_tokens": 43,
+      "completion_tokens": 380,
+      "prefill_tps": 421.4252602300982,
+      "decode_tps": 59.142459243063676,
+      "category": "basic_conversation",
+      "content_preview": "within]\n    \n    # Define the function\n    def get_average_and_std_dev(values):\n        mean = sum(values) / len(values)\n        mean_sq_diff = sum((x..."
+    },
+    {
+      "test": "代码能力-Python",
+      "passed": false,
+      "time": 8.781543016433716,
+      "prompt_tokens": 28,
+      "completion_tokens": 512,
+      "prefill_tps": 308.5124762445393,
+      "decode_tps": 59.02900514682197,
+      "category": "coding",
+      "content_preview": "within, but this is a case of a \"tight\" space, so the other possibility is that the space is not tight enough. If the space is tight, then the other p..."
+    },
+    {
+      "test": "代码能力-Shell",
+      "passed": false,
+      "time": 8.664162158966064,
+      "prompt_tokens": 31,
+      "completion_tokens": 512,
+      "prefill_tps": 345.12085392759855,
+      "decode_tps": 59.8881822135374,
+      "category": "coding",
+      "content_preview": "within. But this is not the case. We must consider the possibility that the original question is not as straightforward as it appears, and that the an..."
+    },
+    {
+      "test": "逻辑推理 - 数学题",
+      "passed": false,
+      "time": 8.786196947097778,
+      "prompt_tokens": 52,
+      "completion_tokens": 512,
+      "prefill_tps": 513.0084279956028,
+      "decode_tps": 59.127911804252435,
+      "category": "reasoning",
+      "content_preview": "within, the original question might be something like:\n\n\"Are there any specific examples of the application of linear algebra in computer graphics whe..."
+    },
+    {
+      "test": "逻辑推理 - 比较题",
+      "passed": false,
+      "time": 8.804538011550903,
+      "prompt_tokens": 36,
+      "completion_tokens": 512,
+      "prefill_tps": 348.0829070196719,
+      "decode_tps": 59.000170662603026,
+      "category": "reasoning",
+      "content_preview": "within\nto the control of the system. This is the same as having the same\nset of control functions as the system. The system has a set of\ncontrol funct..."
+    },
+    {
+      "test": "知识问答 - 科学",
+      "passed": false,
+      "time": 8.78924560546875,
+      "prompt_tokens": 27,
+      "completion_tokens": 512,
+      "prefill_tps": 297.8258711406731,
+      "decode_tps": 59.03055003905585,
+      "category": "knowledge",
+      "content_preview": "withindual, what are the key differences in the way we can model and manage these systems?\n\n**Answer:**  \nOkay, let's tackle this question. So, the us..."
+    },
+    {
+      "test": "知识问答 - 历史",
+      "passed": false,
+      "time": 8.776378393173218,
+      "prompt_tokens": 24,
+      "completion_tokens": 512,
+      "prefill_tps": 261.0998520434172,
+      "decode_tps": 59.105721202930724,
+      "category": "knowledge",
+      "content_preview": "within, and the other is a separate entity. So, the key is to identify which part of the system is the subject and which is the object.\n\nFor example, ..."
+    },
+    {
+      "test": "知识问答 - 地理",
+      "passed": false,
+      "time": 8.775765419006348,
+      "prompt_tokens": 26,
+      "completion_tokens": 512,
+      "prefill_tps": 285.71783500416154,
+      "decode_tps": 59.10207783051048,
+      "category": "knowledge",
+      "content_preview": "multin, or other. The answer is **$\\boxed{\\text{B}}$**.\n\\boxed{B}\n\n**Step-by-Step Explanation:**\n\n1. **Understanding the problem:**\n   - We have a lis..."
+    },
+    {
+      "test": "角色扮演 - 翻译官",
+      "passed": false,
+      "time": 8.782121181488037,
+      "prompt_tokens": 33,
+      "completion_tokens": 512,
+      "prefill_tps": 368.3557825718601,
+      "decode_tps": 59.07144760812556,
+      "category": "roleplay",
+      "content_preview": "within. The body is a complex network of cells, organs, and tissues that work together to maintain homeostasis, support growth, and protect the body f..."
+    },
+    {
+      "test": "角色扮演 - 老师",
+      "passed": false,
+      "time": 8.769887447357178,
+      "prompt_tokens": 26,
+      "completion_tokens": 512,
+      "prefill_tps": 248.7933522416281,
+      "decode_tps": 59.14388077425347,
+      "category": "roleplay",
+      "content_preview": "withindial system. 25. 3. 1. 2. 2. 2. 1. 2. 1. 2. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1..."
+    },
+    {
+      "test": "文本理解 - 摘要",
+      "passed": false,
+      "time": 7.967782497406006,
+      "prompt_tokens": 83,
+      "completion_tokens": 461,
+      "prefill_tps": 709.8826447172152,
+      "decode_tps": 58.9390761728109,
+      "category": "text_understanding",
+      "content_preview": "within within) the same way that it would be if the two were in the same system. So, the answer is that the two are in the same system. \n\nTherefore, t..."
+    },
+    {
+      "test": "文本理解 - 情感分析",
+      "passed": false,
+      "time": 8.792863845825195,
+      "prompt_tokens": 48,
+      "completion_tokens": 512,
+      "prefill_tps": 472.77349946944304,
+      "decode_tps": 59.09123224608544,
+      "category": "text_understanding",
+      "content_preview": "within) to the small red squares, and then the small red squares to the large blue squares. That is, the same as the previous example, but the red squ..."
+    },
+    {
+      "test": "创意写作 - 诗歌",
+      "passed": false,
+      "time": 8.759384632110596,
+      "prompt_tokens": 27,
+      "completion_tokens": 512,
+      "prefill_tps": 296.2450934406399,
+      "decode_tps": 59.21799172127849,
+      "category": "creative_writing",
+      "content_preview": "multin\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1\n\n1..."
+    },
+    {
+      "test": "创意写作 - 故事开头",
+      "passed": false,
+      "time": 8.770172595977783,
+      "prompt_tokens": 32,
+      "completion_tokens": 512,
+      "prefill_tps": 345.653408389502,
+      "decode_tps": 59.13086862322088,
+      "category": "creative_writing",
+      "content_preview": "within. So if he's in his own country, he might not have to worry about it, but if he's traveling, he might. So,1.300 people travel through the airpor..."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "model": "Bonsai-8B",
+  "quantization": "Q1_0_g128",
+  "timestamp": "2026-04-05T21:22:52.654204",
+  "endpoint": "http://localhost:8444/v1/chat/completions",
+  "backend": "CUDA (V100) - our patched b8668",
+  "total_tests": 8,
+  "total_passed": 1,
+  "pass_rate": 0.125,
+  "details": [
+    {
+      "test": "基础对话 - 中文",
+      "passed": false,
+      "time": 1.437396764755249,
+      "prompt_tokens": 19,
+      "completion_tokens": 92,
+      "category": "basic_conversation",
+      "content_preview": "within, but not within, the other. That is, the person has a place in the world and society, and also a place in the \"inner world\" of consciousness, as opposed to the external world.\n\nSo, the answer i"
+    },
+    {
+      "test": "基础对话 - 英文",
+      "passed": false,
+      "time": 3.507431745529175,
+      "prompt_tokens": 18,
+      "completion_tokens": 256,
+      "category": "basic_conversation",
+      "content_preview": "sometimes 15-20% more than the original. So, if you have $100, after increasing by 15%, you get $115. After another 20%, you get $115 + 20% of $115 = $115 + $23 = $138. Therefore, the total amount aft"
+    },
+    {
+      "test": "代码能力-Python",
+      "passed": false,
+      "time": 3.5254929065704346,
+      "prompt_tokens": 20,
+      "completion_tokens": 256,
+      "category": "coding",
+      "content_preview": "multin, etc.\n\nSo I have to make a list of all possible combinations of the options that the user might have. Then, I can generate the list of possible combinations using itertools.combinations.\n\nBut w"
+    },
+    {
+      "test": "逻辑推理 - 数学题",
+      "passed": false,
+      "time": 3.5301389694213867,
+      "prompt_tokens": 27,
+      "completion_tokens": 256,
+      "category": "reasoning",
+      "content_preview": "Bios), and (2) the use of a control group that is not exposed to the treatment, which can help compare the effects of the treatment with those of a placebo.\n\nThese research methods are important becau"
+    },
+    {
+      "test": "知识问答 - 科学",
+      "passed": false,
+      "time": 3.5239815711975098,
+      "prompt_tokens": 21,
+      "completion_tokens": 256,
+      "category": "knowledge",
+      "content_preview": "within) the same line. It's possible that the line is not horizontal, but the idea is to have the same vertical position.\n\nBut the problem is that the line is not horizontal. So, if we have a line tha"
+    },
+    {
+      "test": "知识问答 - 地理",
+      "passed": false,
+      "time": 3.5249907970428467,
+      "prompt_tokens": 19,
+      "completion_tokens": 256,
+      "category": "knowledge",
+      "content_preview": "within 0.0001. This is not acceptable, so we need to find a way to normalize the data.\n\nOne approach is to use **feature scaling**, which brings all features into a comparable range. Common methods in"
+    },
+    {
+      "test": "文本理解 - 摘要",
+      "passed": false,
+      "time": 3.5384628772735596,
+      "prompt_tokens": 41,
+      "completion_tokens": 256,
+      "category": "text_understanding",
+      "content_preview": "multin minimum required\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n\n``\n"
+    },
+    {
+      "test": "创意写作 - 故事开头",
+      "passed": true,
+      "time": 3.531221389770508,
+      "prompt_tokens": 26,
+      "completion_tokens": 256,
+      "category": "creative_writing",
+      "content_preview": "within), and the same for the other two sides. So the total distance for the triangle is 3 times the distance of each side. Therefore, the total distance for the triangle is 3 * (sqrt(5) + 1) - 1 = 3*"
+    }
+  ]
+}
